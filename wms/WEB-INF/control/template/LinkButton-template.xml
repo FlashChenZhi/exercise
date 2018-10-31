@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <templates>
-  <template key="Help" keyword="Common" description="Help Button">
+  <template key="Help" keyword="Common" description="Help Button" lastupdate="" username="">
     <property name="async" value="" />
     <property name="text" value="" />
     <property name="resourceKey" value="BTN-W0013" />
@@ -25,10 +25,35 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
-  <template key="T_Help" keyword="eManager" description="Help Button">
+  <template key="T_Help" keyword="eManager" description="Help Button" lastupdate="" username="">
     <property name="async" value="" />
     <property name="text" value="" />
     <property name="resourceKey" value="BTN-T0012" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="false" />
+    <property name="target" value="HELP" />
+    <property name="features" value="width=800,height=500,resizable" />
+    <property name="url" value="" />
+    <property name="functionKey" value="F1" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="btn-help" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lkb_Help" keyword="Help" description="Help Button" lastupdate="2018-10-31 19:02:21" username="">
+    <property name="async" value="" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="BTN-W0013" />
     <property name="enabled" value="true" />
     <property name="visible" value="false" />
     <property name="target" value="HELP" />

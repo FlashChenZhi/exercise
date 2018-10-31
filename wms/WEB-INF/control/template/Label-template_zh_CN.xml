@@ -7592,4 +7592,342 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="lbl_Name" keyword="Name" description="姓名" lastupdate="2018-10-31 18:34:17" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="TEST-Name" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Number" keyword="Number" description="学号" lastupdate="2018-10-31 17:18:48" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="TEST-Number" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Sex" keyword="Sex" description="性别" lastupdate="2018-10-31 17:19:43" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="TEST-Sex" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Address" keyword="Address" description="地址" lastupdate="2018-10-31 17:20:51" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="TEST-Address" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Telephone" keyword="Telephone" description="联系方式" lastupdate="2018-10-31 17:22:07" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Telephone" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_FromDate" keyword="FromDate" description="入学日期" lastupdate="2018-10-31 17:26:04" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-FromDate" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_FromTime" keyword="FromTime" description="入学日期" lastupdate="2018-10-31 17:26:04" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-FromTime" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_ToDate" keyword="ToDate" description="毕业日期" lastupdate="2018-10-31 17:27:00" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-ToDate" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_ToTime" keyword="ToTime" description="毕业时间" lastupdate="2018-10-31 17:28:10" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-ToTime" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Major" keyword="Major" description="专业课程" lastupdate="2018-10-31 17:29:57" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Major" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Hobby" keyword="Hobby" description="兴趣爱好" lastupdate="2018-10-31 17:31:44" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Hobby" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Man" keyword="Man" description="男" lastupdate="2018-10-31 17:33:23" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Man" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_WoMan" keyword="WoMan" description="女" lastupdate="2018-10-31 17:33:23" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-WoMan" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Java" keyword="Java" description="Java" lastupdate="2018-10-31 17:34:15" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Java" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_PHP" keyword="PHP" description="PHP" lastupdate="2018-10-31 17:35:58" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-PHP" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_C#" keyword="C#" description="C#" lastupdate="2018-10-31 17:37:55" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-C#" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_UI" keyword="UI" description="UI" lastupdate="2018-10-31 17:39:23" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-UI" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_NET" keyword="NET" description="NET" lastupdate="2018-10-31 17:41:08" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-NET" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Read" keyword="Read" description="读书" lastupdate="2018-10-31 17:42:20" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Read" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Music" keyword="Music" description="音乐" lastupdate="2018-10-31 17:43:47" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Music" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Program" keyword="Program" description="Program" lastupdate="2018-10-31 17:44:53" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Program" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Run" keyword="Run" description="跑步" lastupdate="2018-10-31 17:46:02" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Run" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Film" keyword="Film" description="电影" lastupdate="2018-10-31 17:47:02" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Film" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Travel" keyword="Travel" description="旅行" lastupdate="2018-10-31 17:49:44" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Travel" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Swimming" keyword="Swimming" description="游泳" lastupdate="2018-10-31 17:50:49" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Swimming" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="lbl_Photography" keyword="Photography" description="摄影" lastupdate="2018-10-31 17:57:37" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Photography" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

@@ -1848,4 +1848,196 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="chk_Read" keyword="Read" description="读书" lastupdate="2018-10-31 18:19:42" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Read" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Music" keyword="Music" description="音乐" lastupdate="2018-10-31 18:21:16" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Music" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Program" keyword="Program" description="编程" lastupdate="2018-10-31 18:21:16" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Program" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Run" keyword="Run" description="跑步" lastupdate="2018-10-31 18:22:19" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Run" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Film" keyword="Film" description="电影" lastupdate="2018-10-31 18:23:25" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Film" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Travel" keyword="Travel" description="旅行" lastupdate="2018-10-31 18:24:16" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Travel" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Swimming" keyword="Swimming" description="游泳" lastupdate="2018-10-31 18:26:07" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Swimming" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="chk_Photography" keyword="Photography" description="摄影" lastupdate="2018-10-31 18:27:24" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Photography" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="chk-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

@@ -3774,4 +3774,78 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="ntb_Number" keyword="Number" description="Number" lastupdate="2018-10-31 19:40:28" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="comma" value="true" />
+    <property name="length" value="20" />
+    <property name="decimalLength" value="0" />
+    <property name="readOnly" value="false" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="rangeChkFlg" value="" />
+    <property name="maxRange" value="" />
+    <property name="minRange" value="" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-003" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="TEST-Number" />
+    <property name="errRequired" value="6003100" />
+    <property name="errInputMode" value="6003101" />
+    <property name="errLength" value="6003102" />
+    <property name="clientErrInputMode" value="MSG-W9104" />
+    <property name="clientErrLength" value="MSG-9102" />
+    <property name="clientErrRange" value="" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="ntb_Telephone" keyword="Telephone" description="Telephone" lastupdate="2018-10-31 19:40:28" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="comma" value="true" />
+    <property name="length" value="12" />
+    <property name="decimalLength" value="0" />
+    <property name="readOnly" value="false" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="rangeChkFlg" value="" />
+    <property name="maxRange" value="" />
+    <property name="minRange" value="" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-003" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="Test-Telephone" />
+    <property name="errRequired" value="6003100" />
+    <property name="errInputMode" value="6003101" />
+    <property name="errLength" value="6003102" />
+    <property name="clientErrInputMode" value="MSG-W9104" />
+    <property name="clientErrLength" value="MSG-W9102" />
+    <property name="clientErrRange" value="" />
+    <property name="onblur" value="_checkMinValue(1, '@MSG-W9039@', this)" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

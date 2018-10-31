@@ -5,6 +5,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -37,6 +38,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -69,6 +71,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -101,6 +104,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -133,6 +137,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="true" />
     <property name="visible" value="true" />
     <property name="size" value="11" />
@@ -165,6 +170,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="true" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -197,6 +203,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -229,6 +236,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -261,6 +269,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -293,6 +302,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -325,6 +335,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="true" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -357,6 +368,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -389,6 +401,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -421,6 +434,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="true" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -453,6 +467,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -485,6 +500,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -517,6 +533,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="false" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -549,6 +566,7 @@
     <property name="text" value="" />
     <property name="viewFormat" value="yyyy/MM/dd" />
     <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
     <property name="readOnly" value="true" />
     <property name="visible" value="true" />
     <property name="size" value="10" />
@@ -558,6 +576,72 @@
     <property name="cssClass" value="txt-003" />
     <property name="accessKey" value="" />
     <property name="errMsgParamKey" value="LBL-P0232" />
+    <property name="errRequired" value="6003100" />
+    <property name="errFormat" value="6003103" />
+    <property name="errDate" value="6003104" />
+    <property name="clientErrFormat" value="MSG-W9104" />
+    <property name="clientErrDate" value="MSG-W9105" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="dtb_FromDate" keyword="FromDate" description="FromDate" lastupdate="2018-10-31 19:37:35" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="viewFormat" value="yyyy/MM/dd" />
+    <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
+    <property name="readOnly" value="false" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-003" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="Test-FromDate" />
+    <property name="errRequired" value="6003100" />
+    <property name="errFormat" value="6003103" />
+    <property name="errDate" value="6003104" />
+    <property name="clientErrFormat" value="MSG-W0008" />
+    <property name="clientErrDate" value="MSG-W0008" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="dtb_ToDate" keyword="ToDate" description="ToDate" lastupdate="2018-10-31 19:38:22" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="viewFormat" value="yyyy/MM/dd" />
+    <property name="inputFormat" value="yyyyMMdd" />
+    <property name="showCalendar" value="" />
+    <property name="readOnly" value="true" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-003" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="Test-ToDate" />
     <property name="errRequired" value="6003100" />
     <property name="errFormat" value="6003103" />
     <property name="errDate" value="6003104" />

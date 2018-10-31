@@ -12207,4 +12207,106 @@
       </list-item>
     </list-items>
   </template>
+  <template key="StudentInformation" keyword="StudentScore" description="StudentScore" lastupdate="2018-10-31 19:30:09" username="">
+    <property name="async" value="false" />
+    <property name="errRequired" value="6023001" />
+    <property name="visible" value="true" />
+    <property name="fixedBank" value="0" />
+    <property name="displayWidth" value="1223" />
+    <property name="displayHeight" value="600" />
+    <property name="tableCssClass" value="" />
+    <property name="maxRows" value="1" />
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="120" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="TEST-Number" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header-nodelim" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="180" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="TEST-Name" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header-nodelim" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="1" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="180" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="Test-Major" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header-nodelim" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="PullDown" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="2" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="180" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="Test-Score" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="180" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="Test-Grade" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="Test-ToDate" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="scroll-listcell-header" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
+        <property name="controlName" value="DateTextBox" />
+        <property name="templateKey" value="W_In_JavaSet" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
 </templates>

@@ -4493,5 +4493,9 @@
       <enterkey-orders />
       <dynamicactions />
     </page>
+    <page path="/test/query/QueryStudent" resource-key="">
+      <regulartransmission time="0" />
+      <enterkey-orders />
+    </page>
   </pages>
 </page-setting>

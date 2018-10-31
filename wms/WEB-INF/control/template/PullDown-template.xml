@@ -1347,4 +1347,50 @@
     <property name="onfocus" value="" />
     <list-items type="PullDownItems" />
   </template>
+  <template key="pld_Major" keyword="Major" description="Major" lastupdate="2018-10-31 19:42:27" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="Test-Java" />
+        <property name="text" value="Java" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="Test-PHP" />
+        <property name="text" value="PHP" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="Test-C#" />
+        <property name="text" value="C#" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="3" />
+        <property name="resourceKey" value="Test-UI" />
+        <property name="text" value="UI" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="Test-NET" />
+        <property name="text" value=".NET" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
 </templates>

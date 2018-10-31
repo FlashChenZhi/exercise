@@ -7310,4 +7310,72 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="txt_Name" keyword="Name" description="Name" lastupdate="2018-10-31 19:41:09" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="maxLength" value="20" />
+    <property name="inputMode" value="34567" />
+    <property name="readOnly" value="false" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="" />
+    <property name="autoCompleteEvent" value="false" />
+    <property name="inputCompleteEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-001" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="TEST-Name" />
+    <property name="errRequired" value="6003100" />
+    <property name="errInputMode" value="6003101" />
+    <property name="errMaxLength" value="6003102" />
+    <property name="clientErrInputMode" value="MSG-W0006" />
+    <property name="clientErrMaxLength" value="MSG-W0005" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="txt_Address" keyword="Address" description="Address" lastupdate="2018-10-31 19:41:53" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="maxLength" value="30" />
+    <property name="inputMode" value="34567" />
+    <property name="readOnly" value="false" />
+    <property name="visible" value="true" />
+    <property name="size" value="20" />
+    <property name="enterKeyEvent" value="false" />
+    <property name="tabKeyEvent" value="" />
+    <property name="autoCompleteEvent" value="false" />
+    <property name="inputCompleteEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txt-003-list" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="TEST-Address" />
+    <property name="errRequired" value="6003100" />
+    <property name="errInputMode" value="6003101" />
+    <property name="errMaxLength" value="6003102" />
+    <property name="clientErrInputMode" value="MSG-W0006" />
+    <property name="clientErrMaxLength" value="MSG-W0005" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

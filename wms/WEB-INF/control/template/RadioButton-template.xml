@@ -6345,4 +6345,58 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="rdo_Man" keyword="Man" description="Man" lastupdate="2018-10-31 18:50:54" username="">
+    <property name="async" value="true" />
+    <property name="value" value="1" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-Man" />
+    <property name="groupName" value="SexType" />
+    <property name="checked" value="true" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="clickEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="rdo-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="rdo_WoMan" keyword="WoMan" description="WoMan" lastupdate="2018-10-31 18:52:07" username="">
+    <property name="async" value="true" />
+    <property name="value" value="0" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="Test-WoMan" />
+    <property name="groupName" value="SexType" />
+    <property name="checked" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="clickEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="rdo-001" />
+    <property name="labelCssClass" value="lbl-black-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>
