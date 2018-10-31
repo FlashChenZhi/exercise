@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0310" downloadName="PctRetResultWorkInqList" reportName="LBL-W6014">
+    <field name="consignor_code" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_name" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="batch_no" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="batch_seq_no" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_code" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_name" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_code" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_name" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_no" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="jan_code" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="itf" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="bundle_itf" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_qty" type="number" format="###,###,###,##0" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_qty" type="number" format="###,###,###,##0" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="result_qty" type="number" format="###,###,###,##0" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="status" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_area_no" type="area" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_zone_no" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_location_no" type="location" printEnabled="true" xlsEnabled="true"/>
+    <field name="terminal_no" type="string" printEnabled="true" xlsEnabled="true"/>
+    <field name="user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+</exportspec>

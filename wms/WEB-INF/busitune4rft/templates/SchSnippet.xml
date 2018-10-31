@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<snippets xmlns="urn:snippet:1.0">
+  
+  <!--
+  
+    置換対象パラメーター
+    $ClassName：            このSCHのクラス名(パッケージ除く)
+    $FullClassName：        このSCHのクラス名(パッケージ含む)
+    $SuperClassName：       このSCHのスーパークラス名(パッケージ除く)
+    $SuperFullClassName：   このSCHのスーパークラス名(パッケージ含む)
+    $ParamsClassName：      関連するParamsクラス名(パッケージ除く)
+    $ParamsFullClassName：  関連するParamsクラス名(パッケージ含む)
+    $ResultClassName：      処理結果クラス名(パッケージ除く)
+    $ResultFullClassName：  処理結果クラス名(パッケージ含む)
+    
+    snippet要素
+    category： 出力する条件のビジネスクラスの入出力パターン名を指定します。
+               複数指定時はカンマ区切りです。
+               指定可能な値は、Query/QueryList/Commit/CommitList
+               category指定なしのsnippet要素は条件に関係なく出力対象となります。
+               
+    imports,import要素
+    インポートに組み込むJavaクラス名(パッケージ含む)を指定します。
+    同じクラス名は集約されます。
+    
+    
+  -->
+  
+  <snippet>
+    <imports>
+      <import>java.math.BigDecimal</import>
+      <import>jp.co.daifuku.common.CommonException</import>
+      <import>jp.co.daifuku.common.ReadWriteException</import>
+      <import>jp.co.daifuku.common.text.StringUtil</import>
+      <import>jp.co.daifuku.foundation.common.Params</import>
+      <import>jp.co.daifuku.foundation.common.ScheduleParams</import>
+      <import>jp.co.daifuku.wms.base.common.AbstractSCH</import>
+      <import>jp.co.daifuku.wms.base.common.WmsParam</import>
+      <import>jp.co.daifuku.wms.base.util.DisplayUtil</import>
+      <import>jp.co.daifuku.wms.base.common.WmsMessageFormatter</import>
+      <import>{$ParamsFullClassName}</import>
+      <import>{$ResultFullClassName}</import>
+    </imports>
+  </snippet>
+  
+  <snippet category="Query, QueryList">
+    <imports>
+      <import>jp.co.daifuku.wms.handler.db.AbstractDBFinder</import>
+      <import>jp.co.daifuku.wms.handler.db.BasicDatabaseFinder</import>
+      <import>jp.co.daifuku.wms.handler.Entity</import>
+      <import>jp.co.daifuku.wms.handler.field.FieldName</import>
+      <import>jp.co.daifuku.wms.handler.SearchKey</import>
+    </imports>
+    <publicMethods>
+<![CDATA[
+    /**
+     * Receives data that was entered on the screen as parameter,
+     * and retrieves output data of the List Area from the database, and return it.<BR>
+     *
+     * @param p Receiving condition for display data saved in <CODE>ScheduleParams</CODE>.<BR>
+     * @return retrieved data saved in <CODE>Params</CODE> array.<BR>
+     *          Returns 0 array if no applicable record was found.<BR>
+     *          Displays up to the maximum number of display if the retrieved output exceeds the maximum.<BR>
+     *          Retuns null if an error occurs in the middle of entering condition.<BR>
+     * @throws CommonException Reports if an unexpected exception occurs when checkging.
+     */
+    public List<Params> query(ScheduleParams p)
+            throws CommonException
+    {
+        try
+        {
+            List<Params> outparams = new ArrayList<Params>();
+            return outparams;
+        }
+        finally
+        {
+            // close the db handler
+        }
+    }
+]]>
+    </publicMethods>
+  </snippet>
+
+  <snippet category="Commit, CommitList">
+    <publicMethods>
+<![CDATA[
+    /**
+     * Receieves the items that was input on the screen as a parameter and start schedule.<BR>
+     *
+     * @param startParams Setting items saved in <CODE>ScheduleParams</CODE> array.<BR>
+     * @throws CommonException Reports all the exceptions.
+     * @return Return true if the schedule ends normally and return false if it failed so.
+     */
+    public boolean startSCH(ScheduleParams... ps)
+            throws CommonException
+    {
+        return true;
+    }
+]]>
+    </publicMethods>
+  </snippet>
+
+</snippets>

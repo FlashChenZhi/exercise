@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingStatusList-->
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="18" bht_size="1" />
+  <font name="fontStandard" fontname="Tahoma" bold="true" italic="false" size="18" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="10" bht_size="1" />
+  <font name="fontNo" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>center</align>
+      <x>0</x>
+      <y>15</y>
+      <w>320</w>
+      <h>30</h>
+      <caption>-Warning-</caption>
+    </label>
+    <label name="lblMessage" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>center</align>
+      <x>0</x>
+      <y>60</y>
+      <w>320</w>
+      <h>58</h>
+      <caption>For the following reasons, cannot start Picking.</caption>
+    </label>
+    <label name="lblNo1" font-id="fontNo" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>15</x>
+      <y>120</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>[1]</caption>
+    </label>
+    <label name="lblOrderNo1" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>120</y>
+      <w>200</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO1%</caption>
+    </label>
+    <label name="lblOrderNo1Status" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>136</y>
+      <w>250</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO1_STATUS%</caption>
+    </label>
+    <label name="lblNo2" font-id="fontNo" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>15</x>
+      <y>155</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>[2]</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>155</y>
+      <w>200</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO2%</caption>
+    </label>
+    <label name="lblOrderNo2Status" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>171</y>
+      <w>250</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO2_STATUS%</caption>
+    </label>
+    <label name="lblNo3" font-id="fontNo" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>15</x>
+      <y>190</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>[3]</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>190</y>
+      <w>200</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO3%</caption>
+    </label>
+    <label name="lblOrderNo3Status" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>206</y>
+      <w>250</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO3_STATUS%</caption>
+    </label>
+    <label name="lblNo4" font-id="fontNo" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>15</x>
+      <y>225</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>[4]</caption>
+    </label>
+    <label name="lblOrderNo4" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>225</y>
+      <w>200</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO4%</caption>
+    </label>
+    <label name="lblOrderNo4Status" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>50</x>
+      <y>241</y>
+      <w>250</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO4_STATUS%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RetOrderSL_Ent</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>45</y>
+      <w>324</w>
+      <h>220</h>
+    </label>
+  </form>
+</HaiSurf.Page>

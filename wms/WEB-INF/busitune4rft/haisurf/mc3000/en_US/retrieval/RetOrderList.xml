@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingOrderNoList-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>24</h>
+      <caption>Order List</caption>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>192</x>
+      <y>6</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>(Page:%OrderListDataSheet.$PAGE%/%OrderListDataSheet.$NUM_PAGES%)</caption>
+    </label>
+    <button name="Ent1" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.@ENABLED[0]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>54</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>1</caption>
+      <event>RetOrderL_Ent1</event>
+    </button>
+    <button name="Ent2" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.@ENABLED[1]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>108</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>2</caption>
+      <event>RetOrderL_Ent2</event>
+    </button>
+    <button name="Ent3" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.@ENABLED[2]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>162</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>3</caption>
+      <event>RetOrderL_Ent3</event>
+    </button>
+    <button name="Ent4" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.@ENABLED[3]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>216</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>4</caption>
+      <event>RetOrderL_Ent4</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.$PREV_ENABLED%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>RetOrderL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%OrderListDataSheet.$NEXT_ENABLED%" inputchecked="false" modeonline="true">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>RetOrderL_Next</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RetOrderL_Back</event>
+    </button>
+    <label name="lblOrderNo1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>54</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@ORDER_NO[0]%</caption>
+    </label>
+    <label name="lblCustomerCode1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>72</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_CODE[0]%</caption>
+    </label>
+    <label name="lblConsignorName1" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>90</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[0]%</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>108</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@ORDER_NO[1]%</caption>
+    </label>
+    <label name="lblCustomerCode2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>126</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_CODE[1]%</caption>
+    </label>
+    <label name="lblConsignorName2" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>144</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[1]%</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>162</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@ORDER_NO[2]%</caption>
+    </label>
+    <label name="lblCustomerCode3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>180</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_CODE[2]%</caption>
+    </label>
+    <label name="lblConsignorName3" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>198</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[2]%</caption>
+    </label>
+    <label name="lblOrderNo4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>216</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@ORDER_NO[3]%</caption>
+    </label>
+    <label name="lblCustomerCode4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>234</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_CODE[3]%</caption>
+    </label>
+    <label name="lblConsignorName4" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>252</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[3]%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

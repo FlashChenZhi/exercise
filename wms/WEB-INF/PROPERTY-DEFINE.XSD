@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="property-define" targetNamespace="propertyDefine" elementFormDefault="qualified"
+	xmlns="propertyDefine" xmlns:mstns="propertyDefine" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="propertyDefine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="maskSet" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="mask" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="id" type="xs:string" />
+										<xs:element name="pattern" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="maskSetKey" msdata:PrimaryKey="true">
+						<xs:selector xpath=".//mstns:mask" />
+						<xs:field xpath="mstns:id" />
+					</xs:key>
+				</xs:element>
+				<xs:element name="propertySet" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="property" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="mask" type="maskRef" minOccurs="0"></xs:element>
+										<xs:element name="font" type="font" minOccurs="1"></xs:element>
+										<xs:element name="inputType" type="inputType" maxOccurs="unbounded" minOccurs="1" />
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="propertySetKey" msdata:PrimaryKey="true">
+						<xs:selector xpath=".//mstns:property" />
+						<xs:field xpath="@id" />
+					</xs:key>
+				</xs:element>
+				<xs:element name="control" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="editForm">
+								<xs:complexType>
+									<xs:sequence />
+									<xs:attribute name="className" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="property" maxOccurs="unbounded" minOccurs="0" type="property"></xs:element>
+							<xs:element name="listItems" type="listItems" minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string" use="required" />
+		</xs:complexType>
+		<xs:key name="propertyDefineKey" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:control" />
+			<xs:field xpath="@name" />
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="font">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="bold" type="xs:boolean" />
+		<xs:attribute name="color" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="maskRef">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="refId" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="inputType">
+		<xs:sequence>
+			<xs:element name="option" type="inputOption" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="className" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="inputOption">
+		<xs:sequence>
+			<xs:element name="entry" maxOccurs="unbounded" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence />
+					<xs:attribute name="value" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="property">
+		<xs:sequence>
+			<xs:element name="mask" type="maskRef" minOccurs="0" />
+			<xs:element name="font" type="font" minOccurs="0" />
+			<xs:element name="inputType" type="inputType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="refId" type="xs:string" />
+		<xs:attribute name="default" type="xs:boolean" />
+		<xs:attribute name="visibleOnSheet" type="xs:boolean" />
+	</xs:complexType>
+	<xs:complexType name="listItem">
+		<xs:sequence>
+			<xs:element name="property" type="property" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="listItems">
+		<xs:sequence>
+			<xs:element name="font" type="font" maxOccurs="1" minOccurs="0" />
+			<xs:element name="inputType" type="inputType" />
+			<xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="listItem" type="listItem" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="listItems" type="listItems" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="visibleOnSheet" type="xs:boolean" />
+		<xs:attribute name="default" type="xs:boolean" />
+	</xs:complexType>
+</xs:schema>

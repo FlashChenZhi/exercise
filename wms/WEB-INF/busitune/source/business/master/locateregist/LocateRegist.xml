@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.locateregist.LocateRegistBusiness" abstractClassName="jp.co.daifuku.wms.master.display.locateregist.LocateRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_AreaNo" />
+    <ref name="1" type="Control" typeName="txt_LocateNo" />
+    <ref name="2" type="Control" typeName="txt_AisleNo" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.LocateRegistSCH" />
+    <ref name="4" type="Constants" typeName="Constants" />
+    <ref name="5" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.locate.LstLocateParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaNo" dataType="WmsAreaFloorLocateAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Regist">
+      <sch2Display schRef="3" />
+      <validate>
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="LOCATE_NO" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="AISLE_NO" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="5" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/locate/LstLocate" businessParameterRef="6" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="6" setValue="LOCATION_NO" />
+        <map getRef="0" getValue="Value" setRef="6" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="LOCATION_NO" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+  </events>
+</business>

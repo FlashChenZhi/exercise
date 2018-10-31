@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0904" downloadName="PctWeightDistinctionList" reportName="LBL-W6019">
+    <field name="consignor_code" type="string" header="LBL-P0042" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_name" type="string" header="LBL-P0016" printEnabled="true" xlsEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_entering_qty" type="number" format="###,###,###,##0" header="LBL-P0053" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="single_weight" type="number" format="###,###,###,##0.0" header="LBL-P0127" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="inspect_weight" type="number" format="###,###,###,##0" header="LBL-P0128" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="inspect_qty" type="number" format="###,###,###,##0" header="LBL-P0139" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="correct_qty" type="number" format="###,###,###,##0" header="LBL-P0129" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="correct_weight" type="number" format="###,###,###,##0.0" header="LBL-P0130" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="difference_weight" type="string" header="LBL-P0131" printEnabled="true" xlsEnabled="true"/>
+    <field name="date" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0164" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="time" type="date" format="$TIME_FORMAT.HMS" header="LBL-P0133" printEnabled="true" xlsEnabled="true" excelformat="21"/>
+    <field name="terminal_no" type="string" header="LBL-W9031" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="string" header="LBL-P0132" printEnabled="true" xlsEnabled="true"/>
+    <field name="user_id" type="string" header="LBL-P0081" printEnabled="true" xlsEnabled="true"/>
+    <field name="user_name" type="string" header="LBL-W0033" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

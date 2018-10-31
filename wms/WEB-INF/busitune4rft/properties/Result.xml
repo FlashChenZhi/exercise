@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator>
+
+  <!-- 変数 -->
+  <valiable name="fieldClass">java.lang.String</valiable>
+  <valiable name="imports" type="HashSet"/>
+  <valiable name="fields" type="List"/>
+
+  <!-- フィールド -->
+  <foreach select="fields/field">
+    <set name="fields" xml:space="preserve">
+      // <valueof select="@description"/><br/>
+      public static final <valueof select="class-name($fieldClass)"/> <valueof select="@name"/> = "<valueof select="@name"/>";<br/>
+    </set>
+  </foreach>
+
+  <!-- 最終出力 -->
+  <template enableLineBreak="true">
+    // $Id$
+    package <valueof select="package-name(@class)"/>;
+
+    /*
+     * Copyright(c) 2000-2011 DAIFUKU Co.,Ltd. All Rights Reserved.
+     *
+     * This software is the proprietary information of DAIFUKU Co.,Ltd.
+     * Use is subject to license terms.
+     */
+    <foreach select="$imports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import <valueof />;<br/>
+    </foreach>
+
+    /**
+     *
+     * @version $Revision$, $Date$
+     * @author  HighTune.
+     * @author  Last commit: $Author$
+     */
+    public interface <valueof select="class-name(@class)"/>
+    {
+        //------------------------------------------------------------
+        // fields (upper case only)
+        //------------------------------------------------------------
+        <foreach select="$fields"/>
+
+        //------------------------------------------------------------
+        // class variables (prefix '$')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // instance variables (prefix '_')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // constructors
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // public methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // accessor methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // package methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // protected methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // private methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // utility methods
+        //------------------------------------------------------------
+    }
+    //end of class
+  </template>
+
+</generator>

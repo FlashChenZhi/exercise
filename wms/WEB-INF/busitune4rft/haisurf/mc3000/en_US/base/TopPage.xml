@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--TopPage-->
+  <font name="fontBold" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="30" bht_size="1" />
+  <font name="fontMessage" fontname="Tahoma" bold="false" italic="false" size="13" bht_size="1" />
+  <font name="fontTerminalNo" fontname="Courier New" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>10</x>
+      <y>20</y>
+      <w>300</w>
+      <h>60</h>
+      <caption>eWareNavi</caption>
+    </label>
+    <label name="lblMsg1" font-id="fontBold" visible="true">
+      <align>center</align>
+      <x>0</x>
+      <y>110</y>
+      <w>320</w>
+      <h>26</h>
+      <caption>Press [Start].</caption>
+    </label>
+    <label name="lblTerminalNo" font-id="fontTerminalNo" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>245</x>
+      <y>180</y>
+      <w>60</w>
+      <h>24</h>
+      <caption>%TermInfoDataSheet.TERMINAL_NO%</caption>
+    </label>
+    <label name="lblMsg2" font-id="fontMessage" visible="true" backcolor="C8C8FA">
+      <align>center</align>
+      <x>20</x>
+      <y>220</y>
+      <w>280</w>
+      <h>40</h>
+      <caption>Only turn off the power when this screen is displayed.</caption>
+    </label>
+    <button name="Start" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Start</caption>
+      <event>TopPage_Start</event>
+    </button>
+    <button name="Exit" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>162</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Stop</caption>
+      <event>TopPage_Exit</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>140</y>
+      <w>324</w>
+      <h>180</h>
+    </label>
+  </form>
+</HaiSurf.Page>

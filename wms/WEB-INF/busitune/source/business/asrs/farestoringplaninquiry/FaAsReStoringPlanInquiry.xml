@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.farestoringplaninquiry.FaAsReStoringPlanInquiryBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.farestoringplaninquiry.FaAsReStoringPlanInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Station" />
+    <ref name="1" type="Control" typeName="txt_WorkNo" />
+    <ref name="2" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.FaAsReStoringPlanInquiryDASCH" />
+    <ref name="3" type="Control" typeName="HIDDEN_ITEM_NAME" />
+    <ref name="4" type="Control" typeName="LST_NO" />
+    <ref name="5" type="Control" typeName="LST_STATION_NO" />
+    <ref name="6" type="Control" typeName="LST_WORK_NO" />
+    <ref name="7" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="8" type="Control" typeName="LST_LOT_NO" />
+    <ref name="9" type="Control" typeName="LST_STORAGE_DATE" />
+    <ref name="10" type="Control" typeName="LST_PLAN_QTY" />
+    <ref name="11" type="Control" typeName="LST_REMOVE_DATE" />
+    <ref name="12" type="ExportParameter" typeName="jp.co.daifuku.wms.asrs.exporter.ReStoringPlanInqListParams" />
+    <ref name="13" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Station" dataType="WmsStationReStoringMntAll" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaAsReStoringPlanInquiry">
+      <listcellColumn name="HIDDEN_ITEM_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="2" resourceKey="LBL-W0022" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_NO" orgIndex="3" resourceKey="LBL-W0074" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="4" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="5" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATE" orgIndex="6" resourceKey="LBL-W0487" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_QTY" orgIndex="7" resourceKey="LBL-W0607" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_REMOVE_DATE" orgIndex="8" resourceKey="LBL-W0606" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput" />
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="2" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="WORK_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="NO" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="STATION_NO" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="WORK_NO" setRef="6" setValue="Value" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="2" getValue="LOT_NO" setRef="8" setValue="Value" />
+        <map getRef="2" getValue="STORAGE_DATE" setRef="9" setValue="Value" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="10" setValue="Value" />
+        <map getRef="2" getValue="REMOVE_DATE" setRef="11" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="12" exportName="ReStoringPlanInqList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="WORK_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="DFK_DS_NO" setRef="12" setValue="DFK_DS_NO" />
+        <map getRef="2" getValue="DFK_USER_ID" setRef="12" setValue="DFK_USER_ID" />
+        <map getRef="2" getValue="DFK_USER_NAME" setRef="12" setValue="DFK_USER_NAME" />
+        <map getRef="2" getValue="SYS_DAY" setRef="12" setValue="SYS_DAY" />
+        <map getRef="2" getValue="SYS_TIME" setRef="12" setValue="SYS_TIME" />
+        <map getRef="2" getValue="STATION_NO" setRef="12" setValue="STATION_NO" />
+        <map getRef="2" getValue="STATION_NAME" setRef="12" setValue="STATION_NAME" />
+        <map getRef="2" getValue="WORK_NO" setRef="12" setValue="WORK_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_NO" setRef="12" setValue="LOT_NO" />
+        <map getRef="2" getValue="STORAGE_DATE" setRef="12" setValue="STORAGE_DATE" />
+        <map getRef="2" getValue="REMOVE_DATE" setRef="12" setValue="REMOVE_DATE" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="12" setValue="PLAN_QTY" />
+      </output1>
+      <part11 operationRef="13" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="12" exportName="ReStoringPlanInqList" exporter="Preview" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="WORK_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="DFK_DS_NO" setRef="12" setValue="DFK_DS_NO" />
+        <map getRef="2" getValue="DFK_USER_ID" setRef="12" setValue="DFK_USER_ID" />
+        <map getRef="2" getValue="DFK_USER_NAME" setRef="12" setValue="DFK_USER_NAME" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_NO" setRef="12" setValue="LOT_NO" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="12" setValue="PLAN_QTY" />
+        <map getRef="2" getValue="REMOVE_DATE" setRef="12" setValue="REMOVE_DATE" />
+        <map getRef="2" getValue="STATION_NAME" setRef="12" setValue="STATION_NAME" />
+        <map getRef="2" getValue="STATION_NO" setRef="12" setValue="STATION_NO" />
+        <map getRef="2" getValue="STORAGE_DATE" setRef="12" setValue="STORAGE_DATE" />
+        <map getRef="2" getValue="SYS_DAY" setRef="12" setValue="SYS_DAY" />
+        <map getRef="2" getValue="SYS_TIME" setRef="12" setValue="SYS_TIME" />
+        <map getRef="2" getValue="WORK_NO" setRef="12" setValue="WORK_NO" />
+      </output1>
+      <part11 operationRef="13" operation="PREVIEW">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="12" exportName="ReStoringPlanInqList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="WORK_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="STATION_NO" setRef="12" setValue="STATION_NO" />
+        <map getRef="2" getValue="STATION_NAME" setRef="12" setValue="STATION_NAME" />
+        <map getRef="2" getValue="WORK_NO" setRef="12" setValue="WORK_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_NO" setRef="12" setValue="LOT_NO" />
+        <map getRef="2" getValue="STORAGE_DATE" setRef="12" setValue="STORAGE_DATE" />
+        <map getRef="2" getValue="REMOVE_DATE" setRef="12" setValue="REMOVE_DATE" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="12" setValue="PLAN_QTY" />
+      </output1>
+      <part11 operationRef="13" operation="XLS">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

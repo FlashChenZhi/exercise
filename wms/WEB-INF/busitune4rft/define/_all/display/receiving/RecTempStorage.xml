@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.receiving.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.receiving.rft.schedule.RecTempStorageSCH" type="Sch" />
+    <ref name="1" typeName="ReceivingOutDataSheet" type="DataSheet" />
+    <ref name="2" typeName="ReceivingAreaDataSheet" type="DataSheet" />
+    <ref name="3" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="4" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="Query" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="AREA_NO" setterTypeRef="2" setterValue="AREA_NO" />
+        <map getterTypeRef="0" getterValue="AREA_NAME" setterTypeRef="2" setterValue="AREA_NAME" />
+        <map getterTypeRef="0" getterValue="TEMP_AREA_NO" setterTypeRef="2" setterValue="TEMP_AREA_NO" />
+        <map getterTypeRef="0" getterValue="TEMP_AREA_NAME" setterTypeRef="2" setterValue="TEMP_AREA_NAME" />
+        <map getterTypeRef="0" getterValue="TEMP_AREA_NO" setterTypeRef="1" setterValue="TEMP_AREA_NO" />
+      </output>
+    </method>
+    <method name="list_Click" pattern="None" order="1" />
+    <method name="ent_Click" pattern="Commit" order="2">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="3" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="4" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="1" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+        <map getterTypeRef="1" getterValue="RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="1" getterValue="ENTERING_QTY" setterTypeRef="0" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="1" getterValue="RESULT_QTY" setterTypeRef="0" setterValue="RESULT_QTY" />
+        <map getterTypeRef="1" getterValue="TEMP_AREA_NO" setterTypeRef="0" setterValue="TEMP_AREA_NO" />
+        <map getterTypeRef="2" getterValue="TEMP_AREA_NO" setterTypeRef="0" setterValue="CHAGE_TEMP_AREA_NO" />
+      </schInput>
+      <output />
+    </method>
+  </methods>
+</business>

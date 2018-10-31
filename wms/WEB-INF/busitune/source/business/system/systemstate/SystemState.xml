@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.systemstate.SystemStateBusiness" abstractClassName="jp.co.daifuku.wms.system.display.systemstate.SystemState" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.SystemStateSCH" />
+    <ref name="1" type="Control" typeName="LST_PRODUCT" />
+    <ref name="2" type="Control" typeName="LST_VERSION" />
+    <ref name="3" type="Control" typeName="txt_InDailyProcess" />
+    <ref name="4" type="Control" typeName="txt_InLoadPlanData" />
+    <ref name="5" type="Control" typeName="txt_InCreateReportData" />
+    <ref name="6" type="Control" typeName="txt_InRetrievalAllocate" />
+    <ref name="7" type="Control" typeName="txt_InHostCommunication" />
+    <ref name="8" type="Control" typeName="txt_InPlanDataHoldDays" />
+    <ref name="9" type="Control" typeName="txt_InResultDataHoldDays" />
+    <ref name="10" type="Control" typeName="txt_InAllocationClear" />
+    <ref name="11" type="ViewState" typeName="jp.co.daifuku.wms.system.display.systemstate.ViewStateKeys" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SystemStatus">
+      <listcellColumn name="LST_PRODUCT" orgIndex="1" resourceKey="LBL-W0031" dataType="String" />
+      <listcellColumn name="LST_VERSION" orgIndex="2" resourceKey="LBL-W0008" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="PRODUCT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="VERSION" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="IN_PLAN_DATA_HOLD_DAYS" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="IN_RESULT_DATA_HOLD_DAYS" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="10" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="ReadOnly" />
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplayFunc" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="PRODUCT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="VERSION" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="IN_PLAN_DATA_HOLD_DAYS" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="IN_RESULT_DATA_HOLD_DAYS" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="10" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/system/systemstate/SystemStateMaintenance" viewStateRef="11" />
+      <output1>
+        <map getRef="3" getValue="Value" setRef="11" setValue="IN_DAILY_PROCESS" />
+        <map getRef="4" getValue="Value" setRef="11" setValue="IN_LOAD_PLAN_DATA" />
+        <map getRef="5" getValue="Value" setRef="11" setValue="IN_CREATE_REPORT_DATA" />
+        <map getRef="6" getValue="Value" setRef="11" setValue="IN_RETRIEVAL_ALLOCATE" />
+        <map getRef="7" getValue="Value" setRef="11" setValue="IN_HOST_COMMUNICATION" />
+        <map getRef="8" getValue="Value" setRef="11" setValue="IN_PLAN_DATA_HOLD_DAYS" />
+        <map getRef="9" getValue="Value" setRef="11" setValue="IN_RESULT_DATA_HOLD_DAYS" />
+        <map getRef="10" getValue="Value" setRef="11" setValue="IN_ALLOCATION_CLEAR" />
+      </output1>
+    </event>
+  </events>
+</business>

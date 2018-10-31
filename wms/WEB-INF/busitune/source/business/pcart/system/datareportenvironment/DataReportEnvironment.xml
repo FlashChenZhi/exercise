@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.datareportenvironment.DataReportEnvironmentBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.datareportenvironment.DataReportEnvironment" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.DataReportEnvironmentSCH" />
+    <ref name="1" type="Control" typeName="HIDDEN_DATA_TYPE" />
+    <ref name="2" type="Control" typeName="LST_PACKAGE_NAME" />
+    <ref name="3" type="Control" typeName="LST_DESTINATION_FOLDER" />
+    <ref name="4" type="Control" typeName="LST_DATA_FILE_NAME" />
+    <ref name="5" type="Control" typeName="LST_REPORT_UNIT" />
+    <ref name="6" type="Control" typeName="lst_DataReportEnvironment" />
+  </refs>
+  <listcells>
+    <listcell name="lst_DataReportEnvironment">
+      <listcellColumn name="HIDDEN_DATA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_PACKAGE_NAME" orgIndex="1" resourceKey="LBL-W0027" dataType="String" />
+      <listcellColumn name="LST_DESTINATION_FOLDER" orgIndex="2" resourceKey="LBL-W0025" dataType="String" modifyCheck="true" />
+      <listcellColumn name="LST_DATA_FILE_NAME" orgIndex="3" resourceKey="LBL-P0200" dataType="String" modifyCheck="true" />
+      <listcellColumn name="LST_REPORT_UNIT" orgIndex="4" resourceKey="LBL-W0177" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="PACKAGE_NAME" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DATA_FILE_NAME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="REPORT_UNIT" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="0" />
+      <validate>
+        <validate controlRef="6" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="0" setValue="DATA_TYPE" />
+        <map getRef="2" getValue="Value" setRef="0" setValue="PACKAGE_NAME" />
+        <map getRef="3" getValue="Value" setRef="0" setValue="DESTINATION_FOLDER" />
+        <map getRef="4" getValue="Value" setRef="0" setValue="DATA_FILE_NAME" />
+        <map getRef="5" getValue="Value" setRef="0" setValue="REPORT_UNIT" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="PACKAGE_NAME" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DATA_FILE_NAME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="REPORT_UNIT" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="PACKAGE_NAME" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DATA_FILE_NAME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="REPORT_UNIT" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

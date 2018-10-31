@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.zonementenance.ZoneMentenanceBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.zonementenance.ZoneMentenance" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.ZoneMentenanceSCH" />
+    <ref name="2" type="Control" typeName="LST_WORK_ZONE_NO" />
+    <ref name="3" type="Control" typeName="LST_ZONE_NO" />
+    <ref name="4" type="String" typeName="String" />
+    <ref name="5" type="Control" typeName="HIDDEN_NEW_DATA" />
+    <ref name="6" type="Control" typeName="HIDDEN_LAST_UPDATE_DATE" />
+    <ref name="7" type="Control" typeName="HIDDEN_WORK_ZONE_NO" />
+    <ref name="8" type="Control" typeName="HIDDEN_ZONE_NO" />
+    <ref name="9" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.zonementenance.ViewStateKeys" />
+    <ref name="10" type="Control" typeName="LST_SELECT" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Control" typeName="lst_ZoneMentenance" />
+    <ref name="13" type="Control" typeName="btn_Set" />
+    <ref name="14" type="Control" typeName="btn_ListClear" />
+    <ref name="15" type="Control" typeName="btn_AllDelete" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAllFalse" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_ZoneMentenance">
+      <listcellColumn name="HIDDEN_WORK_ZONE_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ZONE_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LAST_UPDATE_DATE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_NEW_DATA" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" />
+      <listcellColumn name="LST_DELETE" orgIndex="3" resourceKey="LBL-W0094" dataType="String" />
+      <listcellColumn name="LST_WORK_ZONE_NO" orgIndex="4" resourceKey="LBL-P0175" dataType="String" modifyCheck="true" />
+      <listcellColumn name="LST_ZONE_NO" orgIndex="5" resourceKey="LBL-P0044" dataType="String" modifyCheck="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="WORK_ZONE_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="ZONE_NO" setRef="3" setValue="Value" />
+        <map getRef="4" getValue="false" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="WORK_ZONE_NO" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ZONE_NO" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="9" setValue="VS_AREA_NO" />
+      </output1>
+    </event>
+    <event control="btn_AllDelete" name="Click" pattern="ListCellDelete">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="7" getValue="Value" setRef="1" setValue="HIDDEN_WORK_ZONE_NO" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="HIDDEN_ZONE_NO" />
+        <map getRef="6" getValue="Value" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="NEW_DATA" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="SELECT" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="WORK_ZONE_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="ZONE_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_DELETE" setRef="1" setValue="PROCESS_FLAG" />
+        <map getRef="9" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+      </input1>
+      <clear1>
+        <clear controlRef="12" type="Clear" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Add" name="Click" pattern="NoneGenerate" />
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="12" type="Clear" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+    <event control="LST_DELETE" name="Click" pattern="ListCellRowDelete">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="6" getValue="Value" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="SELECT" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="HIDDEN_WORK_ZONE_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="HIDDEN_ZONE_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_DELETE" setRef="1" setValue="PROCESS_FLAG" />
+        <map getRef="9" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+      </input1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="12" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+      </validate>
+      <input1>
+        <map getRef="7" getValue="Value" setRef="1" setValue="HIDDEN_WORK_ZONE_NO" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="HIDDEN_ZONE_NO" />
+        <map getRef="6" getValue="Value" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="NEW_DATA" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="SELECT" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="WORK_ZONE_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="ZONE_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_MODIFY" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <input2>
+        <map getRef="9" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="WORK_ZONE_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="ZONE_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="WORK_ZONE_NO" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ZONE_NO" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="NEW_DATA" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

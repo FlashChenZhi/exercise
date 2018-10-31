@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.retrieval.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.retrieval.rft.schedule.RetCompleteSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="RetrievalOutDataSheet" type="DataSheet" />
+    <ref name="3" typeName="Constants" type="Constants" />
+    <ref name="4" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="ent_Click" pattern="Commit" order="1">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="3" getterValue="COMPLETION_FLAG_CANCEL" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+      </schInput>
+      <output />
+    </method>
+    <method name="back_Click" pattern="None" order="2" />
+  </methods>
+</business>

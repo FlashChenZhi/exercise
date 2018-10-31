@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctretrftnoworkinquiry.PCTRetRftNoWorkInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctretrftnoworkinquiry.PCTRetRftNoWorkInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_PcartNo" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.pctretrftnoworkinquiry.LstPCTRetRftNoWorkInquiryParams" />
+    <ref name="2" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.PCTRetRftNoWorkInquiryDASCH" />
+    <ref name="3" type="ExportParameter" typeName="jp.co.daifuku.pcart.retrieval.exporter.PctRetRftNoWorkInqListParams" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_P_Display" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/pctretrftnoworkinquiry/LstPCTRetRftNoWorkInquiry" businessParameterRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="PCART_RFT_NO" />
+      </input1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="3" exportName="PctRetRftNoWorkInqList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="PCART_RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="PCART_RFT_NO" setRef="3" setValue="RFT_NO" />
+        <map getRef="2" getValue="USER_ID" setRef="3" setValue="USER_ID" />
+        <map getRef="2" getValue="USER_NAME" setRef="3" setValue="USER_NAME" />
+        <map getRef="2" getValue="AREA_NO" setRef="3" setValue="AREA_NO" />
+        <map getRef="2" getValue="AREA_NAME" setRef="3" setValue="AREA_NAME" />
+        <map getRef="2" getValue="REGULAR_CUSTOMER_CODE" setRef="3" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="2" getValue="REGULAR_CUSTOMER_NAME" setRef="3" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="3" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="CUSTOMER_NAME" setRef="3" setValue="CUSTOMER_NAME" />
+        <map getRef="2" getValue="SYS_DAY" setRef="3" setValue="SYS_DAY" />
+        <map getRef="2" getValue="SYS_TIME" setRef="3" setValue="SYS_TIME" />
+        <map getRef="2" getValue="PLAN_ZONE_NO" setRef="3" setValue="PLAN_ZONE_NO" />
+        <map getRef="2" getValue="PLAN_LOCATION" setRef="3" setValue="PLAN_LOCATION_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="3" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="3" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_QTY" setRef="3" setValue="LOT_QTY" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="3" setValue="PLAN_QTY" />
+        <map getRef="2" getValue="RESULT_QTY" setRef="3" setValue="RESULT_QTY" />
+        <map getRef="2" getValue="JAN" setRef="3" setValue="JAN_CODE" />
+        <map getRef="2" getValue="ITF" setRef="3" setValue="ITF" />
+        <map getRef="2" getValue="BUNDLE_ITF" setRef="3" setValue="BUNDLE_ITF" />
+        <map getRef="2" getValue="ORDER_NO" setRef="3" setValue="ORDER_NO" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="3" exportName="PctRetRftNoWorkInqList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="PCART_RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="PCART_RFT_NO" setRef="3" setValue="RFT_NO" />
+        <map getRef="2" getValue="USER_NAME" setRef="3" setValue="USER_NAME" />
+        <map getRef="2" getValue="AREA_NO" setRef="3" setValue="AREA_NO" />
+        <map getRef="2" getValue="AREA_NAME" setRef="3" setValue="AREA_NAME" />
+        <map getRef="2" getValue="REGULAR_CUSTOMER_CODE" setRef="3" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="2" getValue="REGULAR_CUSTOMER_NAME" setRef="3" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="3" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="CUSTOMER_NAME" setRef="3" setValue="CUSTOMER_NAME" />
+        <map getRef="2" getValue="PLAN_ZONE_NO" setRef="3" setValue="PLAN_ZONE_NO" />
+        <map getRef="2" getValue="PLAN_LOCATION" setRef="3" setValue="PLAN_LOCATION_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="3" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="3" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_QTY" setRef="3" setValue="LOT_QTY" />
+        <map getRef="2" getValue="PLAN_QTY" setRef="3" setValue="PLAN_QTY" />
+        <map getRef="2" getValue="RESULT_QTY" setRef="3" setValue="RESULT_QTY" />
+        <map getRef="2" getValue="ORDER_NO" setRef="3" setValue="ORDER_NO" />
+      </output1>
+    </event>
+  </events>
+</business>

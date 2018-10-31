@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.workmnt.AsWorkMntBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.workmnt.AsWorkMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_WorkPlace" />
+    <ref name="1" type="Control" typeName="btn_Set" />
+    <ref name="2" type="Control" typeName="btn_ReDisplay" />
+    <ref name="3" type="Control" typeName="btn_Clear" />
+    <ref name="4" type="Control" typeName="btn_Details" />
+    <ref name="5" type="Control" typeName="txt_FromCarrying" />
+    <ref name="6" type="Control" typeName="txt_ToCarrying" />
+    <ref name="7" type="Control" typeName="txt_Location" />
+    <ref name="8" type="Control" typeName="txt_CarryingFlag" />
+    <ref name="9" type="Control" typeName="txt_CarryingStatus" />
+    <ref name="10" type="Control" typeName="txt_WorkKind" />
+    <ref name="11" type="Control" typeName="txt_RetrievalDetail" />
+    <ref name="12" type="Control" typeName="txt_WorkNo" />
+    <ref name="13" type="Control" typeName="txt_ScheduleNo" />
+    <ref name="14" type="Control" typeName="txt_CarryingKey" />
+    <ref name="15" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.carry.LstAsCarryParams" />
+    <ref name="16" type="Control" typeName="pul_Station" />
+    <ref name="17" type="String" typeName="String" />
+    <ref name="18" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsWorkMntSCH" />
+    <ref name="19" type="Control" typeName="rdo_ASRSProcess_NoIndication" />
+    <ref name="20" type="Control" typeName="rdo_ASRSProcess_Finished" />
+    <ref name="21" type="Control" typeName="rdo_ASRSProcess_CancelAllocate" />
+    <ref name="22" type="Control" typeName="rdo_ASRSProcess_TrackingDelete" />
+    <ref name="23" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.display.changestationpopup.AsChangeStationPopupParams" />
+    <ref name="24" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.workdetail.LstAsWorkDetailParams" />
+    <ref name="25" type="Control" typeName="ASRSProcess" />
+    <ref name="26" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.AsWorkMntExporterDASCH" />
+    <ref name="27" type="ExportParameter" typeName="jp.co.daifuku.wms.asrs.exporter.CarryListParams" />
+    <ref name="28" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_WorkPlace" dataType="WmsWorkspaceWorkMntAll" />
+    <pulldown name="pul_Station" dataType="WmsStationWorkMntAll" parent="pul_WorkPlace" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="ReadOnly" />
+        <clear controlRef="13" type="ReadOnly" />
+        <clear controlRef="12" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_PInquiry" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/carry/LstAsCarry" businessParameterRef="15" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="15" setValue="WORK_PLACE_KEY" />
+        <map getRef="16" getValue="Value" setRef="15" setValue="STATION_NO_KEY" />
+        <map getRef="17" getValue="TERMINALNUMBER" setRef="15" setValue="TERMINAL_NO_KEY" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="CARRY_KEY" setRef="14" setValue="Value" />
+        <map getRef="15" getValue="WORK_NO" setRef="12" setValue="Value" />
+        <map getRef="15" getValue="WORK_TYPE_NAME" setRef="10" setValue="Value" />
+        <map getRef="15" getValue="RETRIEVAL_DETAIL_NAME" setRef="11" setValue="Value" />
+        <map getRef="15" getValue="SOURCE_STATION_NAME" setRef="5" setValue="Value" />
+        <map getRef="15" getValue="DEST_STATION_NAME" setRef="6" setValue="Value" />
+        <map getRef="15" getValue="CARRY_FLAG_NAME" setRef="8" setValue="Value" />
+        <map getRef="15" getValue="CMD_STATUS_NAME" setRef="9" setValue="Value" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="7" setValue="Value" />
+        <map getRef="15" getValue="SCHEDULE_NO" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="18" />
+      <input1>
+        <map getRef="14" getValue="Value" setRef="18" setValue="CARRYING_KEY" />
+      </input1>
+      <output1>
+        <map getRef="18" getValue="FROM_CARRYING_NAME" setRef="5" setValue="Value" />
+        <map getRef="18" getValue="TO_CARRYING_NAME" setRef="6" setValue="Value" />
+        <map getRef="18" getValue="LOCATION" setRef="7" setValue="Value" />
+        <map getRef="18" getValue="CARRYING_FLAG_NAME" setRef="8" setValue="Value" />
+        <map getRef="18" getValue="CARRYING_STATUS_NAME" setRef="9" setValue="Value" />
+        <map getRef="18" getValue="WORK_KIND_NAME" setRef="10" setValue="Value" />
+        <map getRef="18" getValue="RETRIEVAL_DETAIL_NAME" setRef="11" setValue="Value" />
+        <map getRef="18" getValue="WORK_NO" setRef="12" setValue="Value" />
+        <map getRef="18" getValue="SCHEDULE_NO" setRef="13" setValue="Value" />
+        <map getRef="18" getValue="CARRYING_KEY" setRef="14" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Enabled" />
+        <clear controlRef="21" type="Enabled" />
+        <clear controlRef="22" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="19" type="Checked" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="ReadOnly" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="13" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_PSTOperation" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/changestationpopup/AsChangeStationPopup" businessParameterRef="23" />
+    </event>
+    <event control="btn_Details" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/workdetail/LstAsWorkDetail" businessParameterRef="24" />
+      <input1>
+        <map getRef="12" getValue="Value" setRef="24" setValue="WORK_NO" />
+        <map getRef="14" getValue="Value" setRef="24" setValue="CARRY_KEY" />
+      </input1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="18" />
+      <input1>
+        <map getRef="25" getValue="Value" setRef="18" setValue="ASRS_PROCESS" />
+        <map getRef="14" getValue="Value" setRef="18" setValue="CARRYING_KEY" />
+      </input1>
+      <clear1>
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="11" type="ReadOnly" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="13" type="ReadOnly" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="19" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="26" exportParameterRef="27" exportName="CarryList" exporter="Print" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="26" setValue="WORK_PLACE" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="STATION_NO" />
+        <map getRef="17" getValue="TERMINAL_NO" setRef="26" setValue="TERMINAL_NO" />
+      </input1>
+      <output1>
+        <map getRef="26" getValue="DFK_DS_NO" setRef="27" setValue="DFK_DS_NO" />
+        <map getRef="26" getValue="DFK_USER_ID" setRef="27" setValue="DFK_USER_ID" />
+        <map getRef="26" getValue="DFK_USER_NAME" setRef="27" setValue="DFK_USER_NAME" />
+        <map getRef="26" getValue="FROM_STATION_NO" setRef="27" setValue="FROM_STATION" />
+        <map getRef="26" getValue="ITEM_CODE" setRef="27" setValue="ITEM_CODE" />
+        <map getRef="26" getValue="ITEM_NAME" setRef="27" setValue="ITEM_NAME" />
+        <map getRef="26" getValue="LOCATION_NO" setRef="27" setValue="LOCATION_NO" />
+        <map getRef="26" getValue="LOT_NO" setRef="27" setValue="LOT_NO" />
+        <map getRef="26" getValue="PRIORITY_FLAG" setRef="27" setValue="PRIORITY_FLAG" />
+        <map getRef="26" getValue="RETRIEVAL_COMMAND_DETAIL" setRef="27" setValue="RETRIEVAL_COMMAND_DETAIL" />
+        <map getRef="16" getValue="Value" setRef="27" setValue="STATION_NAME" />
+        <map getRef="16" getValue="Value" setRef="27" setValue="STATION_NO" />
+        <map getRef="26" getValue="SYS_DAY" setRef="27" setValue="SYS_DAY" />
+        <map getRef="26" getValue="SYS_TIME" setRef="27" setValue="SYS_TIME" />
+        <map getRef="26" getValue="TO_LOCATION_NO" setRef="27" setValue="TO_LOCATION_NO" />
+        <map getRef="26" getValue="TO_STATION_NO" setRef="27" setValue="TO_STATION" />
+        <map getRef="26" getValue="TRANSPORT_TYPE" setRef="27" setValue="TRANSPORT_TYPE" />
+        <map getRef="0" getValue="Value" setRef="27" setValue="WORK_AREA" />
+        <map getRef="26" getValue="WORK_NO" setRef="27" setValue="WORK_NO" />
+        <map getRef="26" getValue="WORK_QTY" setRef="27" setValue="WORK_QTY" />
+      </output1>
+      <part11 operationRef="28" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="26" exportParameterRef="27" exportName="CarryList" exporter="Excel" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="26" setValue="WORK_PLACE" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="STATION_NO" />
+        <map getRef="17" getValue="TERMINAL_NO" setRef="26" setValue="TERMINAL_NO" />
+      </input1>
+      <output1>
+        <map getRef="26" getValue="DFK_DS_NO" setRef="27" setValue="DFK_DS_NO" />
+        <map getRef="26" getValue="DFK_USER_ID" setRef="27" setValue="DFK_USER_ID" />
+        <map getRef="26" getValue="DFK_USER_NAME" setRef="27" setValue="DFK_USER_NAME" />
+        <map getRef="26" getValue="FROM_STATION_NO" setRef="27" setValue="FROM_STATION" />
+        <map getRef="26" getValue="ITEM_CODE" setRef="27" setValue="ITEM_CODE" />
+        <map getRef="26" getValue="ITEM_NAME" setRef="27" setValue="ITEM_NAME" />
+        <map getRef="26" getValue="LOCATION_NO" setRef="27" setValue="LOCATION_NO" />
+        <map getRef="26" getValue="LOT_NO" setRef="27" setValue="LOT_NO" />
+        <map getRef="26" getValue="PRIORITY_FLAG" setRef="27" setValue="PRIORITY_FLAG" />
+        <map getRef="26" getValue="RETRIEVAL_COMMAND_DETAIL" setRef="27" setValue="RETRIEVAL_COMMAND_DETAIL" />
+        <map getRef="16" getValue="Value" setRef="27" setValue="STATION_NAME" />
+        <map getRef="16" getValue="Value" setRef="27" setValue="STATION_NO" />
+        <map getRef="26" getValue="SYS_DAY" setRef="27" setValue="SYS_DAY" />
+        <map getRef="26" getValue="SYS_TIME" setRef="27" setValue="SYS_TIME" />
+        <map getRef="26" getValue="TO_LOCATION_NO" setRef="27" setValue="TO_LOCATION_NO" />
+        <map getRef="26" getValue="TO_STATION_NO" setRef="27" setValue="TO_STATION" />
+        <map getRef="26" getValue="TRANSPORT_TYPE" setRef="27" setValue="TRANSPORT_TYPE" />
+        <map getRef="0" getValue="Value" setRef="27" setValue="WORK_AREA" />
+        <map getRef="26" getValue="WORK_NO" setRef="27" setValue="WORK_NO" />
+        <map getRef="26" getValue="WORK_QTY" setRef="27" setValue="WORK_QTY" />
+      </output1>
+      <part11 operationRef="28" operation="XLS">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

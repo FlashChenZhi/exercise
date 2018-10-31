@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="lst_Default_01" keyword="" description="Default_01">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="tableCssClass" value="listcell-table-combination" />
+    <property name="errRequired" value="001" />
+    <property name="maxRows" value="3" />
+    <property name="alterationBgColor" value="true" />
+    <property name="colHeader" value="true" />
+    <list-items type="ListCellRowHeaders">
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-001" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-002" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-003" />
+          <property name="cssClass" value="listcell-header-left" />
+        </list-item>
+      </list-items>
+    </list-items>
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="" />
+        <property name="colspan" value="" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="LBL-001" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="FreeTextBox" />
+        <property name="templateKey" value="" />
+        <property name="enterOrder" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="" />
+        <property name="colspan" value="" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="LBL-002" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="FreeTextBox" />
+        <property name="templateKey" value="" />
+        <property name="enterOrder" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="" />
+        <property name="colspan" value="" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="LBL-003" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="FreeTextBox" />
+        <property name="templateKey" value="" />
+        <property name="enterOrder" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="lst_Default_02" keyword="" description="Default_02">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="tableCssClass" value="" />
+    <property name="errRequired" value="002" />
+    <property name="maxRows" value="5" />
+    <property name="alterationBgColor" value="true" />
+    <property name="colHeader" value="true" />
+    <list-items type="ListCellRowHeaders">
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-001" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-002" />
+          <property name="cssClass" value="listcell-rowheader" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-003" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-004" />
+          <property name="cssClass" value="listcell-rowheader" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-005" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-006" />
+          <property name="cssClass" value="listcell-rowheader" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-007" />
+          <property name="cssClass" value="listcell-rowheader-left" />
+        </list-item>
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-008" />
+          <property name="cssClass" value="listcell-rowheader" />
+        </list-item>
+      </list-items>
+      <list-items type="RowHeaders">
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-009" />
+          <property name="cssClass" value="listcell-header-left" />
+        </list-item>
+        <list-item type="RowHeader">
+          <property name="width" value="150" />
+          <property name="height" value="" />
+          <property name="rowspan" value="" />
+          <property name="text" value="" />
+          <property name="resourceKey" value="LBL-010" />
+          <property name="cssClass" value="listcell-header" />
+        </list-item>
+      </list-items>
+    </list-items>
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="300" />
+        <property name="height" value="" />
+        <property name="colspan" value="" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="LBL-001" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="FreeTextBox" />
+        <property name="templateKey" value="" />
+        <property name="enterOrder" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
+</templates>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="AST_W_LoginUserList" keyword="LoginCheck" description="Login User List">
+    <property name="async" value="" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="LBL-W9901" />
+    <property name="visible" value="true" />
+    <property name="target" value="LOGIN_USER_LIST" />
+    <property name="features" value="width=1015,height=600,top=30,left=1,toolbar=no,directories=no,status=no,menubar=no,location=no,scrollbars=yes,resizable=no" />
+    <property name="url" value="/wms/login/LoginUserList.do" />
+    <property name="functionKey" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+</templates>

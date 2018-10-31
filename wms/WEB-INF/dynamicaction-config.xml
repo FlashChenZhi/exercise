@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dynamicaction-settings [
+<!ELEMENT dynamicaction-settings (either,actions)>
+<!ELEMENT actions (action+)>
+<!ELEMENT action (method+)>
+<!ATTLIST either
+  count CDATA "">
+<!ATTLIST action
+  type CDATA #REQUIRED
+  msgini CDATA #REQUIRED
+  defaultmsg CDATA ""
+  cs CDATA #REQUIRED>
+<!ATTLIST method
+  lang CDATA ""
+  country CDATA ""
+  func CDATA #REQUIRED>
+]>
+<dynamicaction-settings>
+  <either count="15" />
+  <actions>
+    <action type="requrired" 
+            msgini="DynamicAction.Requrired"
+            defaultmsg="0000001"
+            cs="ScreenGenerator.DynamicAction.RequriredAction">
+      <method lang="" country="" func="__da_requrired" />
+    </action>
+    <action type="prohibition"
+            msgini="DynamicAction.Prohibition"
+            defaultmsg="0000002"
+            cs="ScreenGenerator.DynamicAction.ProhibitionAction">
+      <method lang="" country="" func="__da_prohibition" />
+    </action>
+    <action type="rangedate"
+            msgini="DynamicAction.RangeDate"
+            defaultmsg="0000003"
+            cs="ScreenGenerator.DynamicAction.RangeDateAction">
+      <method lang="" country="" func="__da_rangeDate_MMddyyyy" />
+      <method lang="ja" country="JP" func="__da_rangeDate_yyyyMMdd" />
+    </action>
+    <action type="rangedatetime"
+            msgini="DynamicAction.RangeDateTime"
+            defaultmsg="0000004"
+            cs="ScreenGenerator.DynamicAction.RangeDateTimeAction">
+      <method lang="" country="" func="__da_rangeDateTime_MMddyyyy" />
+      <method lang="ja" country="JP" func="__da_rangeDateTime_yyyyMMdd" />
+    </action>
+    <action type="rangenumber"
+            msgini="DynamicAction.RangeNumber"
+            defaultmsg="0000005"
+            cs="ScreenGenerator.DynamicAction.RangeNumberAction">
+      <method lang="" country="" func="__da_rangeNumber1" />
+    </action>
+    <action type="rangestring"
+            msgini="DynamicAction.RangeString"
+            defaultmsg="0000006"
+            cs="ScreenGenerator.DynamicAction.RangeStringAction">
+      <method lang="" country="" func="__da_rangeString" />
+    </action>
+    <action type="requriredrelation"
+            msgini="DynamicAction.RequriredRelation"
+            defaultmsg="0000007"
+            cs="ScreenGenerator.DynamicAction.RequriredRelationAction">
+      <method lang="" country="" func="__da_requriredRelation" />
+    </action>
+    <action type="requriredeither"
+            msgini="DynamicAction.RequriredEither"
+            defaultmsg="0000008"
+            cs="ScreenGenerator.DynamicAction.RequriredEitherAction">
+      <method lang="" country="" func="__da_requriredEither" />
+    </action>
+  </actions>
+</dynamicaction-settings>

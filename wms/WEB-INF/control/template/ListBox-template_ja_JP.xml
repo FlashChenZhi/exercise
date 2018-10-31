@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="T_MainMenuOrder" keyword="eManager" description="メインメニュー表示順変更" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="size" value="8" />
+    <property name="multiple" value="false" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lsb-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="ListBoxItems" />
+  </template>
+  <template key="T_FunctionMapOrder" keyword="eManager" description="サブメニューボタン表示順" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="size" value="4" />
+    <property name="multiple" value="false" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lsb-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="ListBoxItems" />
+  </template>
+  <template key="T_SubMenuOrder" keyword="eManager" description="サブメニュー表示順変更" lastupdate="2011/09/21 10:57:44" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="size" value="16" />
+    <property name="multiple" value="false" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lsb-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="ListBoxItems" />
+  </template>
+</templates>

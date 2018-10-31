@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.weighterrorratesetting.WeightErrorRateSettingBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.weighterrorratesetting.WeightErrorRateSetting" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_UnitWeightFrom" />
+    <ref name="1" type="Control" typeName="txt_UnitWeightTo" />
+    <ref name="2" type="Control" typeName="txt_WeightErrorRate" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.WeightErrorRateSettingSCH" />
+    <ref name="4" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.unitweight.LstUnitWeightParams" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="3" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="FROM_SINGLE_WEIGHT" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="TO_SINGLE_WEIGHT" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="WEIGHT_DISTINCT_RATE" />
+      </input1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/unitweight/LstUnitWeight" businessParameterRef="4" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="4" setValue="FROM_SINGLE_WEIGHT" />
+        <map getRef="1" getValue="Value" setRef="4" setValue="TO_SINGLE_WEIGHT" />
+      </input1>
+    </event>
+  </events>
+</business>

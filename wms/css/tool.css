@@ -1,0 +1,442 @@
+@charset "UTF-8";
+<!-- $Id: tool.css 8078 2014-12-23 01:51:56Z kumano $ -->
+/* フレームワークで書いているid class等に対するCSSを定めています */
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+/**
+ * UTF8で保存する必要があるのですが、UTF8で保存するとブラウザによって
+ * ボタンのVALUEが右にずれ、文字が中心にこない現象が出ます。
+ * 現状原因が分かりません。もしその現象が発生したら澤まで連絡ください。
+ *                                                      2002/09/21 sawa
+ * @version $Revision: 8078 $, $Date: 2014-12-23 10:51:56 +0900 (火, 23 12 2014) $
+ * @author  $Author: kumano $
+ */
+
+/*------------------------------------------*/
+/* BODY, FORM								*/
+/*------------------------------------------*/
+/* add 2003/03/03 add sawa					*/
+form{margin: 0;}
+/*------------------------------------------*/
+/* TABLE									*/
+/*------------------------------------------*/
+td, table {white-space: nowrap;}
+/*--------------------------------------*/
+/*	Button(通常の画面では使用しません)	*/
+/*--------------------------------------*/
+.btn-toolsubmenu-001,	/* TOOLサブメニュー用ボタン */
+.btn-submenu-001,		/* サブメニュー用ボタン		*/
+.btn-help,				/* 「ヘルプ」				*/
+.btn-back,				/* 「戻　る」				*/
+.btn-logout,			/* 「ログアウト」			*/
+.btn-tomenu,			/* 「メニューへ」 			*/
+.btn-tomenu-fkey,		/* 「メニューへ」Fキー付き 	*/
+.btn-login-001			/* 「ログイン」				*/
+{
+	color				: white;
+	font				: normal 16px/120% "MS Gothic", FixedSys, sans-serif;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	height				: 26px;
+	padding				: 0px;
+}
+
+.btn-submenu-001 {
+	width				: 140px;
+}
+.btn-help {
+	width				: 88px;
+}
+.btn-back {
+	width				: 100px;
+}
+.btn-logout {
+	width				: 88px;
+}
+.btn-tomenu {
+	width				: 100px;
+	margin-right		: 7px;
+}
+.btn-tomenu-fkey {
+	width				: 150px;
+	margin-right		: 7px;
+}
+.btn-login-001 {
+	width				: 90px;
+	height				: 1.75em;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+/*--------------------------------------*/
+/*	LABEL(通常の画面では使用しません)	*/
+/*--------------------------------------*/
+.lbl-error,
+.lbl-login-001,
+.lbl-SubMebuContensName,
+.lbl-SessionTimeout
+{
+	font-family			: monospace;
+	font-size			: 16px;
+	text-decoration		: none;
+	display				: inline-block;
+	box-sizing			: border-box;
+	color				: #000;
+}
+.lbl-SessionTimeout-link {
+	font-family			: monospace;
+	font-size			: 16px;
+	display				: inline-block;
+	box-sizing			: border-box;
+}
+
+.lbl-SessionTimeout, .lbl-SessionTimeout-link, .lbl-error {
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+.lbl-error {
+	width				: 100%;
+	text-align			: center;
+	color				: red;
+}
+.lbl-login-001, .lbl-SubMebuContensName {
+	padding-top			: 2px;
+}
+.lbl-menuTitle,			/* タイトル、メニュー名用白文字				*/
+.lbl-white-001, 		/* タイトル、メニュー名用白文字				*/
+.lbl-white-002,			/* 白文字 (ログイン画面、メインメニュー画面)*/
+.lbl-white-003,			/* 白文字 (メインメニュー画面専用)			*/
+.lbl-white-004			/* 白文字 (メインメニュー画面専用)			*/
+{
+	color				: white;
+	font-family			: monospace;
+	text-decoration		: none;
+}
+
+.lbl-white-001,.lbl-menuTitle {
+	font-size			: 100%;
+	position			: relative;
+	top					: 2px;
+	line-height			: 110%;
+}
+
+.lbl-white-002 {
+	font-size			: 16px;
+	position			: relative;
+	top					: 2px;
+}
+
+.lbl-white-003 {
+	font-size			: 13px;
+}
+
+.lbl-white-004 {
+	font-size			: 13px;
+	line-height			: 19px;
+}
+
+/* Start Add T.Sumiyama for BlueDOG 5.2 2010/03/12*/
+/*--------------------------------------*/
+/*	CalendarControl for DateTextBox		*/
+/*--------------------------------------*/
+/* カレンダーのボックス */
+#calendarDiv{
+	position			: absolute;
+	border				: solid #a79fc1;
+	background-color	: #fff;
+	font-family			: monospace;
+	font-size			: 12px;
+	visibility			: hidden;
+	box-sizing			: content-box;
+}
+.calendarTable {
+	width				: 200px;
+	box-sizing			: border-box;
+}
+/* 日にちのセル部分のスタイル */
+#calendarDiv td, #calendarDiv .dayMouseOver{
+	padding				: 1px;
+	margin				: 0px;
+	font-size			: 13px;
+	color				: #413a8a;
+	background-color	: #dad9ee;
+	border				: 1px solid #fff;
+	text-align			: center;
+	cursor				: pointer;
+}
+/* ツールバーの表示部品 */
+#calendarDiv span,#calendarDiv img{
+	float				: left;
+}
+/* 年月リストの表示部分*/
+#calendarDiv .selectBox,#calendarDiv .selectBoxOver{
+	line-height			: 12px;
+	padding				: 1px;
+	cursor				: pointer;
+	padding-left		: 2px;
+}
+/* 年月リストの表示部分*/
+#calendarDiv .selectBox{
+	border				: 1px solid #F5F5FF;
+	color				: #F5F5FF;
+	position			: relative;
+}
+/* 年月リストの表示部分マウスオーバー時 */
+#calendarDiv .selectBoxOver{
+	border				: 1px solid #fff;
+	color				: #fff;
+	position			: relative;
+}
+
+/* ツールバーのスタイル*/
+#calendarDiv .topBar{
+	height				: 20px;
+	background-color	: #413A8A;
+}
+
+/* 年月選択リストのスタイル */
+#calendarDiv .monthYearPicker{
+	background-color	: #F5F5FF;
+	border				: 1px solid #B8B7D7;
+	position			: absolute;
+	color				: #413A8A;
+	left				: 0px;
+	top					: 15px;
+	z-index				: 1000;
+	display				: none;
+}
+/* 年月選択リストのスタイル */
+#calendarDiv .monthYearPicker div{
+	float				:none;
+	clear				:both;
+	padding				:1px;
+	margin				:1px;
+	cursor				:pointer;
+}
+
+/* ツールバーの画像に対するスタイル */
+#calendarDiv .topBar img{
+	cursor				: pointer;
+}
+#calendarDiv .topBar div{
+	float				: left;
+	margin-right		: 1px;
+}
+/* 月～金の表示部分のボックス */
+#calendarDiv .calendar_week{
+	font-size			: 12px;
+	padding-bottom		: 1px;
+	color				: #000;
+	background-color	: #fff;
+	border				: 0px;
+	cursor				: default;
+	padding				: 2px;
+}
+/* 空白の日部分のスタイル */
+#calendarDiv .calendar_week_blank{
+	color				: #fff;
+	background-color	: #F5F5FF;
+	border				: 1px solid #fff;
+	cursor				: default;
+}
+
+/* マウスオーバーしている日のスタイル*/
+#calendarDiv .dayMouseOver{
+	color				: #fff;
+	background-color	: #f99;
+	border				: 1px solid #f69;
+}
+
+/* 選択されている日のスタイル */
+#calendarDiv .activeDay{
+	background-color	: #fc6;
+	border				: 1px solid #fc8800;
+}
+
+/* カレンダーボックスに追加する垂直２ヶ月表示の際のスタイル */
+.monthDisplay {
+	font-size			: 14px;
+	color				: #fff;
+	background			: #413a8a;
+	display				: block;
+	height				: 16px;
+	line-height			: 16px;
+	text-align			: left;
+	margin				: 0;
+	padding				: 0;
+	font-family			: monospace;
+}
+
+/* カレンダー表示ボタンのスタイル */
+.calendar {
+	background			: url(../img/control/calendar/cal.png) no-repeat;
+	font-size			: 16px;
+	border-weight		: 2px;
+	width				: 1.75em;
+	height				: 1.75em;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	box-sizing			: border-box;
+	vertical-align		: top;
+}
+
+/*------------------------------------------*/
+/*	Listcell Layout Style					*/
+/*------------------------------------------*/
+/* リストセル内のレイアウトのためのスタイルを設定します*/
+.headerSpan, .cellSpan-Labels, .cellSpan {
+	box-sizing		: border-box;
+	display			: inline-block;
+	padding			: 0px 4px;
+	overflow		: hidden;
+}
+.cellSpan-Buttons { /* TD Style For Button */
+	display			: block;
+	height			: 100%;
+	vertical-align	: top;
+	position		: absolute;
+	top				: 0;
+	left			: 0;
+	box-sizing		: border-box;
+}
+.cellSpan input {
+	margin:0;
+	zoom: 0.9;
+}
+.ctlImg, .ctlImgIn { /*TD内に挿入したimgタグのスタイル*/
+	width			: 0px;
+	vertical-align	: middle;
+}
+.ctlImgIn { /*vertical補正*/
+	margin: 2px 0px;
+}
+.cellSpan-Labels a{ /*SubmitButtonの垂直位置対策*/
+	display			: inline-block;
+}
+.headerSpan {
+/*	border: red solid 1px;*/
+	/* IE11 信頼済みサイトで時々リストセルのヘッダ文字列の上が切れてしまうことへの対応 */
+	line-height: 1.2; 
+}
+/*------------------------------------------*/
+/*	MultiroleListcell Layout Style			*/
+/*------------------------------------------*/
+.ListCellContainer,			/* 全体を内包するdiv */
+.FixedListCellContainer,	/* 固定部分のtableを内包するdiv */
+.ScrollListCellContainer	/* スクロール部分のtableを内包するdiv */
+{
+	margin			: 0px;
+	padding			: 0px;
+	display			: block;
+	box-sizing		: border-box;
+}
+.ListCellContainer {
+	overflow		: hidden;
+	clear			: both;
+	position		: relative;
+}
+.FixedListCellContainer {
+	overflow		: hidden;
+	float			: left;
+	position		: relative;
+}
+.ScrollListCellContainer {
+	float			: left;
+	overflow		: scroll;
+}
+/*------------------------------------------*/
+/*	Pager Style								*/
+/*------------------------------------------*/
+.pagerText {	/* 中央の文字部分 */
+	box-sizeng			: border-box;
+	padding				: 0px 4px;
+	white-space			: nowrap;
+	background-color	: #fff;
+	color				: #000;
+	font				: 16px/22px sans-serif;
+	text-decoration		: none;
+	height				: 22px;
+	display				: inline-block;
+}
+.pagerTable {	/* Pagerを構成するtable部分 */
+	border				: 1px #413a8a solid;
+	vertical-align		: top;
+	margin				: 0;
+	padding				: 0;
+	font-size			: 1px;
+	line-height			: 1px;
+}
+.pagerTd {		/* Pagerを構成するtableのtd部分 */
+	height				: 22px;
+	background			: #413a8a;
+	border				: 1px #413a8a solid;
+}
+.pagerImg {		/* Pagerのimage */
+	width				: 35px;
+	height				: 22px;
+	border				: 0;
+	vertical-align		: baseline;
+	cursor				: default;
+}
+
+/*------------------------------------------*/
+/*	for	AutoComplete						*/
+/*------------------------------------------*/
+.auto_complete {
+  position				: absolute;
+  background-color		: #fff;
+  border				: 1px solid #000;
+  margin				: 0px;
+  padding				: 0px;
+  z-index				: 1000;
+}
+
+/*------------------------------------------*/
+/*	For balloon message						*/
+/*------------------------------------------*/
+.balloon-outsiderange,
+.balloon-info,
+.balloon-warning,
+.balloon-attention,
+.balloon-error
+{
+	border			: 3px ridge #FAFAD2;
+	padding			: 3px;
+/* balloonの透過処理はここで調整します */
+/*	filter			: alpha(style=1,opacity=100,finishopacity=80,startx=85,starty=0,finishx=85,finishy=140);*/
+	cursor			: pointer;
+	white-space		: nowrap;
+	width			: 99%;
+	box-sizing		: border-box;
+}
+.balloon-outsiderange	{background-color	: #2040A0;}
+.balloon-info			{background-color	: #FAFAD2;}
+.balloon-warning		{background-color	: orange;}
+.balloon-attention		{background-color	: #FAFAD2;}
+.balloon-error			{background-color	: orangered;}
+
+.balloon-info-font,.balloon-warning-font,.balloon-attention-font,.balloon-error-font
+{color: black; font-weight: normal; font-size: 16px;}
+.balloon-outsiderange-font
+{color: white; font-weight: normal; font-size: 16px;}
+
+/*------------------------------------------*/
+/*	For IE8 Rendering Mode					*/
+/*------------------------------------------*/
+/* 互換モード表示では効果ありません*/
+img[height="2"][src="/wms/img/common/spacer.gif"][width="1"][border="0"]
+{display:none;}
+td > img
+{vertical-align: middle;}
+/* End Add T.Sumiyama for BlueDOG5.2 2010/03/12 */
+
+/* eAWCサブメニューのタイトル   */
+.lbl-black-003 {
+	line-height:120%;
+}

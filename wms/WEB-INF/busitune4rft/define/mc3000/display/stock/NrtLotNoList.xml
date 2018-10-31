@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="LotNoListDataSheet" type="DataSheet" />
+    <ref name="1" typeName="Number" type="Number" />
+  </refs>
+  <events>
+    <event name="Ent1_Click" order="1">
+      <method methodName="ent_Click" />
+      <pager pagerType="Select" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Ent2_Click" order="2">
+      <method methodName="ent_Click" />
+      <pager pagerType="Select" datasheetRef="0" select="1" />
+      <input />
+    </event>
+    <event name="Ent3_Click" order="3">
+      <method methodName="ent_Click" />
+      <pager pagerType="Select" datasheetRef="0" select="2" />
+      <input />
+    </event>
+    <event name="Ent4_Click" order="4">
+      <method methodName="ent_Click" />
+      <pager pagerType="Select" datasheetRef="0" select="3" />
+      <input />
+    </event>
+    <event name="Prev_Click" order="5">
+      <pager pagerType="PagePrev" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Next_Click" order="6">
+      <pager pagerType="PageNext" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Back_Click" order="7">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input>
+        <map getterTypeRef="1" getterValue="4" setterTypeRef="0" setterValue="$VIEW_SIZE" />
+      </input>
+      <pager pagerType="None" select="0" />
+    </event>
+  </events>
+</pageMapping>

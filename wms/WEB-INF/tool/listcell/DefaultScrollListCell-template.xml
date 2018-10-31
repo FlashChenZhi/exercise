@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="lst_Dafault_01" keyword="" description="Default_01">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="tableCssClass" value="" />
+    <property name="maxRows" value="1" />
+    <property name="errRequired" value="001" />
+    <property name="fixedBank" value="0" />
+    <property name="displayWidth" value="360" />
+    <property name="displayHeight" value="600" />
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="50" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header-nodelim" />
+        <property name="detailCssClass" value="listcell-detail-button-nodelim" />
+        <property name="controlName" value="SubmitButton" />
+        <property name="templateKey" value="" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="lst_Dafault_02" keyword="" description="Default_02">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="tableCssClass" value="" />
+    <property name="maxRows" value="1" />
+    <property name="errRequired" value="002" />
+    <property name="fixedBank" value="0" />
+    <property name="displayWidth" value="360" />
+    <property name="displayHeight" value="600" />
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="50" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header-nodelim" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="CheckBox" />
+        <property name="templateKey" value="" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="lst_Dafault_03" keyword="" description="Default_03">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="tableCssClass" value="" />
+    <property name="maxRows" value="1" />
+    <property name="errRequired" value="003" />
+    <property name="fixedBank" value="0" />
+    <property name="displayWidth" value="760" />
+    <property name="displayHeight" value="600" />
+    <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header-nodelim" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+      <list-item type="ListCellColumn">
+        <property name="width" value="150" />
+        <property name="height" value="25" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="listcell-header" />
+        <property name="detailCssClass" value="listcell-detail-center" />
+        <property name="controlName" value="Label" />
+        <property name="templateKey" value="In_Listcell" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
+    </list-items>
+  </template>
+</templates>

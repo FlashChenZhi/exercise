@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.ranksetting.RankSettingBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.ranksetting.RankSetting" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.RankSettingSCH" />
+    <ref name="2" type="Control" typeName="pul_Area" />
+    <ref name="3" type="Control" typeName="txt_LotPerH" />
+    <ref name="4" type="Control" typeName="txt_OrderPerH" />
+    <ref name="5" type="Control" typeName="txt_LinePerH" />
+    <ref name="6" type="Control" typeName="lbl_PercentRankA" />
+    <ref name="7" type="Control" typeName="lbl_PercentRankB" />
+    <ref name="8" type="Control" typeName="lbl_ConsignorCodeDisp" />
+    <ref name="9" type="Control" typeName="lbl_AreaDisp" />
+    <ref name="10" type="BusinessParameter" typeName="jp.co.daifuku.pcart.system.listbox.consignor.LstConsignorParams" />
+    <ref name="11" type="Control" typeName="HIDDEN_LAST_UP_DATE" />
+    <ref name="12" type="Control" typeName="LST_LEVEL" />
+    <ref name="13" type="Control" typeName="LST_LOT_COUNT" />
+    <ref name="14" type="Control" typeName="LST_ORDER_COUNT" />
+    <ref name="15" type="Control" typeName="LST_LINE_COUNT" />
+    <ref name="16" type="ViewState" typeName="jp.co.daifuku.pcart.system.display.ranksetting.ViewStateKeys" />
+    <ref name="17" type="Control" typeName="btn_Set" />
+    <ref name="18" type="Control" typeName="btn_AutoCalculation" />
+    <ref name="19" type="Control" typeName="btn_ListClear" />
+    <ref name="20" type="Control" typeName="lst_RankSet" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_RankSet">
+      <listcellColumn name="HIDDEN_LAST_UP_DATE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_LEVEL" orgIndex="1" resourceKey="LBL-P0221" dataType="String" />
+      <listcellColumn name="LST_LOT_COUNT" orgIndex="2" resourceKey="LBL-P0179" dataType="Number" format="0" />
+      <listcellColumn name="LST_ORDER_COUNT" orgIndex="3" resourceKey="LBL-P0180" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT" orgIndex="4" resourceKey="LBL-P0181" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_SearchConsignor" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/system/listbox/consignor/LstConsignor" businessParameterRef="10" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AutoCalculation" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="AREA" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="LAST_UP_DATE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="LEVEL" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="S_LOT_COUNT" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="S_ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="S_LINE_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="A_RANK_STANDARD_VALUE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="B_RANK_STANDARD_VALUE" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="AREA" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="LAST_UP_DATE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="LEVEL" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="16" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="16" setValue="AREA" />
+        <map getRef="1" getValue="CONSIGNOR_CODE_DISP" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="AREA_DISP" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="A_RANK_STANDARD_VALUE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="B_RANK_STANDARD_VALUE" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="17" type="Enabled" />
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="20" required="true" />
+      </validate>
+      <input1>
+        <map getRef="11" getValue="Value" setRef="1" setValue="LAST_UP_DATE" />
+        <map getRef="12" getValue="Value" setRef="1" setValue="LEVEL" />
+        <map getRef="13" getValue="Value" setRef="1" setValue="LOT_COUNT" />
+        <map getRef="14" getValue="Value" setRef="1" setValue="ORDER_COUNT" />
+        <map getRef="15" getValue="Value" setRef="1" setValue="LINE_COUNT" />
+        <map getRef="16" getValue="AREA" setRef="1" setValue="AREA" />
+        <map getRef="16" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="S_LOT_COUNT" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="S_ORDER_COUNT" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="S_LINE_COUNT" />
+      </input1>
+      <input2>
+        <map getRef="16" getValue="AREA" setRef="1" setValue="AREA" />
+        <map getRef="16" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="LAST_UP_DATE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="LEVEL" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="15" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="20" type="Clear" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

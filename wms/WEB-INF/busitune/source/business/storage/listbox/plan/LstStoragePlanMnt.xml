@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.storage.listbox.plan.LstStoragePlanMntBusiness" abstractClassName="jp.co.daifuku.wms.storage.listbox.plan.LstStoragePlanMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.storage.dasch.LstStoragePlanMntDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.storage.listbox.plan.LstStoragePlanMntParams" />
+    <ref name="3" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="4" type="Control" typeName="LST_PLAN_DATE" />
+    <ref name="5" type="Control" typeName="LST_TICKET" />
+  </refs>
+  <listcells>
+    <listcell name="lst_StoragePlan">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_PLAN_DATE" orgIndex="2" resourceKey="LBL-W0161" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_TICKET" orgIndex="3" resourceKey="LBL-W0145" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="SLIP_NUMBER" setRef="1" setValue="SLIP_NUMBER" />
+        <map getRef="2" getValue="STORAGE_PLAN_DATE" setRef="1" setValue="STORAGE_PLAN_DATE" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="COLUMN_1" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="TICKET" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="2" setValue="PLAN_DATE" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="TICKET" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+  </events>
+</business>

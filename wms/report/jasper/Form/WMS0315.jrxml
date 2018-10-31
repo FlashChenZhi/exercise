@@ -1,0 +1,2483 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="pctuserresultbatch"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="842"
+		 pageHeight="595"
+		 columnWidth="782"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<style 
+		name="MSゴシック10pt"
+		isDefault="true"
+		fontName="ＭＳ ゴシック"
+		fontSize="10"
+		isUnderline="false"
+	>
+	</style>
+
+
+	<field name="sys_day" class="java.lang.String"/>
+	<field name="sys_time" class="java.lang.String"/>
+	<field name="work_day_from" class="java.lang.String"/>
+	<field name="work_day_to" class="java.lang.String"/>
+	<field name="week_day" class="java.lang.String"/>
+	<field name="batch_no" class="java.lang.String"/>
+	<field name="consignor_code" class="java.lang.String"/>
+	<field name="consignor_name" class="java.lang.String"/>
+	<field name="area_no" class="java.lang.String"/>
+	<field name="area_name" class="java.lang.String"/>
+	<field name="batch_no1" class="java.lang.String"/>
+	<field name="production_rate" class="java.lang.String"/>
+	<field name="start_date" class="java.lang.String"/>
+	<field name="end_date" class="java.lang.String"/>
+	<field name="heads" class="java.lang.String"/>
+	<field name="cnt" class="java.lang.String"/>
+	<field name="work_time" class="java.lang.String"/>
+	<field name="order_cnt" class="java.lang.String"/>
+	<field name="order_cnt_per_hour" class="java.lang.String"/>
+	<field name="box_cnt" class="java.lang.String"/>
+	<field name="box_cnt_per_hour" class="java.lang.String"/>
+	<field name="line_cnt" class="java.lang.String"/>
+	<field name="line_cnt_per_hour" class="java.lang.String"/>
+	<field name="lot_cnt" class="java.lang.String"/>
+	<field name="lot_cnt_per_hour" class="java.lang.String"/>
+	<field name="piece_cnt" class="java.lang.String"/>
+	<field name="piece_cnt_per_hour" class="java.lang.String"/>
+	<field name="box_per_order" class="java.lang.String"/>
+	<field name="line_per_order" class="java.lang.String"/>
+	<field name="lot_per_line" class="java.lang.String"/>
+	<field name="piece_per_line" class="java.lang.String"/>
+	<field name="miss" class="java.lang.String"/>
+	<field name="production_rate_avg" class="java.lang.String"/>
+	<field name="heads_avg" class="java.lang.String"/>
+	<field name="cnt_avg" class="java.lang.String"/>
+	<field name="work_time_avg" class="java.lang.String"/>
+	<field name="order_cnt_avg" class="java.lang.String"/>
+	<field name="order_cnt_per_hour_avg" class="java.lang.String"/>
+	<field name="box_cnt_avg" class="java.lang.String"/>
+	<field name="box_cnt_per_hour_avg" class="java.lang.String"/>
+	<field name="line_cnt_avg" class="java.lang.String"/>
+	<field name="line_cnt_per_hour_avg" class="java.lang.String"/>
+	<field name="lot_cnt_avg" class="java.lang.String"/>
+	<field name="lot_cnt_per_hour_avg" class="java.lang.String"/>
+	<field name="piece_cnt_avg" class="java.lang.String"/>
+	<field name="piece_cnt_per_hour_avg" class="java.lang.String"/>
+	<field name="box_per_order_avg" class="java.lang.String"/>
+	<field name="line_per_order_avg" class="java.lang.String"/>
+	<field name="lot_per_line_avg" class="java.lang.String"/>
+	<field name="piece_per_line_avg" class="java.lang.String"/>
+	<field name="miss_avg" class="java.lang.String"/>
+	<field name="level" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="150"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						mode="Transparent"
+						x="0"
+						y="10"
+						width="270"
+						height="35"
+						key="staticText-1"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement verticalAlignment="Top">
+						<font fontName="ＭＳ ゴシック" pdfFontName="HeiseiKakuGo-W5" size="18" isBold="true" isUnderline="true" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[バッチ別実績リスト]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="333"
+						y="20"
+						width="34"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-28"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[作業日]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="655"
+						y="20"
+						width="44"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-29"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[発行日時]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="655"
+						y="50"
+						width="44"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-30"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[頁]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="699"
+						y="20"
+						width="54"
+						height="30"
+						key="textField-31"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{sys_day}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="753"
+						y="20"
+						width="29"
+						height="30"
+						key="textField-34"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{sys_time}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="367"
+						y="50"
+						width="84"
+						height="15"
+						key="textField-35"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{consignor_code}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="367"
+						y="20"
+						width="54"
+						height="15"
+						key="textField-37"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="ＭＳ ゴシック" pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{work_day_from}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="333"
+						y="35"
+						width="34"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-43"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[曜日]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="517"
+						y="35"
+						width="24"
+						height="15"
+						key="textField-55"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{batch_no}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="451"
+						y="50"
+						width="204"
+						height="15"
+						key="textField-56"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{consignor_name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="391"
+						y="65"
+						width="204"
+						height="15"
+						key="textField-57"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{area_name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="333"
+						y="50"
+						width="34"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-58"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[荷主]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="333"
+						y="65"
+						width="34"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-59"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ｴﾘｱ]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="699"
+						y="50"
+						width="50"
+						height="30"
+						key="textField-60"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="758"
+						y="50"
+						width="24"
+						height="30"
+						key="textField-61"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="749"
+						y="50"
+						width="9"
+						height="30"
+						backcolor="#FFFFFF"
+						key="staticText-60"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="367"
+						y="35"
+						width="74"
+						height="15"
+						key="textField-63"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{week_day}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="367"
+						y="65"
+						width="24"
+						height="15"
+						key="textField-64"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{area_no}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="387"
+						y="85"
+						width="24"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-83"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[人数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="387"
+						y="100"
+						width="24"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-84"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[台数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="758"
+						y="85"
+						width="24"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-85"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾐｽ率]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="411"
+						y="85"
+						width="49"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-86"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[作業時間
+(延べ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="460"
+						y="85"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-87"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ｵｰﾀﾞｰ数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="460"
+						y="100"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-88"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="353"
+						y="85"
+						width="34"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-91"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H" isStrikeThrough="false" />
+					</textElement>
+				<text><![CDATA[生産率]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="499"
+						y="85"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-95"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[箱数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="499"
+						y="100"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-96"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="538"
+						y="85"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-97"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[行数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="538"
+						y="100"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-98"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="577"
+						y="85"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-99"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[数量(ﾛｯﾄ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="577"
+						y="100"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-100"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="626"
+						y="85"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-101"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[数量(ﾊﾞﾗ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="626"
+						y="100"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-102"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="675"
+						y="85"
+						width="44"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-103"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[箱/ｵｰﾀﾞｰ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="675"
+						y="100"
+						width="44"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-104"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[行/ｵｰﾀﾞｰ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="719"
+						y="85"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-105"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾛｯﾄ/行]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="719"
+						y="100"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-106"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾊﾞﾗ/行]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="758"
+						y="115"
+						width="24"
+						height="30"
+						key="textField-89"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{miss_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="411"
+						y="115"
+						width="49"
+						height="30"
+						key="textField-90"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{work_time_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="460"
+						y="115"
+						width="39"
+						height="15"
+						key="textField-91"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{order_cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="460"
+						y="130"
+						width="39"
+						height="15"
+						key="textField-92"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{order_cnt_per_hour_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="353"
+						y="115"
+						width="34"
+						height="30"
+						key="textField-93"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{production_rate_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="387"
+						y="130"
+						width="24"
+						height="15"
+						key="textField-97"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="387"
+						y="115"
+						width="24"
+						height="15"
+						key="textField-98"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{heads_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="499"
+						y="115"
+						width="39"
+						height="15"
+						key="textField-101"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="499"
+						y="130"
+						width="39"
+						height="15"
+						key="textField-102"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_cnt_per_hour_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="538"
+						y="115"
+						width="39"
+						height="15"
+						key="textField-103"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="538"
+						y="130"
+						width="39"
+						height="15"
+						key="textField-104"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_cnt_per_hour_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="577"
+						y="115"
+						width="49"
+						height="15"
+						key="textField-105"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="577"
+						y="130"
+						width="49"
+						height="15"
+						key="textField-106"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_cnt_per_hour_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="626"
+						y="115"
+						width="49"
+						height="15"
+						key="textField-107"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_cnt_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="626"
+						y="130"
+						width="49"
+						height="15"
+						key="textField-108"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_cnt_per_hour_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="675"
+						y="115"
+						width="44"
+						height="15"
+						key="textField-109"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_per_order_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="675"
+						y="130"
+						width="44"
+						height="15"
+						key="textField-110"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_per_order_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="719"
+						y="115"
+						width="39"
+						height="15"
+						key="textField-111"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_per_line_avg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="719"
+						y="130"
+						width="39"
+						height="15"
+						key="textField-112"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_per_line_avg}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="421"
+						y="20"
+						width="9"
+						height="15"
+						backcolor="#FFFFFF"
+						key="staticText-107"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[～]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="430"
+						y="20"
+						width="54"
+						height="15"
+						key="textField-113"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="ＭＳ ゴシック" pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{work_day_to}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="478"
+						y="35"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-108"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾊﾞｯﾁNo.]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="591"
+						y="35"
+						width="44"
+						height="15"
+						key="textField-114"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{level}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="567"
+						y="35"
+						width="24"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-109"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾚﾍﾞﾙ]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="333"
+						y="20"
+						width="449"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="332"
+						y="50"
+						width="449"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="332"
+						y="20"
+						width="0"
+						height="60"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="367"
+						y="20"
+						width="0"
+						height="60"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="782"
+						y="20"
+						width="0"
+						height="61"
+						key="line-9"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="699"
+						y="20"
+						width="0"
+						height="60"
+						key="line-10"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="655"
+						y="20"
+						width="0"
+						height="60"
+						key="line-11"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="0"
+						y="149"
+						width="568"
+						height="0"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="332"
+						y="80"
+						width="450"
+						height="0"
+						key="line-41"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="333"
+						y="35"
+						width="322"
+						height="0"
+						key="line-42"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="333"
+						y="65"
+						width="322"
+						height="0"
+						key="line-43"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="353"
+						y="85"
+						width="429"
+						height="0"
+						key="line-70"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="758"
+						y="85"
+						width="0"
+						height="30"
+						key="line-72"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="782"
+						y="85"
+						width="0"
+						height="30"
+						key="line-73"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="353"
+						y="115"
+						width="429"
+						height="0"
+						key="line-74"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="387"
+						y="85"
+						width="0"
+						height="30"
+						key="line-75"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="411"
+						y="85"
+						width="0"
+						height="30"
+						key="line-76"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="460"
+						y="85"
+						width="0"
+						height="30"
+						key="line-78"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="353"
+						y="85"
+						width="0"
+						height="30"
+						key="line-79"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="499"
+						y="85"
+						width="0"
+						height="30"
+						key="line-81"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="538"
+						y="85"
+						width="0"
+						height="30"
+						key="line-82"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="577"
+						y="85"
+						width="0"
+						height="30"
+						key="line-83"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="626"
+						y="85"
+						width="0"
+						height="30"
+						key="line-84"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="675"
+						y="85"
+						width="0"
+						height="30"
+						key="line-85"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="719"
+						y="85"
+						width="0"
+						height="30"
+						key="line-86"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="353"
+						y="145"
+						width="429"
+						height="0"
+						key="line-87"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="782"
+						y="115"
+						width="0"
+						height="30"
+						key="line-88"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="758"
+						y="115"
+						width="0"
+						height="30"
+						key="line-89"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="411"
+						y="115"
+						width="0"
+						height="30"
+						key="line-90"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="460"
+						y="115"
+						width="0"
+						height="30"
+						key="line-92"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="353"
+						y="115"
+						width="0"
+						height="30"
+						key="line-93"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="387"
+						y="115"
+						width="0"
+						height="30"
+						key="line-95"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="499"
+						y="115"
+						width="0"
+						height="30"
+						key="line-97"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="538"
+						y="115"
+						width="0"
+						height="30"
+						key="line-98"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="577"
+						y="115"
+						width="0"
+						height="30"
+						key="line-99"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="626"
+						y="115"
+						width="0"
+						height="30"
+						key="line-100"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="675"
+						y="115"
+						width="0"
+						height="30"
+						key="line-101"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="719"
+						y="115"
+						width="0"
+						height="30"
+						key="line-102"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="477"
+						y="35"
+						width="0"
+						height="15"
+						key="line-103"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="517"
+						y="35"
+						width="0"
+						height="15"
+						key="line-104"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="566"
+						y="35"
+						width="0"
+						height="15"
+						key="line-105"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="591"
+						y="35"
+						width="0"
+						height="15"
+						key="line-106"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="30"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="97"
+						y="0"
+						width="99"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-13"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[開始日時]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="0"
+						y="0"
+						width="39"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-46"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H" isStrikeThrough="false" />
+					</textElement>
+				<text><![CDATA[ﾊﾞｯﾁNo.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="73"
+						y="0"
+						width="24"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-47"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[人数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="73"
+						y="15"
+						width="24"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-48"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[台数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="543"
+						y="0"
+						width="24"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-50"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾐｽ率]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="196"
+						y="0"
+						width="49"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-53"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[作業時間
+(延べ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="245"
+						y="0"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-61"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ｵｰﾀﾞｰ数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="245"
+						y="15"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-62"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="39"
+						y="0"
+						width="34"
+						height="30"
+						backcolor="#CCCCCC"
+						key="staticText-65"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H" isStrikeThrough="false" />
+					</textElement>
+				<text><![CDATA[生産率]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="97"
+						y="15"
+						width="99"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-66"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[終了日時]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="284"
+						y="0"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-69"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[箱数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="284"
+						y="15"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-70"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="323"
+						y="0"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-71"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[行数]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="323"
+						y="15"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-72"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="362"
+						y="0"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-73"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[数量(ﾛｯﾄ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="362"
+						y="15"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-74"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="411"
+						y="0"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-75"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[数量(ﾊﾞﾗ)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="411"
+						y="15"
+						width="49"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-76"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[/H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="460"
+						y="0"
+						width="44"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-77"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[箱/ｵｰﾀﾞｰ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="460"
+						y="15"
+						width="44"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-78"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[行/ｵｰﾀﾞｰ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="504"
+						y="0"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-79"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾛｯﾄ/行]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Opaque"
+						x="504"
+						y="15"
+						width="39"
+						height="15"
+						backcolor="#CCCCCC"
+						key="staticText-80"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<text><![CDATA[ﾊﾞﾗ/行]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="0"
+						y="0"
+						width="0"
+						height="30"
+						key="line-12"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="543"
+						y="0"
+						width="0"
+						height="30"
+						key="line-17"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="567"
+						y="-1"
+						width="0"
+						height="31"
+						key="line-21"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="0"
+						y="29"
+						width="568"
+						height="0"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="73"
+						y="0"
+						width="0"
+						height="30"
+						key="line-34"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="196"
+						y="0"
+						width="0"
+						height="30"
+						key="line-36"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="97"
+						y="0"
+						width="0"
+						height="30"
+						key="line-46"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="245"
+						y="0"
+						width="0"
+						height="30"
+						key="line-48"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="39"
+						y="0"
+						width="0"
+						height="30"
+						key="line-52"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="284"
+						y="0"
+						width="0"
+						height="30"
+						key="line-54"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="323"
+						y="0"
+						width="0"
+						height="30"
+						key="line-55"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="362"
+						y="0"
+						width="0"
+						height="30"
+						key="line-56"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="411"
+						y="0"
+						width="0"
+						height="30"
+						key="line-57"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="460"
+						y="0"
+						width="0"
+						height="30"
+						key="line-58"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="504"
+						y="0"
+						width="0"
+						height="30"
+						key="line-59"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="30"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="0"
+						y="0"
+						width="39"
+						height="30"
+						key="textField-21"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{batch_no1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="543"
+						y="0"
+						width="24"
+						height="30"
+						key="textField-51"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{miss}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="196"
+						y="0"
+						width="49"
+						height="30"
+						key="textField-54"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{work_time}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="245"
+						y="0"
+						width="39"
+						height="15"
+						key="textField-65"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{order_cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="245"
+						y="15"
+						width="39"
+						height="15"
+						key="textField-66"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{order_cnt_per_hour}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="39"
+						y="0"
+						width="34"
+						height="30"
+						key="textField-67"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{production_rate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="97"
+						y="15"
+						width="99"
+						height="15"
+						key="textField-69"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{end_date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="97"
+						y="0"
+						width="99"
+						height="15"
+						key="textField-70"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{start_date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="73"
+						y="15"
+						width="24"
+						height="15"
+						key="textField-71"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="73"
+						y="0"
+						width="24"
+						height="15"
+						key="textField-72"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{heads}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="284"
+						y="0"
+						width="39"
+						height="15"
+						key="textField-75"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="284"
+						y="15"
+						width="39"
+						height="15"
+						key="textField-76"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_cnt_per_hour}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="323"
+						y="0"
+						width="39"
+						height="15"
+						key="textField-77"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="323"
+						y="15"
+						width="39"
+						height="15"
+						key="textField-78"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_cnt_per_hour}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="362"
+						y="0"
+						width="49"
+						height="15"
+						key="textField-79"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="362"
+						y="15"
+						width="49"
+						height="15"
+						key="textField-80"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_cnt_per_hour}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="411"
+						y="0"
+						width="49"
+						height="15"
+						key="textField-81"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_cnt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="411"
+						y="15"
+						width="49"
+						height="15"
+						key="textField-82"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_cnt_per_hour}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="460"
+						y="0"
+						width="44"
+						height="15"
+						key="textField-83"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{box_per_order}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="460"
+						y="15"
+						width="44"
+						height="15"
+						key="textField-84"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{line_per_order}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="504"
+						y="0"
+						width="39"
+						height="15"
+						key="textField-85"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lot_per_line}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="MSゴシック10pt"
+						mode="Transparent"
+						x="504"
+						y="15"
+						width="39"
+						height="15"
+						key="textField-86"/>
+					<box leftPadding="2" rightPadding="2"></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="HeiseiKakuGo-W5" isBold="false" pdfEncoding ="UniJIS-UCS2-HW-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{piece_per_line}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="0"
+						y="29"
+						width="568"
+						height="0"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="567"
+						y="0"
+						width="0"
+						height="30"
+						key="line-22"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="543"
+						y="0"
+						width="0"
+						height="30"
+						key="line-24"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="196"
+						y="0"
+						width="0"
+						height="30"
+						key="line-26"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="0"
+						y="0"
+						width="0"
+						height="30"
+						key="line-29"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="245"
+						y="0"
+						width="0"
+						height="30"
+						key="line-49"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="39"
+						y="0"
+						width="0"
+						height="30"
+						key="line-60"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="97"
+						y="0"
+						width="0"
+						height="30"
+						key="line-61"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="73"
+						y="0"
+						width="0"
+						height="30"
+						key="line-62"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="284"
+						y="0"
+						width="0"
+						height="30"
+						key="line-64"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="323"
+						y="0"
+						width="0"
+						height="30"
+						key="line-65"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="362"
+						y="0"
+						width="0"
+						height="30"
+						key="line-66"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="411"
+						y="0"
+						width="0"
+						height="30"
+						key="line-67"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="460"
+						y="0"
+						width="0"
+						height="30"
+						key="line-68"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						style="MSゴシック10pt"
+						x="504"
+						y="0"
+						width="0"
+						height="30"
+						key="line-69"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

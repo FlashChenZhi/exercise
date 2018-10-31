@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.rftstate.RFTStateBusiness" abstractClassName="jp.co.daifuku.wms.system.display.rftstate.RFTState" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.RFTStateSCH" />
+    <ref name="1" type="Control" typeName="LST_SELECT" />
+    <ref name="2" type="Control" typeName="LST_RFT_NO" />
+    <ref name="3" type="Control" typeName="LST_TERMINAL_TYPE" />
+    <ref name="4" type="Control" typeName="LST_STATUS_FLAG" />
+    <ref name="5" type="Control" typeName="LST_USER_NAME" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.wms.system.display.rftstate.RFTStateParams" />
+  </refs>
+  <listcells>
+    <listcell name="lst_RFTState">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_RFT_NO" orgIndex="2" resourceKey="LBL-W0005" dataType="String" />
+      <listcellColumn name="LST_TERMINAL_TYPE" orgIndex="3" resourceKey="LBL-W0143" dataType="String" />
+      <listcellColumn name="LST_STATUS_FLAG" orgIndex="4" resourceKey="LBL-W0006" dataType="String" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="5" resourceKey="LBL-W0033" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="SELECT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="RFT_NO" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_TYPE_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="STATUS_FLAG_NAME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="SELECT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="RFT_NO" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_TYPE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="STATUS_FLAG" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_TYPE_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="STATUS_FLAG_NAME" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="2" getValue="Value" setRef="6" setValue="RFT" />
+        <map getRef="3" getValue="Value" setRef="6" setValue="TERMINAL_FLAG" />
+        <map getRef="4" getValue="Value" setRef="6" setValue="RFT_STATUS" />
+        <map getRef="5" getValue="Value" setRef="6" setValue="USER_NAME" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="NoneGenerate" />
+  </events>
+</business>

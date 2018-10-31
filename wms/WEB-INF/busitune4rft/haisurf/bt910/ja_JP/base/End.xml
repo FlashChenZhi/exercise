@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--終了-->
+  <form destroy="true" keyence-alarm="non" keyence-led="non" statusline="2" kanainput="2" />
+</HaiSurf.Page>

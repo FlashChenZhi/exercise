@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0318" downloadName="FaRetrievalCancelList" reportName="LBL-W6037">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true"/>
+    <field name="area_no" type="string" printEnabled="true"/>
+    <field name="rm_no" type="string" printEnabled="true"/>
+    <field name="batch_no" type="string" printEnabled="true"/>
+    <field name="ticket_no" type="string" printEnabled="true"/>
+    <field name="line_no" type="string" printEnabled="true"/>
+    <field name="item_code" type="string" printEnabled="true"/>
+    <field name="item_name" type="string" printEnabled="true"/>
+    <field name="lot_no" type="string" format="###,###,###,##0" printEnabled="true"/>
+    <field name="plan_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="cancel_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="result_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="work_type" type="string" printEnabled="true"/>
+</exportspec>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.listbox.emp.LstEmpLocationBusiness" abstractClassName="jp.co.daifuku.wms.stock.listbox.emp.LstEmpLocation" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.wms.stock.dasch.LstEmpLocationDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.stock.listbox.emp.LstEmpLocationParams" />
+    <ref name="2" type="Control" typeName="LST_SELECT" />
+    <ref name="3" type="Control" typeName="LST_AREA_NO" />
+    <ref name="4" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="5" type="Control" typeName="HIDDEN_LOCATION_NO" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_EmpLocationList">
+      <listcellColumn name="HIDDEN_LOCATION_NO" orgIndex="0" dataType="Location" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="2" resourceKey="LBL-W0011" dataType="Area" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="3" resourceKey="LBL-W0138" dataType="Location" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="1" getValue="AREA_NO" setRef="0" setValue="AREA_NO" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="0" setValue="LOCATION_NO" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="SELECT" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="5" getValue="Value" setRef="1" setValue="LOCATION_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+      </output1>
+    </event>
+  </events>
+</business>

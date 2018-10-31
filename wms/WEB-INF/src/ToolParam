@@ -1,0 +1,65 @@
+# $Ic:  $ 
+
+#
+# Copyright 2005-2006 DAIFUKU Co.,Ltd. All Rights Reserved.
+#
+# This software is the proprietary information of DAIFUKU Co.,Ltd.
+# Use is subject to license terms.
+#
+
+#
+# eWareNavi AS/RS設定ツール 環境設定ファイルです。
+# @version $Revision: 1.1.1.1 $, $Date: 2008/08/25 02:19:43 $
+# @author  $Author: okamura $
+#
+
+[COMMON INFORMATION]
+#
+# ###### Common Information ######
+#
+
+# 整合性チェックのログファイル名
+CONSTRAINT_CHECK_FILE=error.log
+
+# AS/RSの棚表示形式
+LOCATION_STYLE=99-999-999
+
+# NG_PARAMETER_TEXT  		: 登録、修正時に含むことのできない特殊文字を定義します
+NG_PARAMETER_TEXT=*%"';+,
+
+[DATABASE CONNECTION INFORMATION]
+#
+# ###### Database Connection Information ######
+#
+
+# 設定データベーステーブルの一覧
+TABLE_NAMES=DMWAREHOUSE,DMAISLE,DMSHELF,DMLOADSIZE,DMWIDTH,DMACCESSNGSHELF,DMHARDZONE,DMSOFTZONE,DMSOFTZONEPRIORITY,DMSOFTZONERANGE,DMGROUPCONTROLLER,DMSTATION,DMSTATIONTYPE,DMMACHINE,DMBANKSELECT,DMTERMINALAREA,DMAREA
+
+[DISPLAY INFORMATION]
+#
+# ###### Display Information ######
+#
+
+# リストボックス検索結果上限数
+MAX_NUMBER_OF_DISP_LISTBOX=100
+
+[LOGIN INFORMATION]
+#
+# ###### Login Information ######
+
+# ログインユーザ
+LOGIN_USER=administrator
+# ログインパスワード
+LOGIN_PASSWORD=root
+
+# 製番ごとのファイルを保存しておく保存場所
+EAWC_ITEM_ROUTE_PATH=C:/eWareNavi_ITEM
+# データベースの初期テーブル作成コマンドのパス
+DEFAULT_TABLE_CREATOR_PATH=C:/daifuku/wms/bin/windows/asrstool/setup.cmd
+
+
+[DEFAULT RESOURCE FILE PATH INFORMATION]
+
+# Routeのデフォルトパス
+DEFAULT_ROUTETEXT_PATH=C:/DAIFUKU/wms/tomcat/webapps/wms/WEB-INF/src/route.txt
+

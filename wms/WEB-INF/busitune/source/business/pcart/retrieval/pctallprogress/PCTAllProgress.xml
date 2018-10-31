@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctallprogress.PCTAllProgressBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctallprogress.PCTAllProgress" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTAllProgressSCH" />
+    <ref name="2" type="Control" typeName="txt_ConsignorName" />
+    <ref name="3" type="ViewState" typeName="jp.co.daifuku.pcart.retrieval.display.pctallprogress.ViewStateKeys" />
+    <ref name="4" type="Control" typeName="rdo_Auto" />
+    <ref name="5" type="Control" typeName="rdo_BatchNoUnit" />
+    <ref name="6" type="Control" typeName="rdo_LotStandard" />
+    <ref name="7" type="Control" typeName="pul_AreaNo" />
+    <ref name="8" type="String" typeName="String" />
+    <ref name="9" type="Constants" typeName="Constants" />
+    <ref name="10" type="Control" typeName="Group" />
+    <ref name="11" type="Control" typeName="EndPlanTime" />
+    <ref name="12" type="Control" typeName="LST_PLAN_DATE_1" />
+    <ref name="13" type="Control" typeName="LST_BATCH_SEQ_NO_1" />
+    <ref name="14" type="Control" typeName="LST_BATCH_NO_1" />
+    <ref name="15" type="Control" typeName="LST_ORDER_COUNT_1" />
+    <ref name="16" type="Control" typeName="LST_BOX_COUNT_1" />
+    <ref name="17" type="Control" typeName="LST_LINE_COUNT_1" />
+    <ref name="18" type="Control" typeName="LST_LOT_COUNT_1" />
+    <ref name="19" type="Control" typeName="LST_END_PLAN_TIME_1" />
+    <ref name="20" type="Control" typeName="LST_CART_COUNT_1" />
+    <ref name="21" type="Control" typeName="txt_ProgressRate1" />
+    <ref name="22" type="Control" typeName="rdo_Manual" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaNo" dataType="WmsAreaFloorAllTrue" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_PCTAllProgress1">
+      <listcellColumn name="LST_PLAN_DATE_1" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_BATCH_SEQ_NO_1" orgIndex="2" resourceKey="LBL-P0149" dataType="String" />
+      <listcellColumn name="LST_BATCH_NO_1" orgIndex="3" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_ORDER_COUNT_1" orgIndex="4" resourceKey="LBL-W0015" dataType="String" />
+      <listcellColumn name="LST_BOX_COUNT_1" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT_1" orgIndex="6" resourceKey="LBL-P0047" dataType="String" />
+      <listcellColumn name="LST_LOT_COUNT_1" orgIndex="7" resourceKey="LBL-P0148" dataType="String" />
+      <listcellColumn name="LST_END_PLAN_TIME_1" orgIndex="8" resourceKey="LBL-P0091" dataType="String" />
+      <listcellColumn name="LST_CART_COUNT_1" orgIndex="9" resourceKey="LBL-P0092" dataType="Number" format="0" tooltipEnabled="true" />
+    </listcell>
+    <listcell name="lst_PCTAllProgress2">
+      <listcellColumn name="LST_PLAN_DATE_2" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_BATCH_SEQ_NO_2" orgIndex="2" resourceKey="LBL-P0149" dataType="String" />
+      <listcellColumn name="LST_BATCH_NO_2" orgIndex="3" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_ORDER_COUNT_2" orgIndex="4" resourceKey="LBL-W0015" dataType="String" />
+      <listcellColumn name="LST_BOX_COUNT_2" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT_2" orgIndex="6" resourceKey="LBL-P0047" dataType="String" />
+      <listcellColumn name="LST_LOT_COUNT_2" orgIndex="7" resourceKey="LBL-P0148" dataType="String" />
+      <listcellColumn name="LST_END_PLAN_TIME_2" orgIndex="8" resourceKey="LBL-P0091" dataType="String" />
+      <listcellColumn name="LST_CART_COUNT_2" orgIndex="9" resourceKey="LBL-P0092" dataType="Number" format="0" />
+    </listcell>
+    <listcell name="lst_PCTAllProgress3">
+      <listcellColumn name="LST_PLAN_DATE_3" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_BATCH_SEQ_NO_3" orgIndex="2" resourceKey="LBL-P0149" dataType="String" />
+      <listcellColumn name="LST_BATCH_NO_3" orgIndex="3" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_ORDER_COUNT_3" orgIndex="4" resourceKey="LBL-W0015" dataType="String" />
+      <listcellColumn name="LST_BOX_COUNT_3" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT_3" orgIndex="6" resourceKey="LBL-P0047" dataType="String" />
+      <listcellColumn name="LST_LOT_COUNT_3" orgIndex="7" resourceKey="LBL-P0148" dataType="String" />
+      <listcellColumn name="LST_END_PLAN_TIME_3" orgIndex="8" resourceKey="LBL-P0091" dataType="String" />
+      <listcellColumn name="LST_CART_COUNT_3" orgIndex="9" resourceKey="LBL-P0092" dataType="Number" format="0" />
+    </listcell>
+    <listcell name="lst_PCTAllProgress4">
+      <listcellColumn name="LST_PLAN_DATE_4" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_BATCH_SEQ_NO_4" orgIndex="2" resourceKey="LBL-P0149" dataType="String" />
+      <listcellColumn name="LST_BATCH_NO_4" orgIndex="3" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_ORDER_COUNT_4" orgIndex="4" resourceKey="LBL-W0015" dataType="String" />
+      <listcellColumn name="LST_BOX_COUNT_4" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT_4" orgIndex="6" resourceKey="LBL-P0047" dataType="String" />
+      <listcellColumn name="LST_LOT_COUNT_4" orgIndex="7" resourceKey="LBL-P0148" dataType="String" />
+      <listcellColumn name="LST_END_PLAN_TIME_4" orgIndex="8" resourceKey="LBL-P0091" dataType="String" />
+      <listcellColumn name="LST_CART_COUNT_4" orgIndex="9" resourceKey="LBL-P0092" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_PrevPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_PREVIOUS_PAGE" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="VS_CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="7" setValue="Value" />
+        <map getRef="3" getValue="VS_GROUP" setRef="10" setValue="Value" />
+        <map getRef="3" getValue="VS_END_PLAN_TIME" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_NextPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_NEXT_PAGE" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="VS_CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="7" setValue="Value" />
+        <map getRef="3" getValue="VS_GROUP" setRef="10" setValue="Value" />
+        <map getRef="3" getValue="VS_END_PLAN_TIME" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_Auto" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <clear1>
+        <clear controlRef="4" type="Checked" />
+      </clear1>
+    </event>
+    <event control="rdo_Manual" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <clear1>
+        <clear controlRef="22" type="Checked" />
+      </clear1>
+    </event>
+    <event control="rdo_BatchNoUnit" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_PlanDateUnit" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_AllPlanDate" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_LotStandard" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_OrderStandard" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_LineStandard" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="8" getValue="COLLECT_FLAG" setRef="1" setValue="COLLECT_FLAG" />
+        <map getRef="8" getValue="END_PLAN_TIME_FLAG" setRef="1" setValue="END_PLAN_TIME_FLAG" />
+        <map getRef="9" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="10" getValue="Value" setRef="3" setValue="VS_GROUP" />
+        <map getRef="11" getValue="Value" setRef="3" setValue="VS_END_PLAN_TIME" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_SEQ_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="END_PLAN_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="CART_COUNT" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

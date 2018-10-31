@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.simpledirecttransfer.AsSimpleDirectTransferBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.simpledirecttransfer.AsSimpleDirectTransfer" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsSimpleDirectTransferSCH" />
+    <ref name="2" type="Control" typeName="pul_FromStation" />
+    <ref name="3" type="Control" typeName="pul_ToStation" />
+    <ref name="4" type="Constants" typeName="Constants" />
+    <ref name="5" type="Number" typeName="Number" />
+    <ref name="6" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="7" type="Control" typeName="pul_WorkPlace" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsDirectTransfer" />
+    <pulldown name="pul_WorkPlace" dataType="WmsWorkspaceDirectTransfer" />
+    <pulldown name="pul_FromStation" dataType="WmsStationDirectTransferFrom" />
+    <pulldown name="pul_ToStation" dataType="WmsStationDirectTransferTo" parent="pul_FromStation" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="SOURCE_STATION_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="DEST_STATION_NO" />
+        <map getRef="4" getValue="SIMPLEDIRECTTRANSFER_CONSIGNORCODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="SIMPLEDIRECTTRANSFER_ITEMCODE" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="1" setRef="1" setValue="PLAN_QTY" />
+      </input1>
+      <part11 operationRef="6" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

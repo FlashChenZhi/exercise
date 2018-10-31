@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.stock.rft.schedule.StdAreaListSCH" type="Sch" />
+    <ref name="1" typeName="ReceivingStorageInDataSheet" type="DataSheet" />
+    <ref name="10" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="2" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="3" typeName="AreaListDataSheet" type="DataSheet" />
+    <ref name="4" typeName="jp.co.daifuku.wms.stock.rft.schedule.StdStartSCH" type="Sch" />
+    <ref name="5" typeName="Constants" type="Constants" />
+    <ref name="6" typeName="ReceivingStorageOutDataSheet" type="DataSheet" />
+    <ref name="7" typeName="Boolean" type="Boolean" />
+    <ref name="8" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="9" typeName="Number" type="Number" />
+    <ref name="11" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="back_Click" pattern="None" order="2" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+        <map getterTypeRef="2" getterValue="STORAGE_ITF_TO_JAN" setterTypeRef="0" setterValue="STORAGE_ITF_TO_JAN" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="AREA_NO" setterTypeRef="3" setterValue="AREA_NO" />
+        <map getterTypeRef="0" getterValue="AREA_NAME" setterTypeRef="3" setterValue="AREA_NAME" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Query" order="1">
+      <validate />
+      <schBase schRef="4" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="4" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="ITEM_CODE" setterTypeRef="4" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="AREA_NO" setterTypeRef="4" setterValue="AREA_NO" />
+        <map getterTypeRef="5" getterValue="DEFAULT_LOCATION_NO" setterTypeRef="4" setterValue="LOCATION_NO" />
+        <map getterTypeRef="2" getterValue="STORAGE_ITF_TO_JAN" setterTypeRef="4" setterValue="STORAGE_ITF_TO_JAN" />
+      </schInput>
+      <output>
+        <map getterTypeRef="4" getterValue="CONSIGNOR_CODE" setterTypeRef="6" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="4" getterValue="CONSIGNOR_NAME" setterTypeRef="6" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="4" getterValue="ITEM_CODE" setterTypeRef="6" setterValue="ITEM_CODE" />
+        <map getterTypeRef="4" getterValue="ITEM_NAME" setterTypeRef="6" setterValue="ITEM_NAME" />
+        <map getterTypeRef="4" getterValue="AREA_NO" setterTypeRef="6" setterValue="AREA_NO" />
+        <map getterTypeRef="4" getterValue="LOCATION_NO" setterTypeRef="6" setterValue="LOCATION_NO" />
+        <map getterTypeRef="4" getterValue="JAN" setterTypeRef="6" setterValue="JAN" />
+        <map getterTypeRef="4" getterValue="ITF" setterTypeRef="6" setterValue="ITF" />
+        <map getterTypeRef="4" getterValue="BUNDLE_ITF" setterTypeRef="6" setterValue="BUNDLE_ITF" />
+        <map getterTypeRef="4" getterValue="ENTERING_QTY" setterTypeRef="6" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="4" getterValue="BUNDLE_ENTERING_QTY" setterTypeRef="6" setterValue="BUNDLE_ENTERING_QTY" />
+        <map getterTypeRef="4" getterValue="LOT_NO" setterTypeRef="6" setterValue="LOT_NO" />
+        <map getterTypeRef="4" getterValue="STOCK_QTY" setterTypeRef="6" setterValue="STOCK_QTY" />
+        <map getterTypeRef="4" getterValue="STOCK_CASE_QTY" setterTypeRef="6" setterValue="STOCK_CASE_QTY" />
+        <map getterTypeRef="4" getterValue="STOCK_PIECE_QTY" setterTypeRef="6" setterValue="STOCK_PIECE_QTY" />
+        <map getterTypeRef="4" getterValue="PLAN_AREA_LOCATION" setterTypeRef="6" setterValue="PLAN_AREA_LOCATION" />
+        <map getterTypeRef="7" getterValue="False" setterTypeRef="6" setterValue="IS_STORAGE_START" />
+        <map getterTypeRef="4" getterValue="START_DATE_TIME" setterTypeRef="8" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="4" getterValue="CASE_INPUT_ENABLED" setterTypeRef="8" setterValue="CASE_INPUT_ENABLED" />
+        <map getterTypeRef="9" getterValue="0" setterTypeRef="8" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="4" getterValue="CONSIGNOR_NAME" setterTypeRef="10" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="9" getterValue="0" setterTypeRef="6" setterValue="RESULT_QTY" />
+        <map getterTypeRef="9" getterValue="0" setterTypeRef="6" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="9" getterValue="0" setterTypeRef="6" setterValue="RESULT_PIECE_QTY" />
+      </output>
+    </method>
+  </methods>
+</business>

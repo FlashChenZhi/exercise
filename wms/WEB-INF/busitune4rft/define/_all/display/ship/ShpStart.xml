@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.ship.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpStartSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ShippingCustomerInDataSheet" type="DataSheet" />
+    <ref name="4" typeName="ShippingCustomerOutDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Number" type="Number" />
+    <ref name="6" typeName="CustomerDataSheet" type="DataSheet" />
+    <ref name="7" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="8" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="Query" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="0" setterValue="CUSTOMER_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="SETTING_UNIT_KEY" setterTypeRef="4" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="0" getterValue="CONSIGNOR_CODE" setterTypeRef="4" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="0" getterValue="CONSIGNOR_NAME" setterTypeRef="4" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="0" getterValue="CUSTOMER_CODE" setterTypeRef="4" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="0" getterValue="CUSTOMER_NAME" setterTypeRef="4" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="0" getterValue="PLAN_DATE" setterTypeRef="4" setterValue="PLAN_DATE" />
+        <map getterTypeRef="0" getterValue="BATCH_NO" setterTypeRef="4" setterValue="BATCH_NO" />
+        <map getterTypeRef="0" getterValue="TOTAL_ITEM" setterTypeRef="4" setterValue="TOTAL_ITEM" />
+        <map getterTypeRef="0" getterValue="PENDING_ITEM" setterTypeRef="4" setterValue="PENDING_ITEM" />
+        <map getterTypeRef="0" getterValue="START_DATE_TIME" setterTypeRef="2" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="5" getterValue="0" setterTypeRef="2" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="0" getterValue="CUSTOMER_NAME" setterTypeRef="6" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="0" getterValue="CONSIGNOR_NAME" setterTypeRef="7" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="0" getterValue="QTY_INPUT_ENABLED" setterTypeRef="4" setterValue="QTY_INPUT_ENABLED" />
+      </output>
+    </method>
+  </methods>
+</business>

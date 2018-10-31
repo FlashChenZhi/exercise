@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.breaktimeregist.BreakTimeRegistBusiness" abstractClassName="jp.co.daifuku.wms.analysis.display.breaktimeregist.BreakTimeRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_BreakStartTime" />
+    <ref name="1" type="Control" typeName="txt_BreakEndTime" />
+    <ref name="2" type="Control" typeName="btn_Setting" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.BreakTimeRegistSCH" />
+    <ref name="4" type="Control" typeName="LST_REST_BREAK_START" />
+    <ref name="5" type="Control" typeName="LST_REST_BREAK_END" />
+    <ref name="6" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_BreakTimeList">
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W0108" dataType="String" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" />
+      <listcellColumn name="LST_REST_BREAK_START" orgIndex="3" resourceKey="LBL-W1270" dataType="String" />
+      <listcellColumn name="LST_REST_BREAK_END" orgIndex="4" resourceKey="LBL-W1271" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Input" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="3" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="BREAK_START_TIME" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="BREAK_END_TIME" />
+      </input1>
+      <input2>
+        <map getRef="4" getValue="Value" setRef="3" setValue="BREAK_START_TIME" />
+        <map getRef="5" getValue="Value" setRef="3" setValue="BREAK_END_TIME" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Setting" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="3" />
+      <input1>
+        <map getRef="4" getValue="Value" setRef="3" setValue="BREAK_START_TIME" />
+        <map getRef="5" getValue="Value" setRef="3" setValue="BREAK_END_TIME" />
+      </input1>
+      <part11 operationRef="6" operation="SETTING">
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="LST_MODIFY" name="Click" pattern="ListCellRowEdit">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="0" setValue="Value" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+  </events>
+</business>

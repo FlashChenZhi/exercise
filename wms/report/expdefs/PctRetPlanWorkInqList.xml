@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0309" downloadName="PctRetPlanWorkInqList" reportName="LBL-W6013">
+    <field name="consignor_code" type="string" header="LBL-P0042" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_name" type="string" header="LBL-P0016" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0185" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="batch_no" type="string" header="LBL-W0028" printEnabled="true" xlsEnabled="true"/>
+    <field name="batch_seq_no" type="string" header="LBL-P0149" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_code" type="string" header="LBL-P0059" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_name" type="string" header="LBL-P0051" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_code" type="string" header="LBL-W0114" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_name" type="string" header="LBL-W0115" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_no" type="string" header="LBL-W0014" printEnabled="true" xlsEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="jan_code" type="string" header="LBL-W0002" printEnabled="true" xlsEnabled="true"/>
+    <field name="itf" type="string" header="LBL-W0017" printEnabled="true" xlsEnabled="true"/>
+    <field name="bundle_itf" type="string" header="LBL-P0143" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_qty" type="number" format="###,###,###,##0" header="LBL-P0053" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_qty" type="number" format="###,###,###,##0" header="LBL-W0328" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="status" type="string" header="LBL-W0086" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_area_no" type="area" header="LBL-P0043" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_zone_no" type="string" header="LBL-P0044" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_location_no" type="location" header="LBL-P0094" printEnabled="true" xlsEnabled="true"/>
+    <field name="terminal_no" type="string" header="LBL-T0040" printEnabled="true" xlsEnabled="true"/>
+    <field name="user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+</exportspec>

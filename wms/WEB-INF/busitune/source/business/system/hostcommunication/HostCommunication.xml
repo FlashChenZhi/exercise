@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.hostcommunication.HostCommunicationBusiness" abstractClassName="jp.co.daifuku.wms.system.display.hostcommunication.HostCommunication" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_CommunicationSuspendRestar" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.HostCommunicationSCH" />
+    <ref name="2" type="Control" typeName="LST_DATA_NAME" />
+    <ref name="3" type="Control" typeName="LST_CYCLE" />
+    <ref name="4" type="Control" typeName="LST_TIME" />
+    <ref name="5" type="Control" typeName="LST_STATUS" />
+    <ref name="6" type="Control" typeName="LST_ISSUE_LIST" />
+    <ref name="7" type="Control" typeName="HIDDEN_CYCLE" />
+    <ref name="8" type="Control" typeName="HIDDEN_TIME" />
+    <ref name="9" type="Control" typeName="HIDDEN_ISSUE_LIST" />
+    <ref name="10" type="Control" typeName="HIDDEN_JOB_TYPE" />
+    <ref name="11" type="Control" typeName="HIDDEN_EXCHANGE_TYPE" />
+    <ref name="12" type="Control" typeName="HIDDEN_CLASS_NAME" />
+    <ref name="13" type="Control" typeName="HIDDEN_IS_DEFINED" />
+    <ref name="14" type="Control" typeName="lst_HostCommunication" />
+    <ref name="15" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="16" type="Boolean" typeName="Boolean" />
+    <ref name="17" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_HostCommunication">
+      <listcellColumn name="HIDDEN_CYCLE" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="HIDDEN_TIME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ISSUE_LIST" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_JOB_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_EXCHANGE_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CLASS_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_IS_DEFINED" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_DATA_NAME" orgIndex="1" resourceKey="LBL-W1419" dataType="String" />
+      <listcellColumn name="LST_CYCLE" orgIndex="2" resourceKey="LBL-W1414" dataType="Number" format="0" modifyCheck="true" />
+      <listcellColumn name="LST_TIME" orgIndex="3" resourceKey="LBL-W1415" dataType="String" modifyCheck="true" />
+      <listcellColumn name="LST_ISSUE_LIST" orgIndex="4" resourceKey="LBL-W1416" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_STATUS" orgIndex="5" resourceKey="LBL-W0132" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="DATA_NAME" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="CYCLE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="SPECIFIED_TIME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ERROR_STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="HOST_DISABLED" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="ISSUE_LIST" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="CYCLE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="SPECIFIED_TIME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="ISSUE_LIST" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="JOB_TYPE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="EXCHANGE_TYPE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="CLASS_NAME" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="IS_DEFINED" setRef="13" setValue="Value" />
+      </output1>
+      <focus controlRef="14" />
+    </event>
+    <event control="btn_CommunicationSuspendRestar" name="Click" pattern="Edit">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="HOST_DISABLED" />
+      </input1>
+      <part11 operationRef="15" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="HOST_DISABLED" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="14" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="14" required="true" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+      </validate>
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="DATA_NAME" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="CYCLE" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="SPECIFIED_TIME" />
+        <map getRef="6" getValue="Value" setRef="1" setValue="ISSUE_LIST" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="HIDDEN_CYCLE" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="HIDDEN_TIME" />
+        <map getRef="9" getValue="Value" setRef="1" setValue="HIDDEN_ISSUE_LIST" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="JOB_TYPE" />
+        <map getRef="11" getValue="Value" setRef="1" setValue="EXCHANGE_TYPE" />
+        <map getRef="12" getValue="Value" setRef="1" setValue="CLASS_NAME" />
+        <map getRef="13" getValue="Value" setRef="1" setValue="IS_DEFINED" />
+      </input1>
+      <part11 operationRef="15" operation="SETTING">
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <block type="If" tag="1" desc="リスト自動発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="6" leftValue="Value" rightRef="16" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="1" />
+        <block type="Else" tag="1" desc="リスト自動発行が選択されている場合" />
+        <out out1Ref="17" out1Value="0" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="DATA_NAME" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="CYCLE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="SPECIFIED_TIME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ERROR_STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="ISSUE_LIST" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="HOST_DISABLED" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="CYCLE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="SPECIFIED_TIME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="ISSUE_LIST" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="JOB_TYPE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="EXCHANGE_TYPE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="CLASS_NAME" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="IS_DEFINED" setRef="13" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="ReadWrite" />
+        <clear controlRef="4" type="ReadWrite" />
+      </clear1>
+      <focus controlRef="14" />
+    </event>
+  </events>
+</business>

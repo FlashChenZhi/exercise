@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.part11.listbox.stockhistorylist.LstStockHistoryBusiness" abstractClassName="jp.co.daifuku.wms.part11.listbox.stockhistorylist.LstStockHistory" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.wms.part11.dasch.LstStockHistoryDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.part11.listbox.stockhistorylist.LstStockHistoryParams" />
+    <ref name="2" type="Control" typeName="LST_NO" />
+    <ref name="3" type="Control" typeName="LST_LOGDATE_DAY" />
+    <ref name="4" type="Control" typeName="LST_LOGDATE_TIME" />
+    <ref name="5" type="Control" typeName="LST_USER_ID" />
+    <ref name="6" type="Control" typeName="LST_USER_NAME" />
+    <ref name="7" type="Control" typeName="LST_IP_ADDRESS" />
+    <ref name="8" type="Control" typeName="LST_TERMINAL_NAME" />
+    <ref name="9" type="Control" typeName="LST_DS_NO" />
+    <ref name="10" type="Control" typeName="LST_PAGENAMERESOURCEKEY" />
+    <ref name="11" type="Control" typeName="LST_AREA_NO" />
+    <ref name="12" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="13" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="14" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="15" type="Control" typeName="LST_LOT_NO" />
+    <ref name="16" type="Control" typeName="LST_STOCK_QTY" />
+    <ref name="17" type="Control" typeName="LST_UPDATE_STOCK_QTY" />
+    <ref name="18" type="Control" typeName="LST_STORAGE_DATE" />
+    <ref name="19" type="Control" typeName="LST_UPDATE_STORAGE_DATE" />
+    <ref name="20" type="Control" typeName="LST_RETRIEVAL_DAY" />
+    <ref name="21" type="Control" typeName="LST_UPDATE_RETRIEVAL_DAY" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_StockHistoryList">
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_DAY" orgIndex="2" resourceKey="LBL-W8004" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_TIME" orgIndex="12" resourceKey="LBL-W8005" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_ID" orgIndex="3" resourceKey="LBL-T0220" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="13" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_IP_ADDRESS" orgIndex="4" resourceKey="LBL-T0222" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_NAME" orgIndex="14" resourceKey="LBL-W8006" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_DS_NO" orgIndex="5" resourceKey="LBL-W8003" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_PAGENAMERESOURCEKEY" orgIndex="15" resourceKey="LBL-W8007" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="6" resourceKey="LBL-W8008" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="16" resourceKey="LBL-W8009" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="7" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="17" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="8" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="9" resourceKey="LBL-W8010" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_STOCK_QTY" orgIndex="18" resourceKey="LBL-W8011" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_STORAGE_DATE" orgIndex="10" resourceKey="LBL-W8012" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_STORAGE_DATE" orgIndex="19" resourceKey="LBL-W8013" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_RETRIEVAL_DAY" orgIndex="11" resourceKey="LBL-W8014" dataType="Date" format="DateLong" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_RETRIEVAL_DAY" orgIndex="20" resourceKey="LBL-W8015" dataType="Date" format="DateLong" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="1" getValue="TABLE_NAME" setRef="0" setValue="TABLE_NAME" />
+        <map getRef="1" getValue="DISPFROMDAY_KEY" setRef="0" setValue="DISPFROMDAY_KEY" />
+        <map getRef="1" getValue="DISPFROMTIME_KEY" setRef="0" setValue="DISPFROMTIME_KEY" />
+        <map getRef="1" getValue="DISPTODAY_KEY" setRef="0" setValue="DISPTODAY_KEY" />
+        <map getRef="1" getValue="DISPTOTIME_KEY" setRef="0" setValue="DISPTOTIME_KEY" />
+        <map getRef="1" getValue="USERID_KEY" setRef="0" setValue="USERID_KEY" />
+        <map getRef="1" getValue="DSNUMBER_KEY" setRef="0" setValue="DSNUMBER_KEY" />
+        <map getRef="1" getValue="AREA_NO" setRef="0" setValue="AREA_NO" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="0" setValue="LOCATION_NO" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="0" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="LOT_NO" setRef="0" setValue="LOT_NO" />
+        <map getRef="1" getValue="STYLE_KEY" setRef="0" setValue="STYLE_KEY" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="NO" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="LOGDATE_DAY" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="LOGDATE_TIME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IP_ADDRESS" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_NAME" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="DS_NO" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="PAGENAMERESOURCEKEY" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="LOCATION_NO" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="ITEM_CODE" setRef="13" setValue="Value" />
+        <map getRef="0" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="0" getValue="LOT_NO" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="STOCK_QTY" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_STOCK_QTY" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="STORAGE_DATE" setRef="18" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_STORAGE_DATE" setRef="19" setValue="Value" />
+        <map getRef="0" getValue="RETRIEVAL_DAY" setRef="20" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_RETRIEVAL_DAY" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

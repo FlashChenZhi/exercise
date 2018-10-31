@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.listbox.stockdetail.LstAsStockDetailBusiness" abstractClassName="jp.co.daifuku.wms.asrs.listbox.stockdetail.LstAsStockDetail" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.LstAsStockDetailDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.stockdetail.LstAsStockDetailParams" />
+    <ref name="3" type="Control" typeName="LST_SELECT" />
+    <ref name="4" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="5" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="6" type="Control" typeName="LST_LOT_NO" />
+    <ref name="7" type="Control" typeName="LST_ENTERING_QTY" />
+    <ref name="8" type="Control" typeName="LST_STOCK_CASE_QTY" />
+    <ref name="9" type="Control" typeName="LST_STOCK_PIECE_QTY" />
+    <ref name="10" type="Control" typeName="LST_STORAGE_DATE" />
+    <ref name="11" type="Control" typeName="LST_STORAGE_TIME" />
+    <ref name="12" type="Control" typeName="LST_JAN" />
+    <ref name="13" type="Control" typeName="LST_ITF" />
+    <ref name="14" type="Control" typeName="HIDDEN_STOCK_ID" />
+    <ref name="15" type="Control" typeName="HIDDEN_LAST_UPDATE_DATE" />
+    <ref name="16" type="Control" typeName="HIDDEN_SOFT_ZONE_NAME" />
+    <ref name="17" type="ViewState" typeName="jp.co.daifuku.wms.asrs.listbox.stockdetail.ViewStateKeys" />
+    <ref name="18" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_LocationDetailListIncludeB">
+      <listcellColumn name="HIDDEN_STOCK_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LAST_UPDATE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="HIDDEN_SOFT_ZONE_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="8" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="3" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ENTERING_QTY" orgIndex="4" resourceKey="LBL-W0019" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_CASE_QTY" orgIndex="5" resourceKey="LBL-W0071" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_PIECE_QTY" orgIndex="9" resourceKey="LBL-W0072" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATE" orgIndex="6" resourceKey="LBL-W0160" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_TIME" orgIndex="10" resourceKey="LBL-W0157" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_JAN" orgIndex="7" resourceKey="LBL-W0002" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITF" orgIndex="11" resourceKey="LBL-W0017" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="LOCATION_NO" setRef="1" setValue="LOCATION_NO" />
+        <map getRef="2" getValue="AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="PROCESS_TYPE" setRef="1" setValue="PROCESS_TYPE" />
+        <map getRef="2" getValue="PALLET_ID" setRef="1" setValue="PALLET_ID" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="SELECT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ENTERING_QTY" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="STOCK_CASE_QTY" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="STOCK_PIECE_QTY" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="JAN" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="ITF" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="STOCK_ID" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="SOFT_ZONE_NAME" setRef="16" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="LOT_NO" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="ENTERING_QTY" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="STOCK_CASE_QTY" />
+        <map getRef="9" getValue="Value" setRef="2" setValue="STOCK_PIECE_QTY" />
+        <map getRef="10" getValue="Value" setRef="2" setValue="STORAGE_DATE" />
+        <map getRef="11" getValue="Value" setRef="2" setValue="STORAGE_TIME" />
+        <map getRef="12" getValue="Value" setRef="2" setValue="JAN" />
+        <map getRef="13" getValue="Value" setRef="2" setValue="ITF" />
+        <map getRef="14" getValue="Value" setRef="2" setValue="STOCK_ID" />
+        <map getRef="15" getValue="Value" setRef="2" setValue="LAST_UPDATE_DATE" />
+        <map getRef="16" getValue="Value" setRef="2" setValue="SOFT_ZONE_NAME" />
+        <map getRef="17" getValue="PROCESS_TYPE" setRef="2" setValue="PROCESS_TYPE" />
+        <map getRef="18" getValue="AREA_NAME" setRef="2" setValue="AREA_NAME" />
+        <map getRef="18" getValue="LOCATION_NO" setRef="2" setValue="LOCATION_NO" />
+      </output1>
+    </event>
+  </events>
+</business>

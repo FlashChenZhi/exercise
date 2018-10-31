@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="NstDetail" type="Page" />
+    <ref name="1" typeName="noplanstorage" type="Flow" />
+    <ref name="2" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="NstLocationInput" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

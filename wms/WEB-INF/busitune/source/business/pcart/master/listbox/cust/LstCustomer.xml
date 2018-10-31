@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.listbox.cust.LstCustomerBusiness" abstractClassName="jp.co.daifuku.pcart.master.listbox.cust.LstCustomer" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.cust.LstCustomerParams" />
+    <ref name="3" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="4" type="Control" typeName="LST_JOB_PRIORITY" />
+    <ref name="5" type="Control" typeName="HIDDEN_JOB_PRIORITY" />
+    <ref name="6" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.LstCustomerDASCH" />
+    <ref name="7" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_PCTCustomerList">
+      <listcellColumn name="HIDDEN_JOB_PRIORITY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="2" resourceKey="LBL-W0114" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="3" resourceKey="LBL-W0115" dataType="String" />
+      <listcellColumn name="LST_JOB_PRIORITY" orgIndex="4" resourceKey="LBL-P0214" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="CUSTOMER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="CUSTOMER_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="COLUMN_4" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="CUSTOMER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="CUSTOMER_NAME" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="JOB_PRIORITY" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="6" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="6" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="SELECT" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="CUSTOMER_CODE" setRef="1" setValue="Value" />
+        <map getRef="6" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="6" getValue="JOB_PRIORITY" setRef="4" setValue="Value" />
+        <map getRef="6" getValue="JOB_PRIORITY" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

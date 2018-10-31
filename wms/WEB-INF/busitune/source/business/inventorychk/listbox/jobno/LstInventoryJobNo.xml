@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.inventorychk.listbox.jobno.LstInventoryJobNoBusiness" abstractClassName="jp.co.daifuku.wms.inventorychk.listbox.jobno.LstInventoryJobNo" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_LIST" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.inventorychk.listbox.jobno.LstInventoryJobNoParams" />
+    <ref name="3" type="Control" typeName="LST_AREA" />
+    <ref name="4" type="Control" typeName="LST_START_LOCATION" />
+    <ref name="5" type="Control" typeName="LST_END_LOCATION" />
+    <ref name="6" type="Dasch" typeName="jp.co.daifuku.wms.inventorychk.dasch.LstInventoryJobNoDASCH" />
+    <ref name="7" type="Control" typeName="LST_COLUMN_1" />
+  </refs>
+  <listcells>
+    <listcell name="lst_InventoryListNoList">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_LIST" orgIndex="2" resourceKey="LBL-W0034" dataType="String" />
+      <listcellColumn name="LST_AREA" orgIndex="3" resourceKey="LBL-W0011" dataType="String" />
+      <listcellColumn name="LST_START_LOCATION" orgIndex="4" resourceKey="LBL-W0055" dataType="String" />
+      <listcellColumn name="LST_END_LOCATION" orgIndex="5" resourceKey="LBL-W0113" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="LIST_WORK_NO" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="START_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="END_LOCATION" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="6" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="LIST_WORK_NO" setRef="6" setValue="LIST_WORK_NO" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="COLUMN_1" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="LIST_WORK_NO" setRef="1" setValue="Value" />
+        <map getRef="6" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="6" getValue="START_LOCATION" setRef="4" setValue="Value" />
+        <map getRef="6" getValue="END_LOCATION" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

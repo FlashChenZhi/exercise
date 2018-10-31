@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.workstart.AsWorkStartBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.workstart.AsWorkStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsWorkStartSCH" />
+    <ref name="2" type="Control" typeName="LST_AGC" />
+    <ref name="3" type="Control" typeName="LST_AGC_STATUS" />
+    <ref name="4" type="Control" typeName="LST_PENDING" />
+    <ref name="5" type="Control" typeName="HIDDEN_SYSTEM_STATUS" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.carrynobtn.LstAsCarryNoBtnParams" />
+    <ref name="7" type="Control" typeName="lst_AsrsWorkStart" />
+    <ref name="8" type="String" typeName="String" />
+    <ref name="9" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_AsrsWorkStart">
+      <listcellColumn name="HIDDEN_SYSTEM_STATUS" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_AGC" orgIndex="2" resourceKey="LBL-W0001" dataType="String" />
+      <listcellColumn name="LST_AGC_STATUS" orgIndex="3" resourceKey="LBL-W0020" dataType="String" />
+      <listcellColumn name="LST_PENDING" orgIndex="4" resourceKey="LBL-W0097" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONTROLLER_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="SYSTEM_STATUS" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ReDisplayFunc" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONTROLLER_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="SYSTEM_STATUS" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_RemainWork" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/carrynobtn/LstAsCarryNoBtn" businessParameterRef="6" />
+    </event>
+    <event control="btn_Set2" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="CONTROLLER_NO" />
+        <map getRef="8" getValue="0" setRef="1" setValue="PROCESS_TYPE" />
+      </input1>
+      <part11 operationRef="9" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="CONTROLLER_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="SYSTEM_STATUS" setRef="5" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+  </events>
+</business>

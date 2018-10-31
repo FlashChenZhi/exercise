@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.retrieval.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="オーダーNo.選択データシート" />
+  <comment lang="en" value="OrderNo. Selection Data Sheet" />
+  <comment lang="zh" value="订单No.选择数据表" />
+  <fields>
+    <field name="CUSTOMER_CODE" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="出荷先コード" />
+      <comment lang="en" value="Customer Code" />
+      <comment lang="zh" value="发货地代码" />
+    </field>
+    <field name="CUSTOMER_NAME" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="出荷先名称" />
+      <comment lang="en" value="Customer Name" />
+      <comment lang="zh" value="发货地名称" />
+    </field>
+    <field name="ORDER_NO" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="オーダーNo." />
+      <comment lang="en" value="OrderNo." />
+      <comment lang="zh" value="订单No." />
+    </field>
+  </fields>
+</datasheet>

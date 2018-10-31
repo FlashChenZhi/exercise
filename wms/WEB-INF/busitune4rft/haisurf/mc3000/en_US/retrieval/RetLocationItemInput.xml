@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingLocation/ItemInput-->
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="11" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="16" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontPlanQty" fontname="Courier New" bold="false" italic="false" size="24" bht_size="1" />
+  <font name="fontItemName" fontname="Courier New" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontEnteringQty" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontOrderSerialNo" fontname="Courier New" bold="true" italic="false" size="16" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" modeonline="true" focus="%CommonDataSheet.FocusField%" wave="%CommonDataSheet.BeepWav%" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>26</h>
+      <caption>Location/Item Input</caption>
+    </label>
+    <label name="lblLocation" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>50</y>
+      <w>60</w>
+      <h>16</h>
+      <caption>Loc. #:</caption>
+    </label>
+    <edit name="Location" autoselect="true" enabled="%RetrievalOutDataSheet.LOCATION_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="12" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-time="1" bht-ng-count="1" bht-ng-alarm="low" bht-ng-vibration="true" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>70</x>
+      <y>44</y>
+      <w>240</w>
+      <h>25</h>
+      <text>%RetrievalOutDataSheet.AREA_LOCATION%</text>
+      <event>RetOrderLI_Ent</event>
+    </edit>
+    <label name="lblItemCode" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>80</y>
+      <w>50</w>
+      <h>16</h>
+      <caption>Item:</caption>
+    </label>
+    <edit name="ItemCode" autoselect="true" enabled="%RetrievalOutDataSheet.ITEM_CODE_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-time="1" bht-ng-count="1" bht-ng-alarm="low" bht-ng-vibration="true" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>70</x>
+      <y>74</y>
+      <w>240</w>
+      <h>25</h>
+      <text>%RetrievalOutDataSheet.ITEM_CODE%</text>
+      <event>RetOrderLI_Ent</event>
+    </edit>
+    <label name="lblItemName" font-id="fontItemName" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>100</y>
+      <w>292</w>
+      <h>54</h>
+      <caption>%RetrievalOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <label name="lblCaseQty" font-id="fontPlanQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>60</x>
+      <y>171</y>
+      <w>75</w>
+      <h>32</h>
+      <caption>%RetrievalOutDataSheet.PLAN_CASE_QTY%</caption>
+    </label>
+    <label name="lblPlanCase" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>140</x>
+      <y>190</y>
+      <w>36</w>
+      <h>16</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblPieceQty" font-id="fontPlanQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>190</x>
+      <y>171</y>
+      <w>75</w>
+      <h>32</h>
+      <caption>%RetrievalOutDataSheet.PLAN_PIECE_QTY%</caption>
+    </label>
+    <label name="lblPlanPiece" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>267</x>
+      <y>190</y>
+      <w>43</w>
+      <h>16</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblPlan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>190</y>
+      <w>38</w>
+      <h>16</h>
+      <caption>Plan:</caption>
+    </label>
+    <label name="lblEntering" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>220</y>
+      <w>72</w>
+      <h>20</h>
+      <caption>Case pack:</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>80</x>
+      <y>215</y>
+      <w>52</w>
+      <h>22</h>
+      <caption>%RetrievalOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>248</y>
+      <w>50</w>
+      <h>20</h>
+      <caption>Lot #:</caption>
+    </label>
+    <label name="lblLotNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>246</y>
+      <w>210</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.PLAN_LOT_NO%</caption>
+    </label>
+    <label name="lblOrderSerialNo" font-id="fontOrderSerialNo" visible="true">
+      <align>center</align>
+      <x>270</x>
+      <y>240</y>
+      <w>50</w>
+      <h>22</h>
+      <caption>&lt;%RetrievalOutDataSheet.ORDER_SERIAL_NO%&gt;</caption>
+    </label>
+    <button name="SkipInspect" font-id="fontBtn" visible="%TermInfoDataSheet.RETRIEVAL_INSPECTION_MODE%" backcolor="FFA500" enabled="%RetrievalOutDataSheet.SKIP_ENABLED%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Skip</caption>
+      <event>RetOrderLI_Skip</event>
+    </button>
+    <button name="CancelInspect" font-id="fontBtn" visible="%TermInfoDataSheet.RETRIEVAL_INSPECTION_MODE%" backcolor="FFA500" enabled="%TermInfoDataSheet.RETRIEVAL_INSPECTION_MODE%" inputchecked="false" modeonline="true">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Cancel</caption>
+      <event>RetOrderLI_Cancel</event>
+    </button>
+    <button name="CPInspect" font-id="fontBtn" visible="%TermInfoDataSheet.RETRIEVAL_INSPECTION_MODE%" backcolor="%CommonDataSheet.CASE_PIECE_COLOR%" enabled="%TermInfoDataSheet.RETRIEVAL_INSPECTION_MODE%" inputchecked="false" modeonline="true">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>%CommonDataSheet.CASE_PIECE_LABEL%</caption>
+      <event>RetOrderLI_CP</event>
+    </button>
+    <button name="Skip" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%RetrievalOutDataSheet.SKIP_ENABLED%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>Skip</caption>
+      <event>RetOrderLI_Skip</event>
+    </button>
+    <button name="Cancel" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>160</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>Cancel</caption>
+      <event>RetOrderLI_Cancel</event>
+    </button>
+    <button name="Detail" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>200</x>
+      <y>0</y>
+      <w>124</w>
+      <h>40</h>
+      <caption>Details</caption>
+      <event>RetOrderLI_Detail</event>
+    </button>
+    <label name="panel1" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>70</y>
+      <w>324</w>
+      <h>90</h>
+    </label>
+    <label name="panel2" font-id="" visible="true">
+      <align>left</align>
+      <x>270</x>
+      <y>232</y>
+      <w>54</w>
+      <h>40</h>
+    </label>
+    <label name="panel3" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>165</y>
+      <w>324</w>
+      <h>107</h>
+    </label>
+  </form>
+</HaiSurf.Page>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<userProject version="1.01" xmlns="userProject" xsi:schemaLocation="userProject user-project.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <lastLanguage>Japanese</lastLanguage>
+  <defaultPackage>jp.co.daifuku.</defaultPackage>
+  <controls>
+    <control name="Label">
+      <!--終了時の表示列設定-->
+      <displayProperties>
+        <property name="onmouseover" />
+        <property name="serverEvents" />
+        <property name="onclick" />
+        <property name="onmouseout" />
+        <property name="ondblclick" />
+        <property name="onmousemove" />
+        <property name="cssClass" />
+        <property name="visible" />
+        <property name="text" />
+        <property name="onmouseup" />
+        <property name="resourceKey" />
+        <property name="onmousedown" />
+      </displayProperties>
+    </control>
+    <control name="FixedListCell">
+      <!--終了時の表示列設定-->
+      <displayProperties>
+        <property name="ListCellColumns" />
+        <property name="colHeader" />
+        <property name="errRequired" />
+        <property name="alterationBgColor" />
+        <property name="tableCssClass" />
+        <property name="visible" />
+        <property name="maxRows" />
+        <property name="ListCellRowHeaders" />
+      </displayProperties>
+    </control>
+  </controls>
+  <taskOption>
+    <global>
+      <option name="enabled" value="true" />
+      <option name="checkAtSaveTime" value="true" />
+    </global>
+    <templateFile>
+      <option name="adjustmentResourceKey" value="true" />
+      <option name="adjustmentTemplateKey" value="true" />
+      <option name="languageFileExistence" value="true" />
+      <option name="requireDefaultColumn" value="true" />
+      <option name="undefinedProperty" value="true" />
+    </templateFile>
+    <propertyFile>
+      <option name="byteCountOfMessageResource" value="true" />
+      <option name="duplicationValue" value="false" />
+      <option name="languageFileExistence" value="true" />
+      <option name="undefinedValue" value="false" />
+    </propertyFile>
+  </taskOption>
+</userProject>

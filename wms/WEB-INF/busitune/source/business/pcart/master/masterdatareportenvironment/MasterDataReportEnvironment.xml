@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.masterdatareportenvironment.MasterDataReportEnvironmentBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.masterdatareportenvironment.MasterDataReportEnvironment" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.MasterDataReportEnvironmentSCH" />
+    <ref name="1" type="Control" typeName="HIDDEN_DATA_TYPE" />
+    <ref name="2" type="Control" typeName="LST_MASTER" />
+    <ref name="3" type="Control" typeName="LST_DESTINATION_FOLDER" />
+    <ref name="4" type="Control" typeName="LST_DATA_ID_NAME" />
+    <ref name="5" type="Control" typeName="lst_DataReportFileEnvironment" />
+  </refs>
+  <listcells>
+    <listcell name="lst_DataReportFileEnvironment">
+      <listcellColumn name="HIDDEN_DATA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_MASTER" orgIndex="1" resourceKey="LBL-W1419" dataType="String" />
+      <listcellColumn name="LST_DESTINATION_FOLDER" orgIndex="2" resourceKey="LBL-W0025" dataType="String" modifyCheck="true" />
+      <listcellColumn name="LST_DATA_ID_NAME" orgIndex="3" resourceKey="LBL-W0024" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="MASTER" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PREFIX_NAME" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="0" />
+      <validate>
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="0" setValue="DATA_TYPE" />
+        <map getRef="2" getValue="Value" setRef="0" setValue="MASTER" />
+        <map getRef="3" getValue="Value" setRef="0" setValue="DESTINATION_FOLDER" />
+        <map getRef="4" getValue="Value" setRef="0" setValue="PREFIX_NAME" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="MASTER" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PREFIX_NAME" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="MASTER" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="DESTINATION_FOLDER" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PREFIX_NAME" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

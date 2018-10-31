@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctuserresultinquiry.PCTUserResultInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctuserresultinquiry.PCTUserResultInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_WorkDate" />
+    <ref name="1" type="Control" typeName="txt_ToWorkDate" />
+    <ref name="2" type="Control" typeName="rdo_DateSelect_All" />
+    <ref name="3" type="Control" typeName="chk_Monday" />
+    <ref name="4" type="Control" typeName="chk_Tuesday" />
+    <ref name="5" type="Control" typeName="chk_Wednesday" />
+    <ref name="6" type="Control" typeName="chk_Thursday" />
+    <ref name="7" type="Control" typeName="chk_Friday" />
+    <ref name="8" type="Control" typeName="chk_Saturday" />
+    <ref name="9" type="Control" typeName="chk_Sunday" />
+    <ref name="10" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="11" type="Control" typeName="pul_Area" />
+    <ref name="12" type="Control" typeName="txt_BatchNo" />
+    <ref name="13" type="Control" typeName="chk_levelA" />
+    <ref name="14" type="Control" typeName="chk_levelB" />
+    <ref name="15" type="Control" typeName="chk_levelC" />
+    <ref name="16" type="Control" typeName="rdo_CollectCondition_Worker" />
+    <ref name="17" type="Control" typeName="rdo_DisplayRank_Lot" />
+    <ref name="18" type="Control" typeName="btn_DateSelectWeekday" />
+    <ref name="19" type="Control" typeName="btn_DateSelectClear" />
+    <ref name="20" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.pctuserresultworkdate.LstPCTUserResultWorkDateParams" />
+    <ref name="21" type="Control" typeName="rdo_group_DateSelect" />
+    <ref name="22" type="Control" typeName="rdo_CollectCondition" />
+    <ref name="23" type="Control" typeName="rdo_DisplayRank" />
+    <ref name="24" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstPCTUserResultBatchDASCH" />
+    <ref name="25" type="ExportParameter" typeName="jp.co.daifuku.pcart.retrieval.exporter.PctUserResultBatchListParams" />
+    <ref name="26" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstPCTUserResultAreaDASCH" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="slb_Download" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Checked" />
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="Checked" />
+        <clear controlRef="9" type="Checked" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Checked" />
+        <clear controlRef="14" type="Checked" />
+        <clear controlRef="15" type="Checked" />
+        <clear controlRef="16" type="Checked" />
+        <clear controlRef="17" type="Checked" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_DateSelectClear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="UnChecked" />
+        <clear controlRef="7" type="UnChecked" />
+        <clear controlRef="8" type="UnChecked" />
+        <clear controlRef="9" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_DateSelectWeekday" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="UnChecked" />
+        <clear controlRef="9" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="2" type="Checked" />
+        <clear controlRef="16" type="Checked" />
+        <clear controlRef="17" type="Checked" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="Checked" />
+        <clear controlRef="9" type="Checked" />
+        <clear controlRef="13" type="Checked" />
+        <clear controlRef="14" type="Checked" />
+        <clear controlRef="15" type="Checked" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/pctuserresultworkdate/LstPCTUserResultWorkDate" businessParameterRef="20" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="20" setValue="WORKDAY_FROM" />
+        <map getRef="1" getValue="Value" setRef="20" setValue="WORKDAY_TO" />
+        <map getRef="21" getValue="Value" setRef="20" setValue="USEDAY_OF_WEEK_FLAG" />
+        <map getRef="3" getValue="Value" setRef="20" setValue="MONDAY" />
+        <map getRef="4" getValue="Value" setRef="20" setValue="TUESDAY" />
+        <map getRef="5" getValue="Value" setRef="20" setValue="WEDNESDAY" />
+        <map getRef="6" getValue="Value" setRef="20" setValue="THURSDAY" />
+        <map getRef="7" getValue="Value" setRef="20" setValue="FRIDAY" />
+        <map getRef="8" getValue="Value" setRef="20" setValue="SATURDAY" />
+        <map getRef="9" getValue="Value" setRef="20" setValue="SUNDAY" />
+        <map getRef="10" getValue="Value" setRef="20" setValue="CONSIGNOR_CODE" />
+        <map getRef="11" getValue="Value" setRef="20" setValue="AREA" />
+        <map getRef="12" getValue="Value" setRef="20" setValue="BATCH_NO" />
+        <map getRef="13" getValue="Value" setRef="20" setValue="LEVEL_A" />
+        <map getRef="14" getValue="Value" setRef="20" setValue="LEVEL_B" />
+        <map getRef="15" getValue="Value" setRef="20" setValue="LEVEL_C" />
+        <map getRef="22" getValue="Value" setRef="20" setValue="COLLECT_CONDITION" />
+        <map getRef="23" getValue="Value" setRef="20" setValue="DISPLAY_RANK" />
+      </input1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="24" exportParameterRef="25" exportName="PctUserResultBatchList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="21" />
+        <validate controlRef="10" />
+        <validate controlRef="11" required="true" />
+        <validate controlRef="12" />
+        <validate controlRef="22" />
+        <validate controlRef="23" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="24" setValue="WORKDAY_FROM" />
+        <map getRef="1" getValue="Value" setRef="24" setValue="WORKDAY_TO" />
+        <map getRef="21" getValue="Value" setRef="24" setValue="USEDAY_OF_WEEK_FLAG" />
+        <map getRef="3" getValue="Value" setRef="24" setValue="MONDAY" />
+        <map getRef="4" getValue="Value" setRef="24" setValue="TUESDAY" />
+        <map getRef="5" getValue="Value" setRef="24" setValue="WEDNESDAY" />
+        <map getRef="6" getValue="Value" setRef="24" setValue="THURSDAY" />
+        <map getRef="7" getValue="Value" setRef="24" setValue="FRIDAY" />
+        <map getRef="8" getValue="Value" setRef="24" setValue="SATURDAY" />
+        <map getRef="9" getValue="Value" setRef="24" setValue="SUNDAY" />
+        <map getRef="10" getValue="Value" setRef="24" setValue="CONSIGNOR_CODE" />
+        <map getRef="11" getValue="Value" setRef="24" setValue="AREA_NO" />
+        <map getRef="12" getValue="Value" setRef="24" setValue="BATCH_NO" />
+        <map getRef="13" getValue="Value" setRef="24" setValue="LEVEL_A" />
+        <map getRef="14" getValue="Value" setRef="24" setValue="LEVEL_B" />
+        <map getRef="15" getValue="Value" setRef="24" setValue="LEVEL_C" />
+        <map getRef="22" getValue="Value" setRef="24" setValue="COLLECT_CONDITION" />
+        <map getRef="23" getValue="Value" setRef="24" setValue="DISPLAY_RANK" />
+      </input1>
+      <output1>
+        <map getRef="24" getValue="SYS_DAY" setRef="25" setValue="SYS_DAY" />
+        <map getRef="24" getValue="SYS_TIME" setRef="25" setValue="SYS_TIME" />
+        <map getRef="24" getValue="WORK_DAY_FROM" setRef="25" setValue="WORK_DAY_FROM" />
+        <map getRef="24" getValue="WORK_DAY_TO" setRef="25" setValue="WORK_DAY_TO" />
+        <map getRef="24" getValue="WEEK_DAY" setRef="25" setValue="WEEK_DAY" />
+        <map getRef="24" getValue="BATCH_NO" setRef="25" setValue="BATCH_NO" />
+        <map getRef="24" getValue="LEVEL" setRef="25" setValue="LEVEL" />
+        <map getRef="24" getValue="CONSIGNOR_CODE" setRef="25" setValue="CONSIGNOR_CODE" />
+        <map getRef="24" getValue="CONSIGNOR_NAME" setRef="25" setValue="CONSIGNOR_NAME" />
+        <map getRef="24" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="24" getValue="AREA_NAME" setRef="25" setValue="AREA_NAME" />
+        <map getRef="24" getValue="AVG_PRODUCTION_RATE" setRef="25" setValue="PRODUCTION_RATE_AVG" />
+        <map getRef="24" getValue="AVG_WORKER_COUNT" setRef="25" setValue="HEADS_AVG" />
+        <map getRef="24" getValue="AVG_TERMINAL_COUNT" setRef="25" setValue="CNT_AVG" />
+        <map getRef="24" getValue="AVG_OPERATE_TIME" setRef="25" setValue="WORK_TIME_AVG" />
+        <map getRef="24" getValue="AVG_ORDER_COUNT" setRef="25" setValue="ORDER_CNT_AVG" />
+        <map getRef="24" getValue="AVG_ORDER_COUNT_PER_HOUR" setRef="25" setValue="ORDER_CNT_PER_HOUR_AVG" />
+        <map getRef="24" getValue="AVG_BOX_COUNT" setRef="25" setValue="BOX_CNT_AVG" />
+        <map getRef="24" getValue="AVG_BOX_COUNT_PER_HOUR" setRef="25" setValue="BOX_CNT_PER_HOUR_AVG" />
+        <map getRef="24" getValue="AVG_LINE_COUNT" setRef="25" setValue="LINE_CNT_AVG" />
+        <map getRef="24" getValue="AVG_LINE_COUNT_PER_HOUR" setRef="25" setValue="LINE_CNT_PER_HOUR_AVG" />
+        <map getRef="24" getValue="AVG_LOT_QTY" setRef="25" setValue="LOT_CNT_AVG" />
+        <map getRef="24" getValue="AVG_LOT_QTY_PER_HOUR" setRef="25" setValue="LOT_CNT_PER_HOUR_AVG" />
+        <map getRef="24" getValue="AVG_PIECE_QTY" setRef="25" setValue="PIECE_CNT_AVG" />
+        <map getRef="24" getValue="AVG_PIECE_QTY_PER_HOUR" setRef="25" setValue="PIECE_CNT_PER_HOUR_AVG" />
+        <map getRef="24" getValue="AVG_BOX_COUNT_PER_ORDER" setRef="25" setValue="BOX_PER_ORDER_AVG" />
+        <map getRef="24" getValue="AVG_LINE_COUNT_PER_ORDER" setRef="25" setValue="LINE_PER_ORDER_AVG" />
+        <map getRef="24" getValue="AVG_LOT_QTY_PER_LINE_COUNT" setRef="25" setValue="LOT_PER_LINE_AVG" />
+        <map getRef="24" getValue="AVG_PIECE_QTY_PER_LINE_COUNT" setRef="25" setValue="PIECE_PER_LINE_AVG" />
+        <map getRef="24" getValue="AVG_MISS_RATE" setRef="25" setValue="MISS_AVG" />
+        <map getRef="24" getValue="BATCH_NO1" setRef="25" setValue="BATCH_NO1" />
+        <map getRef="24" getValue="PRODUCTION_RATE" setRef="25" setValue="PRODUCTION_RATE" />
+        <map getRef="24" getValue="WORKER_COUNT" setRef="25" setValue="HEADS" />
+        <map getRef="24" getValue="TERMINAL_COUNT" setRef="25" setValue="CNT" />
+        <map getRef="24" getValue="START_TIME" setRef="25" setValue="START_DATE" />
+        <map getRef="24" getValue="END_TIME" setRef="25" setValue="END_DATE" />
+        <map getRef="24" getValue="OPERATE_TIME" setRef="25" setValue="WORK_TIME" />
+        <map getRef="24" getValue="ORDER_COUNT" setRef="25" setValue="ORDER_CNT" />
+        <map getRef="24" getValue="ORDER_COUNT_PER_HOUR" setRef="25" setValue="ORDER_CNT_PER_HOUR" />
+        <map getRef="24" getValue="BOX_COUNT" setRef="25" setValue="BOX_CNT" />
+        <map getRef="24" getValue="BOX_COUNT_PER_HOUR" setRef="25" setValue="BOX_CNT_PER_HOUR" />
+        <map getRef="24" getValue="LINE_COUNT" setRef="25" setValue="LINE_CNT" />
+        <map getRef="24" getValue="LINE_COUNT_PER_HOUR" setRef="25" setValue="LINE_CNT_PER_HOUR" />
+        <map getRef="24" getValue="LOT_QTY" setRef="25" setValue="LOT_CNT" />
+        <map getRef="24" getValue="LOT_QTY_PER_HOUR" setRef="25" setValue="LOT_CNT_PER_HOUR" />
+        <map getRef="24" getValue="PIECE_QTY" setRef="25" setValue="PIECE_CNT" />
+        <map getRef="24" getValue="PIECE_QTY_PER_HOUR" setRef="25" setValue="PIECE_CNT_PER_HOUR" />
+        <map getRef="24" getValue="BOX_COUNT_PER_ORDER" setRef="25" setValue="BOX_PER_ORDER" />
+        <map getRef="24" getValue="LINE_COUNT_PER_ORDER" setRef="25" setValue="LINE_PER_ORDER" />
+        <map getRef="24" getValue="LOT_QTY_PER_LINE_COUNT" setRef="25" setValue="LOT_PER_LINE" />
+        <map getRef="24" getValue="PIECE_QTY_PER_LINE_COUNT" setRef="25" setValue="PIECE_PER_LINE" />
+        <map getRef="24" getValue="MISS_RATE" setRef="25" setValue="MISS" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="26" exportParameterRef="25" exportName="PctUserResultBatchList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="21" />
+        <validate controlRef="10" />
+        <validate controlRef="11" required="true" />
+        <validate controlRef="12" />
+        <validate controlRef="22" />
+        <validate controlRef="23" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="26" setValue="WORK_DATE" />
+        <map getRef="1" getValue="Value" setRef="26" setValue="TO_WORK_DATE" />
+        <map getRef="21" getValue="Value" setRef="26" setValue="USEDAY_OF_WEEK_FLAG" />
+        <map getRef="3" getValue="Value" setRef="26" setValue="MONDAY" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="TUESDAY" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="WEDNESDAY" />
+        <map getRef="6" getValue="Value" setRef="26" setValue="THURSDAY" />
+        <map getRef="7" getValue="Value" setRef="26" setValue="FRIDAY" />
+        <map getRef="8" getValue="Value" setRef="26" setValue="SATURDAY" />
+        <map getRef="9" getValue="Value" setRef="26" setValue="SUNDAY" />
+        <map getRef="10" getValue="Value" setRef="26" setValue="CONSIGNOR_CODE" />
+        <map getRef="11" getValue="Value" setRef="26" setValue="AREA" />
+        <map getRef="12" getValue="Value" setRef="26" setValue="BATCH_NO" />
+        <map getRef="13" getValue="Value" setRef="26" setValue="LEVEL_A" />
+        <map getRef="14" getValue="Value" setRef="26" setValue="LEVEL_B" />
+        <map getRef="15" getValue="Value" setRef="26" setValue="LEVEL_C" />
+        <map getRef="22" getValue="Value" setRef="26" setValue="COLLECT_CONDITION" />
+        <map getRef="23" getValue="Value" setRef="26" setValue="DISPLAY_RANK" />
+      </input1>
+      <output1>
+        <map getRef="26" getValue="WORK_DAY_FROM" setRef="25" setValue="WORK_DAY_FROM" />
+        <map getRef="26" getValue="WORK_DAY_TO" setRef="25" setValue="WORK_DAY_TO" />
+        <map getRef="26" getValue="WEEK_DAY" setRef="25" setValue="WEEK_DAY" />
+        <map getRef="26" getValue="BATCH_NO" setRef="25" setValue="BATCH_NO" />
+        <map getRef="26" getValue="LEVEL" setRef="25" setValue="LEVEL" />
+        <map getRef="26" getValue="CONSIGNOR_CODE" setRef="25" setValue="CONSIGNOR_CODE" />
+        <map getRef="26" getValue="CONSIGNOR_NAME" setRef="25" setValue="CONSIGNOR_NAME" />
+        <map getRef="26" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="26" getValue="AREA_NAME" setRef="25" setValue="AREA_NAME" />
+        <map getRef="26" getValue="AVG_PRODUCTION_RATE" setRef="25" setValue="PRODUCTION_RATE_AVG" />
+        <map getRef="26" getValue="AVG_WORKER_COUNT" setRef="25" setValue="HEADS_AVG" />
+        <map getRef="26" getValue="AVG_TERMINAL_COUNT" setRef="25" setValue="CNT_AVG" />
+        <map getRef="26" getValue="AVG_OPERATE_TIME" setRef="25" setValue="WORK_TIME_AVG" />
+        <map getRef="26" getValue="AVG_ORDER_COUNT" setRef="25" setValue="ORDER_CNT_AVG" />
+        <map getRef="26" getValue="AVG_ORDER_COUNT_PER_HOUR_AVG" setRef="25" setValue="ORDER_CNT_PER_HOUR_AVG" />
+        <map getRef="26" getValue="AVG_BOX_COUNT" setRef="25" setValue="BOX_CNT_AVG" />
+        <map getRef="26" getValue="AVG_LINE_COUNT_PER_HOUR" setRef="25" setValue="BOX_CNT_PER_HOUR_AVG" />
+        <map getRef="26" getValue="AVG_LINE_COUNT" setRef="25" setValue="LINE_CNT_AVG" />
+        <map getRef="26" getValue="AVG_LINE_COUNT_PER_HOUR" setRef="25" setValue="LINE_CNT_PER_HOUR_AVG" />
+        <map getRef="26" getValue="AVG_LOT_QTY" setRef="25" setValue="LOT_CNT_AVG" />
+        <map getRef="26" getValue="AVG_LOT_QTY_PER_HOUR" setRef="25" setValue="LOT_CNT_PER_HOUR_AVG" />
+        <map getRef="26" getValue="AVG_PIECE_QTY" setRef="25" setValue="PIECE_CNT_AVG" />
+        <map getRef="26" getValue="AVG_PIECE_QTY_PER_HOUR" setRef="25" setValue="PIECE_CNT_PER_HOUR_AVG" />
+        <map getRef="26" getValue="AVG_BOX_COUNT_PER_ORDER" setRef="25" setValue="BOX_PER_ORDER_AVG" />
+        <map getRef="26" getValue="AVG_LINE_COUNT_PER_ORDER" setRef="25" setValue="LINE_PER_ORDER_AVG" />
+        <map getRef="26" getValue="AVG_LOT_QTY_PER_LINE_COUNT" setRef="25" setValue="LOT_PER_LINE_AVG" />
+        <map getRef="26" getValue="AVG_PIECE_QTY_PER_LINE_COUNT" setRef="25" setValue="PIECE_PER_LINE_AVG" />
+        <map getRef="26" getValue="AVG_MISS_RATE" setRef="25" setValue="MISS_AVG" />
+        <map getRef="26" getValue="PRODUCTION_RATE" setRef="25" setValue="PRODUCTION_RATE" />
+        <map getRef="26" getValue="WORKER_COUNT" setRef="25" setValue="HEADS" />
+        <map getRef="26" getValue="TERMINAL_COUNT" setRef="25" setValue="CNT" />
+        <map getRef="26" getValue="START_TIME" setRef="25" setValue="START_DATE" />
+        <map getRef="26" getValue="END_TIME" setRef="25" setValue="END_DATE" />
+        <map getRef="26" getValue="OPERATE_TIME" setRef="25" setValue="WORK_TIME" />
+        <map getRef="26" getValue="ORDER_COUNT" setRef="25" setValue="ORDER_CNT" />
+        <map getRef="26" getValue="ORDER_COUNT_PER_HOUR" setRef="25" setValue="ORDER_CNT_PER_HOUR" />
+        <map getRef="26" getValue="BOX_COUNT" setRef="25" setValue="BOX_CNT" />
+        <map getRef="26" getValue="BOX_COUNT_PER_HOUR" setRef="25" setValue="BOX_CNT_PER_HOUR" />
+        <map getRef="26" getValue="LINE_COUNT" setRef="25" setValue="LINE_CNT" />
+        <map getRef="26" getValue="LINE_CNLINE_COUNT_PER_HOURT_PER_HOUR" setRef="25" setValue="LINE_CNT_PER_HOUR" />
+        <map getRef="26" getValue="LOTLOT_QTY_CNT" setRef="25" setValue="LOT_CNT" />
+        <map getRef="26" getValue="LOT_QTY_PER_HOUR" setRef="25" setValue="LOT_CNT_PER_HOUR" />
+        <map getRef="26" getValue="PIECE_QTY" setRef="25" setValue="PIECE_CNT" />
+        <map getRef="26" getValue="PIECE_QTY_PER_HOUR" setRef="25" setValue="PIECE_CNT_PER_HOUR" />
+        <map getRef="26" getValue="BOX_COUNT_PER_ORDER" setRef="25" setValue="BOX_PER_ORDER" />
+        <map getRef="26" getValue="LINE_COUNT_PER_ORDER" setRef="25" setValue="LINE_PER_ORDER" />
+        <map getRef="26" getValue="LOT_QTY_PER_LINE_COUNT" setRef="25" setValue="LOT_PER_LINE" />
+        <map getRef="26" getValue="PIECE_QTY_PER_LINE_COUNT" setRef="25" setValue="PIECE_PER_LINE" />
+        <map getRef="26" getValue="MISS_RATE" setRef="25" setValue="MISS" />
+      </output1>
+    </event>
+    <event control="rdo_DateSelect_All" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="Checked" />
+        <clear controlRef="9" type="Checked" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="rdo_DateSelect_Assignation" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

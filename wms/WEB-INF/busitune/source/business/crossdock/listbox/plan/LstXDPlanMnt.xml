@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.crossdock.listbox.plan.LstXDPlanMntBusiness" abstractClassName="jp.co.daifuku.wms.crossdock.listbox.plan.LstXDPlanMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Control" typeName="LST_PLAN_DATE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.crossdock.listbox.plan.LstXDPlanMntParams" />
+    <ref name="3" type="Control" typeName="LST_BATCH" />
+    <ref name="4" type="Control" typeName="LST_SUPPLIER_CODE" />
+    <ref name="5" type="Control" typeName="LST_SUPPLIER_NAME" />
+    <ref name="6" type="Control" typeName="LST_RECEIVING_TICKET" />
+    <ref name="7" type="Control" typeName="LST_RECEIVING_TICKET_LINE" />
+    <ref name="8" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="9" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="10" type="Control" typeName="LST_LOT" />
+    <ref name="11" type="Control" typeName="LST_CASE_PACK" />
+    <ref name="12" type="Control" typeName="LST_JAN_CODE" />
+    <ref name="13" type="Control" typeName="LST_CASE_ITF" />
+    <ref name="14" type="Dasch" typeName="jp.co.daifuku.wms.crossdock.dasch.LstXDPlanMntDASCH" />
+    <ref name="15" type="Control" typeName="LST_COLUMN_1" />
+  </refs>
+  <listcells>
+    <listcell name="lst_TcPlanSearchList">
+      <listcellColumn name="LST_CASE_PACK" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="LST_JAN_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_CASE_ITF" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_PLAN_DATE" orgIndex="2" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_BATCH" orgIndex="3" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_SUPPLIER_CODE" orgIndex="4" resourceKey="LBL-W0098" dataType="String" />
+      <listcellColumn name="LST_SUPPLIER_NAME" orgIndex="8" resourceKey="LBL-W0099" dataType="String" />
+      <listcellColumn name="LST_RECEIVING_TICKET" orgIndex="5" resourceKey="LBL-W0539" dataType="String" />
+      <listcellColumn name="LST_RECEIVING_TICKET_LINE" orgIndex="9" resourceKey="LBL-W0544" dataType="Number" format="0" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="6" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="10" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_LOT" orgIndex="7" resourceKey="LBL-W0035" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="PLAN_DATE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="BATCH" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="SUPPLIER_CODE" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="SUPPLIER_NAME" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="RECEIVING_TICKET" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="RECEIVING_TICKET_LINE" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="10" getValue="Value" setRef="2" setValue="LOT" />
+        <map getRef="11" getValue="Value" setRef="2" setValue="CASE_PACK" />
+        <map getRef="12" getValue="Value" setRef="2" setValue="JAN_CODE" />
+        <map getRef="13" getValue="Value" setRef="2" setValue="CASE_ITF" />
+      </output1>
+    </event>
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="14" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="BATCH" setRef="14" setValue="BATCH" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="14" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT" setRef="14" setValue="LOT" />
+        <map getRef="2" getValue="PLAN_DATE" setRef="14" setValue="PLAN_DATE" />
+        <map getRef="2" getValue="RECEIVING_TICKET" setRef="14" setValue="RECEIVING_TICKET" />
+        <map getRef="2" getValue="RECEIVING_TICKET_LINE" setRef="14" setValue="RECEIVING_TICKET_LINE" />
+        <map getRef="2" getValue="SUPPLIER_CODE" setRef="14" setValue="SUPPLIER_CODE" />
+        <map getRef="2" getValue="SUPPLIER_NAME" setRef="14" setValue="SUPPLIER_NAME" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="COLUMN_1" setRef="15" setValue="Value" />
+        <map getRef="14" getValue="PLAN_DATE" setRef="1" setValue="Value" />
+        <map getRef="14" getValue="BATCH" setRef="3" setValue="Value" />
+        <map getRef="14" getValue="SUPPLIER_CODE" setRef="4" setValue="Value" />
+        <map getRef="14" getValue="SUPPLIER_NAME" setRef="5" setValue="Value" />
+        <map getRef="14" getValue="RECEIVING_TICKET" setRef="6" setValue="Value" />
+        <map getRef="14" getValue="RECEIVING_TICKET_LINE" setRef="7" setValue="Value" />
+        <map getRef="14" getValue="ITEM_CODE" setRef="8" setValue="Value" />
+        <map getRef="14" getValue="ITEM_NAME" setRef="9" setValue="Value" />
+        <map getRef="14" getValue="LOT" setRef="10" setValue="Value" />
+        <map getRef="14" getValue="CASE_PACK" setRef="11" setValue="Value" />
+        <map getRef="14" getValue="JAN_CODE" setRef="12" setValue="Value" />
+        <map getRef="14" getValue="CASE_ITF" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

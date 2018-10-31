@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.messageloginquiry.MessageLogInquiryBusiness" abstractClassName="jp.co.daifuku.wms.system.display.messageloginquiry.MessageLogInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_FromSearchDate" />
+    <ref name="1" type="Control" typeName="txt_FromSearchTime" />
+    <ref name="2" type="Control" typeName="txt_ToSearchDate" />
+    <ref name="3" type="Control" typeName="txt_ToSearchTime" />
+    <ref name="4" type="Control" typeName="rdo_Log_All" />
+    <ref name="5" type="Control" typeName="txt_SearchStartDate" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.MessageLogInquirySCH" />
+    <ref name="7" type="Control" typeName="Log" />
+    <ref name="8" type="Control" typeName="LST_LOG_DATE" />
+    <ref name="9" type="Control" typeName="LST_CONTENT" />
+    <ref name="10" type="Control" typeName="LST_CLASS" />
+    <ref name="11" type="Control" typeName="LST_MESSAGE" />
+    <ref name="12" type="Dasch" typeName="jp.co.daifuku.wms.system.dasch.MessageLogInquiryDASCH" />
+    <ref name="13" type="ExportParameter" typeName="jp.co.daifuku.wms.system.exporter.ErrorLogListParams" />
+    <ref name="14" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="15" type="Boolean" typeName="Boolean" />
+    <ref name="16" type="Constants" typeName="Constants" />
+    <ref name="17" type="Control" typeName="rdo_Log_Information" />
+    <ref name="18" type="Control" typeName="rdo_Log_Caution" />
+    <ref name="19" type="Control" typeName="rdo_Log_Warning" />
+    <ref name="20" type="Control" typeName="rdo_Log_Error" />
+  </refs>
+  <listcells>
+    <listcell name="lst_Log">
+      <listcellColumn name="LST_LOG_DATE" orgIndex="1" resourceKey="LBL-W0149" dataType="Date" format="DateLongTimeMillSec" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_CONTENT" orgIndex="2" resourceKey="LBL-W0148" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_CLASS" orgIndex="3" resourceKey="LBL-W0162" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_MESSAGE" orgIndex="4" resourceKey="LBL-W0032" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Menu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="Checked" />
+      </clear1>
+      <focus controlRef="5" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="6" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="7" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="SEARCH_START_DAY" />
+        <map getRef="1" getValue="Value" setRef="6" setValue="SEARCH_START_TIME" />
+        <map getRef="2" getValue="Value" setRef="6" setValue="SEARCH_END_DAY" />
+        <map getRef="3" getValue="Value" setRef="6" setValue="SEARCH_END_TIME" />
+        <map getRef="7" getValue="Value" setRef="6" setValue="LOG" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="LOG_DATE" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="CONTENT" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="CLASS" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="MESSAGE" setRef="11" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="12" exportParameterRef="13" exportName="ErrorLogList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="FROM_SEARCH_DAY" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="TO_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="TO_SEARCH_TIME" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="LOG" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="DFK_DS_NO" setRef="13" setValue="DFK_DS_NO" />
+        <map getRef="12" getValue="DFK_USER_ID" setRef="13" setValue="DFK_USER_ID" />
+        <map getRef="12" getValue="DFK_USER_NAME" setRef="13" setValue="DFK_USER_NAME" />
+        <map getRef="12" getValue="SYS_DAY" setRef="13" setValue="SYS_DAY" />
+        <map getRef="12" getValue="SYS_TIME" setRef="13" setValue="SYS_TIME" />
+        <map getRef="0" getValue="Value" setRef="13" setValue="FROM_SEARCH_DAY" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="Value" setRef="13" setValue="TO_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="13" setValue="TO_SEARCH_TIME" />
+        <map getRef="12" getValue="NO" setRef="13" setValue="NO" />
+        <map getRef="12" getValue="DATE" setRef="13" setValue="DATE" />
+        <map getRef="12" getValue="MESSAGE_NO" setRef="13" setValue="MESSAGE_NO" />
+        <map getRef="12" getValue="LEVEL" setRef="13" setValue="LEVEL" />
+        <map getRef="12" getValue="CLASS_NAME" setRef="13" setValue="CLASS_NAME" />
+        <map getRef="12" getValue="MESSAGE" setRef="13" setValue="MESSAGE" />
+      </output1>
+      <part11 operationRef="14" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" out2Ref="1" out2Value="Value" />
+        <out out1Ref="2" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <block type="If" tag="1" desc="全てが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ALL" />
+        <block type="If" tag="2" desc="案内が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_INFORMATION" />
+        <block type="If" tag="3" desc="注意が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="18" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ATTENTION" />
+        <block type="If" tag="4" desc="警告が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="19" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_WARNING" />
+        <block type="If" tag="5" desc="異常が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="20" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ERROR" />
+      </part11>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="12" exportParameterRef="13" exportName="ErrorLogList" exporter="Preview" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="FROM_START_DAY" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="TO_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="TO_SEARCH_TIME" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="LOG" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="DFK_DS_NO" setRef="13" setValue="DFK_DS_NO" />
+        <map getRef="12" getValue="DFK_USER_ID" setRef="13" setValue="DFK_USER_ID" />
+        <map getRef="12" getValue="DFK_USER_NAME" setRef="13" setValue="DFK_USER_NAME" />
+        <map getRef="12" getValue="SYS_DAY" setRef="13" setValue="SYS_DAY" />
+        <map getRef="12" getValue="SYS_TIME" setRef="13" setValue="SYS_TIME" />
+        <map getRef="0" getValue="Value" setRef="13" setValue="FROM_SEARCH_DAY" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="Value" setRef="13" setValue="TO_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="13" setValue="TO_SEARCH_TIME" />
+        <map getRef="12" getValue="NO" setRef="13" setValue="NO" />
+        <map getRef="12" getValue="DATE" setRef="13" setValue="DATE" />
+        <map getRef="12" getValue="MESSAGE_NO" setRef="13" setValue="MESSAGE_NO" />
+        <map getRef="12" getValue="LEVEL" setRef="13" setValue="LEVEL" />
+        <map getRef="12" getValue="CLASS_NAME" setRef="13" setValue="CLASS_NAME" />
+        <map getRef="12" getValue="MESSAGE" setRef="13" setValue="MESSAGE" />
+      </output1>
+      <part11 operationRef="14" operation="PREVIEW">
+        <out out1Ref="0" out1Value="Value" out2Ref="1" out2Value="Value" />
+        <out out1Ref="2" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <block type="If" tag="1" desc="全てが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ALL" />
+        <block type="If" tag="2" desc="案内が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_INFORMATION" />
+        <block type="If" tag="3" desc="注意が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="18" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ATTENTION" />
+        <block type="If" tag="4" desc="警告が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="19" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_WARNING" />
+        <block type="If" tag="5" desc="異常が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="20" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ERROR" />
+      </part11>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="12" exportParameterRef="13" exportName="ErrorLogList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="FROM_SEARCH_DAY" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="TO_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="TO_SEARCH_TIME" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="LOG" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="NO" setRef="13" setValue="NO" />
+        <map getRef="12" getValue="DATE" setRef="13" setValue="DATE" />
+        <map getRef="12" getValue="MESSAGE_NO" setRef="13" setValue="MESSAGE_NO" />
+        <map getRef="12" getValue="LEVEL" setRef="13" setValue="LEVEL" />
+        <map getRef="12" getValue="CLASS_NAME" setRef="13" setValue="CLASS_NAME" />
+        <map getRef="12" getValue="MESSAGE" setRef="13" setValue="MESSAGE" />
+      </output1>
+      <part11 operationRef="14" operation="XLS">
+        <out out1Ref="0" out1Value="Value" out2Ref="1" out2Value="Value" />
+        <out out1Ref="2" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <block type="If" tag="1" desc="全てが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ALL" />
+        <block type="If" tag="2" desc="案内が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_INFORMATION" />
+        <block type="If" tag="3" desc="注意が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="18" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ATTENTION" />
+        <block type="If" tag="4" desc="警告が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="19" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_WARNING" />
+        <block type="If" tag="5" desc="異常が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="20" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="DISPLAY_CONDITION_ERROR" />
+      </part11>
+    </event>
+  </events>
+</business>

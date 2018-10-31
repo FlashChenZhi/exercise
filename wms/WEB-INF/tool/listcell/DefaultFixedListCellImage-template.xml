@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imagetemplates>
+  <imagetemplate key="lst_Default_01">
+    <imagefilename value="DefaultFixedListCell_1_Image.gif"/>
+  </imagetemplate>
+  <imagetemplate key="lst_Default_02">
+    <imagefilename value="DefaultFixedListCell_2_Image.gif"/>
+  </imagetemplate>
+</imagetemplates>

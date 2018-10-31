@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>TextBox Input Mode</title>
+	<link rel="stylesheet" type="text/css" href="../css/browser-style.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/listcell.css">
+	<link rel="stylesheet" type="text/css" href="../css/tool.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<form>
+<div class ="controls">
+<table style="table-layout:fixed;">
+	<tr><th colspan="3"><a class="selectorName">InputMode</a></th></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox" style="width:230px;">
+				<span class="className">34567</span><br>
+				<A href="#" id="34567"><img src="../toolimg/34567.gif" border=0></A></div></td>
+		<td class="directionBox">
+			For alphanumeric.<BR>
+			(Including sign and space)<BR><BR>
+			半角用（記号・スペース含む
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">alphabet</span><span class="cssValue">: 3</span><br>
+				<span class="cssName">number</span><span class="cssValue">: 4</span><br>
+				<span class="cssName">sign</span><span class="cssValue">: 5</span><br>
+				<span class="cssName">space</span><span class="cssValue">: 6</span><br>
+				<span class="cssName">forbidden char check</span><span class="cssValue">: 7</span><br><br>
+				<span class="cssName">半角英字</span><span class="cssValue">: 3</span><br>
+				<span class="cssName">半角数字</span><span class="cssValue">: 4</span><br>
+				<span class="cssName">記号</span><span class="cssValue">: 5</span><br>
+				<span class="cssName">スペース</span><span class="cssValue">: 6</span><br>
+				<span class="cssName">禁止文字チェック</span><span class="cssValue">: 7</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox" style="width:230px;">
+				<span class="className">347</span><br>
+				<A href="#" id="347"><img src="../toolimg/347.gif" border=0></A></div></td>
+		<td class="directionBox">
+			For alphanumeric.<BR>
+			(Excluding sign and space)<BR><BR>
+			(Including sign and space)<BR><BR>
+			半角用（記号・スペース含まない）
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">alphabet</span><span class="cssValue">: 3</span><br>
+				<span class="cssName">number</span><span class="cssValue">: 4</span><br>
+				<span class="cssName">forbidden char check</span><span class="cssValue">: 7</span><br><br>
+				<span class="cssName">半角英字</span><span class="cssValue">: 3</span><br>
+				<span class="cssName">半角数字</span><span class="cssValue">: 4</span><br>
+				<span class="cssName">禁止文字チェック</span><span class="cssValue">: 7</span><br></div></td></tr>
+
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox" style="width:230px;">
+				<span class="className">17</span><br>
+				<A href="#" id="17"><img src="../toolimg/17.gif" border=0></A></div></td>
+		<td class="directionBox">
+			Double -byte charactor<BR>
+			(If '1' is set, include all kind of charactors can be used.)<BR><BR>
+			全角用（全角指定時はすべての文字種）
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">double-byte charactor</span><span class="cssValue">: 1</span><br>
+				<span class="cssName">forbidden char check</span><span class="cssValue">: 7</span><br><br>
+				<span class="cssName">全角</span><span class="cssValue">: 1</span><br>
+				<span class="cssName">禁止文字チェック</span><span class="cssValue">: 7</span><br></div></td></tr>
+	<tr>
+	<td colspan=3 style="padding:5px;">
+		<span class="className">Information</span><BR>
+		The IME mode of the forcused textbox can be turned off by adding &rsquo;8&rsquo; to InputMode.  <BR>
+		It is possible to use it as a text box for the password input by adding &rsquo;9&rsquo; at the end of inputMode. <BR><BR>
+		InputModeに 8 をセットすることにより、フォーカス時のIMEモードをOFFにすることができます。<BR>（半角／全角キーで切替可能）<BR>
+		InputModeの最後に 9 を付加することで、パスワード入力用のテキストボックスとして使用できます。<BR>
+		<img src="../toolimg/password.gif" border=0>
+	</td>
+</tr>
+</table>
+</div>
+</table>
+</form>
+</body>
+</html>

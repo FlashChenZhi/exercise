@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.retrieval.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="出庫出力データシート" />
+  <comment lang="en" value="Picking Output Data Sheet" />
+  <comment lang="zh" value="出库输出数据表" />
+  <fields>
+    <field name="AREA_LOCATION" type="String" separateSize="0">
+      <comment lang="ja" value="エリア棚" />
+      <comment lang="en" value="AreaLocation" />
+      <comment lang="zh" value="区域货架" />
+    </field>
+    <field name="AREA_NO" type="String" separateSize="0">
+      <comment lang="ja" value="エリアNo." />
+      <comment lang="en" value="Area #" />
+      <comment lang="zh" value="区域No." />
+    </field>
+    <field name="BUNDLE_ENTERING_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="ボール入数" />
+      <comment lang="en" value="Bundle Case Pack" />
+      <comment lang="zh" value="捆装装入数" />
+    </field>
+    <field name="BUNDLE_ITF" type="String" separateSize="0">
+      <comment lang="ja" value="ボールITF" />
+      <comment lang="en" value="Bundle ITF" />
+      <comment lang="zh" value="捆装ITF" />
+    </field>
+    <field name="COLLECT_JOB_NO" type="String" separateSize="0">
+      <comment lang="ja" value="集約作業No." />
+      <comment lang="en" value="Grouped Work #" />
+      <comment lang="zh" value="汇总作业No." />
+    </field>
+    <field name="CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="荷主コード" />
+      <comment lang="en" value="Consignor Code" />
+      <comment lang="zh" value="货主代码" />
+    </field>
+    <field name="CONSIGNOR_NAME" type="String" separateSize="0">
+      <comment lang="ja" value="荷主名称" />
+      <comment lang="en" value="ConsignorName " />
+      <comment lang="zh" value="货主名称" />
+    </field>
+    <field name="CUSTOMER_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード" />
+      <comment lang="en" value="Cutomer Code " />
+      <comment lang="zh" value="发货地代码" />
+    </field>
+    <field name="CUSTOMER_CODE1" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード1" />
+      <comment lang="en" value="Cutomer Code 1" />
+      <comment lang="zh" value="发货地代码1" />
+    </field>
+    <field name="CUSTOMER_CODE2" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード2" />
+      <comment lang="en" value="Cutomer Code 2" />
+      <comment lang="zh" value="发货地代码2" />
+    </field>
+    <field name="CUSTOMER_CODE3" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード3" />
+      <comment lang="en" value="Cutomer Code 3" />
+      <comment lang="zh" value="发货地代码3" />
+    </field>
+    <field name="CUSTOMER_CODE4" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード4" />
+      <comment lang="en" value="Cutomer Code 4" />
+      <comment lang="zh" value="发货地代码4" />
+    </field>
+    <field name="CUSTOMER_NAME" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先名所" />
+      <comment lang="en" value="CustomerName " />
+      <comment lang="zh" value="发货地名称" />
+    </field>
+    <field name="CUSTOMER_NAME1" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先名称1" />
+      <comment lang="en" value="Cutomer Name 1" />
+      <comment lang="zh" value="发货地名称1" />
+    </field>
+    <field name="CUSTOMER_NAME2" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先名称2" />
+      <comment lang="en" value="Cutomer Name 2" />
+      <comment lang="zh" value="发货地名称2" />
+    </field>
+    <field name="CUSTOMER_NAME3" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先名称3" />
+      <comment lang="en" value="Cutomer Name 3" />
+      <comment lang="zh" value="发货地名称3" />
+    </field>
+    <field name="CUSTOMER_NAME4" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先名称4" />
+      <comment lang="en" value="Cutomer Name 4" />
+      <comment lang="zh" value="发货地名称4" />
+    </field>
+    <field name="ENTERING_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="入数" />
+      <comment lang="en" value="Case Pack" />
+      <comment lang="zh" value="装入数" />
+    </field>
+    <field name="GUIDANCE_MESSAGE" type="String" separateSize="0">
+      <comment lang="ja" value="ガイダンスメッセージ" />
+      <comment lang="en" value="Guidance Message" />
+      <comment lang="zh" value="向导信息" />
+    </field>
+    <field name="IS_INSPECTION_COMPLETE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="検品完了フラグ" />
+      <comment lang="en" value="Check Completion Flag" />
+      <comment lang="zh" value="质检完成标志" />
+    </field>
+    <field name="ITEM_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="商品コード" />
+      <comment lang="en" value="Item Code" />
+      <comment lang="zh" value="商品代码" />
+    </field>
+    <field name="ITEM_CODE_INPUT_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="商品コード入力フラグ" />
+      <comment lang="en" value="Item Code Input Flag" />
+      <comment lang="zh" value="商品代码输入标志" />
+    </field>
+    <field name="ITEM_NAME" type="String" separateSize="2">
+      <comment lang="ja" value="商品名称" />
+      <comment lang="en" value="ItemName " />
+      <comment lang="zh" value="商品名称" />
+    </field>
+    <field name="ITF" type="String" separateSize="0">
+      <comment lang="ja" value="ケースITF" />
+      <comment lang="en" value="Case ITF" />
+      <comment lang="zh" value="盒装ITF" />
+    </field>
+    <field name="JAN" type="String" separateSize="0">
+      <comment lang="ja" value="JANコード" />
+      <comment lang="en" value="UPC Code" />
+      <comment lang="zh" value="JAN代码" />
+    </field>
+    <field name="LINE_NO" type="String" separateSize="0">
+      <comment lang="ja" value="行No." />
+      <comment lang="en" value="Line No." />
+      <comment lang="zh" value="行No." />
+    </field>
+    <field name="LOCATION" type="String" separateSize="0">
+      <comment lang="ja" value="ロケーションNo." />
+      <comment lang="en" value="Location #" />
+      <comment lang="zh" value="货架No." />
+    </field>
+    <field name="LOCATION_INPUT_ENABLED" type="Boolean" separateSize="0" />
+    <field name="LOCATION_STYLE" type="String" separateSize="0">
+      <comment lang="ja" value="棚フォーマット" />
+      <comment lang="en" value="Location Format" />
+      <comment lang="zh" value="货架格式" />
+    </field>
+    <field name="ORDER_NO" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo." />
+      <comment lang="en" value="OrderNo." />
+      <comment lang="zh" value="订单No." />
+    </field>
+    <field name="ORDER_NO1" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.1" />
+      <comment lang="en" value="OrderNo.1" />
+      <comment lang="zh" value="订单No.1" />
+    </field>
+    <field name="ORDER_NO1_STATUS" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.1の状態" />
+      <comment lang="en" value="OrderNo.1 Status" />
+      <comment lang="zh" value="订单No.1的状态" />
+    </field>
+    <field name="ORDER_NO2" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.2" />
+      <comment lang="en" value="OrderNo.2" />
+      <comment lang="zh" value="订单No.2" />
+    </field>
+    <field name="ORDER_NO2_STATUS" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.2の状態" />
+      <comment lang="en" value="OrderNo.2 Status" />
+      <comment lang="zh" value="订单No.2的状态" />
+    </field>
+    <field name="ORDER_NO3" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.3" />
+      <comment lang="en" value="OrderNo.3" />
+      <comment lang="zh" value="订单No.3" />
+    </field>
+    <field name="ORDER_NO3_STATUS" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.3の状態" />
+      <comment lang="en" value="OrderNo.3 Status" />
+      <comment lang="zh" value="订单No.3的状态" />
+    </field>
+    <field name="ORDER_NO4" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.4" />
+      <comment lang="en" value="OrderNo.4" />
+      <comment lang="zh" value="订单No.4" />
+    </field>
+    <field name="ORDER_NO4_STATUS" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.4の状態" />
+      <comment lang="en" value="OrderNo.4 Status" />
+      <comment lang="zh" value="订单No.4的状态" />
+    </field>
+    <field name="ORDER_SERIAL_NO" type="String" separateSize="0" />
+    <field name="PLAN_CASE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="予定ケース数" />
+      <comment lang="en" value="Plan Case Qty" />
+      <comment lang="zh" value="预定盒装数" />
+    </field>
+    <field name="PLAN_DATE" type="Date" format="DateLong" separateSize="0" />
+    <field name="PLAN_LOT_NO" type="String" separateSize="0">
+      <comment lang="ja" value="予定ロットNo." />
+      <comment lang="en" value="Plan Lot #" />
+      <comment lang="zh" value="预定批号" />
+    </field>
+    <field name="PLAN_PIECE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="予定ピース数" />
+      <comment lang="en" value="Plan Piece Qty" />
+      <comment lang="zh" value="预定散装数" />
+    </field>
+    <field name="PLAN_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="予定数" />
+      <comment lang="en" value="Plan Qty" />
+      <comment lang="zh" value="预定数" />
+    </field>
+    <field name="RESULT_CASE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ケース数" />
+      <comment lang="en" value="Result Case Qty" />
+      <comment lang="zh" value="实绩盒装数" />
+    </field>
+    <field name="RESULT_LOT_NO" type="String" separateSize="0">
+      <comment lang="ja" value="実績ロットNo." />
+      <comment lang="en" value="Result Lot #" />
+      <comment lang="zh" value="实绩批号" />
+    </field>
+    <field name="RESULT_PIECE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ピース数" />
+      <comment lang="en" value="Result Piece Qty" />
+      <comment lang="zh" value="实绩散装数" />
+    </field>
+    <field name="RESULT_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績数" />
+      <comment lang="en" value="Result Qty" />
+      <comment lang="zh" value="实绩数" />
+    </field>
+    <field name="SETTING_UNIT_KEY" type="String" separateSize="0">
+      <comment lang="ja" value="設定単位キー" />
+      <comment lang="en" value="Setting Unit Key" />
+      <comment lang="zh" value="设定单位Key" />
+    </field>
+    <field name="SHORTAGE_CASE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="欠品ケース数" />
+      <comment lang="en" value="Shortage Case Qty" />
+      <comment lang="zh" value="缺货盒装数" />
+    </field>
+    <field name="SHORTAGE_PIECE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="欠品ピース数" />
+      <comment lang="en" value="Shortage Piece Qty" />
+      <comment lang="zh" value="缺货散装数" />
+    </field>
+    <field name="SKIP_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="スキップ有効フラグ" />
+      <comment lang="en" value="Skip Flag" />
+      <comment lang="zh" value="跳过有效标志" />
+    </field>
+    <field name="START_DATE_TIME" type="Date" format="DateLongTimeSec" separateSize="0">
+      <comment lang="ja" value="作業開始日時[商品単位]" />
+      <comment lang="en" value="Work Start Date/Time [per Item]" />
+      <comment lang="zh" value="作业开始日期时间[商品单位]" />
+    </field>
+    <field name="SURVIVAL_RECORD" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="残数" />
+      <comment lang="en" value="Remaining Qty" />
+      <comment lang="zh" value="剩余数" />
+    </field>
+    <field name="TEMP_RESULT_LOT_NO" type="String" separateSize="0">
+      <comment lang="ja" value="更新前実績ロットNo." />
+      <comment lang="en" value="Result Lot # before Update" />
+      <comment lang="zh" value="更新前实绩批号" />
+    </field>
+    <field name="TOTAL_RECORD" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="総数" />
+      <comment lang="en" value="Total Qty" />
+      <comment lang="zh" value="总数" />
+    </field>
+  </fields>
+</datasheet>

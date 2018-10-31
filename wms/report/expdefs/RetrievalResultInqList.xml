@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0304" downloadName="RetrievalResultInqList" reportName="LBL-W1296">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="work_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0091" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="plan_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0127" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="ship_ticket_no" type="string" header="LBL-W0145" printEnabled="true" xlsEnabled="true"/>
+    <field name="ship_line_no" type="number" format="##0" header="LBL-W0066" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="branch_no" type="number" format="##0" header="LBL-W0081" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="batch_no" type="string" header="LBL-W0028" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_no" type="string" header="LBL-W0014" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_code" type="string" header="LBL-W0114" printEnabled="false" xlsEnabled="true"/>
+    <field name="customer_name" type="string" header="LBL-W0115" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="entering_qty" type="number" format="##,##0" header="LBL-W0019" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_case_qty" type="number" format="###,##0" header="LBL-W0183" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_piece_qty" type="number" format="###,##0" header="LBL-W0184" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="result_case_qty" type="number" format="###,##0" header="LBL-W0101" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="result_piece_qty" type="number" format="###,##0" header="LBL-W0102" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="shortage_case_qty" type="number" format="###,##0" header="LBL-W0063" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="shortage_piece_qty" type="number" format="###,##0" header="LBL-W0064" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="area_no" type="area" header="LBL-W0116" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="location" header="LBL-W0124" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="jan" type="string" header="LBL-W0002" printEnabled="false" xlsEnabled="true"/>
+    <field name="itf" type="string" header="LBL-W0017" printEnabled="false" xlsEnabled="true"/>
+    <field name="user_name" type="string" header="LBL-W0033" printEnabled="true" xlsEnabled="true"/>
+    <field name="regist_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0164" printEnabled="false" xlsEnabled="true" excelformat="14"/>
+    <field name="regist_time" type="date" format="$TIME_FORMAT.HMS" header="LBL-W0490" printEnabled="false" xlsEnabled="true" excelformat="21"/>
+    <field name="terminal_no" type="string" header="LBL-W0142" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_LocationStatus" keyword="" description="Location Status Inquiry" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="" />
+    <property name="features" value="" />
+    <property name="width" value="980" />
+    <property name="height" value="360" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="false" />
+  </template>
+  <template key="W_ShipResultABC" keyword="Analysis" description="ABC Analysis" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="" />
+    <property name="features" value="" />
+    <property name="width" value="980" />
+    <property name="height" value="360" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="false" />
+  </template>
+  <template key="W_InventMove" keyword="Analysis" description="Stock Change Analysis" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="" />
+    <property name="features" value="" />
+    <property name="width" value="980" />
+    <property name="height" value="400" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="" />
+  </template>
+  <template key="W_WorkTimeResult" keyword="Analysis" description="Estimated Duration Past Result" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="" />
+    <property name="features" value="" />
+    <property name="width" value="980" />
+    <property name="height" value="480" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="" />
+  </template>
+  <template key="W_V_PCTUserWorkInquiry" keyword="PCT" description="ユーザ別作業照会" lastupdate="2008/05/22 17:18:31" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="POPUP" />
+    <property name="features" value="width=1200,height=730,top=30,left=1,toolbar=no,directories=no,status=no,menubar=no,location=no,scrollbars=yes,resizable=yes" />
+    <property name="width" value="980" />
+    <property name="height" value="390" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="false" />
+  </template>
+  <template key="W_V_PCTCustomerProgress" keyword="PCT" description="" lastupdate="2009/03/16 18:28:53" username="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="POPUP" />
+    <property name="features" value="width=1200,height=730,top=30,left=1,toolbar=no,directories=no,status=no,menubar=no,location=no,scrollbars=yes,resizable=yes" />
+    <property name="width" value="980" />
+    <property name="height" value="390" />
+    <property name="clickable" value="false" />
+    <property name="itemLabelsVisible" value="false" />
+    <property name="permeate" value="false" />
+  </template>
+</templates>

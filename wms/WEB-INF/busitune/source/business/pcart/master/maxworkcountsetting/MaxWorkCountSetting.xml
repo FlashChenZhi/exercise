@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.maxworkcountsetting.MaxWorkCountSettingBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.maxworkcountsetting.MaxWorkCountSetting" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="txt_MaxCount" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.MaxWorkCountSettingSCH" />
+    <ref name="3" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.maxworkcountsetting.ViewStateKeys" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAllFalse" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="2" />
+      <validate>
+        <validate controlRef="1" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="AREA" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="MAX_COUNT" />
+        <map getRef="3" getValue="VS_LAST_UPDATE_DATE" setRef="2" setValue="LAST_UPDATE_DATE" />
+      </input1>
+    </event>
+  </events>
+</business>

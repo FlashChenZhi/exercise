@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.display.locationinquiry.LocationInquiryBusiness" abstractClassName="jp.co.daifuku.wms.stock.display.locationinquiry.LocationInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.stock.schedule.LocationInquirySCH" />
+    <ref name="2" type="Control" typeName="pul_Bank" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorLocateAll" />
+    <pulldown name="pul_Bank" dataType="WmsBank" parent="pul_Area" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_DisplaySync" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="BANK_NO" />
+      </input1>
+    </event>
+  </events>
+</business>

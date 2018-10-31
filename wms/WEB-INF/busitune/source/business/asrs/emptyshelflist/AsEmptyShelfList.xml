@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.emptyshelflist.AsEmptyShelfListBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.emptyshelflist.AsEmptyShelfList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="pul_RMNo" />
+    <ref name="2" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.AsEmptyShelfListDASCH" />
+    <ref name="3" type="ExportParameter" typeName="jp.co.daifuku.wms.asrs.exporter.AsrsEmptyShelfListParams" />
+    <ref name="4" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAll" />
+    <pulldown name="pul_RMNo" dataType="WmsAisleTrue" parent="pul_Area" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput" />
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="2" exportParameterRef="3" exportName="AsrsEmptyShelfList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="AREA" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="RM_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="DFK_DS_NO" setRef="3" setValue="DFK_DS_NO" />
+        <map getRef="2" getValue="DFK_USER_ID" setRef="3" setValue="DFK_USER_ID" />
+        <map getRef="2" getValue="DFK_USER_NAME" setRef="3" setValue="DFK_USER_NAME" />
+        <map getRef="2" getValue="AREA_NO" setRef="3" setValue="AREA_NO" />
+        <map getRef="2" getValue="AREA_NAME" setRef="3" setValue="AREA_NAME" />
+        <map getRef="2" getValue="SYS_DAY" setRef="3" setValue="SYS_DAY" />
+        <map getRef="2" getValue="SYS_TIME" setRef="3" setValue="SYS_TIME" />
+        <map getRef="2" getValue="RM_NO" setRef="3" setValue="RM_NO" />
+        <map getRef="2" getValue="LOCATION_NO" setRef="3" setValue="LOCATION_NO" />
+      </output1>
+      <part11 operationRef="4" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

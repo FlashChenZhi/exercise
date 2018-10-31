@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_ShipResultABC" keyword="Analysis" description="ABC Analysis">
+    <property name="visible" value="true" />
+    <property name="width" value="980" />
+    <property name="height" value="360" />
+  </template>
+</templates>

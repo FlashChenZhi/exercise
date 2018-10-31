@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.part11.listbox.areahistorylist.LstAreaHistoryBusiness" abstractClassName="jp.co.daifuku.wms.part11.listbox.areahistorylist.LstAreaHistory" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.wms.part11.dasch.LstAreaHistoryDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.part11.listbox.areahistorylist.LstAreaHistoryParams" />
+    <ref name="2" type="Control" typeName="LST_LOGDATE_DAY" />
+    <ref name="3" type="Control" typeName="LST_LOGDATE_TIME" />
+    <ref name="4" type="Control" typeName="LST_UPDATE_KIND" />
+    <ref name="5" type="Control" typeName="LST_USER_ID" />
+    <ref name="6" type="Control" typeName="LST_USER_NAME" />
+    <ref name="7" type="Control" typeName="LST_IP_ADDRESS" />
+    <ref name="8" type="Control" typeName="LST_TERMINAL_NAME" />
+    <ref name="9" type="Control" typeName="LST_AREA_NO" />
+    <ref name="10" type="Control" typeName="LST_AREA_NAME" />
+    <ref name="11" type="Control" typeName="LST_UPDATE_AREA_NAME" />
+    <ref name="12" type="Control" typeName="LST_TEMPORARY_AREA_TYPE" />
+    <ref name="13" type="Control" typeName="LST_UPDATE_TEMP_AREA_TYPE" />
+    <ref name="14" type="Control" typeName="LST_TEMPORARY_AREA" />
+    <ref name="15" type="Control" typeName="LST_UPDATE_TEMP_AREA" />
+    <ref name="16" type="Control" typeName="LST_VACANT_SEARCH_TYPE" />
+    <ref name="17" type="Control" typeName="LST_UPDATE_VACANT_SEARCH_TYPE" />
+    <ref name="18" type="Control" typeName="LST_RECEIVING_AREA" />
+    <ref name="19" type="Control" typeName="LST_UPDATE_RECEIVING_AREA" />
+    <ref name="20" type="Control" typeName="LST_NO" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_AreaHistoryList">
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_DAY" orgIndex="2" resourceKey="LBL-W8004" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_TIME" orgIndex="12" resourceKey="LBL-W8005" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_UPDATE_KIND" orgIndex="3" resourceKey="LBL-W8016" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_ID" orgIndex="4" resourceKey="LBL-T0220" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="13" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_IP_ADDRESS" orgIndex="5" resourceKey="LBL-T0222" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_NAME" orgIndex="14" resourceKey="LBL-W8006" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="6" resourceKey="LBL-W8008" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_AREA_NAME" orgIndex="7" resourceKey="LBL-W8048" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_AREA_NAME" orgIndex="15" resourceKey="LBL-W8049" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_TEMPORARY_AREA_TYPE" orgIndex="8" resourceKey="LBL-W8033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_TEMP_AREA_TYPE" orgIndex="16" resourceKey="LBL-W8034" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_TEMPORARY_AREA" orgIndex="9" resourceKey="LBL-W8035" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_TEMP_AREA" orgIndex="17" resourceKey="LBL-W8036" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_VACANT_SEARCH_TYPE" orgIndex="10" resourceKey="LBL-W8037" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_VACANT_SEARCH_TYPE" orgIndex="18" resourceKey="LBL-W8038" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_RECEIVING_AREA" orgIndex="11" resourceKey="LBL-W8050" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_UPDATE_RECEIVING_AREA" orgIndex="19" resourceKey="LBL-W8051" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="1" getValue="TABLE_NAME" setRef="0" setValue="TABLE_NAME" />
+        <map getRef="1" getValue="DISPFROMDAY_KEY" setRef="0" setValue="DISPFROMDAY_KEY" />
+        <map getRef="1" getValue="DISPFROMTIME_KEY" setRef="0" setValue="DISPFROMTIME_KEY" />
+        <map getRef="1" getValue="DISPTODAY_KEY" setRef="0" setValue="DISPTODAY_KEY" />
+        <map getRef="1" getValue="DISPTOTIME_KEY" setRef="0" setValue="DISPTOTIME_KEY" />
+        <map getRef="1" getValue="USERID_KEY" setRef="0" setValue="USERID_KEY" />
+        <map getRef="1" getValue="DSNUMBER_KEY" setRef="0" setValue="DSNUMBER_KEY" />
+        <map getRef="1" getValue="PAGENAMERESOURCEKEY" setRef="0" setValue="PAGENAMERESOURCEKEY" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="LOGDATE_DAY" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="LOGDATE_TIME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_KIND" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IP_ADRESS" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_NAME" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="AREA_NAME" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_AREA_NAME" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="TEMPORARY_AREA_TYPE" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_TEMP_AREA_TYPE" setRef="13" setValue="Value" />
+        <map getRef="0" getValue="TEMPORARY_AREA" setRef="14" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_TEMP_AREA" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="VACANT_SEARCH_TYPE" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_VACANT_SEARCH_TYPE" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="RECEIVING_AREA" setRef="18" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_RECEIVING_AREA" setRef="19" setValue="Value" />
+        <map getRef="0" getValue="NO" setRef="20" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE server-control [
+<!ELEMENT server-control (tlds?,jscript-files?,controls?)>
+<!ELEMENT tlds (tld+)>
+<!ELEMENT jscript-files (jscript-file+)>
+<!ELEMENT controls (page+,control*)>
+<!ELEMENT control (event*)>
+<!ATTLIST tld
+  uri CDATA #REQUIRED
+  prefix NMTOKEN #REQUIRED>
+<!ATTLIST jscript-file
+  path CDATA #REQUIRED>
+<!ATTLIST page
+  path CDATA #REQUIRED>
+<!ATTLIST control
+  name NMTOKEN #REQUIRED
+  display-name CDATA #REQUIRED
+  control-class NMTOKEN #REQUIRED
+  factory-class NMTOKEN #REQUIRED
+  impl-class NMTOKEN #REQUIRED
+  taglib NMTOKEN #REQUIRED
+  tag-name CDATA #REQUIRED
+  edit-form CDATA ""
+  parsecs CDATA ""
+  image-root CDATA ""
+  template CDATA #REQUIRED
+  parsexsl CDATA #REQUIRED
+  control-prefix CDATA #REQUIRED
+  focus (true|false) "false"
+  group CDATA #REQUIRED
+  group-imageindex CDATA #REQUIRED
+  dynamicaction-type CDATA #REQUIRED
+  bind-key CDATA "">
+]>
+
+<server-control>
+  <tlds>
+    <tld uri="/WEB-INF/control/bluedog-html.tld" prefix="h" />
+  </tlds>
+  <jscript-files>
+    <jscript-file path="/jscript/control.js" />
+    <!-- for ver 4.0 -->
+    <jscript-file path="/jscript/prototype.js" />
+    <jscript-file path="/jscript/effects.js" />
+    <jscript-file path="/jscript/xmlHttpRequest.js" />
+    <jscript-file path="/jscript/xmlHttpRequestProgress.js" />
+    <jscript-file path="/jscript/autocomplete.js" />
+    <jscript-file path="/jscript/bdmsg.js" />
+    <!-- for ver 4.0 -->
+    <!-- for ver 4.3 -->
+    <jscript-file path="/jscript/controlEventFunction.js" />
+    <!-- for ver 4.3 -->
+    <jscript-file path="/jscript/dynamicaction.js" />
+    <!-- for ver 5.2 -->
+    <jscript-file path="/jscript/calendar.js" />
+  </jscript-files>
+  <controls>
+    <page path="/WEB-INF/control/template/Page.xml" />
+    <control name="Label"
+             display-name="Label"
+             control-class="jp.co.daifuku.bluedog.ui.control.Label"
+             factory-class="jp.co.daifuku.bluedog.ui.control.LabelFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.LabelImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.LabelTag"
+             tag-name="h:label"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.LabelPreview"
+             image-root=""
+             template="/WEB-INF/control/template/Label-template.xml"
+             parsexsl="/WEB-INF/control/xsl/Label-preview.xsl"
+             control-prefix="lbl_"
+             focus="false"
+             group="Independent"
+             group-imageindex="0"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+    <control name="LinkLabel"
+             display-name="LinkLabel"
+             control-class="jp.co.daifuku.bluedog.ui.control.LinkLabel"
+             factory-class="jp.co.daifuku.bluedog.ui.control.LinkLabelFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.LinkLabelImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.LinkLabelTag"
+             tag-name="h:linklabel"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.LinkLabelPreview"
+             image-root=""
+             template="/WEB-INF/control/template/LinkLabel-template.xml"
+             parsexsl="/WEB-INF/control/xsl/LinkLabel-preview.xsl"
+             control-prefix="llb_"
+             focus="true"
+             group="Ancher"
+             group-imageindex="4"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+    <control name="SubmitLabel"
+             display-name="SubmitLabel"
+             control-class="jp.co.daifuku.bluedog.ui.control.SubmitLabel"
+             factory-class="jp.co.daifuku.bluedog.ui.control.SubmitLabelFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.SubmitLabelImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.SubmitLabelTag"
+             tag-name="h:submitlabel"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.SubmitLabelPreview"
+             image-root=""
+             template="/WEB-INF/control/template/SubmitLabel-template.xml"
+             parsexsl="/WEB-INF/control/xsl/SubmitLabel-preview.xsl"
+             control-prefix="slb_"
+             focus="true"
+             group="Ancher"
+             group-imageindex="4"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+      <event name="Server" />
+    </control>
+    <control name="TextArea"
+             display-name="TextArea"
+             control-class="jp.co.daifuku.bluedog.ui.control.TextArea"
+             factory-class="jp.co.daifuku.bluedog.ui.control.TextAreaFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.TextAreaImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.TextAreaTag"
+             tag-name="h:textarea"
+             edit-form="NewPreview.DirectInputArray"
+             parsecs="NewPreview.TextAreaPreview"
+             image-root=""
+             template="/WEB-INF/control/template/TextArea-template.xml"
+             parsexsl="/WEB-INF/control/xsl/TextArea-preview.xsl"
+             control-prefix="txa_"
+             focus="false"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+    <control name="FreeTextBox"
+             display-name="TextBox(Free)"
+             control-class="jp.co.daifuku.bluedog.ui.control.FreeTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.FreeTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.FreeTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.FreeTextBoxTag"
+             tag-name="h:freetextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.FreeTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/FreeTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/FreeTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type="requrired,prohibition,rangestring,requriredrelation,requriredeither"
+             bind-key="errMsgParamKey"
+             >
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="AutoComplete" />
+      <event name="AutoCompleteItemClick" />
+      <event name="Server" />
+    </control>
+    <control name="DateTextBox"
+             display-name="TextBox(Date)"
+             control-class="jp.co.daifuku.bluedog.ui.control.DateTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.DateTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.DateTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.DateTextBoxTag"
+             tag-name="h:datetextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.DateTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/DateTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/DateTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type="requrired,rangedate,requriredrelation,requriredeither"
+             bind-key="errMsgParamKey"
+             >
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+    <control name="TimeTextBox"
+             display-name="TextBox(Time)"
+             control-class="jp.co.daifuku.bluedog.ui.control.TimeTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.TimeTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.TimeTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.TimeTextBoxTag"
+             tag-name="h:timetextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.TimeTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/TimeTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/TimeTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type="requrired,rangetime,requriredrelation,requriredeither"
+             bind-key="errMsgParamKey"
+             >
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+    <control name="FormatTextBox"
+             display-name="TextBox(Format)"
+             control-class="jp.co.daifuku.bluedog.ui.control.FormatTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.FormatTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.FormatTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.FormatTextBoxTag"
+             tag-name="h:formattextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.FormatTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/FormatTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/FormatTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type="requrired,rangestring,requriredrelation,requriredeither"
+             bind-key="errMsgParamKey"
+             >
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+    <control name="NumberTextBox"
+             display-name="TextBox(Number)"
+             control-class="jp.co.daifuku.bluedog.ui.control.NumberTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.NumberTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.NumberTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.NumberTextBoxTag"
+             tag-name="h:numbertextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.NumberTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/NumberTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/NumberTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="TextBox"
+             group-imageindex="1"
+             dynamicaction-type="requrired,rangenumber,requriredrelation,requriredeither"
+             bind-key="errMsgParamKey"
+             >
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+    <control name="ListBox"
+             display-name="ListBox"
+             control-class="jp.co.daifuku.bluedog.ui.control.ListBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.ListBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.ListBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.ListBoxTag"
+             tag-name="h:listbox"
+             edit-form="NewPreview.DirectInputArray"
+             parsecs="NewPreview.ListBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/ListBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/ListBox-preview.xsl"
+             control-prefix="ltb_"
+             focus="true"
+             group="Select"
+             group-imageindex="2"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Change" />
+      <event name="Server" />
+    </control>
+
+    <control name="PullDown"
+             display-name="PullDown"
+             control-class="jp.co.daifuku.bluedog.ui.control.PullDown"
+             factory-class="jp.co.daifuku.bluedog.ui.control.PullDownFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.PullDownImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.PullDownTag"
+             tag-name="h:pulldown"
+             edit-form="NewPreview.DirectInputArray"
+             parsecs="NewPreview.PullDownPreview"
+             image-root=""
+             template="/WEB-INF/control/template/PullDown-template.xml"
+             parsexsl="/WEB-INF/control/xsl/PullDown-preview.xsl"
+             control-prefix="pul_"
+             focus="true"
+             group="Select"
+             group-imageindex="2"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Change" />
+      <event name="Server" />
+    </control>
+    <control name="CheckBox"
+             display-name="CheckBox"
+             control-class="jp.co.daifuku.bluedog.ui.control.CheckBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.CheckBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.CheckBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.CheckBoxTag"
+             tag-name="h:checkbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.CheckBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/CheckBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/CheckBox-preview.xsl"
+             control-prefix="chk_"
+             focus="true"
+             group="Select"
+             group-imageindex="2"
+             dynamicaction-type="requrired,requriredrelation,requriredeither"
+             bind-key="resourceKey"
+             >
+      <event name="Change" />
+      <event name="Server" />
+    </control>
+    <control name="RadioButton"
+             display-name="RadioButton"
+             control-class="jp.co.daifuku.bluedog.ui.control.RadioButton"
+             factory-class="jp.co.daifuku.bluedog.ui.control.RadioButtonFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.RadioButtonImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.RadioButtonTag"
+             tag-name="h:radiobutton"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.RadioButtonPreview"
+             image-root=""
+             template="/WEB-INF/control/template/RadioButton-template.xml"
+             parsexsl="/WEB-INF/control/xsl/RadioButton-preview.xsl"
+             control-prefix="rdo_"
+             focus="true"
+             group="Select"
+             group-imageindex="2"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" />
+      <event name="Server" />
+    </control>
+    <control name="LinkedPullDown"
+             display-name="LinkedPullDown"
+             control-class="jp.co.daifuku.bluedog.ui.control.LinkedPullDown"
+             factory-class="jp.co.daifuku.bluedog.ui.control.LinkedPullDownFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.LinkedPullDownImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.LinkedPullDownTag"
+             tag-name="h:linkedpulldown"
+             edit-form="NewPreview.DirectInputArray"
+             parsecs="NewPreview.LinkedPullDownPreview"
+             image-root=""
+             template="/WEB-INF/control/template/LinkedPullDown-template.xml"
+             parsexsl="/WEB-INF/control/xsl/LinkedPullDown-preview.xsl"
+             control-prefix="pul_"
+             focus="true"
+             group="Select"
+             group-imageindex="2"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Change" />
+      <event name="Server" />
+    </control>
+    <control name="ImageLink"
+             display-name="ImageLink"
+             control-class="jp.co.daifuku.bluedog.ui.control.ImageLink"
+             factory-class="jp.co.daifuku.bluedog.ui.control.ImageLinkFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.ImageLinkImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.ImageLinkTag"
+             tag-name="h:imagelink"
+             edit-form=""
+             parsecs="NewPreview.ImageLinkPreview"
+             image-root="/img/control/imagelink"
+             template="/WEB-INF/control/template/ImageLink-template.xml"
+             parsexsl="/WEB-INF/control/xsl/ImageLink-preview.xsl"
+             control-prefix="img_"
+             focus="true"
+             group="Ancher"
+             group-imageindex="4"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+    <control name="LinkButton"
+             display-name="LinkButton"
+             control-class="jp.co.daifuku.bluedog.ui.control.LinkButton"
+             factory-class="jp.co.daifuku.bluedog.ui.control.LinkButtonFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.LinkButtonImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.LinkButtonTag"
+             tag-name="h:linkbutton"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.LinkButtonPreview"
+             image-root=""
+             template="/WEB-INF/control/template/LinkButton-template.xml"
+             parsexsl="/WEB-INF/control/xsl/LinkButton-preview.xsl"
+             control-prefix="btn_"
+             focus="true"
+             group="Button"
+             group-imageindex="3"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+    <control name="ImageButton"
+             display-name="ImageButton"
+             control-class="jp.co.daifuku.bluedog.ui.control.ImageButton"
+             factory-class="jp.co.daifuku.bluedog.ui.control.ImageButtonFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.ImageButtonImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.ImageButtonTag"
+             tag-name="h:imagebutton"
+             edit-form=""
+             parsecs="NewPreview.ImageButtonPreview"
+             image-root="/img/control/imagebutton"
+             template="/WEB-INF/control/template/ImageButton-template.xml"
+             parsexsl="/WEB-INF/control/xsl/ImageButton-preview.xsl"
+             control-prefix="img_"
+             focus="true"
+             group="Button"
+             group-imageindex="3"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+      <event name="Server" />
+    </control>
+    <control name="SubmitButton"
+             display-name="SubmitButton"
+             control-class="jp.co.daifuku.bluedog.ui.control.SubmitButton"
+             factory-class="jp.co.daifuku.bluedog.ui.control.SubmitButtonFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.SubmitButtonImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.SubmitButtonTag"
+             tag-name="h:submitbutton"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.SubmitButtonPreview"
+             image-root=""
+             template="/WEB-INF/control/template/SubmitButton-template.xml"
+             parsexsl="/WEB-INF/control/xsl/SubmitButton-preview.xsl"
+             control-prefix="btn_"
+             focus="true"
+             group="Button"
+             group-imageindex="3"
+             dynamicaction-type="event"
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+      <event name="Server" />
+    </control>
+
+    <control name="ListCell"
+             display-name="ListCell"
+             control-class="jp.co.daifuku.bluedog.ui.control.ListCell"
+             factory-class="jp.co.daifuku.bluedog.ui.control.ListCellFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.ListCellImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.ListCellTag"
+             tag-name="h:listcell"
+             edit-form="NewPreview.ListCellInput"
+             parsecs="NewPreview.ListCellPreview"
+             image-root="/img/control/listcell"
+             template="/WEB-INF/control/template/ListCell-template.xml"
+             parsexsl="/WEB-INF/control/xsl/ListCell-preview.xsl"
+             control-prefix="lst_"
+             focus="true"
+             group="ListCell"
+             group-imageindex="5"
+             dynamicaction-type=""
+             bind-key=""
+             max-cells="30"
+             >
+      <event name="Click" default="true" />
+      <event name="Change" />
+      <event name="Server" />
+      <event name="ColumClick" default="true" />
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+    </control>
+
+    <control name="ScrollListCell"
+             display-name="ScrollListCell"
+             control-class="jp.co.daifuku.bluedog.ui.control.ScrollListCell"
+             factory-class="jp.co.daifuku.bluedog.ui.control.ScrollListCellFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.ScrollListCellImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.ScrollListCellTag"
+             tag-name="h:scrolllistcell"
+             edit-form="NewPreview.ListCellInput"
+             parsecs="NewPreview.ScrollListCellPreview"
+             image-root=""
+             template="/WEB-INF/control/template/ScrollListCell-template.xml"
+             parsexsl="/WEB-INF/control/xsl/ScrollListCell-preview.xsl"
+             control-prefix="lst_"
+             focus="true"
+             group="ListCell"
+             group-imageindex="5"
+             dynamicaction-type=""
+             bind-key=""
+             max-cells="30"
+             >
+      <event name="Click" default="true" />
+      <event name="Change" />
+      <event name="Server" />
+      <event name="ColumClick" default="true" />
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+    </control>
+<!-- Start Add T.Sumiyama for v5.2 2010/02/26 -->
+     <control name			="MultiroleListCell"
+          display-name		="MultiroleListCell"
+          control-class		="jp.co.daifuku.bluedog.ui.control.MultiroleListCell"
+          factory-class		="jp.co.daifuku.bluedog.ui.control.MultiroleListCellFactory"
+          impl-class		="jp.co.daifuku.bluedog.ui.control.MultiroleListCellImpl"
+          taglib			="jp.co.daifuku.bluedog.ui.taglib.MultiroleListCellTag"
+          tag-name			="h:multirolelistcell"
+          edit-form			="NewPreview.ListCellInput"
+          parsecs			="NewPreview.MultiroleListCellPreview"
+          image-root		=""
+          template			="/WEB-INF/control/template/MultiroleListCell-template.xml"
+          parsexsl			="/WEB-INF/control/xsl/MultiroleListCell-preview.xsl"
+          control-prefix	="lst_"
+          focus				="true"
+          group				="ListCell"
+          group-imageindex	="5"
+          dynamicaction-type=""
+          bind-key			=""
+          max-cells			="30"
+          >
+      <event name="Click" default="true" />
+      <event name="Change" />
+      <event name="Server" />
+      <event name="ColumClick" default="true" />
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+    </control>
+<!-- End Add T.Sumiyama for v5.2 2010/02/26 -->
+<!-- for version 4.0 -->
+    <control name="PieChart"
+             display-name="PieChart"
+             control-class="jp.co.daifuku.bluedog.ui.control.PieChart"
+             factory-class="jp.co.daifuku.bluedog.ui.control.PieChartFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.PieChartImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.PieChartTag"
+             tag-name="h:piechart"
+             edit-form=""
+             parsecs="NewPreview.PieChartPreview"
+             image-root="/img/control/piechart"
+             template="/WEB-INF/control/template/PieChart-template.xml"
+             parsexsl="/WEB-INF/control/xsl/PieChart-preview.xsl"
+             control-prefix="pc_"
+             focus="false"
+             group="Chart"
+             group-imageindex="6"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+    </control>
+    <control name="GanttChart"
+             display-name="GanttChart"
+             control-class="jp.co.daifuku.bluedog.ui.control.GanttChart"
+             factory-class="jp.co.daifuku.bluedog.ui.control.GanttChartFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.GanttChartImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.GanttChartTag"
+             tag-name="h:ganttchart"
+             edit-form=""
+             parsecs="NewPreview.GanttChartPreview"
+             image-root="/img/control/ganttchart"
+             template="/WEB-INF/control/template/GanttChart-template.xml"
+             parsexsl="/WEB-INF/control/xsl/GanttChart-preview.xsl"
+             control-prefix="gtc_"
+             focus="false"
+             group="Chart"
+             group-imageindex="6"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+    </control>
+    <control name="GeneralChart"
+             display-name="GeneralChart"
+             control-class="jp.co.daifuku.bluedog.ui.control.GeneralChart"
+             factory-class="jp.co.daifuku.bluedog.ui.control.GeneralChartFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.GeneralChartImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.GeneralChartTag"
+             tag-name="h:generalchart"
+             edit-form=""
+             parsecs="NewPreview.GeneralChartPreview"
+             image-root="/img/control/generalchart"
+             template="/WEB-INF/control/template/GeneralChart-template.xml"
+             parsexsl="/WEB-INF/control/xsl/GeneralChart-preview.xsl"
+             control-prefix="glc_"
+             focus="false"
+             group="Chart"
+             group-imageindex="6"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+    </control>
+    <control name="HorizontalBarChart"
+             display-name="HorizontalBarChart"
+             control-class="jp.co.daifuku.bluedog.ui.control.HorizontalBarChart"
+             factory-class="jp.co.daifuku.bluedog.ui.control.HorizontalBarChartFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.HorizontalBarChartImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.HorizontalBarChartTag"
+             tag-name="h:horizontalbarchart"
+             edit-form=""
+             parsecs="NewPreview.HorizontalBarChartPreview"
+             image-root="/img/control/horizontalbarchart"
+             template="/WEB-INF/control/template/HorizontalBarChart-template.xml"
+             parsexsl="/WEB-INF/control/xsl/HorizontalBarChart-preview.xsl"
+             control-prefix="hbc_"
+             focus="false"
+             group="Chart"
+             group-imageindex="6"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+    </control>
+    <control name="VerticalBarLineChart"
+             display-name="VerticalBarLineChart"
+             control-class="jp.co.daifuku.bluedog.ui.control.VerticalBarLineChart"
+             factory-class="jp.co.daifuku.bluedog.ui.control.VerticalBarLineChartFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.VerticalBarLineChartImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.VerticalBarLineChartTag"
+             edit-form=""
+             parsecs="NewPreview.VerticalBarLineChartPreview"
+             tag-name="h:verticalbarlinechart"
+             image-root="/img/control/verticalbarlinechart"
+             template="/WEB-INF/control/template/VerticalBarLineChart-template.xml"
+             parsexsl="/WEB-INF/control/xsl/VerticalBarLineChart-preview.xsl"
+             control-prefix="vbc_"
+             focus="false"
+             group="Chart"
+             group-imageindex="6"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" default="true" />
+    </control>
+    <control name="Tab"
+             display-name="Tab"
+             control-class="jp.co.daifuku.bluedog.ui.control.Tab"
+             factory-class="jp.co.daifuku.bluedog.ui.control.TabFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.TabImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.TabTag"
+             tag-name="h:tab"
+             edit-form="NewPreview.DirectInputArray"
+             parsecs="NewPreview.TabPreview"
+             image-root="/img/control/tab"
+             template="/WEB-INF/control/template/Tab-template.xml"
+             parsexsl="/WEB-INF/control/xsl/Tab-preview.xsl"
+             control-prefix="tab_"
+             focus="false"
+             group="Independent"
+             group-imageindex="1"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Click" />
+    </control>
+    <control name="Pager"
+             display-name="Pager"
+             control-class="jp.co.daifuku.bluedog.ui.control.Pager"
+             factory-class="jp.co.daifuku.bluedog.ui.control.PagerFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.PagerImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.PagerTag"
+             tag-name="h:pager"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.PagerPreview"
+             image-root="/img/control/pager"
+             template="/WEB-INF/control/template/Pager-template.xml"
+             parsexsl="/WEB-INF/control/xsl/Pager-preview.xsl"
+             control-prefix="pgr_"
+             focus="true"
+             group="Independent"
+             group-imageindex="1"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="First" default="true" />
+      <event name="Last" default="true" />
+      <event name="Prev" default="true" />
+      <event name="Next" default="true" />
+    </control>
+    <control name="Message"
+             display-name="Message"
+             control-class="jp.co.daifuku.bluedog.ui.control.Message"
+             factory-class="jp.co.daifuku.bluedog.ui.control.MessageFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.MessageImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.MessageTag"
+             tag-name="h:message"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.MessagePreview"
+             image-root="/img/control/message"
+             template="/WEB-INF/control/template/Message-template.xml"
+             parsexsl="/WEB-INF/control/xsl/Message-preview.xsl"
+             control-prefix="message"
+             focus="false"
+             group="Independent"
+             group-imageindex="0"
+             dynamicaction-type=""
+             bind-key=""
+             >
+    </control>
+    <control name="FileBrows"
+             display-name="FileBrows"
+             control-class="jp.co.daifuku.bluedog.ui.control.FileBrows"
+             factory-class="jp.co.daifuku.bluedog.ui.control.FileBrowsFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.FileBrowsImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.FileBrowsTag"
+             tag-name="h:filebrows"
+             edit-form=""
+             parsecs="NewPreview.FileBrowsPreview"
+             image-root=""
+             template="/WEB-INF/control/template/FileBrows-template.xml"
+             parsexsl="/WEB-INF/control/xsl/FileBrows-preview.xsl"
+             control-prefix="flb_"
+             focus="true"
+             group="Independent"
+             group-imageindex="0"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="Server" />
+    </control>
+<!-- 下記のコントロールは非推奨コントロールです -->
+    <control name="FixedListCell"
+             display-name="FixedListCell"
+             control-class="jp.co.daifuku.bluedog.ui.control.FixedListCell"
+             factory-class="jp.co.daifuku.bluedog.ui.control.FixedListCellFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.FixedListCellImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.FixedListCellTag"
+             tag-name="h:fixedlistcell"
+             edit-form="NewPreview.ListCellInput"
+             parsecs="NewPreview.FixedListCellPreview"
+             image-root=""
+             template="/WEB-INF/control/template/FixedListCell-template.xml"
+             parsexsl="/WEB-INF/control/xsl/FixedListCell-preview.xsl"
+             control-prefix="lst_"
+             focus="true"
+             group="Deprecated"
+             group-imageindex="10"
+             dynamicaction-type=""
+             bind-key=""
+             max-cells="30"
+             >
+      <event name="Click" default="true" />
+      <event name="Change" />
+      <event name="Server" />
+      <event name="ColumClick" default="true" />
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+    </control>
+
+    <control name="BarCodeTextBox"
+             display-name="TextBox(BarCode)"
+             control-class="jp.co.daifuku.bluedog.ui.control.BarCodeTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.BarCodeTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.BarCodeTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.BarCodeTextBoxTag"
+             tag-name="h:barcodetextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.BarCodeTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/BarCodeTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/BarCodeTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="Deprecated"
+             group-imageindex="10"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="InputComplete" />
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+    <control name="PasswordTextBox"
+             display-name="PasswordTextBox"
+             control-class="jp.co.daifuku.bluedog.ui.control.PasswordTextBox"
+             factory-class="jp.co.daifuku.bluedog.ui.control.PasswordTextBoxFactory"
+             impl-class="jp.co.daifuku.bluedog.ui.control.PasswordTextBoxImpl"
+             taglib="jp.co.daifuku.bluedog.ui.taglib.PasswordTextBoxTag"
+             tag-name="h:passwordtextbox"
+             edit-form="NewPreview.DirectInput"
+             parsecs="NewPreview.PasswordTextBoxPreview"
+             image-root=""
+             template="/WEB-INF/control/template/PasswordTextBox-template.xml"
+             parsexsl="/WEB-INF/control/xsl/PasswordTextBox-preview.xsl"
+             control-prefix="txt_"
+             focus="true"
+             group="Deprecated"
+             group-imageindex="10"
+             dynamicaction-type=""
+             bind-key=""
+             >
+      <event name="TabKey" />
+      <event name="EnterKey" />
+      <event name="Server" />
+    </control>
+  </controls>
+</server-control>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.softzonemnt.SoftZoneMasterMntBusiness" abstractClassName="jp.co.daifuku.wms.master.display.softzonemnt.SoftZoneMasterMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="pul_SoftZone" />
+    <ref name="2" type="Control" typeName="txt_BankFrom" />
+    <ref name="3" type="Control" typeName="txt_BankTo" />
+    <ref name="4" type="Control" typeName="txt_BayFrom" />
+    <ref name="5" type="Control" typeName="txt_BayTo" />
+    <ref name="6" type="Control" typeName="txt_LevelFrom" />
+    <ref name="7" type="Control" typeName="txt_LevelTo" />
+    <ref name="8" type="Control" typeName="lst_ZoneMaintenanceRange" />
+    <ref name="9" type="Control" typeName="btn_Set" />
+    <ref name="10" type="Control" typeName="btn_AllClear" />
+    <ref name="11" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.SoftZoneMasterMntSCH" />
+    <ref name="12" type="Control" typeName="LST_AREA_NO" />
+    <ref name="13" type="Control" typeName="HIDDEN_SOFT_ZONE" />
+    <ref name="14" type="Control" typeName="HIDDEN_BANK_FROM" />
+    <ref name="15" type="Control" typeName="HIDDEN_BANK_TO" />
+    <ref name="16" type="Control" typeName="HIDDEN_BAY_FROM" />
+    <ref name="17" type="Control" typeName="HIDDEN_BAY_TO" />
+    <ref name="18" type="Control" typeName="HIDDEN_LEVEL_FROM" />
+    <ref name="19" type="Control" typeName="HIDDEN_LEVEL_TO" />
+    <ref name="20" type="Control" typeName="LST_SOFT_ZONE_NAME" />
+    <ref name="21" type="Control" typeName="LST_BANK" />
+    <ref name="22" type="Control" typeName="LST_BAY" />
+    <ref name="23" type="Control" typeName="LST_LEVEL" />
+    <ref name="24" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAll" />
+    <pulldown name="pul_SoftZone" dataType="WmsSoftZoneArea" parent="pul_Area" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_ZoneMaintenanceRange">
+      <listcellColumn name="HIDDEN_BANK_FROM" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_BANK_TO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_BAY_FROM" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_BAY_TO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LEVEL_FROM" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LEVEL_TO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_SOFT_ZONE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W0108" dataType="String" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="3" resourceKey="LBL-W0011" dataType="Area" />
+      <listcellColumn name="LST_SOFT_ZONE_NAME" orgIndex="4" resourceKey="LBL-W1425" dataType="String" />
+      <listcellColumn name="LST_BANK" orgIndex="5" resourceKey="LBL-W0594" dataType="String" />
+      <listcellColumn name="LST_BAY" orgIndex="6" resourceKey="LBL-W0595" dataType="String" />
+      <listcellColumn name="LST_LEVEL" orgIndex="7" resourceKey="LBL-W0596" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="8" type="Clear" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="8" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Input" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="11" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="5" required="true" />
+        <validate controlRef="6" required="true" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="11" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="11" setValue="SOFT_ZONE" />
+        <map getRef="2" getValue="Value" setRef="11" setValue="BANK_FROM" />
+        <map getRef="3" getValue="Value" setRef="11" setValue="BANK_TO" />
+        <map getRef="4" getValue="Value" setRef="11" setValue="BAY_FROM" />
+        <map getRef="5" getValue="Value" setRef="11" setValue="BAY_TO" />
+        <map getRef="6" getValue="Value" setRef="11" setValue="LEVEL_FROM" />
+        <map getRef="7" getValue="Value" setRef="11" setValue="LEVEL_TO" />
+      </input1>
+      <input2>
+        <map getRef="12" getValue="Value" setRef="11" setValue="AREA_NO" />
+        <map getRef="13" getValue="Value" setRef="11" setValue="SOFT_ZONE" />
+        <map getRef="14" getValue="Value" setRef="11" setValue="BANK_FROM" />
+        <map getRef="15" getValue="Value" setRef="11" setValue="BANK_TO" />
+        <map getRef="16" getValue="Value" setRef="11" setValue="BAY_FROM" />
+        <map getRef="17" getValue="Value" setRef="11" setValue="BAY_TO" />
+        <map getRef="18" getValue="Value" setRef="11" setValue="LEVEL_FROM" />
+        <map getRef="19" getValue="Value" setRef="11" setValue="LEVEL_TO" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="Value" setRef="20" setValue="Value" />
+        <map getRef="3" getValue="Value" setRef="21" setValue="Value" />
+        <map getRef="5" getValue="Value" setRef="22" setValue="Value" />
+        <map getRef="7" getValue="Value" setRef="23" setValue="Value" />
+        <map getRef="2" getValue="Value" setRef="14" setValue="Value" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="Value" />
+        <map getRef="4" getValue="Value" setRef="16" setValue="Value" />
+        <map getRef="5" getValue="Value" setRef="17" setValue="Value" />
+        <map getRef="6" getValue="Value" setRef="18" setValue="Value" />
+        <map getRef="7" getValue="Value" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="11" />
+      <input1>
+        <map getRef="12" getValue="Value" setRef="11" setValue="AREA_NO" />
+        <map getRef="13" getValue="Value" setRef="11" setValue="SOFT_ZONE" />
+        <map getRef="14" getValue="Value" setRef="11" setValue="BANK_FROM" />
+        <map getRef="15" getValue="Value" setRef="11" setValue="BANK_TO" />
+        <map getRef="16" getValue="Value" setRef="11" setValue="BAY_FROM" />
+        <map getRef="17" getValue="Value" setRef="11" setValue="BAY_TO" />
+        <map getRef="18" getValue="Value" setRef="11" setValue="LEVEL_FROM" />
+        <map getRef="19" getValue="Value" setRef="11" setValue="LEVEL_TO" />
+      </input1>
+      <part11 operationRef="24" operation="SETTING">
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="19" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="8" type="Clear" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="LST_MODIFY" name="Click" pattern="ListCellRowEdit">
+      <output1>
+        <map getRef="12" getValue="Value" setRef="0" setValue="Value" />
+        <map getRef="13" getValue="Value" setRef="1" setValue="Value" />
+        <map getRef="14" getValue="Value" setRef="2" setValue="Value" />
+        <map getRef="15" getValue="Value" setRef="3" setValue="Value" />
+        <map getRef="16" getValue="Value" setRef="4" setValue="Value" />
+        <map getRef="17" getValue="Value" setRef="5" setValue="Value" />
+        <map getRef="18" getValue="Value" setRef="6" setValue="Value" />
+        <map getRef="19" getValue="Value" setRef="7" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+  </events>
+</business>

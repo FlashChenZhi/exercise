@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.planregist.RetrievalPlanRegist2Business" abstractClassName="jp.co.daifuku.wms.retrieval.display.planregist.RetrievalPlanRegist2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_LineNo" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.retrieval.display.planregist.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="lbl_In_TicketNo" />
+    <ref name="3" type="Control" typeName="txt_BranchNo" />
+    <ref name="4" type="Control" typeName="txt_BatchNo" />
+    <ref name="5" type="Control" typeName="txt_OrderNo" />
+    <ref name="6" type="Control" typeName="txt_CustomerCode" />
+    <ref name="7" type="Control" typeName="txt_CustomerName" />
+    <ref name="8" type="Control" typeName="txt_ItemCode" />
+    <ref name="9" type="Control" typeName="txt_ItemName" />
+    <ref name="10" type="Control" typeName="txt_EnteringQty" />
+    <ref name="11" type="Control" typeName="txt_JanCode" />
+    <ref name="12" type="Control" typeName="txt_CaseITF" />
+    <ref name="13" type="Control" typeName="txt_LotNo" />
+    <ref name="14" type="Control" typeName="txt_PlanCaseQty" />
+    <ref name="15" type="Control" typeName="txt_PlanPieceQty" />
+    <ref name="16" type="Control" typeName="pul_RetrievalArea" />
+    <ref name="17" type="Control" typeName="txt_RetrievalPlanLocation" />
+    <ref name="18" type="Control" typeName="txt_R_DateFlat" />
+    <ref name="19" type="Constants" typeName="Constants" />
+    <ref name="20" type="Control" typeName="btn_Submit" />
+    <ref name="21" type="Control" typeName="btn_AllClear" />
+    <ref name="22" type="Control" typeName="lst_RetrievalPlanInput" />
+    <ref name="23" type="Sch" typeName="jp.co.daifuku.wms.retrieval.schedule.RetrievalPlanRegistSCH" />
+    <ref name="24" type="Control" typeName="LST_LINE_NO" />
+    <ref name="25" type="Control" typeName="LST_BRANCH_NO" />
+    <ref name="26" type="Control" typeName="LST_BATCH_NO" />
+    <ref name="27" type="Control" typeName="LST_ORDER_NO" />
+    <ref name="28" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="29" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="30" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="31" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="32" type="Control" typeName="LST_ENTERING_QTY" />
+    <ref name="33" type="Control" typeName="LST_JAN" />
+    <ref name="34" type="Control" typeName="LST_ITF" />
+    <ref name="35" type="Control" typeName="LST_PLAN_LOT_NO" />
+    <ref name="36" type="Control" typeName="LST_PLAN_CASE_QTY" />
+    <ref name="37" type="Control" typeName="LST_PLAN_PIECE_QTY" />
+    <ref name="38" type="Control" typeName="LST_PLAN_AREA_NO" />
+    <ref name="39" type="Control" typeName="LST_PLAN_LOCATION_NO" />
+    <ref name="40" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="41" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.cust.LstCustomerParams" />
+    <ref name="42" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_RetrievalArea" dataType="WmsAreaFloorTempReceiveALL" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_RetrievalPlanInput">
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W0108" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_NO" orgIndex="3" resourceKey="LBL-W0066" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_BRANCH_NO" orgIndex="13" resourceKey="LBL-W0081" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_BATCH_NO" orgIndex="4" resourceKey="LBL-W0028" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_NO" orgIndex="5" resourceKey="LBL-W0014" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="6" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="14" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="7" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="15" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ENTERING_QTY" orgIndex="8" resourceKey="LBL-W0019" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_JAN" orgIndex="9" resourceKey="LBL-W0002" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITF" orgIndex="16" resourceKey="LBL-W0017" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_LOT_NO" orgIndex="10" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PLAN_CASE_QTY" orgIndex="11" resourceKey="LBL-W0183" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PLAN_PIECE_QTY" orgIndex="17" resourceKey="LBL-W0184" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PLAN_AREA_NO" orgIndex="12" resourceKey="LBL-W0116" dataType="Area" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PLAN_LOCATION_NO" orgIndex="18" resourceKey="LBL-W0124" dataType="Location" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/retrieval/planregist/RetrievalPlanRegist" viewStateRef="1" />
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="1" setValue="PLAN_DAY" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="SHIP_TICKET_NO" />
+      </output1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="15" type="Empty" />
+        <clear controlRef="16" type="Empty" />
+        <clear controlRef="17" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="SHIP_TICKET_NO" setRef="2" setValue="Value" />
+        <map getRef="19" getValue="DEFAULT_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="LIST_LINE_NO" setRef="1" setValue="LIST_LINE_NO" />
+        <map getRef="1" getValue="MODIFY_FLAG" setRef="1" setValue="MODIFY_FLAG" />
+        <map getRef="1" getValue="MODIFY_ROW" setRef="1" setValue="MODIFY_ROW" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="16" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="15" type="Empty" />
+        <clear controlRef="17" type="Empty" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+        <clear controlRef="22" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Input" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="23" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="5" required="true" />
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" required="true" />
+        <validate controlRef="9" />
+        <validate controlRef="10" />
+        <validate controlRef="11" />
+        <validate controlRef="12" />
+        <validate controlRef="13" />
+        <validate controlRef="14" />
+        <validate controlRef="15" />
+        <validate controlRef="17" />
+        <validate controlRef="16" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="23" setValue="LINE_NO" />
+        <map getRef="3" getValue="Value" setRef="23" setValue="BRANCH_NO" />
+        <map getRef="4" getValue="Value" setRef="23" setValue="BATCH_NO" />
+        <map getRef="5" getValue="Value" setRef="23" setValue="ORDER_NO" />
+        <map getRef="6" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="7" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="8" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="10" getValue="Value" setRef="23" setValue="ENTERING_QTY" />
+        <map getRef="11" getValue="Value" setRef="23" setValue="JAN_CODE" />
+        <map getRef="12" getValue="Value" setRef="23" setValue="CASE_ITF" />
+        <map getRef="13" getValue="Value" setRef="23" setValue="LOT_NO" />
+        <map getRef="14" getValue="Value" setRef="23" setValue="PLAN_CASE_QTY" />
+        <map getRef="15" getValue="Value" setRef="23" setValue="PLAN_PIECE_QTY" />
+        <map getRef="16" getValue="Value" setRef="23" setValue="RETRIEVAL_AREA" />
+        <map getRef="17" getValue="Value" setRef="23" setValue="RETRIEVAL_PLAN_LOCATION" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="23" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="PLAN_DAY" setRef="23" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="SHIP_TICKET_NO" setRef="23" setValue="SHIP_TICKET_NO" />
+      </input1>
+      <input2>
+        <map getRef="24" getValue="Value" setRef="23" setValue="LINE_NO" />
+        <map getRef="25" getValue="Value" setRef="23" setValue="BRANCH_NO" />
+        <map getRef="26" getValue="Value" setRef="23" setValue="BATCH_NO" />
+        <map getRef="27" getValue="Value" setRef="23" setValue="ORDER_NO" />
+        <map getRef="28" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="29" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="30" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="31" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="32" getValue="Value" setRef="23" setValue="ENTERING_QTY" />
+        <map getRef="33" getValue="Value" setRef="23" setValue="JAN" />
+        <map getRef="34" getValue="Value" setRef="23" setValue="ITF" />
+        <map getRef="35" getValue="Value" setRef="23" setValue="PLAN_LOT_NO" />
+        <map getRef="36" getValue="Value" setRef="23" setValue="PLAN_CASE_QTY" />
+        <map getRef="37" getValue="Value" setRef="23" setValue="PLAN_PIECE_QTY" />
+        <map getRef="38" getValue="Value" setRef="23" setValue="PLAN_AREA_NO" />
+        <map getRef="39" getValue="Value" setRef="23" setValue="PLAN_LOCATION_NO" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="23" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="PLAN_DAY" setRef="23" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="SHIP_TICKET_NO" setRef="23" setValue="SHIP_TICKET_NO" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="24" setValue="Value" />
+        <map getRef="3" getValue="Value" setRef="25" setValue="Value" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="Value" />
+        <map getRef="5" getValue="Value" setRef="27" setValue="Value" />
+        <map getRef="6" getValue="Value" setRef="28" setValue="Value" />
+        <map getRef="7" getValue="Value" setRef="29" setValue="Value" />
+        <map getRef="8" getValue="Value" setRef="30" setValue="Value" />
+        <map getRef="9" getValue="Value" setRef="31" setValue="Value" />
+        <map getRef="10" getValue="Value" setRef="32" setValue="Value" />
+        <map getRef="11" getValue="Value" setRef="33" setValue="Value" />
+        <map getRef="12" getValue="Value" setRef="34" setValue="Value" />
+        <map getRef="13" getValue="Value" setRef="35" setValue="Value" />
+        <map getRef="14" getValue="Value" setRef="36" setValue="Value" />
+        <map getRef="15" getValue="Value" setRef="37" setValue="Value" />
+        <map getRef="16" getValue="Value" setRef="38" setValue="Value" />
+        <map getRef="17" getValue="Value" setRef="39" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="20" type="Enabled" />
+        <clear controlRef="21" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="23" />
+      <input1>
+        <map getRef="24" getValue="Value" setRef="23" setValue="LINE_NO" />
+        <map getRef="25" getValue="Value" setRef="23" setValue="BRANCH_NO" />
+        <map getRef="26" getValue="Value" setRef="23" setValue="BATCH_NO" />
+        <map getRef="27" getValue="Value" setRef="23" setValue="ORDER_NO" />
+        <map getRef="28" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="29" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="30" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="31" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="32" getValue="Value" setRef="23" setValue="ENTERING_QTY" />
+        <map getRef="33" getValue="Value" setRef="23" setValue="JAN" />
+        <map getRef="34" getValue="Value" setRef="23" setValue="ITF" />
+        <map getRef="35" getValue="Value" setRef="23" setValue="PLAN_LOT_NO" />
+        <map getRef="36" getValue="Value" setRef="23" setValue="PLAN_CASE_QTY" />
+        <map getRef="37" getValue="Value" setRef="23" setValue="PLAN_PIECE_QTY" />
+        <map getRef="38" getValue="Value" setRef="23" setValue="PLAN_AREA_NO" />
+        <map getRef="39" getValue="Value" setRef="23" setValue="PLAN_LOCATION_NO" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="23" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="PLAN_DAY" setRef="23" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="SHIP_TICKET_NO" setRef="23" setValue="SHIP_TICKET_NO" />
+      </input1>
+      <part11 operationRef="40" operation="REGIST">
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="24" out1Value="Value" />
+        <out out1Ref="25" out1Value="Value" />
+        <out out1Ref="26" out1Value="Value" />
+        <out out1Ref="27" out1Value="Value" />
+        <out out1Ref="28" out1Value="Value" />
+        <out out1Ref="30" out1Value="Value" />
+        <out out1Ref="32" out1Value="Value" />
+        <out out1Ref="33" out1Value="Value" />
+        <out out1Ref="34" out1Value="Value" />
+        <out out1Ref="35" out1Value="Value" />
+        <out out1Ref="36" out1Value="Value" />
+        <out out1Ref="37" out1Value="Value" />
+        <out out1Ref="38" out1Value="Value" />
+        <out out1Ref="39" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="15" type="Empty" />
+        <clear controlRef="16" type="Empty" />
+        <clear controlRef="17" type="Empty" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+        <clear controlRef="22" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="22" type="Clear" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="LST_MODIFY" name="Click" pattern="ListCellRowEdit">
+      <output1>
+        <map getRef="24" getValue="Value" setRef="0" setValue="Value" />
+        <map getRef="25" getValue="Value" setRef="3" setValue="Value" />
+        <map getRef="26" getValue="Value" setRef="4" setValue="Value" />
+        <map getRef="27" getValue="Value" setRef="5" setValue="Value" />
+        <map getRef="28" getValue="Value" setRef="6" setValue="Value" />
+        <map getRef="29" getValue="Value" setRef="7" setValue="Value" />
+        <map getRef="30" getValue="Value" setRef="8" setValue="Value" />
+        <map getRef="31" getValue="Value" setRef="9" setValue="Value" />
+        <map getRef="32" getValue="Value" setRef="10" setValue="Value" />
+        <map getRef="33" getValue="Value" setRef="11" setValue="Value" />
+        <map getRef="34" getValue="Value" setRef="12" setValue="Value" />
+        <map getRef="35" getValue="Value" setRef="13" setValue="Value" />
+        <map getRef="36" getValue="Value" setRef="14" setValue="Value" />
+        <map getRef="37" getValue="Value" setRef="15" setValue="Value" />
+        <map getRef="38" getValue="Value" setRef="16" setValue="Value" />
+        <map getRef="39" getValue="Value" setRef="17" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+    <event control="btn_SearchCustomer" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/cust/LstCustomer" businessParameterRef="41" />
+      <input1>
+        <map getRef="6" getValue="Value" setRef="41" setValue="CUSTOMER_CODE" />
+        <map getRef="19" getValue="DEFAULT_CONSIGNOR_CODE" setRef="41" setValue="CONSIGNOR_CODE" />
+        <map getRef="19" getValue="LST_CUSTOMER_SORT_PLACE_HIDDEN" setRef="41" setValue="SORT_PLACE_DISP" />
+      </input1>
+      <output1>
+        <map getRef="41" getValue="CUSTOMER_CODE" setRef="6" setValue="Value" />
+        <map getRef="41" getValue="CUSTOMER_NAME" setRef="7" setValue="Value" />
+      </output1>
+      <focus controlRef="6" />
+    </event>
+    <event control="btn_SearchItem" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="42" />
+      <input1>
+        <map getRef="8" getValue="Value" setRef="42" setValue="ITEM_CODE" />
+        <map getRef="19" getValue="DEFAULT_CONSIGNOR_CODE" setRef="42" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="42" getValue="ITEM_CODE" setRef="8" setValue="Value" />
+        <map getRef="42" getValue="ITEM_NAME" setRef="9" setValue="Value" />
+        <map getRef="42" getValue="ENTERING_QTY" setRef="10" setValue="Value" />
+        <map getRef="42" getValue="JAN" setRef="11" setValue="Value" />
+        <map getRef="42" getValue="ITF" setRef="12" setValue="Value" />
+      </output1>
+      <focus controlRef="8" />
+    </event>
+  </events>
+</business>

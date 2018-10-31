@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="NoPlanRetrievalOutDataSheet" type="DataSheet" />
+    <ref name="1" typeName="NoPlanRetrievalInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="back_Click" pattern="NoSch" order="1">
+      <validate />
+      <output>
+        <map getterTypeRef="0" getterValue="TEMP_RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+    <method name="resultLotNo_Enter" pattern="NoSch" order="2">
+      <validate />
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+  </methods>
+</business>

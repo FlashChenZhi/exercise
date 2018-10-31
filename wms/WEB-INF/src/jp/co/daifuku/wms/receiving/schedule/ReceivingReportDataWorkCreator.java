@@ -1,0 +1,356 @@
+// $Id: ReceivingReportDataWorkCreator.java 7241 2010-02-26 05:32:14Z okayama $
+package jp.co.daifuku.wms.receiving.schedule;
+
+/*
+ * Copyright(c) 2000-2007 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import jp.co.daifuku.authentication.DfkUserInfo;
+import jp.co.daifuku.common.NotFoundException;
+import jp.co.daifuku.common.ReadWriteException;
+import jp.co.daifuku.common.ScheduleException;
+import jp.co.daifuku.emanager.EmConstants;
+import jp.co.daifuku.emanager.util.P11LogWriter;
+import jp.co.daifuku.wms.base.common.DsNumberDefine;
+import jp.co.daifuku.wms.base.common.WmsParam;
+import jp.co.daifuku.wms.base.dbhandler.ReceivingHostSendAlterKey;
+import jp.co.daifuku.wms.base.dbhandler.ReceivingHostSendFinder;
+import jp.co.daifuku.wms.base.dbhandler.ReceivingHostSendHandler;
+import jp.co.daifuku.wms.base.dbhandler.ReceivingHostSendSearchKey;
+import jp.co.daifuku.wms.base.dbhandler.ReceivingPlanAlterKey;
+import jp.co.daifuku.wms.base.entity.ReceivingHostSend;
+import jp.co.daifuku.wms.base.entity.ReceivingPlan;
+import jp.co.daifuku.wms.base.fileentity.ReportReceiving;
+import jp.co.daifuku.wms.handler.field.FieldName;
+import jp.co.daifuku.wms.handler.file.AbstractFileHandler;
+import jp.co.daifuku.wms.handler.file.FileHandler;
+
+/**
+ * A class to report receiving result data.<BR>
+ * Report Unit is Work Unit.<BR>
+ * <BR>
+ * Designer : nakai <BR>
+ * Maker : nakai
+ * @version $Revision: 7241 $, $Date: 2010-02-26 14:32:14 +0900 (金, 26 2 2010) $
+ * @author  Last commit: $Author: okayama $
+ */
+
+public class ReceivingReportDataWorkCreator
+        extends ReceivingReportDataDetailCreator
+{
+    //------------------------------------------------------------
+    // fields (upper case only)
+    //------------------------------------------------------------
+    /** log output use */
+    private static final String BUSINESS_NAME = "business";
+
+    //------------------------------------------------------------
+    // class variables (prefix '$')
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // instance variables (prefix '_')
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // constructors
+    //------------------------------------------------------------
+    /**
+     * @param conn DB connection<BR>
+     */
+    public ReceivingReportDataWorkCreator(Connection conn)
+    {
+        super(conn);
+    }
+
+    /**
+     * @param conn DBConnection<BR>
+     * @param caller 呼び出し元クラス
+     */
+    public ReceivingReportDataWorkCreator(Connection conn, Class caller)
+    {
+        super(conn, caller);
+    }
+
+    //------------------------------------------------------------
+    // public methods
+    //------------------------------------------------------------
+    /**
+     * Create a receiving result data report by the Work Unit
+     * @return boolean True if a creation of receiving report data is successful.  Otherwise false.<BR>
+     */
+    public boolean report()
+    {
+        // ローカルファイル削除フラグ
+        boolean deleteFile = false;
+
+        // 報告データエンティティを指定してファイルハンドラ作成
+        ReportReceiving rReceivingEntity = new ReportReceiving();
+        FileHandler handler = AbstractFileHandler.getInstance(rReceivingEntity);
+
+        // Initializes the number of report data
+        setReportCount(0);
+
+        // Creates Finder to pick out report data from result send information.
+        ReceivingHostSendFinder hFinder = new ReceivingHostSendFinder(getConnection());
+
+        try
+        {
+            // Gets environment information of a report data file
+            acquireExchangeEnvironment(ReceivingInParameter.DATA_TYPE_RECEIVE);
+
+            // Creates conditions to pick out data from result send information by the Work Unite
+            // Specifies a column to get
+            ReceivingHostSendSearchKey sendSKey = new ReceivingHostSendSearchKey();
+            sendSKey.setCollect(new FieldName(ReceivingHostSend.STORE_NAME, FieldName.ALL_FIELDS));
+            sendSKey.setCollect(ReceivingPlan.STATUS_FLAG);
+
+            // Result report type = "Unreported"
+            sendSKey.setReportFlag(ReceivingHostSend.REPORT_FLAG_NOT_REPORT);
+
+            // Specifies joint conditions of result send information and receiving plan information
+            sendSKey.setJoin(ReceivingHostSend.PLAN_UKEY, "", ReceivingPlan.PLAN_UKEY, "");
+
+            // Order: Planned date > Receiving Ticket No. > Receiving Line No. > Registered date
+            sendSKey.setPlanDayOrder(true);
+            sendSKey.setSupplierCodeOrder(true);
+            sendSKey.setReceiveTicketNoOrder(true);
+            sendSKey.setReceiveLineNoOrder(true);
+            sendSKey.setRegistDateOrder(true);
+
+            hFinder.open(true);
+
+            // Searches result send information
+            if (hFinder.search(sendSKey) <= 0)
+            {
+                // 6003011 = "Target data was not found."
+                setMessage("6003011");
+                return true;
+            }
+
+            boolean flag = false;
+
+            while (hFinder.hasNext())
+            {
+                // Gets search results by 100, and outputs  them to a file
+                ReceivingHostSend[] hostSend = (ReceivingHostSend[])hFinder.getEntities(RESULT_READ_QTY);
+
+                for (ReceivingHostSend hSend : hostSend)
+                {
+                    if (getReportCount() == 0)
+                    {
+                        try
+                        {
+                            // Opens a file when the initial output happens
+                            // Suresh.K modified
+                            // Generates a result file name （Creates a temp fille store folder)
+                            SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+                            String sysTime = df.format(new java.util.Date(System.currentTimeMillis()));
+
+                            // Sets a file name
+                            setResultFileName(getFileName() + sysTime + getExtention());
+
+                            // Writes to a file to store temporary
+                            // If no directry exists, then creates a directory
+                            prepareDir(WmsParam.HOSTDATA_LOCAL_PATH + getResultFileName());
+                            handler.open(WmsParam.HOSTDATA_LOCAL_PATH, getResultFileName());
+
+                            // ファイルを作成したのでエラー発生時には削除
+                            deleteFile = true;
+                        }
+                        catch (ReadWriteException e)
+                        {
+                            // 6003019 = "Selected folder is invalid."
+                            setMessage("6003019");
+                            return false;
+                        }
+                        handler.clear();
+                    }
+                    // Outputs to a receiving result report file
+                    if (csvWrite(handler, rReceivingEntity, hSend))
+                    {
+                        setReportCount(getReportCount() + 1);
+
+                        // Updates result report type of receiving result send information to "reported"
+                        ReceivingHostSendAlterKey hstAKey = new ReceivingHostSendAlterKey();
+                        hstAKey.setPlanUkey(hSend.getPlanUkey());
+                        updateHostSendReportFlag(hstAKey);
+
+                        String status = String.valueOf(hSend.getValue(ReceivingPlan.STATUS_FLAG, ""));
+                        if (status.equals(ReceivingPlan.STATUS_FLAG_COMPLETION))
+                        {
+                            ReceivingHostSendHandler hHandler = new ReceivingHostSendHandler(getConnection());
+                            ReceivingHostSendSearchKey sSKey = new ReceivingHostSendSearchKey();
+                            sSKey.setPlanUkey(hSend.getPlanUkey());
+                            sSKey.setReportFlag(ReceivingHostSend.REPORT_FLAG_NOT_REPORT);
+                            int count = hHandler.count(sSKey);
+                            if (count <= 0)
+                            {
+                                // Updates result report type of receiving plan information "reported"
+                                ReceivingPlanAlterKey planAKey = new ReceivingPlanAlterKey();
+                                planAKey.setPlanUkey(hSend.getPlanUkey());
+                                updateReceivingPlanReportFlag(planAKey);
+                            }
+                        }
+                        setMessage("6001009");
+
+                        flag = true;
+                    }
+                }
+            }
+
+            String className = getCaller().getName().toLowerCase();
+
+            if (flag && 0 > className.indexOf(BUSINESS_NAME))
+            {
+                log_write(getConnection(), EmConstants.OPELOG_CLASS_AUTO_REPORT);
+            }
+
+            // 処理が正常に完了したのでファイルは削除しない
+            deleteFile = false;
+        }
+        catch (ReadWriteException e)
+        {
+            // 6007002 = "Database error occurred. See log."
+            setMessage("6007002");
+            return false;
+        }
+        catch (NotFoundException e)
+        {
+            // 6007002 = "Database error occurred. See log."
+            setMessage("6007002");
+            return false;
+        }
+        catch (ScheduleException e)
+        {
+            // 6027009 = "Unexpected error occurred. Check the log."
+            setMessage("6027009");
+            return false;
+        }
+        catch (SQLException e)
+        {
+            // 6007002= "Database error occurred. Please see the message log."
+            setMessage("6007002");
+            return false;
+        }
+        finally
+        {
+            hFinder.close();
+
+            if (handler.isOpen())
+            {
+                handler.close();
+            }
+
+            // ファイル作成後にExceptionが発生した場合など、作成したファイルを削除する
+            if (deleteFile)
+            {
+                deleteFile(new File(WmsParam.HOSTDATA_LOCAL_PATH, getResultFileName()));
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Creates a data report result file.<Br>
+     * Gets environment information of report data files, and creates a data report result file.<BR>
+     * Actual creating process is done by a method, <CODE>createResultReportFile()</CODE>, in <CODE>AbstractReportDataCreator</CODE> class.<BR>
+     * @return True if a process is completed correctly.  Otherwise false.
+     * @throws IOException Thrown when an I/O exception happens<BR>
+     * @throws ReadWriteException Thrown when an error in a file access happens<BR>
+     */
+    public boolean sendReportFile()
+            throws IOException,
+                ReadWriteException
+    {
+        // Gets environment information of a report data file
+        try
+        {
+            acquireExchangeEnvironment(ReceivingInParameter.DATA_TYPE_RECEIVE);
+        }
+        catch (ScheduleException e)
+        {
+            return false;
+        }
+        return super.sendReportFile();
+    }
+
+    //------------------------------------------------------------
+    // accessor methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // package methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // protected methods
+    //------------------------------------------------------------
+    /**
+     * Write to the operation log <BR>
+     * @param   conn           DB Connection
+     * @param   operationKind  操作区分
+     * @throws ReadWriteException データベースエラーが発生した場合にスローされます。
+     * @throws ScheduleException チェック処理内で予期しない例外が発生した場合に通知されます。
+     * @throws SQLException SQLでエラーが発生した場合に通知されます。
+     */
+    protected void log_write(Connection conn, int operationKind)
+            throws ReadWriteException,
+                ScheduleException,
+                SQLException
+    {
+        DfkUserInfo user = new DfkUserInfo();
+
+        // DS番号
+        user.setDsNumber(DsNumberDefine.DS_AUTOREPORT);
+        // ユーザID
+        user.setUserId(WmsParam.SYS_USER_ID);
+        // ユーザ名称
+        user.setUserName(WmsParam.SYS_USER_NAME);
+        // 端末No.
+        user.setTerminalNumber(WmsParam.SYS_TERMINAL_NO);
+        // 端末名称
+        user.setTerminalName(WmsParam.SYS_TERMINAL_NAME);
+        // IPアドレス
+        user.setTerminalAddress(WmsParam.SYS_IP_ADDRESS);
+        // 画面名称
+        user.setPageNameResourceKey(DsNumberDefine.PAGERESOUCE_AUTOREPORT);
+
+        // オペレーションログ出力
+        List<String> itemLog = new ArrayList<String>();
+
+        // データ区分
+        itemLog.add(ReceivingInParameter.DATA_TYPE_RECEIVE);
+
+        // ログ出力
+        P11LogWriter opeLogWriter = new P11LogWriter(conn);
+        opeLogWriter.createOperationLog(user, operationKind, itemLog);
+    }
+
+    //------------------------------------------------------------
+    // private methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // utility methods
+    //------------------------------------------------------------
+    /**
+     * Returns a revision of this class.
+     * @return String of a revision.
+     */
+    public static String getVersion()
+    {
+        return "$Id: ReceivingReportDataWorkCreator.java 7241 2010-02-26 05:32:14Z okayama $";
+    }
+}

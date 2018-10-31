@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.rftstate.RFTStateBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.rftstate.RFTState" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.RFTStateSCH" />
+    <ref name="1" type="Control" typeName="LST_SELECT" />
+    <ref name="2" type="Control" typeName="LST_DETAIL" />
+    <ref name="3" type="Control" typeName="LST_RFT_NO" />
+    <ref name="4" type="Control" typeName="LST_TERMINAL_TYPE" />
+    <ref name="5" type="Control" typeName="LST_STATUS" />
+    <ref name="6" type="Control" typeName="LST_USER_NAME" />
+    <ref name="7" type="Control" typeName="LST_AREA_NO" />
+  </refs>
+  <listcells>
+    <listcell name="lst_RFTState">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-T0007" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_DETAIL" orgIndex="2" resourceKey="LBL-T0085" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_RFT_NO" orgIndex="3" resourceKey="LBL-W9031" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_TYPE" orgIndex="4" resourceKey="LBL-W0143" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATUS" orgIndex="5" resourceKey="LBL-W0310" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="6" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="7" resourceKey="LBL-P0043" dataType="Area" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="SELECT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="DETAIL" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_TYPE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="2" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="SELECT" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="DETAIL" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_TYPE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="7" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="DisplayInput">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_DETAIL" name="Click" pattern="DisplayInput">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

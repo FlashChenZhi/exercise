@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--出荷検品欠品保留選択画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line1" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>欠品保留選択　　　　　　</caption>
+    </label>
+    <label name="lblPage" font-id="font12" visible="true">
+      <align>left</align>
+      <x>90</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>%ShippingShortageListDataSheet.$PAGE%/%ShippingShortageListDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <label name="lblItemCode1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%ShippingShortageListDataSheet.@ITEM_CODE[0]%                    </caption>
+    </label>
+    <label name="lblItemName1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%ShippingShortageListDataSheet.@ITEM_NAME[0]%　　　　　　　　　　</caption>
+    </label>
+    <label name="line2" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>41</y>
+      <w>20</w>
+    </label>
+    <label name="lblSpace1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblShortage1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>不足:</caption>
+    </label>
+    <label name="lblCaseQty1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>right</align>
+      <x>28</x>
+      <y>40</y>
+      <w>4</w>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_CASE_QTY[0]%</caption>
+    </label>
+    <label name="lblCase1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>52</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ</caption>
+    </label>
+    <label name="lblPieceQty1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>right</align>
+      <x>70</x>
+      <y>40</y>
+      <w>4</w>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_PIECE_QTY[0]%</caption>
+    </label>
+    <label name="lblPiece1" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>95</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ </caption>
+    </label>
+    <label name="line3" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>52</y>
+      <w>20</w>
+    </label>
+    <label name="lblSpace2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblItemCode2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>%ShippingShortageListDataSheet.@ITEM_CODE[1]%                    </caption>
+    </label>
+    <label name="lblItemName2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>
+      </w>
+      <caption>%ShippingShortageListDataSheet.@ITEM_NAME[1]%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblShortage2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>不足:</caption>
+    </label>
+    <label name="lblCaseQty2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>right</align>
+      <x>28</x>
+      <y>79</y>
+      <w>4</w>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_CASE_QTY[1]%</caption>
+    </label>
+    <label name="lblCase2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>52</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ</caption>
+    </label>
+    <label name="lblPieceQty2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>right</align>
+      <x>70</x>
+      <y>79</y>
+      <w>4</w>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_PIECE_QTY[1]%</caption>
+    </label>
+    <label name="lblPiece2" font-id="font12" visible="%ShippingShortageListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>95</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ </caption>
+    </label>
+    <label name="line4" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>91</y>
+      <w>20</w>
+    </label>
+    <label name="lblMsg" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>数量が不足しています</caption>
+    </label>
+    <button name="Shortage" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>F1:欠品　　　　</caption>
+      <event>ShpSPL_Shortage</event>
+      <key>F1</key>
+    </button>
+    <button name="Pending" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>78</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>F2:保留</caption>
+      <event>ShpSPL_Pending</event>
+      <key>F2</key>
+    </button>
+    <button name="Back" font-id="font12" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>L:戻る</caption>
+      <event>ShpSPL_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="Prev" font-id="" visible="false" enabled="%ShippingShortageListDataSheet.$PREV_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpSPL_Prev</event>
+      <key>LT</key>
+    </button>
+    <button name="Next" font-id="" visible="false" enabled="%ShippingShortageListDataSheet.$NEXT_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpSPL_Next</event>
+      <key>RT</key>
+    </button>
+  </form>
+</HaiSurf.Page>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ReceivingDetails-->
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblConsignor" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>6</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>6</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>22</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%ReceivingOutDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <label name="lblDate" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>52</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Date:</caption>
+    </label>
+    <label name="lblPlanDate" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>52</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.PLAN_DATE%</caption>
+    </label>
+    <label name="lblSupplier" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>70</y>
+      <w>70</w>
+      <h>20</h>
+      <caption>Supplier:</caption>
+    </label>
+    <label name="lblSupplierCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>70</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.SUPPLIER_CODE%</caption>
+    </label>
+    <label name="lblSupplierName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>86</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%ReceivingOutDataSheet.SUPPLIER_NAME%</caption>
+    </label>
+    <label name="lblJan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>125</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>UPC:</caption>
+    </label>
+    <label name="lblJanCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>125</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.JAN%</caption>
+    </label>
+    <label name="lblItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>143</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>ITF:</caption>
+    </label>
+    <label name="lblItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>143</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.ITF%</caption>
+    </label>
+    <label name="lblSlash1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>143</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>143</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblBundleItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>161</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>B-ITF:</caption>
+    </label>
+    <label name="lblBundleItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>161</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.BUNDLE_ITF%</caption>
+    </label>
+    <label name="lblSlash2" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>161</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblBundleEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>161</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.BUNDLE_ENTERING_QTY%</caption>
+    </label>
+    <label name="lblTicket" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>179</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Ticket #:</caption>
+    </label>
+    <label name="lblTicketNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>179</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.TICKET_NO%</caption>
+    </label>
+    <label name="lblMinus" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>179</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>-</caption>
+    </label>
+    <label name="lblTicketLineNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>179</y>
+      <w>27</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.TICKET_LINE_NO%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>197</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Lot #:</caption>
+    </label>
+    <label name="lblLotNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>197</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingOutDataSheet.PLAN_LOT_NO%</caption>
+    </label>
+    <label name="lblName" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>215</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Name:</caption>
+    </label>
+    <label name="lblItemName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>215</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%ReceivingOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RecDetail_Back</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>120</y>
+      <w>324</w>
+      <h>125</h>
+    </label>
+  </form>
+</HaiSurf.Page>

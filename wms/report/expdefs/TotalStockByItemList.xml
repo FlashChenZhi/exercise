@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0613" downloadName="TotalStockByItemList" reportName="LBL-W6023">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="warehouse" type="string" header="LBL-W9002" printEnabled="true" xlsEnabled="true"/>
+    <field name="from_item_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_item_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="total_stock_qty" type="number" format="###,###,###,##0" header="LBL-W1374" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+</exportspec>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctareamodify.PCTAreaModifyBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctareamodify.PCTAreaModify" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTAreaModifySCH" />
+    <ref name="2" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctareamodify.ViewStateKeys" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorTempReceiveALL" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Next" name="Click" pattern="Forward">
+      <sch2Forward schRef="1" uri="/pcart/master/pctareamodify/PCTAreaModify2" viewStateRef="2" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="VS_AREA_NO" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

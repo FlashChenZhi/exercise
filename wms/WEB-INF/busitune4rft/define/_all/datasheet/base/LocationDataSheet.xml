@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="棚入力データシート" />
+  <comment lang="en" value="Location Input Data Sheet" />
+  <comment lang="zh" value="货架输入数据表" />
+  <fields>
+    <field name="AREA_LOCATION" type="String" separateSize="0">
+      <comment lang="ja" value="エリア棚" />
+      <comment lang="en" value="Area Location" />
+      <comment lang="zh" value="区域货架" />
+    </field>
+    <field name="AREA_NO" type="String" separateSize="0">
+      <comment lang="ja" value="エリアNo." />
+      <comment lang="en" value="Area #" />
+      <comment lang="zh" value="区域No." />
+    </field>
+    <field name="CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="荷主コード" />
+      <comment lang="en" value="Consignor Code" />
+      <comment lang="zh" value="货主代码" />
+    </field>
+    <field name="ITEM_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="商品コード" />
+      <comment lang="en" value="Item Code" />
+      <comment lang="zh" value="商品代码" />
+    </field>
+    <field name="LOCATION_DISP" type="String" separateSize="0">
+      <comment lang="ja" value="表示棚" />
+      <comment lang="en" value="Displayed Location" />
+      <comment lang="zh" value="显示货架" />
+    </field>
+    <field name="LOCATION_NO" type="String" separateSize="0">
+      <comment lang="ja" value="ロケーションNo." />
+      <comment lang="en" value="Location #" />
+      <comment lang="zh" value="货架No." />
+    </field>
+    <field name="SEARCH_AREA" type="String" separateSize="0">
+      <comment lang="ja" value="検索対象エリア" />
+      <comment lang="en" value="Search Area" />
+      <comment lang="zh" value="检索对象区域" />
+    </field>
+    <field name="SEARCH_LOCATION" type="String" separateSize="0">
+      <comment lang="ja" value="検索対象ロケーション" />
+      <comment lang="en" value="Search Location" />
+      <comment lang="zh" value="检索对象货架" />
+    </field>
+  </fields>
+</datasheet>

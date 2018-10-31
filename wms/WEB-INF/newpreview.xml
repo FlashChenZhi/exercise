@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE newpreview [
+<!ELEMENT material (property+)>
+<!ELEMENT inputsupports (support+)>
+<!ATTLIST property
+  name CDATA #REQUIRED
+  value CDATA #REQUIRED>
+<!ATTLIST support
+  value CDATA #REQUIRED>
+]>
+<newpreview>
+  <material>
+    <property name="widthchar" value=" J" />
+    <property name="halfhchar" value="X" />
+  </material>
+  <inputsupports>
+    <support value=" J J J J J J J J" />
+    <support value="XXXXXXX" />
+    <support value="999999999" />
+    <support value="ZZZ,ZZZ,ZZZ,ZZ9" />
+  </inputsupports>
+</newpreview>

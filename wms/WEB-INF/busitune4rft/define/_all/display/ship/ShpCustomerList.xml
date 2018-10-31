@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.ship.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpCustomerListSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="4" typeName="BatchDataSheet" type="DataSheet" />
+    <ref name="5" typeName="CustomerListDataSheet" type="DataSheet" />
+    <ref name="6" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="back_Click" pattern="None" order="2" />
+    <method name="ent_Click" pattern="None" order="1" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="2" getterValue="JOB_DETAILS" setterTypeRef="0" setterValue="JOB_DETAILS" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="4" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="CUSTOMER_CODE" setterTypeRef="5" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="0" getterValue="CUSTOMER_NAME" setterTypeRef="5" setterValue="CUSTOMER_NAME" />
+      </output>
+    </method>
+  </methods>
+</business>

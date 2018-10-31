@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.hostcommunicationinquiry.HostCommunicationInquiryBusiness" abstractClassName="jp.co.daifuku.wms.system.display.hostcommunicationinquiry.HostCommunicationInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_CommunicationData" />
+    <ref name="1" type="Control" typeName="rdo_Receive" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.HostCommunicationInquirySCH" />
+    <ref name="3" type="Control" typeName="txt_FromSearchDate" />
+    <ref name="4" type="Control" typeName="txt_FromSearchTime" />
+    <ref name="5" type="Control" typeName="txt_SearchDate" />
+    <ref name="6" type="Control" typeName="txt_ToSearchTime" />
+    <ref name="7" type="Control" typeName="CommunicationType" />
+    <ref name="8" type="Control" typeName="LST_NO" />
+    <ref name="9" type="Control" typeName="LST_START_DATE" />
+    <ref name="10" type="Control" typeName="LST_FILE_NAME" />
+    <ref name="11" type="Control" typeName="LST_STATUS" />
+    <ref name="12" type="Control" typeName="HIDDEN_START_DATE" />
+    <ref name="13" type="Control" typeName="LST_DETAILS" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_CommunicationData" dataType="WmsDataTypeReceive" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_HostCommunicationInquiry">
+      <listcellColumn name="HIDDEN_START_DATE" orgIndex="0" dataType="Date" format="TimeSec" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" />
+      <listcellColumn name="LST_START_DATE" orgIndex="2" resourceKey="LBL-W1418" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_FILE_NAME" orgIndex="3" resourceKey="LBL-W1419" dataType="String" />
+      <listcellColumn name="LST_STATUS" orgIndex="4" resourceKey="LBL-W0132" dataType="String" />
+      <listcellColumn name="LST_DETAILS" orgIndex="5" resourceKey="LBL-W1420" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="2" />
+      <validate>
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="COMMUNICATION_DATA" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="SEARCH_DATE_FROM" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="SEARCH_TIME_FROM" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="SEARCH_DATE_TO" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="SEARCH_TIME_TO" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="COMMUNICATION_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="NO" setRef="8" setValue="Value" />
+        <map getRef="2" getValue="START_DATE" setRef="9" setValue="Value" />
+        <map getRef="2" getValue="FILE_NAME" setRef="10" setValue="Value" />
+        <map getRef="2" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="2" getValue="HID_START_DATE" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="13" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="rdo_Receive" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="LST_DETAILS" name="Click" pattern="NoneGenerate" />
+    <event control="rdo_Send" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+      </clear1>
+      <focus controlRef="1" />
+    </event>
+  </events>
+</business>

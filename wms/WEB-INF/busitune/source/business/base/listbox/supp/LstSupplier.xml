@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.base.listbox.supp.LstSupplierBusiness" abstractClassName="jp.co.daifuku.wms.base.listbox.supp.LstSupplier" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_SUPPLIER_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.supp.LstSupplierParams" />
+    <ref name="3" type="Control" typeName="LST_SUPPLIER_NAME" />
+    <ref name="4" type="Dasch" typeName="jp.co.daifuku.wms.base.dasch.LstSupplierDASCH" />
+    <ref name="5" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_Supplier">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_SUPPLIER_CODE" orgIndex="2" resourceKey="LBL-W0098" dataType="String" />
+      <listcellColumn name="LST_SUPPLIER_NAME" orgIndex="3" resourceKey="LBL-W0099" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="SUPPLIER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="SUPPLIER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="4" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="SUPPLIER_CODE" setRef="4" setValue="SUPPLIER_CODE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="4" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="FROM_TO_FLAG" setRef="4" setValue="FROM_TO_FLAG" />
+        <map getRef="2" getValue="TO_SUPPLIER_CODE" setRef="4" setValue="TO_SUPPLIER_CODE" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="SUPPLIER_CODE" setRef="1" setValue="Value" />
+        <map getRef="4" getValue="SUPPLIER_NAME" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="SUPPLIER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="SUPPLIER_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

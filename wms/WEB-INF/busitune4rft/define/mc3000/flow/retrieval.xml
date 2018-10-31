@@ -1,0 +1,2118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="WorkerInput" type="Page" />
+    <ref name="1" typeName="base" type="Flow" />
+    <ref name="10" typeName="String" type="String" />
+    <ref name="11" typeName="ConsignorList" type="Page" />
+    <ref name="12" typeName="RetAreaInput" type="Page" />
+    <ref name="13" typeName="AreaDataSheet" type="DataSheet" />
+    <ref name="14" typeName="AreaListDataSheet" type="DataSheet" />
+    <ref name="15" typeName="Boolean" type="Boolean" />
+    <ref name="16" typeName="OrderDataSheet" type="DataSheet" />
+    <ref name="17" typeName="RetAreaList" type="Page" />
+    <ref name="18" typeName="RetOrderInput" type="Page" />
+    <ref name="19" typeName="OrderListDataSheet" type="DataSheet" />
+    <ref name="2" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="20" typeName="RetrievalInDataSheet" type="DataSheet" />
+    <ref name="21" typeName="RetrievalOutDataSheet" type="DataSheet" />
+    <ref name="22" typeName="RetOrderList" type="Page" />
+    <ref name="23" typeName="RetStart" type="Page" />
+    <ref name="24" typeName="RetOrderStatusList" type="Page" />
+    <ref name="25" typeName="RetLocationItemInput" type="Page" />
+    <ref name="26" typeName="retrieval_inspection" type="Flow" />
+    <ref name="27" typeName="RetDetail1" type="Page" />
+    <ref name="28" typeName="RetDetail2" type="Page" />
+    <ref name="29" typeName="RetOrderConfirm" type="Page" />
+    <ref name="3" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="30" typeName="ERR_7" type="MessagePage" />
+    <ref name="31" typeName="ERR_5" type="MessagePage" />
+    <ref name="32" typeName="RetQtyInput" type="Page" />
+    <ref name="33" typeName="RetCancelConfirm" type="Page" />
+    <ref name="34" typeName="RetReStart" type="Page" />
+    <ref name="4" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="5" typeName="ERR_1" type="MessagePage" />
+    <ref name="6" typeName="WRN_1" type="MessagePage" />
+    <ref name="7" typeName="CNF_1" type="MessagePage" />
+    <ref name="8" typeName="ConsignorInput" type="Page" />
+    <ref name="9" typeName="ConsignorListDataSheet" type="DataSheet" />
+    <ref name="35" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="MainMenu" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="5">
+          <forwards>
+            <forward forwardType="Node" nodeName="ConsignorInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+              </params>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="AUTH_ERR_PWDEXPIRE" />
+                <condition typeRef="35" name="AUTH_ERR_USERLOCK" />
+                <condition typeRef="35" name="AUTH_ERR_USERPASS" />
+                <condition typeRef="35" name="AUTH_ERR_USERPERMISSION" />
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="ILLEGAL_TERMINAL_NUMBER" />
+                <condition typeRef="35" name="PASSWORD_TENTATIVE" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="USER_SETTING_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DAILY_UPDATING" />
+                <condition typeRef="35" name="INCOMPLETE_WORK_OTHER" />
+                <condition typeRef="35" name="RFT_ALREADY_WORK" />
+                <condition typeRef="35" name="USER_ALREADY_WORK" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="INCOMPLETE_WORK_OWN" />
+              </conditions>
+              <nodes>
+                <node typeRef="7">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetReStart">
+                          <params>
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="userId_Enter" order="2">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="ConsignorInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+              </params>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="AUTH_ERR_PWDEXPIRE" />
+                <condition typeRef="35" name="AUTH_ERR_USERLOCK" />
+                <condition typeRef="35" name="AUTH_ERR_USERPASS" />
+                <condition typeRef="35" name="AUTH_ERR_USERPERMISSION" />
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="ILLEGAL_TERMINAL_NUMBER" />
+                <condition typeRef="35" name="PASSWORD_TENTATIVE" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="USER_SETTING_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DAILY_UPDATING" />
+                <condition typeRef="35" name="INCOMPLETE_WORK_OTHER" />
+                <condition typeRef="35" name="RFT_ALREADY_WORK" />
+                <condition typeRef="35" name="USER_ALREADY_WORK" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="INCOMPLETE_WORK_OWN" />
+              </conditions>
+              <nodes>
+                <node typeRef="7">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetReStart">
+                          <params>
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="password_Enter" order="3">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="ConsignorInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+              </params>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="AUTH_ERR_PWDEXPIRE" />
+                <condition typeRef="35" name="AUTH_ERR_USERLOCK" />
+                <condition typeRef="35" name="AUTH_ERR_USERPASS" />
+                <condition typeRef="35" name="AUTH_ERR_USERPERMISSION" />
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="ILLEGAL_TERMINAL_NUMBER" />
+                <condition typeRef="35" name="PASSWORD_TENTATIVE" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="USER_SETTING_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DAILY_UPDATING" />
+                <condition typeRef="35" name="INCOMPLETE_WORK_OTHER" />
+                <condition typeRef="35" name="RFT_ALREADY_WORK" />
+                <condition typeRef="35" name="USER_ALREADY_WORK" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="INCOMPLETE_WORK_OWN" />
+              </conditions>
+              <nodes>
+                <node typeRef="7">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetReStart">
+                          <params>
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="3" setterValue="SKIP_CONSIGNOR_CODE" />
+                            <map getterTypeRef="2" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="4" setterValue="CASE_PIECE_DIVISION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="8">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="RetAreaInput">
+              <conditions>
+                <condition typeRef="35" name="CONSIGNOR_SKIP" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetAreaInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="3" />
+                <item dataSheetRef="9" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="ConsignorList">
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="toMenu_Click" order="4">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="MainMenu">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="10" setterTypeRef="4" setterValue="USER_ID" />
+                <map getterTypeRef="10" setterTypeRef="4" setterValue="PASSWORD" />
+              </params>
+              <remove>
+                <item dataSheetRef="3" />
+                <item dataSheetRef="9" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="11">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="ConsignorInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="ConsignorInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetAreaInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="9" getterValue="CONSIGNOR_CODE" setterTypeRef="3" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="9" getterValue="CONSIGNOR_NAME" setterTypeRef="3" setterValue="CONSIGNOR_NAME" />
+              </params>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <params>
+                <map getterTypeRef="9" getterValue="CONSIGNOR_CODE" setterTypeRef="3" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="9" getterValue="CONSIGNOR_NAME" setterTypeRef="3" setterValue="CONSIGNOR_NAME" />
+              </params>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="ConsignorInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <params>
+                <map getterTypeRef="9" getterValue="CONSIGNOR_CODE" setterTypeRef="3" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="9" getterValue="CONSIGNOR_NAME" setterTypeRef="3" setterValue="CONSIGNOR_NAME" />
+              </params>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="ConsignorInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="ConsignorInput" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="12">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="ConsignorInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="13" />
+                <item dataSheetRef="14" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="35" name="CONSIGNOR_SKIP" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="3" />
+                <item dataSheetRef="9" />
+                <item dataSheetRef="13" />
+                <item dataSheetRef="14" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="15" getterValue="True" setterTypeRef="16" setterValue="ORDER_NO1_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO2_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO3_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO4_INPUT_ENABLED" />
+              </params>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetAreaList">
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="toMenu_Click" order="4">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="MainMenu">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="3" />
+                <item dataSheetRef="9" />
+                <item dataSheetRef="13" />
+                <item dataSheetRef="14" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="9" />
+                <item dataSheetRef="14" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="17">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetAreaInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetAreaInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetAreaInput" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="14" getterValue="AREA_NO" setterTypeRef="13" setterValue="AREA_NO" />
+                <map getterTypeRef="14" getterValue="AREA_NAME" setterTypeRef="13" setterValue="AREA_NAME" />
+                <map getterTypeRef="15" getterValue="True" setterTypeRef="16" setterValue="ORDER_NO1_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO2_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO3_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO4_INPUT_ENABLED" />
+              </params>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <params>
+                <map getterTypeRef="14" getterValue="AREA_NO" setterTypeRef="13" setterValue="AREA_NO" />
+                <map getterTypeRef="14" getterValue="AREA_NAME" setterTypeRef="13" setterValue="AREA_NAME" />
+              </params>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetAreaInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+              </conditions>
+              <params>
+                <map getterTypeRef="14" getterValue="AREA_NO" setterTypeRef="13" setterValue="AREA_NO" />
+                <map getterTypeRef="14" getterValue="AREA_NAME" setterTypeRef="13" setterValue="AREA_NAME" />
+              </params>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetAreaInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="18">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetAreaInput">
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="16" />
+                <item dataSheetRef="19" />
+                <item dataSheetRef="20" />
+                <item dataSheetRef="21" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="2">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="ORDERNO_DUPLICATED" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="RetStart">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="20" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="13" getterValue="AREA_NO" setterTypeRef="20" setterValue="AREA_NO" />
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderList">
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="orderNo1_Enter" order="4">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="orderNo2_Enter" order="5">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="ORDERNO_DUPLICATED" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="RetStart">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="20" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="13" getterValue="AREA_NO" setterTypeRef="20" setterValue="AREA_NO" />
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="orderNo3_Enter" order="6">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+                <condition typeRef="35" name="ORDERNO_DUPLICATED" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="RetStart">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="20" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="13" getterValue="AREA_NO" setterTypeRef="20" setterValue="AREA_NO" />
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="clear_Click" order="8">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="orderNo4_Enter" order="7">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="ORDERNO_DUPLICATED" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="RetStart">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="20" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="13" getterValue="AREA_NO" setterTypeRef="20" setterValue="AREA_NO" />
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+              <remove>
+                <item dataSheetRef="14" />
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="22">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <conditions>
+                <condition typeRef="35" name="MOVE_FOCUS" />
+              </conditions>
+              <params>
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+            </forward>
+            <forward forwardType="Node" nodeName="RetStart">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="20" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="13" getterValue="AREA_NO" setterTypeRef="20" setterValue="AREA_NO" />
+                <map getterTypeRef="16" getterValue="ORDER_NO1" setterTypeRef="20" setterValue="ORDER_NO1" />
+                <map getterTypeRef="16" getterValue="ORDER_NO2" setterTypeRef="20" setterValue="ORDER_NO2" />
+                <map getterTypeRef="16" getterValue="ORDER_NO3" setterTypeRef="20" setterValue="ORDER_NO3" />
+                <map getterTypeRef="16" getterValue="ORDER_NO4" setterTypeRef="20" setterValue="ORDER_NO4" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="23">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="10" setterTypeRef="20" setterValue="ITEM_CODE" />
+                <map getterTypeRef="10" setterTypeRef="20" setterValue="LOCATION" />
+                <map getterTypeRef="10" setterTypeRef="4" setterValue="FOCUS_FIELD" />
+              </params>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DAILY_UPDATING" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="20" />
+              </remove>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Node" nodeName="RetOrderStatusList">
+              <conditions>
+                <condition typeRef="35" name="ALREADY_COMPLETED" />
+                <condition typeRef="35" name="NODATA" />
+                <condition typeRef="35" name="WORKING_INPROGRESS" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="RetOrderStatusList">
+              <conditions>
+                <condition typeRef="35" name="MAINTENANCE" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="RESULTQTY_OVER" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="UPDATE_FINISH" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="20" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="24">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="20" setterValue="IS_LOCK" />
+              </params>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <params>
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="20" setterValue="IS_LOCK" />
+              </params>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput">
+                          <remove>
+                            <item dataSheetRef="20" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <remove>
+                <item dataSheetRef="20" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="25">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="RetOrderConfirm">
+              <conditions>
+                <condition typeRef="35" name="NORMAL_COMPLETE" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="location_Enter" order="1">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6045004">
+              <conditions>
+                <condition typeRef="35" name="LOCATION_DIFFERENCE" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="itemCode_Enter" order="2">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6043011">
+              <conditions>
+                <condition typeRef="35" name="ITEM_DIFFERENCE" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Node" nodeName="RetOrderConfirm">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="21" getterValue="PLAN_QTY" setterTypeRef="21" setterValue="RESULT_QTY" />
+                <map getterTypeRef="21" getterValue="PLAN_CASE_QTY" setterTypeRef="21" setterValue="RESULT_CASE_QTY" />
+                <map getterTypeRef="21" getterValue="PLAN_PIECE_QTY" setterTypeRef="21" setterValue="RESULT_PIECE_QTY" />
+                <map getterTypeRef="15" getterValue="True" setterTypeRef="21" setterValue="IS_INSPECTION_COMPLETE" />
+              </params>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="26" nodeName="RetInspection">
+              <conditions>
+                <condition typeRef="35" name="INSPECTION_MODE" />
+              </conditions>
+              <params>
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="21" setterValue="IS_INSPECTION_COMPLETE" />
+                <map getterTypeRef="20" getterValue="ITEM_CODE" setterTypeRef="20" setterValue="SCAN_CODE" />
+              </params>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="detail_Click" order="6">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetDetail1">
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="cp_Click" order="5">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="skip_Click" order="4">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="UPDATE_FINISH" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetCancelConfirm">
+              <remove>
+                <item dataSheetRef="19" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="27">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput" />
+          </forwards>
+        </action>
+        <action name="detail_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetDetail2" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="28">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="29">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="10" setterTypeRef="16" setterValue="ORDER_NO1" />
+                <map getterTypeRef="10" setterTypeRef="16" setterValue="ORDER_NO2" />
+                <map getterTypeRef="10" setterTypeRef="16" setterValue="ORDER_NO3" />
+                <map getterTypeRef="10" setterTypeRef="16" setterValue="ORDER_NO4" />
+                <map getterTypeRef="15" getterValue="True" setterTypeRef="16" setterValue="ORDER_NO1_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO2_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO3_INPUT_ENABLED" />
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="16" setterValue="ORDER_NO4_INPUT_ENABLED" />
+                <map getterTypeRef="10" setterTypeRef="16" setterValue="FOCUS_FIELD" />
+              </params>
+              <remove>
+                <item dataSheetRef="20" />
+                <item dataSheetRef="21" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="RetLocationItemInput">
+              <conditions>
+                <condition typeRef="35" name="MORE_WORK" />
+              </conditions>
+              <params>
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="21" setterValue="IS_INSPECTION_COMPLETE" />
+                <map getterTypeRef="10" setterTypeRef="4" setterValue="FOCUS_FIELD" />
+              </params>
+            </forward>
+            <forward forwardType="Child" message1="6045005">
+              <conditions>
+                <condition typeRef="35" name="ORDERNO_DIFFERENCE" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="MAINTENANCE" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="AREA_INVALIDITY" />
+                <condition typeRef="35" name="ILLEGAL_LOCATION_FORMAT" />
+                <condition typeRef="35" name="RESULTQTY_OVER" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="INSTACIATE_ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="30">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="WorkerInput">
+                          <remove>
+                            <item dataSheetRef="3" />
+                            <item dataSheetRef="13" />
+                            <item dataSheetRef="16" />
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="UPDATE_FINISH" />
+              </conditions>
+              <nodes>
+                <node typeRef="31">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput">
+                          <remove>
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="31">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput">
+                          <remove>
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput">
+              <params>
+                <map getterTypeRef="15" getterValue="False" setterTypeRef="21" setterValue="IS_INSPECTION_COMPLETE" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="input1_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetQtyInput">
+              <params>
+                <map getterTypeRef="10" getterValue="1" setterTypeRef="4" setterValue="INPUT_TYPE" />
+                <map getterTypeRef="21" getterValue="RESULT_LOT_NO" setterTypeRef="21" setterValue="TEMP_RESULT_LOT_NO" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="detail_Click" order="5">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetDetail1" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="32">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="caseQty_Enter" order="1">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="pieceQty_Enter" order="2">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="lotNo_Enter" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderConfirm">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043010">
+              <conditions>
+                <condition typeRef="35" name="INSP_EXCESS" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="4">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderConfirm" />
+          </forwards>
+        </action>
+        <action name="all_Click" order="6">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="7">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderConfirm">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043010">
+              <conditions>
+                <condition typeRef="35" name="INSP_EXCESS" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="35" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="33">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetOrderInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="20" />
+                <item dataSheetRef="21" />
+              </remove>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="MAINTENANCE" />
+              </conditions>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="AREA_INVALIDITY" />
+                <condition typeRef="35" name="ILLEGAL_LOCATION_FORMAT" />
+                <condition typeRef="35" name="RESULTQTY_OVER" />
+              </conditions>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="INSTACIATE_ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="30">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="WorkerInput">
+                          <remove>
+                            <item dataSheetRef="3" />
+                            <item dataSheetRef="13" />
+                            <item dataSheetRef="16" />
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="UPDATE_FINISH" />
+              </conditions>
+              <nodes>
+                <node typeRef="31">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput">
+                          <remove>
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="35" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="31">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="RetOrderInput">
+                          <remove>
+                            <item dataSheetRef="20" />
+                            <item dataSheetRef="21" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="34">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="Node" nodeName="RetLocationItemInput">
+              <conditions>
+                <condition typeRef="35" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="10" setterTypeRef="4" setterValue="FOCUS_FIELD" />
+              </params>
+            </forward>
+            <forward forwardType="Child" message1="6047004">
+              <conditions>
+                <condition typeRef="35" name="ALREADY_COMPLETED" />
+                <condition typeRef="35" name="DAILY_UPDATING" />
+                <condition typeRef="35" name="MAINTENANCE" />
+                <condition typeRef="35" name="NODATA" />
+                <condition typeRef="35" name="WORKING_INPROGRESS" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="6">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="WorkerInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="35" name="DATA_EXISTS" />
+                <condition typeRef="35" name="DB_ACCESS_ERROR" />
+                <condition typeRef="35" name="ERROR" />
+                <condition typeRef="35" name="INSTACIATE_ERROR" />
+                <condition typeRef="35" name="PATTERN_NG" />
+                <condition typeRef="35" name="SCHEDULE_ERROR" />
+                <condition typeRef="35" name="UPDATE_FINISH" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="5">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="WorkerInput" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

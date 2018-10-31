@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.workingtimeconfig.WorkingTimeConfigBusiness" abstractClassName="jp.co.daifuku.wms.analysis.display.workingtimeconfig.WorkingTimeConfig" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_StorageSecPerItem" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.WorkingTimeConfigSCH" />
+    <ref name="2" type="String" typeName="String" />
+    <ref name="3" type="Control" typeName="txt_StorageSecPerPiece" />
+    <ref name="4" type="Control" typeName="txt_StorageAveTimeItem" />
+    <ref name="5" type="Control" typeName="txt_StorageAvePiece" />
+    <ref name="6" type="Control" typeName="txt_StorageAveTimePiece" />
+    <ref name="7" type="Control" typeName="txt_RetrievalSecPerItem" />
+    <ref name="8" type="Control" typeName="txt_RetrievalSecPerPiece" />
+    <ref name="9" type="Control" typeName="txt_RetrievalAveTimeItem" />
+    <ref name="10" type="Control" typeName="txt_RetrievalAvePiece" />
+    <ref name="11" type="Control" typeName="txt_RetrievalAveTimePiece" />
+    <ref name="12" type="ViewState" typeName="jp.co.daifuku.wms.analysis.display.workingtimeconfig.ViewStateKeys" />
+    <ref name="13" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" setRef="1" setValue="KIND_WORK" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="STORAGE_SEC_PER_ITEM" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_SEC_PER_PIECE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_AVE_TIME_ITEM" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_AVE_PIECE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_AVE_TIME_PIECE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_SEC_PER_ITEM" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_SEC_PER_PIECE" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_AVE_TIME_ITEM" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_AVE_PIECE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_AVE_TIME_PIECE" setRef="11" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="9" type="ReadOnly" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_StorageWkTimeResult" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/analysis/workingtimeconfig/WorkingTimeConfig2" viewStateRef="12" />
+      <output1>
+        <map getRef="2" getValue="LBL-W1222" setRef="12" setValue="KIND_OF_WORK" />
+        <map getRef="0" getValue="Value" setRef="12" setValue="STORAGE_SEC_PER_ITEM" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="STORAGE_SEC_PER_PIECE" />
+      </output1>
+    </event>
+    <event control="btn_RetrievalWkTimeResult" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/analysis/workingtimeconfig/WorkingTimeConfig2" viewStateRef="12" />
+      <output1>
+        <map getRef="2" getValue="LBL-W1223" setRef="12" setValue="KIND_OF_WORK" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="RETRIEVAL_SEC_PER_ITEM" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="RETRIEVAL_SEC_PER_PIECE" />
+      </output1>
+    </event>
+    <event control="btn_Setting" name="Click" pattern="Regist">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="7" required="true" />
+        <validate controlRef="8" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STORAGE_SEC_PER_ITEM" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="STORAGE_SEC_PER_PIECE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="RETRIEVAL_SEC_PER_ITEM" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="RETRIEVAL_SEC_PER_PIECE" />
+      </input1>
+      <part11 operationRef="13" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" default="0" />
+        <out out1Ref="3" out1Value="Value" default="0" />
+        <out out1Ref="4" out1Value="Value" default="0" />
+        <out out1Ref="5" out1Value="Value" default="0" />
+        <out out1Ref="6" out1Value="Value" default="0" />
+        <out out1Ref="7" out1Value="Value" default="0" />
+        <out out1Ref="8" out1Value="Value" default="0" />
+        <out out1Ref="9" out1Value="Value" default="0" />
+        <out out1Ref="10" out1Value="Value" default="0" />
+        <out out1Ref="11" out1Value="Value" default="0" />
+      </part11>
+    </event>
+    <event control="btn_Restore" name="Click" pattern="DisplayInput" />
+    <event control="btn_Reflesh" name="Click" pattern="DisplayInput" />
+  </events>
+</business>

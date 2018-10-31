@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.listbox.customernobtn.LstCustomerNoBtnBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.listbox.customernobtn.LstCustomerNoBtn" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager_up" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstCustomerNoBtnDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.customernobtn.LstCustomerNoBtnParams" />
+    <ref name="3" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="4" type="Control" typeName="LST_CUSTOMER_NAME" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionOneColumn">
+      <listcellColumn name="LST_SEARCH_CONDITION_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_CustomerListNoBtn">
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_Up" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_Down" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="CONSIGNOR_NAME" setRef="1" setValue="CONSIGNOR_NAME" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="1" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="ENTERING_QTY" setRef="1" setValue="ENTERING_QTY" />
+        <map getRef="2" getValue="BATCH_NO" setRef="1" setValue="BATCH_NO" />
+        <map getRef="2" getValue="BATCH_SEQ_NO" setRef="1" setValue="BATCH_SEQ_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

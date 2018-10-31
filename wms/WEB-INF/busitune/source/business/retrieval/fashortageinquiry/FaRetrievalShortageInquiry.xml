@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.fashortageinquiry.FaRetrievalShortageInquiryBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.fashortageinquiry.FaRetrievalShortageInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_SearchDate" />
+    <ref name="1" type="Control" typeName="txt_BatchNo" />
+    <ref name="2" type="Control" typeName="txt_FromTicketNo" />
+    <ref name="3" type="Control" typeName="txt_SearchTime" />
+    <ref name="4" type="Control" typeName="txt_ToTicketNo" />
+    <ref name="5" type="BusinessParameter" typeName="jp.co.daifuku.wms.retrieval.listbox.startdate.LstRetrievalStartDateParams" />
+    <ref name="6" type="Control" typeName="txt_SettingDay" />
+    <ref name="7" type="Control" typeName="txt_SettingTime" />
+    <ref name="8" type="Dasch" typeName="jp.co.daifuku.wms.retrieval.dasch.FaRetrievalShortageInquiryDASCH" />
+    <ref name="9" type="Control" typeName="LST_BATCH_NO" />
+    <ref name="10" type="Control" typeName="LST_TICKET_NO" />
+    <ref name="11" type="Control" typeName="LST_LINE_NO" />
+    <ref name="12" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="13" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="14" type="Control" typeName="LST_PLAN_QTY" />
+    <ref name="15" type="Control" typeName="LST_SHORTAGE_QTY" />
+    <ref name="16" type="ExportParameter" typeName="jp.co.daifuku.wms.retrieval.exporter.ShortageListParams" />
+    <ref name="17" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_FaShortageInquiry">
+      <listcellColumn name="LST_BATCH_NO" orgIndex="1" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_TICKET_NO" orgIndex="2" resourceKey="LBL-W0145" dataType="String" />
+      <listcellColumn name="LST_LINE_NO" orgIndex="3" resourceKey="LBL-W0066" dataType="Number" format="0" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="4" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="5" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_PLAN_QTY" orgIndex="6" resourceKey="LBL-W0328" dataType="Number" format="0" />
+      <listcellColumn name="LST_SHORTAGE_QTY" orgIndex="7" resourceKey="LBL-W0065" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_RetrievalDateSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/retrieval/listbox/startdate/LstRetrievalStartDate" businessParameterRef="5" />
+      <input1>
+        <map getRef="6" getValue="Value" setRef="5" setValue="START_DATE" />
+        <map getRef="7" getValue="Value" setRef="5" setValue="START_TIME" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="START_DATE" setRef="6" setValue="Value" />
+        <map getRef="5" getValue="START_TIME" setRef="7" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="8" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="8" setValue="SETTING_DAY" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="SETTING_TIME" />
+        <map getRef="1" getValue="Value" setRef="8" setValue="BATCH_NO" />
+        <map getRef="2" getValue="Value" setRef="8" setValue="FROM_TICKET_NO" />
+        <map getRef="4" getValue="Value" setRef="8" setValue="TO_TICKET_NO" />
+      </input1>
+      <output1>
+        <map getRef="8" getValue="BATCH_NO" setRef="9" setValue="Value" />
+        <map getRef="8" getValue="TICKET_NO" setRef="10" setValue="Value" />
+        <map getRef="8" getValue="LINE_NO" setRef="11" setValue="Value" />
+        <map getRef="8" getValue="ITEM_CODE" setRef="12" setValue="Value" />
+        <map getRef="8" getValue="ITEM_NAME" setRef="13" setValue="Value" />
+        <map getRef="8" getValue="PLAN_QTY" setRef="14" setValue="Value" />
+        <map getRef="8" getValue="SHORTAGE_QTY" setRef="15" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="8" exportParameterRef="16" exportName="ShortageList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="4" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="8" setValue="SETTING_DAY" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="SETTING_TIME" />
+        <map getRef="1" getValue="Value" setRef="8" setValue="BATCH_NO" />
+        <map getRef="2" getValue="Value" setRef="8" setValue="FROM_TICKET_NO" />
+        <map getRef="4" getValue="Value" setRef="8" setValue="TO_TICKET_NO" />
+      </input1>
+      <output1>
+        <map getRef="8" getValue="DFK_DS_NO" setRef="16" setValue="DFK_DS_NO" />
+        <map getRef="8" getValue="DFK_USER_ID" setRef="16" setValue="DFK_USER_ID" />
+        <map getRef="8" getValue="DFK_USER_NAME" setRef="16" setValue="DFK_USER_NAME" />
+        <map getRef="8" getValue="SYS_DAY" setRef="16" setValue="SYS_DAY" />
+        <map getRef="8" getValue="SYS_TIME" setRef="16" setValue="SYS_TIME" />
+        <map getRef="8" getValue="SETTING_DAY" setRef="16" setValue="SETTING_DAY" />
+        <map getRef="8" getValue="SETTING_TIME" setRef="16" setValue="SETTING_TIME" />
+        <map getRef="8" getValue="BATCH_NO" setRef="16" setValue="BATCH_NO" />
+        <map getRef="8" getValue="TICKET_NO" setRef="16" setValue="TICKET_NO" />
+        <map getRef="8" getValue="LINE_NO" setRef="16" setValue="LINE_NO" />
+        <map getRef="8" getValue="ITEM_CODE" setRef="16" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="ITEM_NAME" setRef="16" setValue="ITEM_NAME" />
+        <map getRef="8" getValue="LOT_NO" setRef="16" setValue="LOT_NO" />
+        <map getRef="8" getValue="PICKING_QTY" setRef="16" setValue="PICKING_QTY" />
+        <map getRef="8" getValue="SHORTAGE_QTY" setRef="16" setValue="SHORTAGE_QTY" />
+      </output1>
+      <part11 operationRef="17" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="8" exportParameterRef="16" exportName="ShortageList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="4" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="8" setValue="SETTING_DAY" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="SETTING_TIME" />
+        <map getRef="1" getValue="Value" setRef="8" setValue="BATCH_NO" />
+        <map getRef="2" getValue="Value" setRef="8" setValue="FROM_TICKET_NO" />
+        <map getRef="4" getValue="Value" setRef="8" setValue="TO_TICKET_NO" />
+      </input1>
+      <output1>
+        <map getRef="8" getValue="BATCH_NO" setRef="16" setValue="BATCH_NO" />
+        <map getRef="8" getValue="TICKET_NO" setRef="16" setValue="TICKET_NO" />
+        <map getRef="8" getValue="LINE_NO" setRef="16" setValue="LINE_NO" />
+        <map getRef="8" getValue="ITEM_CODE" setRef="16" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="ITEM_NAME" setRef="16" setValue="ITEM_NAME" />
+        <map getRef="8" getValue="LOT_NO" setRef="16" setValue="LOT_NO" />
+        <map getRef="8" getValue="PICKING_QTY" setRef="16" setValue="PICKING_QTY" />
+        <map getRef="8" getValue="SHORTAGE_QTY" setRef="16" setValue="SHORTAGE_QTY" />
+      </output1>
+      <part11 operationRef="17" operation="XLS">
+        <out out1Ref="0" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="NoPlanRetrievalOutDataSheet" type="DataSheet" />
+    <ref name="1" typeName="NoPlanRetrievalInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+    </method>
+    <method name="back_Click" pattern="NoSch" order="1">
+      <validate />
+      <output>
+        <map getterTypeRef="0" getterValue="TEMP_RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+    <method name="return_Click" pattern="NoSch" order="5">
+      <validate />
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="1" getterValue="RESULT_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="1" getterValue="RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+    <method name="caseQty_Enter" pattern="NoSch" order="2">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_CASE_QTY" focusTypeRef="2" focus="CaseQty" />
+      </validate>
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+      </output>
+      <focus fieldTypeRef="2" field="PieceQty" />
+    </method>
+    <method name="pieceQty_Enter" pattern="NoSch" order="3">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_PIECE_QTY" focusTypeRef="2" focus="PieceQty" />
+      </validate>
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+      </output>
+      <focus fieldTypeRef="2" field="LotNo" />
+    </method>
+    <method name="lotNo_Enter" pattern="NoSch" order="4">
+      <validate />
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+  </methods>
+</business>

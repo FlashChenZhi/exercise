@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.stock.rft.schedule.StdCompleteSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ReceivingStorageOutDataSheet" type="DataSheet" />
+    <ref name="4" typeName="ReceivingStorageInDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Constants" type="Constants" />
+    <ref name="6" typeName="Boolean" type="Boolean" />
+    <ref name="7" typeName="Control" type="Control" />
+    <ref name="8" typeName="LocationDataSheet" type="DataSheet" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="back_Click" pattern="None" order="2" />
+    <method name="list_Click" pattern="None" order="3" />
+    <method name="edit_Click" pattern="Commit" order="4">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="MOVE_JOB_NO" setterTypeRef="0" setterValue="MOVE_JOB_NO" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="LOT_NO" setterTypeRef="0" setterValue="LOT_NO" />
+        <map getterTypeRef="3" getterValue="AREA_NO" setterTypeRef="0" setterValue="AREA_NO" />
+        <map getterTypeRef="3" getterValue="LOCATION_NO" setterTypeRef="0" setterValue="LOCATION_NO" />
+        <map getterTypeRef="3" getterValue="RESULT_QTY" setterTypeRef="0" setterValue="RESULT_QTY" />
+        <map getterTypeRef="4" getterValue="FORCE_STRAGE_FLAG" setterTypeRef="0" setterValue="FORCE_STRAGE_FLAG" />
+        <map getterTypeRef="5" getterValue="COMPLETION_FLAG_DECISION" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+      </schInput>
+      <output>
+        <map getterTypeRef="6" getterValue="False" setterTypeRef="3" setterValue="IS_STORAGE_START" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Commit" order="1">
+      <validate>
+        <item fieldTypeRef="4" field="RESULT_AREA_LOCATION" required="true" focusTypeRef="7" focus="ResultAreaLocNo" />
+      </validate>
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="MOVE_JOB_NO" setterTypeRef="0" setterValue="MOVE_JOB_NO" />
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="LOT_NO" setterTypeRef="0" setterValue="LOT_NO" />
+        <map getterTypeRef="3" getterValue="AREA_NO" setterTypeRef="0" setterValue="AREA_NO" />
+        <map getterTypeRef="3" getterValue="LOCATION_NO" setterTypeRef="0" setterValue="LOCATION_NO" />
+        <map getterTypeRef="4" getterValue="RESULT_AREA_LOCATION" setterTypeRef="0" setterValue="RESULT_AREA_LOCATION" />
+        <map getterTypeRef="3" getterValue="RESULT_QTY" setterTypeRef="0" setterValue="RESULT_QTY" />
+        <map getterTypeRef="4" getterValue="FORCE_STRAGE_FLAG" setterTypeRef="0" setterValue="FORCE_STRAGE_FLAG" />
+        <map getterTypeRef="5" getterValue="COMPLETION_FLAG_DECISION" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+        <map getterTypeRef="2" getterValue="START_DATE_TIME" setterTypeRef="0" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="2" getterValue="MISS_SCAN_COUNT" setterTypeRef="0" setterValue="MISS_SCAN_COUNT" />
+      </schInput>
+      <output />
+    </method>
+    <method name="cancel_Click" pattern="None" order="5" />
+    <method name="detail_Click" pattern="None" order="6" />
+    <method name="list1_Click" pattern="NoSch" order="7">
+      <validate />
+      <output>
+        <map getterTypeRef="5" getterValue="LOCATION_FLAG_EMP" setterTypeRef="8" setterValue="SEARCH_LOCATION" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="8" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="8" setterValue="ITEM_CODE" />
+      </output>
+    </method>
+    <method name="list2_Click" pattern="NoSch" order="8">
+      <validate />
+      <output>
+        <map getterTypeRef="5" getterValue="LOCATION_FLAG_SPLY" setterTypeRef="8" setterValue="SEARCH_LOCATION" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="8" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="8" setterValue="ITEM_CODE" />
+      </output>
+    </method>
+  </methods>
+</business>

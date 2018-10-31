@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0308" downloadName="PctRetRftNoWorkInqList" reportName="LBL-W6036">
+    <field name="rft_no" type="string" header="LBL-P0238" printEnabled="true" xlsEnabled="true"/>
+    <field name="user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="user_name" type="string" header="LBL-W0033" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_no" type="area" header="LBL-P0043" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_name" type="string" header="LBL-W0013" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_code" type="string" header="LBL-P0059" printEnabled="true" xlsEnabled="true"/>
+    <field name="regular_customer_name" type="string" header="LBL-P0051" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_code" type="string" header="LBL-W0114" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_name" type="string" header="LBL-W0115" printEnabled="true" xlsEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="plan_zone_no" type="string" header="LBL-P0044" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_location_no" type="location" header="LBL-P0094" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_qty" type="number" format="##,##0" header="LBL-P0053" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_qty" type="number" format="###,##0" header="LBL-W0328" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="result_qty" type="number" format="###,##0" header="LBL-P0054" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="jan_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="itf" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="bundle_itf" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="order_no" type="string" header="LBL-W0014" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

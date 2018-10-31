@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="NoPlanStorageInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="NoPlanStorageOutDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="page_Load" order="0">
+      <pager pagerType="None" select="0" />
+      <method methodName="page_Load" />
+    </event>
+    <event name="Back_Click" order="2">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="EnteringQty_Enter" order="1">
+      <method methodName="enteringQty_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="EnteringQty" setterTypeRef="1" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="0" getterValue="EnteringQty" setterTypeRef="2" setterValue="ENTERING_QTY" />
+      </input>
+    </event>
+  </events>
+</pageMapping>

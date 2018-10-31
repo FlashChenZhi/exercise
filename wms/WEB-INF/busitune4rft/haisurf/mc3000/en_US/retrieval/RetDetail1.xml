@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingDetails1-->
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontQty" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblLocation" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>50</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Loc. #:</caption>
+    </label>
+    <label name="lblAreaLocation" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>50</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.AREA_LOCATION%</caption>
+    </label>
+    <label name="lblJan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>70</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>UPC:</caption>
+    </label>
+    <label name="lblItemCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>70</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.JAN%</caption>
+    </label>
+    <label name="lblItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>90</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>ITF:</caption>
+    </label>
+    <label name="lblItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>90</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.ITF%</caption>
+    </label>
+    <label name="lblSlash1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>90</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>90</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblBundleItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>110</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>B-ITF:</caption>
+    </label>
+    <label name="lblBundleItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>110</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.BUNDLE_ITF%</caption>
+    </label>
+    <label name="lblSlash2" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>110</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblBundleEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>110</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.BUNDLE_ENTERING_QTY%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>130</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Lot #:</caption>
+    </label>
+    <label name="lblLotNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>130</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.PLAN_LOT_NO%</caption>
+    </label>
+    <label name="lblName" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>150</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Name:</caption>
+    </label>
+    <label name="lblItemName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>150</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%RetrievalOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <label name="lblOrder" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>187</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Order #:</caption>
+    </label>
+    <label name="lblOrderNo" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>187</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO%</caption>
+    </label>
+    <label name="lblCustomer" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>207</y>
+      <w>70</w>
+      <h>20</h>
+      <caption>Customer:</caption>
+    </label>
+    <label name="lblCustomerCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>207</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_CODE%</caption>
+    </label>
+    <label name="lblCustomerName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>221</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME%</caption>
+    </label>
+    <label name="lblSurivivalTotal" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>253</y>
+      <w>100</w>
+      <h>20</h>
+      <caption>Pending/Total:</caption>
+    </label>
+    <label name="lblSurvival" font-id="fontQty" visible="true">
+      <align>right</align>
+      <x>120</x>
+      <y>250</y>
+      <w>70</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.SURVIVAL_RECORD%/</caption>
+    </label>
+    <label name="lblTotal" font-id="fontQty" visible="true">
+      <align>right</align>
+      <x>190</x>
+      <y>250</y>
+      <w>70</w>
+      <h>16</h>
+      <caption>%RetrievalOutDataSheet.TOTAL_RECORD%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RetDetail1_Back</event>
+    </button>
+    <button name="Detail" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>200</x>
+      <y>0</y>
+      <w>124</w>
+      <h>40</h>
+      <caption>Details</caption>
+      <event>RetDetail1_Detail</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>65</y>
+      <w>324</w>
+      <h>114</h>
+    </label>
+  </form>
+</HaiSurf.Page>

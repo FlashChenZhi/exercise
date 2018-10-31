@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" downloadName="InventoryMovement">
+    <field name="item_code" type="string" header="LBL-W0189" printEnabled="false" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="false" xlsEnabled="true"/>
+    <field name="date" type="string" header="LBL-W1290" printEnabled="false" xlsEnabled="true"/>
+    <field name="inventory_qty" type="number" header="LBL-W0073" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="storage_qty" type="number" header="LBL-W0150" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="retrieval_qty" type="number" header="LBL-W0123" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="upper_limit_qty" type="number" header="LBL-W0131" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="lower_limit_qty" type="number" header="LBL-W0051" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+</exportspec>

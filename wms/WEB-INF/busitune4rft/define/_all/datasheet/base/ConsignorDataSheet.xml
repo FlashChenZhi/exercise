@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="荷主入力データシート" />
+  <comment lang="en" value="Consignor Input Data Sheet" />
+  <comment lang="zh" value="货主输入数据表" />
+  <fields>
+    <field name="CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="荷主コード" />
+      <comment lang="en" value="Consignor Code" />
+      <comment lang="zh" value="货主代码" />
+    </field>
+    <field name="CONSIGNOR_NAME" type="String" separateSize="2">
+      <comment lang="ja" value="荷主名称" />
+      <comment lang="en" value="Consignor Name " />
+      <comment lang="zh" value="货主名称" />
+    </field>
+    <field name="SKIP_CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="スキップ荷主コード" />
+      <comment lang="en" value="Consignor Skip Code" />
+      <comment lang="zh" value="跳过货主代码" />
+    </field>
+  </fields>
+</datasheet>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingDetails2-->
+  <font name="fontTitleBar" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblDate" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>6</y>
+      <w>70</w>
+      <h>12</h>
+      <caption>Date:</caption>
+    </label>
+    <label name="lblPlanDate" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>6</y>
+      <w>210</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.PLAN_DATE%</caption>
+    </label>
+    <label name="lblConsignor" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>22</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>22</y>
+      <w>210</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>38</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%RetrievalOutDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <label name="lblOrder1" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>80</y>
+      <w>59</w>
+      <h>12</h>
+      <caption>Order 1:</caption>
+    </label>
+    <label name="lblOrderNo1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>80</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO1%</caption>
+    </label>
+    <label name="lblCustomerCode1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>95</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_CODE1%</caption>
+    </label>
+    <label name="lblCustomerName1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>110</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME1%</caption>
+    </label>
+    <label name="lblOrder2" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>129</y>
+      <w>59</w>
+      <h>12</h>
+      <caption>Order 2:</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>129</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO2%</caption>
+    </label>
+    <label name="lblCustomerCode2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>144</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_CODE2%</caption>
+    </label>
+    <label name="lblCustomerName2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>159</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME2%</caption>
+    </label>
+    <label name="lblOrder3" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>178</y>
+      <w>59</w>
+      <h>12</h>
+      <caption>Order 3:</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>178</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO3%</caption>
+    </label>
+    <label name="lblCustomerCode3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>193</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_CODE3%</caption>
+    </label>
+    <label name="lblCustomerName3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>208</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME3%</caption>
+    </label>
+    <label name="lblOrder4" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>227</y>
+      <w>59</w>
+      <h>12</h>
+      <caption>Order 4:</caption>
+    </label>
+    <label name="lblOrderNo4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>227</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.ORDER_NO4%</caption>
+    </label>
+    <label name="lblCustomerCode4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>242</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_CODE4%</caption>
+    </label>
+    <label name="lblCustomerName4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>257</y>
+      <w>243</w>
+      <h>12</h>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME4%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RetDetail2_Back</event>
+    </button>
+    <label name="panel1" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>76</y>
+      <w>324</w>
+      <h>49</h>
+    </label>
+    <label name="panel2" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>125</y>
+      <w>324</w>
+      <h>49</h>
+    </label>
+    <label name="panel3" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>174</y>
+      <w>324</w>
+      <h>49</h>
+    </label>
+    <label name="panel4" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>223</y>
+      <w>324</w>
+      <h>49</h>
+    </label>
+  </form>
+</HaiSurf.Page>

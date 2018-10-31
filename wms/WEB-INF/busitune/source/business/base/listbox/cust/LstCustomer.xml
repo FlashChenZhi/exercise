@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.base.listbox.cust.LstCustomerBusiness" abstractClassName="jp.co.daifuku.wms.base.listbox.cust.LstCustomer" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.cust.LstCustomerParams" />
+    <ref name="3" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="4" type="Control" typeName="LST_SORT_PLACE" />
+    <ref name="5" type="Dasch" typeName="jp.co.daifuku.wms.base.dasch.LstCustomerDASCH" />
+    <ref name="6" type="Control" typeName="LST_SELECT" />
+    <ref name="7" type="Control" typeName="HIDDEN_ROUTE" />
+    <ref name="8" type="Control" typeName="HIDDEN_POSTAL_CODE" />
+    <ref name="9" type="Control" typeName="HIDDEN_PREFECTURE" />
+    <ref name="10" type="Control" typeName="HIDDEN_ADDRESS1" />
+    <ref name="11" type="Control" typeName="HIDDEN_ADDRESS2" />
+    <ref name="12" type="Control" typeName="HIDDEN_TELEPHONE" />
+    <ref name="13" type="Control" typeName="HIDDEN_CONTACT1" />
+    <ref name="14" type="Control" typeName="HIDDEN_CONTACT2" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SortCustomer">
+      <listcellColumn name="HIDDEN_ROUTE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_POSTAL_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_PREFECTURE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ADDRESS1" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ADDRESS2" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_TELEPHONE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CONTACT1" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CONTACT2" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="2" resourceKey="LBL-W0114" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="3" resourceKey="LBL-W0115" dataType="String" />
+      <listcellColumn name="LST_SORT_PLACE" orgIndex="4" resourceKey="LBL-W0529" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="CUSTOMER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="CUSTOMER_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="CONSOLIDATION_AREA" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="5" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="5" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="FROM_TO_FLAG" setRef="5" setValue="FROM_TO_FLAG" />
+        <map getRef="2" getValue="TO_CUSTOMER_CODE" setRef="5" setValue="TO_CUSTOMER_CODE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="SELECT" setRef="6" setValue="Value" />
+        <map getRef="5" getValue="CUSTOMER_CODE" setRef="1" setValue="Value" />
+        <map getRef="5" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="5" getValue="SORT_PLACE" setRef="4" setValue="Value" />
+        <map getRef="5" getValue="ROUTE" setRef="7" setValue="Value" />
+        <map getRef="5" getValue="POSTAL_CODE" setRef="8" setValue="Value" />
+        <map getRef="5" getValue="PREFECTURE" setRef="9" setValue="Value" />
+        <map getRef="5" getValue="ADDRESS1" setRef="10" setValue="Value" />
+        <map getRef="5" getValue="ADDRESS2" setRef="11" setValue="Value" />
+        <map getRef="5" getValue="TELEPHONE" setRef="12" setValue="Value" />
+        <map getRef="5" getValue="CONTACT1" setRef="13" setValue="Value" />
+        <map getRef="5" getValue="CONTACT2" setRef="14" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="CUSTOMER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="CUSTOMER_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="SORT_PLACE" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="ROUTE" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="POSTAL_CODE" />
+        <map getRef="9" getValue="Value" setRef="2" setValue="PREFECTURE" />
+        <map getRef="10" getValue="Value" setRef="2" setValue="ADDRESS1" />
+        <map getRef="11" getValue="Value" setRef="2" setValue="ADDRESS2" />
+        <map getRef="12" getValue="Value" setRef="2" setValue="TELEPHONE" />
+        <map getRef="13" getValue="Value" setRef="2" setValue="CONTACT1" />
+        <map getRef="14" getValue="Value" setRef="2" setValue="CONTACT2" />
+      </output1>
+    </event>
+  </events>
+</business>

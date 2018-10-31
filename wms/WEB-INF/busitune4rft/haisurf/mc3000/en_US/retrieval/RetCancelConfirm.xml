@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingCancelConfirmation-->
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="18" bht_size="1" />
+  <font name="fontStandard" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>center</align>
+      <x>0</x>
+      <y>15</y>
+      <w>320</w>
+      <h>40</h>
+      <caption>-Confirm-</caption>
+    </label>
+    <label name="lblMessage" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>center</align>
+      <x>0</x>
+      <y>90</y>
+      <w>320</w>
+      <h>30</h>
+      <caption>Cancel the picking for this order?</caption>
+    </label>
+    <label name="lblOrderNo1" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>140</y>
+      <w>300</w>
+      <h>20</h>
+      <caption>[1]%RetrievalOutDataSheet.ORDER_NO1%</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>160</y>
+      <w>300</w>
+      <h>20</h>
+      <caption>[2]%RetrievalOutDataSheet.ORDER_NO2%</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>180</y>
+      <w>300</w>
+      <h>20</h>
+      <caption>[3]%RetrievalOutDataSheet.ORDER_NO3%</caption>
+    </label>
+    <label name="lblOrderNo4" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>200</y>
+      <w>300</w>
+      <h>20</h>
+      <caption>[4]%RetrievalOutDataSheet.ORDER_NO4%</caption>
+    </label>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>Yes</caption>
+      <event>RetOrderC_Ent</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>160</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>No</caption>
+      <event>RetOrderC_Back</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>70</y>
+      <w>324</w>
+      <h>168</h>
+    </label>
+  </form>
+</HaiSurf.Page>

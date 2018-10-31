@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.stock.rft.schedule.NrtStockListSCH" type="Sch" />
+    <ref name="1" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="2" typeName="LocationDataSheet" type="DataSheet" />
+    <ref name="3" typeName="NoPlanRetrievalStockListDataSheet" type="DataSheet" />
+    <ref name="4" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="back_Click" pattern="None" order="1" />
+    <method name="ent_Click" pattern="None" order="2" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="2" getterValue="AREA_NO" setterTypeRef="0" setterValue="AREA_NO" />
+        <map getterTypeRef="2" getterValue="LOCATION_NO" setterTypeRef="0" setterValue="LOCATION_NO" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="ITEM_CODE" setterTypeRef="3" setterValue="ITEM_CODE" />
+        <map getterTypeRef="0" getterValue="ITEM_NAME" setterTypeRef="3" setterValue="ITEM_NAME" />
+        <map getterTypeRef="0" getterValue="LOT_NO" setterTypeRef="3" setterValue="LOT_NO" />
+      </output>
+    </method>
+  </methods>
+</business>

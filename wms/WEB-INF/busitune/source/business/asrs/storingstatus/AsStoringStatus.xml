@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.storingstatus.AsStoringStatusBussiness" abstractClassName="jp.co.daifuku.wms.asrs.display.storingstatus.AsStoringStatus" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsStoringStatusSCH" />
+    <ref name="2" type="Control" typeName="pul_RMNo" />
+    <ref name="3" type="Control" typeName="LST_RM_NO" />
+    <ref name="4" type="Control" typeName="LST_LOAD_SIZE" />
+    <ref name="5" type="Control" typeName="LST_SOFTZONE_NAME" />
+    <ref name="6" type="Control" typeName="LST_OCCUPIED" />
+    <ref name="7" type="Control" typeName="LST_EMPTY" />
+    <ref name="8" type="Control" typeName="LST_EMPTY_PALLET" />
+    <ref name="9" type="Control" typeName="LST_ERROR" />
+    <ref name="10" type="Control" typeName="LST_PROHIBITED" />
+    <ref name="11" type="Control" typeName="LST_UNREACHABLE" />
+    <ref name="12" type="Control" typeName="LST_TOTAL" />
+    <ref name="13" type="Control" typeName="LST_OCCUPANCY_RATE" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAll" />
+    <pulldown name="pul_RMNo" dataType="WmsAisleTrue" parent="pul_Area" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_AsStoringStatus">
+      <listcellColumn name="LST_RM_NO" orgIndex="1" resourceKey="LBL-W0007" dataType="String" />
+      <listcellColumn name="LST_LOAD_SIZE" orgIndex="2" resourceKey="LBL-W9922" dataType="String" />
+      <listcellColumn name="LST_SOFTZONE_NAME" orgIndex="3" resourceKey="LBL-W0597" dataType="String" />
+      <listcellColumn name="LST_OCCUPIED" orgIndex="4" resourceKey="LBL-W0104" dataType="Number" format="0" />
+      <listcellColumn name="LST_EMPTY" orgIndex="5" resourceKey="LBL-W0061" dataType="Number" format="0" />
+      <listcellColumn name="LST_EMPTY_PALLET" orgIndex="6" resourceKey="LBL-W0060" dataType="Number" format="0" />
+      <listcellColumn name="LST_ERROR" orgIndex="7" resourceKey="LBL-W0036" dataType="Number" format="0" />
+      <listcellColumn name="LST_PROHIBITED" orgIndex="8" resourceKey="LBL-W0059" dataType="Number" format="0" />
+      <listcellColumn name="LST_UNREACHABLE" orgIndex="9" resourceKey="LBL-W0010" dataType="Number" format="0" />
+      <listcellColumn name="LST_TOTAL" orgIndex="10" resourceKey="LBL-W0136" dataType="Number" format="0" />
+      <listcellColumn name="LST_OCCUPANCY_RATE" orgIndex="11" resourceKey="LBL-W0056" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="RM_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RM_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOAD_SIZE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="SOFTZONE_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="OCCUPIED" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="EMPTY" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="EMPTY_PALLET" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="ERROR" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="RESTRICTED" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="INACCESSIBLE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="TOTAL" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="OCCUPANCY_RATE" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+  </events>
+</business>

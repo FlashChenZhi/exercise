@@ -1,0 +1,690 @@
+<!-- $Id: common_zh_CN.css 1566 2008-11-26 07:40:19Z ogawa $ -->
+
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ * 
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+
+/**
+ * UTF8で保存する必要があるのですが、UTF8で保存するとブラウザによって
+ * ボタンのVALUEが右にずれ、文字が中心にこない現象が出ます。
+ * 現状原因が分かりません。もしその現象が発生したら澤まで連絡ください。
+ *                                                      2002/09/21 sawa
+ * @version $Revision: 1566 $, $Date: 2008-11-26 16:40:19 +0900 (水, 26 11 2008) $
+ * @author  $Author: ogawa $
+ */
+
+/*--------------------------------------*/
+/*	.java内で使用						*/
+/*--------------------------------------*/
+/* MenuCreation.java                    */
+/*	紺に白字の釦 →オレンジに白字の釦   */
+INPUT#BTN_BG_NAVY {
+	color     			: white;
+	font-weight      	: normal;
+	font-size 			: 16px;
+	font-family			: monospace;
+	margin    			: 0% 0% 0% 0%;
+	padding   			: 0% 0% 0% 0%;
+	border-top       	: 2px solid #fdb561;
+	border-right     	: 2px solid #884700;
+	border-bottom    	: 2px solid #884700;
+	border-left      	: 2px solid #fdb561;
+	background-color 	: #fc8800;
+}
+
+/* RelationHeader.java・WebUtil.java	*/
+SELECT#SLT_NORMAL {
+	font-size 			: medium;
+	margin    			: 0% 0% 0% 0%;
+	padding   			: 0% 0% 0% 0%;
+}
+
+/* RelationHeader.java					*/
+/* 窪んだラベル項目→フラットなラベル項目*/
+INPUT#TXT_RDONLY {
+	font-size     		: medium;
+}
+
+/* TraceLogViewUtility.java				*/
+TD#DETAIL_ALGNLFT {
+	background-color	: white;
+	text-align       	: left;
+}
+TD#DETAIL {
+	background-color	: white;
+	text-align       	: left;
+}
+TH#HEADER {
+	color            	: white;
+	background-color 	: navy;
+}
+/* DisplayText.java						*/
+IMG#IMG_HELP {
+	vertical-align		: text-top;
+}
+
+/*--------------------------------------*/
+/* BODY, DIV, FONT                      */
+/*--------------------------------------*/
+/* add 2003/03/03 add sawa              */
+body {
+	margin           	: 0% 0% 0% 0%;
+}
+body#titlectrl, div#title {
+}
+font#footer {
+	color				: whitesmoke;
+	font-size			: 9px;
+	font-family			: "verdana";
+	font-weight			: 600;
+}
+font#cautions {
+	color				: darksalmon;
+	font-size			: large;
+	font-family			: monospace;
+}
+
+/*--------------------------------------*/
+/* TABLE                                */
+/*--------------------------------------*/
+td, table {
+	white-space	: nowrap;
+}
+
+
+/*--------------------------------------*/
+/* FORM                                 */
+/*--------------------------------------*/
+form {
+	margin				: 0% 0% 0% 0%;
+}
+/*--------------------------------------*/
+/* 表示文字項目（ラベル）               */
+/*--------------------------------------*/
+/* 通常黒文字                           */
+/* 未設定時(text-caption1-normal)       */
+.lbl-black-001 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	height				: 38px;
+	padding-top			: 12px;
+	margin-left			: 7px;
+}
+
+/* パスワード変更画面等、上下にラベルが並ぶ場合 */
+/* 通常の画面では使用しない                     */
+.lbl-black-002 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+/*	padding-top			: 6px; */
+	padding-top			: 8px;
+	margin-left			: 4px;
+	vertical-align		: text-bottom;
+}
+
+
+/* Sub Menu画面のラベルで使用する              */
+/* 通常の画面では使用しない                    */
+.lbl-black-003 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	top					: 2px;
+}
+
+/* SessionTimeout.jspのラベルで使用する        */
+/* 通常の画面では使用しない                    */
+.lbl-black-004 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	padding-left		: 7px;
+}
+
+
+/* メッセージエリアの文字スタイル       */
+/* 2004/03/23 update sawa               */
+.message-001 {
+	 color				: black;
+	 font-size			: 100%;
+	 font-family		: monospace;
+	 text-decoration	: none;
+	 bottom				: 1px;
+}
+
+/* タイトル、メニュー名用白文字         */
+/* 2003/03/20 add sawa                  */
+.lbl-white-001 {
+	color				: white;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	top					: 2px;
+}
+
+
+/* 白文字 (ログイン画面、メインメニュー画面) */
+.lbl-white-002 {
+	color				: white;
+	font-size			: 16px;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	top					: 2px; 
+}
+
+/* 白文字 (メインメニュー画面専用)      */
+.lbl-white-003 {
+	color				: white;
+	font-size			: 13px;
+	font-family			: monospace;
+	text-decoration		: none; 
+}
+
+/* 白文字 (メインメニュー画面専用)      */
+.lbl-white-004 {
+	color				: white;
+	font-size			: 13px;
+	line-height			: 19px;
+	font-family			: monospace;
+	text-decoration		: none; 
+}
+
+
+/* リンク・サブミットラベル      */
+.lbl-link-001 {
+	padding-left			: 1px;
+}
+
+/* SessionTimeout.jspのラベルで使用する        */
+/* 通常の画面では使用しない                    */
+.lbl-link-002 {
+	font-size			: 100%;
+	font-family			: monospace;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	padding-left		: 7px;
+}
+
+/* メッセージ 通常 (青色)               */
+.message-normal{
+	font-family			: monospace;
+	font-size			: 10pt;
+	color				: #6666ff;
+}
+
+/* メッセージ エラー (赤色)             */
+.message-error{
+	font-family			: monospace;
+	font-size			: 10pt;
+	color				: red;
+}
+/* メッセージ 警告 (黄色)               */
+.message-warning {
+	font-family			: monospace;
+	font-size			: 10pt;
+	color				: #ffcc00;
+}
+
+/*--------------------------------------*/
+/* 入力項目                             */
+/*--------------------------------------*/
+/* 通常文字項目 太字                    */
+/* 未設定時(string1)                    */
+.txt-001 {
+/*	ime-mode			: active; */
+	font-weight			: bold; 
+	font-size			: 100%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	height				: 1.75em; 
+/*	height				: 1.35em; */
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+/* ログイン画面テキストボックス（IME Mode Off） */
+.txt-002 {
+	ime-mode			: disabled;
+	font-size			: 16px;
+	line-height			: 18px;
+	font-family			: arial;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	height				: 24px; 
+}
+/* 数値、日付テキストボックス（IME Mode Off） */
+.txt-003 {
+	ime-mode			: disabled;
+	font-weight			: bold; 
+	font-size			: 100%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	height				: 1.75em; 
+/*	height				: 1.35em; */
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+/* フラットなテキストボックス */
+.txt-004 {
+	color				: black;
+	font-weight			: normal;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	margin-left			: 1px;
+	height				: 1.75em; 
+	padding-top			: 5px;
+	background-color	: inherit;
+	border-style		: none;
+}
+
+/* sample */
+.txt-sample {
+	font-weight			: bold; 
+	font-size			: 100%;
+	font-style			: italic;
+	color				: DeepPink;
+	background			: SkyBlue;
+	line-height			: 120%;
+	font-family			: fantasy;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	height				: 1.75em; 
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+/* テキストエリア項目 */
+/* 2008/01/11 add kajiwara  */
+.txa-001 {
+	color				: black;
+	font-size			: 100%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	word-break			: break-all;
+	overflow-y			: auto;
+}
+
+/* ファイルブラウズ項目 */
+/* 2005/03/10 add torigaki  */
+.flb-001 {
+	font-weight			: bold; 
+	font-size			: 100%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration			: none;
+	border-width			: 2px;
+	height				: 1.75em; 
+	margin-top			: 4px;
+	margin-bottom			: 4px;
+}
+
+
+/* チェックボックス項目                 */
+/* 2003/03/20 update sawa               */
+.chk-001 {
+	height				: 1.75em;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+/* リストセル用　チェックボックス       */
+.chk-002 {
+	margin-top			: 2px;
+	margin-bottom		: 2px;
+}
+/* ラジオボタン項目                     */
+/* 2003/03/20 add sawa                  */
+.rdo-001 {
+	height				: 1.75em;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+/* プルダウン項目                       */
+.pul-001 {
+	font-weight			: bold;
+	font-size			: 113%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+/*--------------------------------------*/
+/*	BUTTON								*/
+/*--------------------------------------*/
+/* 通常釦 .bt                           */
+.btn-001 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: arial,monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	height				: 27px;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	
+}
+
+/* 通常釦 .bt                           */
+.btn-002 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	height				: 27px;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	width				: 100%
+
+}
+
+/* Sample釦 .bt                           */
+.btn-sample {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: fantasy;
+	text-decoration		: none;
+	background-color	: green;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	height				: 27px;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	
+}
+
+/* 「ヘルプ」                         */
+.btn-help {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 88px;
+	height				: 24px;
+	margin-top			: 1px;
+
+}
+
+/* 「戻　る」                         */
+.btn-back {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 100px;
+	height				: 24px;
+	vertical-align		: 2px;
+}
+
+/* 「ログアウト」                      */
+.btn-logout {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 88px;
+	height				: 24px;
+}
+
+
+/* 「メニューへ」 2003/03/25 add sawa   */
+.btn-tomenu {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 100px;
+	height				: 24px;
+	margin-right		: 7px;
+	vertical-align		: 2px;
+}
+
+/*リストボックスのボタン*/
+.btn-listcell-001 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 50px;
+	height				: 24px;
+}
+
+/* 結合レベルがあるリストボックスのボタン
+   mod 2008/05/07 Kajiwara */
+.btn-listcell-002 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 50px;
+	height				: 100%;
+	position			: fixed;
+	top					: 0px;
+}
+
+/*リストボックスのボタン（幅可変）
+	add 2004/11/29 T.Hondo */
+.btn-listcell-003 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: monospace;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 100%;
+	height				: 24px;
+}
+
+/* サブメニュー用ボタン add inoue 2003/03/19 */
+.btn-submenu-001   {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: arial;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 140px;
+	height				: 24px; 
+}
+/*--------------------------------------*/
+/*	IMG									*/
+/*--------------------------------------*/
+/* ':' マーク                           */
+IMG#COLON3 {
+	width				: 18;
+	height				: 16;
+	border-width		: 0px;
+}
+
+/*--------------------------------------*/
+/*	オートコンプリート用				*/
+/*--------------------------------------*/
+.auto_complete {
+  position: absolute;
+  background-color: #fff;
+  border:1px solid #000000;
+  margin:0px;
+  padding:0px;
+  z-index:1000;
+}
+
+/*--------------------------------------*/
+/*	For balloon message					*/
+/*--------------------------------------*/
+.balloon-outsiderange {
+  background-color	: #2040A0;
+  border			: 3px ridge #FAFAD2;
+  padding			: 5px;
+  filter			: alpha(style=1, opacity=100, finishopacity=80, startx=85, starty=0, finishx=85, finishy=140);
+  cursor			: pointer;
+  white-space		: nowrap;
+  width             : 99%;
+}
+
+.balloon-info {
+  background-color	: #FAFAD2;
+  border			: 3px ridge #FAFAD2;
+  padding			: 5px;
+  filter			: alpha(style=1, opacity=100, finishopacity=80, startx=85, starty=0, finishx=85, finishy=140);
+  cursor			: pointer;
+  white-space		: nowrap;
+  width             : 99%;
+}
+
+.balloon-warning {
+  background-color	: orange;
+  border			: 3px ridge #FAFAD2;
+  padding			: 5px;
+  filter			: alpha(style=1, opacity=100, finishopacity=80, startx=85, starty=0, finishx=85, finishy=140);
+  cursor			: pointer;
+  white-space		: nowrap;
+  width             : 99%;
+}
+
+.balloon-attention {
+  background-color	: #FAFAD2;
+  border			: 3px ridge #FAFAD2;
+  padding			: 5px;
+  filter			: alpha(style=1, opacity=100, finishopacity=80, startx=85, starty=0, finishx=85, finishy=140);
+  cursor			: pointer;
+  white-space		: nowrap;
+  width             : 99%;
+}
+
+.balloon-error {
+  background-color	: orangered;
+  border			: 3px ridge #FAFAD2;
+  padding			: 5px;
+  filter			: alpha(style=1, opacity=100, finishopacity=80, startx=85, starty=0, finishx=85, finishy=140);
+  cursor			: pointer;
+  white-space		: nowrap;
+  width             : 99%;
+}
+
+.balloon-outsiderange-font {
+	color		: white;
+	font-weight	: normal;
+	font-size 	: 16px;
+}
+
+.balloon-info-font {
+	color		: black;
+	font-weight	: normal;
+	font-size 	: 16px;
+}
+
+.balloon-warning-font {
+	color		: black;
+	font-weight	: normal;
+	font-size 	: 16px;
+}
+
+.balloon-attention-font {
+	color		: black;
+	font-weight	: normal;
+	font-size 	: 16px;
+}
+
+.balloon-error-font {
+	color		: black;
+	font-weight	: normal;
+	font-size 	: 16px;
+}

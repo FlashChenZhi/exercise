@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctareamodify.PCTAreaModify2Business" abstractClassName="jp.co.daifuku.pcart.master.display.pctareamodify.PCTAreaModify2">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_AreaName" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTAreaModifySCH" />
+    <ref name="2" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctareamodify.ViewStateKeys" />
+    <ref name="3" type="Control" typeName="lbl_InAreaNo" />
+    <ref name="4" type="Control" typeName="lbl_JavaSetLastUpdate" />
+    <ref name="5" type="Constants" typeName="Constants" />
+    <ref name="6" type="Control" typeName="btn_Modify" />
+    <ref name="7" type="Control" typeName="btn_Delete" />
+    <ref name="8" type="Control" typeName="btn_Clear" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="AREA_NAME" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="VS_LAST_UPDATE_DATE" />
+      </output1>
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctareamodify/PCTAreaModify" viewStateRef="2" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Modify" name="Click" pattern="Edit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NAME" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="VS_LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="PROCESS_FLAG_MODIFY" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <input2>
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="AREA_NAME" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="VS_LAST_UPDATE_DATE" />
+      </output1>
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="VS_LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="PROCESS_FLAG_DELETE" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.suppmodify.SupplierMasterModify2Business" abstractClassName="jp.co.daifuku.wms.master.display.suppmodify.SupplierMasterModify2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_SupplierName" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.master.display.suppmodify.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="lbl_JavaSetSupplierCode" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.SupplierMasterModifySCH" />
+    <ref name="4" type="Control" typeName="txt_LastUpdateDate" />
+    <ref name="5" type="Control" typeName="txt_LastUseDate" />
+    <ref name="6" type="Constants" typeName="Constants" />
+    <ref name="7" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="8" type="Control" typeName="btn_Modify" />
+    <ref name="9" type="Control" typeName="btn_Delete" />
+    <ref name="10" type="Control" typeName="btn_Clear" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/master/suppmodify/SupplierMasterModify" viewStateRef="1" />
+      <output1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="SUPPLIER_CODE" />
+        <map getRef="1" getValue="SETTING_NAME" setRef="1" setValue="SETTING_NAME" />
+      </output1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="3" />
+      <input1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="SETTING_NAME" setRef="3" setValue="SETTING_NAME" />
+        <map getRef="1" getValue="SUPPLIER_CODE" setRef="3" setValue="SUPPLIER_CODE" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="SUPPLIER_NAME" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="LAST_UPDATE_DATE" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="LAST_USE_DATE" setRef="5" setValue="Value" />
+        <map getRef="3" getValue="SUPPLIER_CODE" setRef="2" setValue="Value" />
+        <map getRef="3" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="3" getValue="SUPPLIER_NAME" setRef="1" setValue="VS_SUPPLIER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Edit">
+      <sch2Display schRef="3" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="SUPPLIER_NAME" />
+        <map getRef="4" getValue="Value" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="Value" setRef="3" setValue="LAST_USE_DATE" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="SETTING_NAME" setRef="3" setValue="SETTING_NAME" />
+        <map getRef="1" getValue="SUPPLIER_CODE" setRef="3" setValue="SUPPLIER_CODE" />
+        <map getRef="6" getValue="PROCESS_FLAG_MODIFY" setRef="3" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="7" operation="MODIFY">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_SUPPLIER_NAME" />
+      </part11>
+      <input2>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="SETTING_NAME" setRef="3" setValue="SETTING_NAME" />
+        <map getRef="1" getValue="SUPPLIER_CODE" setRef="3" setValue="SUPPLIER_CODE" />
+        <map getRef="6" getValue="PROCESS_FLAG_MODIFY" setRef="3" setValue="PROCESS_FLAG" />
+      </input2>
+      <output1>
+        <map getRef="3" getValue="SUPPLIER_NAME" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="LAST_UPDATE_DATE" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="LAST_USE_DATE" setRef="5" setValue="Value" />
+        <map getRef="3" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="3" getValue="SUPPLIER_NAME" setRef="1" setValue="VS_SUPPLIER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="SUPPLIER_NAME" />
+        <map getRef="4" getValue="Value" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="5" getValue="Value" setRef="3" setValue="LAST_USE_DATE" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="3" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="SETTING_NAME" setRef="3" setValue="SETTING_NAME" />
+        <map getRef="1" getValue="SUPPLIER_CODE" setRef="3" setValue="SUPPLIER_CODE" />
+        <map getRef="6" getValue="PROCESS_FLAG_DELETE" setRef="3" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="7" operation="DELETE">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_SUPPLIER_NAME" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

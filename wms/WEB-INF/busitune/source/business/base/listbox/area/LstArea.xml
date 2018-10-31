@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.base.listbox.area.LstAreaBusiness" abstractClassName="jp.co.daifuku.wms.base.listbox.area.LstArea" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_AREA_NO" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.area.LstAreaParams" />
+    <ref name="3" type="Control" typeName="LST_AREA_NAME" />
+    <ref name="4" type="Dasch" typeName="jp.co.daifuku.wms.base.dasch.LstAreaDASCH" />
+    <ref name="5" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_Area">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="2" resourceKey="LBL-W0011" dataType="String" />
+      <listcellColumn name="LST_AREA_NAME" orgIndex="3" resourceKey="LBL-W0013" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="AREA" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="AREA_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="4" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="AREA_NO" setRef="4" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="AREA_NO" setRef="1" setValue="Value" />
+        <map getRef="4" getValue="AREA_NAME" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="AREA_NO" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="AREA_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

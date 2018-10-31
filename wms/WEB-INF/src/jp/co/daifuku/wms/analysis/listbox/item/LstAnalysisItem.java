@@ -1,0 +1,65 @@
+// $Id: LstAnalysisItem.java 985 2008-11-03 23:56:10Z tanaka $
+
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+package jp.co.daifuku.wms.analysis.listbox.item;
+import jp.co.daifuku.bluedog.ui.control.Page;
+
+/**
+ * ツールが生成した不可変クラスです。
+ * 
+ * <BR>
+ * <TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+ * <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor"><TD>Date</TD><TD>Name</TD><TD>Comment</TD></TR>
+ * <TR><TD>2004/02/13</TD><TD>N.Sawa(DFK)</TD><TD>created this class</TD></TR>
+ * </TABLE>
+ * <BR>
+ * @version $Revision: 985 $, $Date: 2008-11-04 08:56:10 +0900 (火, 04 11 2008) $
+ * @author  $Author: tanaka $
+ */
+public class LstAnalysisItem extends Page
+{
+
+	// Class variables -----------------------------------------------
+
+	/**
+	 * ControlID	lbl_SettingName
+	 * TemplateKey	In_SettingName
+	 * ControlType	Label
+	 */
+	public jp.co.daifuku.bluedog.ui.control.Label lbl_SettingName = jp.co.daifuku.bluedog.ui.control.LabelFactory.getInstance("lbl_SettingName" , "In_SettingName");
+
+	/**
+	 * ControlID	message
+	 * TemplateKey	OperationMsg
+	 * ControlType	Message
+	 */
+	public jp.co.daifuku.bluedog.ui.control.Message message = jp.co.daifuku.bluedog.ui.control.MessageFactory.getInstance("message" , "OperationMsg");
+
+	/**
+	 * ControlID	pager
+	 * TemplateKey	Pager
+	 * ControlType	Pager
+	 */
+	public jp.co.daifuku.bluedog.ui.control.Pager pager = jp.co.daifuku.bluedog.ui.control.PagerFactory.getInstance("pager" , "Pager");
+
+	/**
+	 * ControlID	lst_Item
+	 * TemplateKey	W_ItemList
+	 * ControlType	ScrollListCell
+	 */
+	public jp.co.daifuku.bluedog.ui.control.ScrollListCell lst_Item = jp.co.daifuku.bluedog.ui.control.ScrollListCellFactory.getInstance("lst_Item" , "W_ItemList");
+
+	/**
+	 * ControlID	btn_Close
+	 * TemplateKey	W_Close
+	 * ControlType	SubmitButton
+	 */
+	public jp.co.daifuku.bluedog.ui.control.SubmitButton btn_Close = jp.co.daifuku.bluedog.ui.control.SubmitButtonFactory.getInstance("btn_Close" , "W_Close");
+
+}
+//end of class

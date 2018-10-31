@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<result xmlns="urn:busitune4rft:result:2.0" className="jp.co.daifuku.wms.base.rft.ResultConst">
+  <fields>
+    <field name="ALREADY_COMPLETED" description="Work already completed" />
+    <field name="ALREADY_RESTARTED" description="Not resume when the rest received" />
+    <field name="AREA_INVALIDITY" description="Disable area" />
+    <field name="AREA_NO_DUPLICATED" description="Duplicate area" />
+    <field name="AUTH_ERR_PWDEXPIRE" description="User authentication fails (password expiration)" />
+    <field name="AUTH_ERR_USERLOCK" description="User authentication fails (user has been locked)" />
+    <field name="AUTH_ERR_USERPASS" description="User authentication fails (incorrect user or password)" />
+    <field name="AUTH_ERR_USERPERMISSION" description="User authentication failed (insufficient privileges)" />
+    <field name="CONFIRM_NODATA" description="No Data Found (confirmation)" />
+    <field name="CONSIGNOR_SKIP" description="Skip consignor" />
+    <field name="DAILY_UPDATING" description="Daily update in progress" />
+    <field name="DATA_EXISTS" description="Already registered (DB unique key error)" />
+    <field name="DB_ACCESS_ERROR" description="DB Access Error" />
+    <field name="ERROR" description="Error (Unexpected error)" />
+    <field name="FIXED_SHELF_UNREGISTRATION" description="Fixed shelf registration" />
+    <field name="HAVE_NO_STOCKPACK" description="No Stockpack" />
+    <field name="ILLEGAL_IP_ADDRESS" description="Incorrect IP address" />
+    <field name="ILLEGAL_LOCATION_FORMAT" description="Shelf format error" />
+    <field name="ILLEGAL_TERMINAL_NUMBER" description="Incorrect terminal number" />
+    <field name="INCOMPLETE_WORK_OTHER" description="Working with different data" />
+    <field name="INCOMPLETE_WORK_OWN" description="Working with data" />
+    <field name="INSP_CPMODE" description="Error inspection (inspection mode)" />
+    <field name="INSP_ENTZERO" description="Inspection error (enter the number 0)" />
+    <field name="INSP_EXCESS" description="Inspection error (excess)" />
+    <field name="INSP_OTHER" description="Inspection errors (product differences)" />
+    <field name="INSP_ZERO" description="Inspection error (actual 0)" />
+    <field name="INSPECTION_COMPLETE" description="Complete inspection process" />
+    <field name="INSPECTION_MODE" description="Inspection mode" />
+    <field name="INSTACIATE_ERROR" description="Generate an error class" />
+    <field name="ITEM_DIFFERENCE" description="Product Differences" />
+    <field name="ITEM_DUPLICATED" description="Product code duplication" />
+    <field name="JOBTYPE_INVENTORY" description="Work Category (Cycle Count)" />
+    <field name="JOBTYPE_MOVE_RETRIEVAL" description="Work Category (Relocation Picking)" />
+    <field name="JOBTYPE_MOVE_STORAGE" description="Work Category (Relocation Storage)" />
+    <field name="JOBTYPE_NOPLAN_RETRIEVAL" description="Work Category (Unplanned Picking)" />
+    <field name="JOBTYPE_NOPLAN_STORAGE" description="Work Category (Unplanned Storage)" />
+    <field name="JOBTYPE_RECEIVING" description="Work Category (DC Receiving)" />
+    <field name="JOBTYPE_RECEIVING_STORAGE" description="Work Category (Storage(Receiving Area))" />
+    <field name="JOBTYPE_RETRIEVAL" description="Work Category (Order Picking)" />
+    <field name="JOBTYPE_SHIPPING" description="Work Category (Shipping Check)" />
+    <field name="JOBTYPE_SHIPPING_LOAD" description="Work Category (Loading)" />
+    <field name="JOBTYPE_SORTING" description="Work Category (Consolidation)" />
+    <field name="JOBTYPE_STORAGE" description="Work Category (Storage)" />
+    <field name="JOBTYPE_TC_RECEIVING" description="Work Category (Cross Dock Receiving)" />
+    <field name="LOCATION_DIFFERENCE" description="Different shelves" />
+    <field name="LOT_NO_DUPLICATED" description="Lot No. Duplicate" />
+    <field name="MAINTENANCE" description="Under Maintenance" />
+    <field name="MORE_WORK" description="There is work remaining data" />
+    <field name="MOVE_FOCUS" description="Move focus" />
+    <field name="NODATA" description="No Data Found" />
+    <field name="NORMAL" description="Normal" />
+    <field name="NORMAL_COMPLETE" description="Normal (all work completed)" />
+    <field name="ORDERNO_DIFFERENCE" description="Order No difference" />
+    <field name="ORDERNO_DUPLICATED" description="No duplication Order" />
+    <field name="PASSWORD_TENTATIVE" description="User authentication failed (temporary)" />
+    <field name="PATTERN_NG" description="Parameter error" />
+    <field name="PLAN_DAY_DUPLICATED" description="In duplicate" />
+    <field name="RESULTQTY_OVER" description="Too many achievements" />
+    <field name="RETRIEVAL_ORDER_WARNING" description="In order to delivery problems" />
+    <field name="RFT_ALREADY_WORK" description="This device, while another user logs in." />
+    <field name="SCHEDULE_ERROR" description="Scheduling Error" />
+    <field name="SHELF_UNREGISTRATION" description="Shelf registration" />
+    <field name="SHORTAGE" description="Stockout" />
+    <field name="SUPPLIER_DUPLICATED" description="Duplicate Suppliers" />
+    <field name="UPDATE_FINISH" description="Updated" />
+    <field name="USER_ALREADY_WORK" description="Users, working with other terminal" />
+    <field name="USER_SETTING_ERROR" description="User authentication fails (incorrect authentication settings)" />
+    <field name="VALIDATE_ERROR" description="Type check error" />
+    <field name="WARNING_EXCESS" description="Excess quantity" />
+    <field name="WORKING_INPROGRESS" description="Working with other terminal" />
+  </fields>
+</result>

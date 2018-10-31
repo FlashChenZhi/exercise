@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.storage.display.planregist.StoragePlanRegistBusiness" abstractClassName="jp.co.daifuku.wms.storage.display.planregist.StoragePlanRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_StoragePlanDate" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.storage.display.planregist.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="txt_SlipNumber" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.wms.storage.listbox.plan.LstStoragePlanMntParams" />
+    <ref name="4" type="Constants" typeName="Constants" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Next" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/storage/planregist/StoragePlanRegist2" viewStateRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STORAGE_PLAN_DATE" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="SLIP_NUMBER" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="1" getValue="MASTER" setRef="1" setValue="MASTER" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_PSearchStoragePlan" name="Click" pattern="Popup">
+      <popup2Display uri="/storage/listbox/plan/LstStoragePlanMnt" businessParameterRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="STORAGE_PLAN_DATE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="SLIP_NUMBER" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="STORAGE_PLAN_DATE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="SLIP_NUMBER" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

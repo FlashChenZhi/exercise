@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.listbox.hosterror.LstHostErrorBusiness" abstractClassName="jp.co.daifuku.wms.system.listbox.hosterror.LstHostError" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="Pager" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.system.dasch.LstHostErrorDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.system.listbox.hosterror.LstHostErrorParams" />
+    <ref name="3" type="Control" typeName="LST_FILE_LINE_NO" />
+    <ref name="4" type="Control" typeName="LST_ERROR_LEVEL" />
+    <ref name="5" type="Control" typeName="LST_ERROR_DETAILS" />
+    <ref name="6" type="Control" typeName="LST_ITEM_NO" />
+    <ref name="7" type="Control" typeName="LST_DATA" />
+    <ref name="8" type="Control" typeName="LST_LOAD_TYPE" />
+    <ref name="9" type="Control" typeName="LST_FILE_NAME" />
+    <ref name="10" type="Control" typeName="LST_START_DAY" />
+    <ref name="11" type="Control" typeName="LST_START_TIME" />
+    <ref name="12" type="Control" typeName="HIDDEN_ERROR_LEVEL" />
+    <ref name="13" type="Control" typeName="HIDDEN_ERROR_DETAILS" />
+    <ref name="14" type="ExportParameter" typeName="jp.co.daifuku.wms.system.exporter.DataLoadCheckListParams" />
+    <ref name="15" type="String" typeName="String" />
+    <ref name="16" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_HostError">
+      <listcellColumn name="LST_LOAD_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_FILE_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_START_DAY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_START_TIME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ERROR_LEVEL" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ERROR_DETAILS" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_FILE_LINE_NO" orgIndex="1" resourceKey="LBL-W1325" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ERROR_LEVEL" orgIndex="2" resourceKey="LBL-W1326" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ERROR_DETAILS" orgIndex="3" resourceKey="LBL-W1327" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NO" orgIndex="4" resourceKey="LBL-W1329" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_DATA" orgIndex="5" resourceKey="LBL-W1328" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="FILE_NAME" setRef="1" setValue="FILE_NAME" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="FILE_LINE_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ERROR_LEVEL" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ERROR_DETAILS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NO" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="DATA" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="LOAD_TYPE" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="FILE_NAME" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="START_DAY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="START_TIME" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_ERROR_LEVEL" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_ERROR_DETAILS" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="14" exportName="DataLoadCheckList" exporter="Preview" />
+      <output1>
+        <map getRef="15" setRef="14" setValue="DFK_DS_NO" />
+        <map getRef="15" setRef="14" setValue="DFK_USER_ID" />
+        <map getRef="15" setRef="14" setValue="DFK_USER_NAME" />
+        <map getRef="8" getValue="Value" setRef="14" setValue="LOAD_TYPE" />
+        <map getRef="15" setRef="14" setValue="SYS_DAY" />
+        <map getRef="15" setRef="14" setValue="SYS_TIME" />
+        <map getRef="9" getValue="Value" setRef="14" setValue="FILE_NAME" />
+        <map getRef="10" getValue="Value" setRef="14" setValue="START_DAY" />
+        <map getRef="11" getValue="Value" setRef="14" setValue="START_TIME" />
+        <map getRef="3" getValue="Value" setRef="14" setValue="FILE_LINE_NO" />
+        <map getRef="4" getValue="Value" setRef="14" setValue="ERROR_LEVEL" />
+        <map getRef="5" getValue="Value" setRef="14" setValue="ERROR_DETAIL" />
+        <map getRef="6" getValue="Value" setRef="14" setValue="ITEM_NO" />
+        <map getRef="7" getValue="Value" setRef="14" setValue="DATA" />
+      </output1>
+      <part11 operationRef="16" operation="PREVIEW_LIST">
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Print" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="14" exportName="DataLoadCheckList" exporter="Print" />
+      <output1>
+        <map getRef="15" setRef="14" setValue="DFK_DS_NO" />
+        <map getRef="15" setRef="14" setValue="DFK_USER_ID" />
+        <map getRef="15" setRef="14" setValue="DFK_USER_NAME" />
+        <map getRef="8" getValue="Value" setRef="14" setValue="LOAD_TYPE" />
+        <map getRef="15" setRef="14" setValue="SYS_DAY" />
+        <map getRef="15" setRef="14" setValue="SYS_TIME" />
+        <map getRef="9" getValue="Value" setRef="14" setValue="FILE_NAME" />
+        <map getRef="10" getValue="Value" setRef="14" setValue="START_DAY" />
+        <map getRef="11" getValue="Value" setRef="14" setValue="START_TIME" />
+        <map getRef="3" getValue="Value" setRef="14" setValue="FILE_LINE_NO" />
+        <map getRef="4" getValue="Value" setRef="14" setValue="ERROR_LEVEL" />
+        <map getRef="5" getValue="Value" setRef="14" setValue="ERROR_DETAIL" />
+        <map getRef="6" getValue="Value" setRef="14" setValue="ITEM_NO" />
+        <map getRef="7" getValue="Value" setRef="14" setValue="DATA" />
+      </output1>
+      <part11 operationRef="16" operation="PRINT_LIST">
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

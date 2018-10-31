@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.ship.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpCompleteSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ShippingCustomerOutDataSheet" type="DataSheet" />
+    <ref name="4" typeName="ShippingCustomerInDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Constants" type="Constants" />
+    <ref name="6" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpInspectionSCH" type="Sch" />
+    <ref name="7" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="input2_Click" pattern="None" order="6" />
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+      <focus fieldTypeRef="7" field="ItemCode" />
+    </method>
+    <method name="ent_Click" pattern="Commit" order="4">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="0" setterValue="PLAN_DATE" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_NAME" setterTypeRef="0" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="0" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_NAME" setterTypeRef="0" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="4" getterValue="SCAN_CODE" setterTypeRef="0" setterValue="SCAN_CODE" />
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="2" getterValue="START_DATE_TIME" setterTypeRef="0" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="2" getterValue="MISS_SCAN_COUNT" setterTypeRef="0" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="5" getterValue="COMPLETION_FLAG_DECISION" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+      </schInput>
+      <output />
+      <focus fieldTypeRef="7" field="ItemCode" />
+    </method>
+    <method name="cancel_Click" pattern="None" order="5" />
+    <method name="cp_Click" pattern="NoSch" order="2">
+      <validate />
+      <output />
+      <focus fieldTypeRef="7" field="ItemCode" />
+    </method>
+    <method name="detail_Click" pattern="None" order="8" />
+    <method name="all_Click" pattern="NoSch" order="1">
+      <validate />
+      <output>
+        <map getterTypeRef="3" getterValue="PLAN_QTY" setterTypeRef="3" setterValue="RESULT_QTY" />
+        <map getterTypeRef="3" getterValue="PLAN_CASE_QTY" setterTypeRef="3" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="3" getterValue="PLAN_PIECE_QTY" setterTypeRef="3" setterValue="RESULT_PIECE_QTY" />
+      </output>
+      <focus fieldTypeRef="7" field="ItemCode" />
+    </method>
+    <method name="input1_Click" pattern="None" order="3" />
+    <method name="itemCode_Scan" pattern="Query" order="7">
+      <validate />
+      <schBase schRef="6" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="6" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="6" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="6" setterValue="PLAN_DATE" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="6" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="6" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="6" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="4" getterValue="SCAN_CODE" setterTypeRef="6" setterValue="SCAN_CODE" />
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="6" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="6" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="JAN" setterTypeRef="6" setterValue="JAN" />
+        <map getterTypeRef="3" getterValue="ITF" setterTypeRef="6" setterValue="ITF" />
+        <map getterTypeRef="3" getterValue="BUNDLE_ITF" setterTypeRef="6" setterValue="BUNDLE_ITF" />
+        <map getterTypeRef="1" getterValue="SHIPPING_ITF_TO_JAN" setterTypeRef="6" setterValue="SHIPPING_ITF_TO_JAN" />
+        <map getterTypeRef="3" getterValue="COLLECT_JOB_NO" setterTypeRef="6" setterValue="COLLECT_JOB_NO" />
+        <map getterTypeRef="3" getterValue="PLAN_LOT_NO" setterTypeRef="6" setterValue="PLAN_LOT_NO" />
+        <map getterTypeRef="3" getterValue="PLAN_QTY" setterTypeRef="6" setterValue="PLAN_QTY" />
+        <map getterTypeRef="3" getterValue="RESULT_LOT_NO" setterTypeRef="6" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="3" getterValue="RESULT_QTY" setterTypeRef="6" setterValue="RESULT_QTY" />
+        <map getterTypeRef="3" getterValue="START_DATE_TIME" setterTypeRef="6" setterValue="START_DATE_TIME" />
+      </schInput>
+      <output>
+        <map getterTypeRef="6" getterValue="COLLECT_JOB_NO" setterTypeRef="3" setterValue="COLLECT_JOB_NO" />
+        <map getterTypeRef="6" getterValue="ITEM_CODE" setterTypeRef="3" setterValue="ITEM_CODE" />
+        <map getterTypeRef="6" getterValue="ITEM_NAME" setterTypeRef="3" setterValue="ITEM_NAME" />
+        <map getterTypeRef="6" getterValue="PLAN_QTY" setterTypeRef="3" setterValue="PLAN_QTY" />
+        <map getterTypeRef="6" getterValue="PLAN_CASE_QTY" setterTypeRef="3" setterValue="PLAN_CASE_QTY" />
+        <map getterTypeRef="6" getterValue="PLAN_PIECE_QTY" setterTypeRef="3" setterValue="PLAN_PIECE_QTY" />
+        <map getterTypeRef="6" getterValue="RESULT_QTY" setterTypeRef="3" setterValue="RESULT_QTY" />
+        <map getterTypeRef="6" getterValue="RESULT_CASE_QTY" setterTypeRef="3" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="6" getterValue="RESULT_PIECE_QTY" setterTypeRef="3" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="6" getterValue="JAN" setterTypeRef="3" setterValue="JAN" />
+        <map getterTypeRef="6" getterValue="ITF" setterTypeRef="3" setterValue="ITF" />
+        <map getterTypeRef="6" getterValue="BUNDLE_ITF" setterTypeRef="3" setterValue="BUNDLE_ITF" />
+        <map getterTypeRef="6" getterValue="ENTERING_QTY" setterTypeRef="3" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="6" getterValue="BUNDLE_ENTERING_QTY" setterTypeRef="3" setterValue="BUNDLE_ENTERING_QTY" />
+        <map getterTypeRef="6" getterValue="TICKET_NO" setterTypeRef="3" setterValue="TICKET_NO" />
+        <map getterTypeRef="6" getterValue="TICKET_LINE_NO" setterTypeRef="3" setterValue="TICKET_LINE_NO" />
+        <map getterTypeRef="6" getterValue="PLAN_LOT_NO" setterTypeRef="3" setterValue="PLAN_LOT_NO" />
+        <map getterTypeRef="6" getterValue="RESULT_LOT_NO" setterTypeRef="3" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="6" getterValue="START_DATE_TIME" setterTypeRef="3" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="6" getterValue="CASE_INPUT_ENABLED" setterTypeRef="2" setterValue="CASE_INPUT_ENABLED" />
+        <map getterTypeRef="6" getterValue="QTY_INPUT_ENABLED" setterTypeRef="3" setterValue="QTY_INPUT_ENABLED" />
+        <map getterTypeRef="6" getterValue="PENDING_ITEM" setterTypeRef="3" setterValue="PENDING_ITEM" />
+        <map getterTypeRef="6" getterValue="TOTAL_ITEM" setterTypeRef="3" setterValue="TOTAL_ITEM" />
+      </output>
+      <focus fieldTypeRef="7" field="ItemCode" />
+    </method>
+  </methods>
+</business>

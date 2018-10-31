@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.faworkdisplay.FaWorkDisplayBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.faworkdisplay.FaWorkDisplay" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Station" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.FaWorkDisplaySCH" />
+    <ref name="2" type="Control" typeName="txt_RestWork" />
+    <ref name="3" type="Control" typeName="txt_WorkNo" />
+    <ref name="4" type="Control" typeName="txt_Location" />
+    <ref name="5" type="Control" typeName="txt_CarryingFlag" />
+    <ref name="6" type="Control" typeName="txt_InstructionDetail" />
+    <ref name="7" type="Control" typeName="txt_ItemCode" />
+    <ref name="8" type="Control" typeName="txt_ItemName" />
+    <ref name="9" type="Control" typeName="txt_LotNo" />
+    <ref name="10" type="Control" typeName="txt_StockQty" />
+    <ref name="11" type="Control" typeName="txt_WorkQty" />
+    <ref name="12" type="Control" typeName="txt_StorageDate" />
+    <ref name="13" type="Control" typeName="txt_StorageTime" />
+    <ref name="14" type="Control" typeName="txt_BatchNo" />
+    <ref name="15" type="Control" typeName="txt_SlipNumber" />
+    <ref name="16" type="Control" typeName="txt_LineNo" />
+    <ref name="17" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.faworkdisplay.ViewStateKeys" />
+    <ref name="18" type="Control" typeName="btn_Complete" />
+    <ref name="19" type="Control" typeName="btn_PrevWork" />
+    <ref name="20" type="Control" typeName="btn_NextWork" />
+    <ref name="21" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Station" dataType="WmsStationOperationDispUnuse" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="REST_WORK" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="WORK_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CARRY_FLAG" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="TICKET_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_NO" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="CARRY_KEY" setRef="17" setValue="CARRY_KEY" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="17" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL" setRef="17" setValue="RETRIEVAL_DETAIL" />
+        <map getRef="1" getValue="WAREHOUSE_NO" setRef="17" setValue="WAREHOUSE_NO" />
+        <map getRef="1" getValue="WORK_DISPLAY_OPERATE" setRef="17" setValue="WORK_DISPLAY_OPERATE" />
+        <map getRef="1" getValue="WORK_TYPE" setRef="17" setValue="WORK_TYPE" />
+      </output1>
+      <clear1>
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="ReadOnly" />
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="8" type="ReadOnly" />
+        <clear controlRef="9" type="ReadOnly" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="ReadOnly" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="13" type="ReadOnly" />
+        <clear controlRef="15" type="ReadOnly" />
+        <clear controlRef="14" type="ReadOnly" />
+        <clear controlRef="16" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="REST_WORK" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="WORK_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CARRY_FLAG" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="TICKET_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_NO" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="17" setValue="STATION_NO" />
+        <map getRef="1" getValue="CARRY_KEY" setRef="17" setValue="CARRY_KEY" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="17" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL" setRef="17" setValue="RETRIEVAL_DETAIL" />
+        <map getRef="1" getValue="WAREHOUSE_NO" setRef="17" setValue="WAREHOUSE_NO" />
+        <map getRef="1" getValue="WORK_DISPLAY_OPERATE" setRef="17" setValue="WORK_DISPLAY_OPERATE" />
+        <map getRef="1" getValue="WORK_TYPE" setRef="17" setValue="WORK_TYPE" />
+      </output1>
+      <clear1>
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Complete" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="15" getValue="Value" setRef="1" setValue="TICKET_NO" />
+        <map getRef="14" getValue="Value" setRef="1" setValue="BATCH_NO" />
+        <map getRef="16" getValue="Value" setRef="1" setValue="LINE_NO" />
+      </input1>
+      <part11 operationRef="21" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" out2Ref="13" out2Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="REST_WORK" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="WORK_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="WORK_TYPE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="TICKET_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_NO" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="17" setValue="STATION_NO" />
+        <map getRef="1" getValue="CARRY_KEY" setRef="17" setValue="CARRY_KEY" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="17" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL" setRef="17" setValue="RETRIEVAL_DETAIL" />
+        <map getRef="1" getValue="WAREHOUSE_NO" setRef="17" setValue="WAREHOUSE_NO" />
+        <map getRef="1" getValue="WORK_DISPLAY_OPERATE" setRef="17" setValue="WORK_DISPLAY_OPERATE" />
+      </output1>
+      <clear1>
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_PrevWork" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="REST_WORK" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="WORK_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CARRY_FLAG" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="TICKET_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_NO" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="17" setValue="STATION_NO" />
+        <map getRef="1" getValue="CARRY_KEY" setRef="17" setValue="CARRY_KEY" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="17" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL" setRef="17" setValue="RETRIEVAL_DETAIL" />
+        <map getRef="1" getValue="WAREHOUSE_NO" setRef="17" setValue="WAREHOUSE_NO" />
+        <map getRef="1" getValue="WORK_DISPLAY_OPERATE" setRef="17" setValue="WORK_DISPLAY_OPERATE" />
+        <map getRef="1" getValue="WORK_TYPE" setRef="17" setValue="WORK_TYPE" />
+      </output1>
+      <clear1>
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_NextWork" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="STATION_NO" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="REST_WORK" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="WORK_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CARRY_FLAG" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BATCH_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="TICKET_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_NO" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="17" setValue="STATION_NO" />
+        <map getRef="1" getValue="CARRY_KEY" setRef="17" setValue="CARRY_KEY" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="17" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="RETRIEVAL_DETAIL" setRef="17" setValue="RETRIEVAL_DETAIL" />
+        <map getRef="1" getValue="WAREHOUSE_NO" setRef="17" setValue="WAREHOUSE_NO" />
+        <map getRef="1" getValue="WORK_DISPLAY_OPERATE" setRef="17" setValue="WORK_DISPLAY_OPERATE" />
+        <map getRef="1" getValue="WORK_TYPE" setRef="17" setValue="WORK_TYPE" />
+      </output1>
+      <clear1>
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

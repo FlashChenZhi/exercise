@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="OrderDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="OrderNo1_Scan" order="2">
+      <method methodName="orderNo1_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo1" setterTypeRef="1" setterValue="ORDER_NO1" />
+      </input>
+    </event>
+    <event name="OrderNo2_Scan" order="4">
+      <method methodName="orderNo2_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo2" setterTypeRef="1" setterValue="ORDER_NO2" />
+      </input>
+    </event>
+    <event name="OrderNo3_Scan" order="6">
+      <method methodName="orderNo3_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo3" setterTypeRef="1" setterValue="ORDER_NO3" />
+      </input>
+    </event>
+    <event name="OrderNo1_Enter" order="1">
+      <method methodName="orderNo1_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo1" setterTypeRef="1" setterValue="ORDER_NO1" />
+      </input>
+    </event>
+    <event name="OrderNo2_Enter" order="3">
+      <method methodName="orderNo2_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo2" setterTypeRef="1" setterValue="ORDER_NO2" />
+      </input>
+    </event>
+    <event name="OrderNo3_Enter" order="5">
+      <method methodName="orderNo3_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo3" setterTypeRef="1" setterValue="ORDER_NO3" />
+      </input>
+    </event>
+    <event name="OrderNo4_Enter" order="7">
+      <method methodName="orderNo4_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo4" setterTypeRef="1" setterValue="ORDER_NO4" />
+      </input>
+    </event>
+    <event name="OrderNo4_Scan" order="8">
+      <method methodName="orderNo4_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo4" setterTypeRef="1" setterValue="ORDER_NO4" />
+      </input>
+    </event>
+    <event name="Back_Click" order="10">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input />
+      <pager pagerType="None" select="0" />
+    </event>
+    <event name="Clear_Click" order="11">
+      <method methodName="clear_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo1" setterTypeRef="1" setterValue="ORDER_NO1" />
+        <map getterTypeRef="0" getterValue="OrderNo2" setterTypeRef="1" setterValue="ORDER_NO2" />
+        <map getterTypeRef="0" getterValue="OrderNo3" setterTypeRef="1" setterValue="ORDER_NO3" />
+        <map getterTypeRef="0" getterValue="OrderNo4" setterTypeRef="1" setterValue="ORDER_NO4" />
+      </input>
+    </event>
+    <event name="List_Click" order="12">
+      <method methodName="list_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo1" setterTypeRef="1" setterValue="ORDER_NO1" />
+        <map getterTypeRef="0" getterValue="OrderNo2" setterTypeRef="1" setterValue="ORDER_NO2" />
+        <map getterTypeRef="0" getterValue="OrderNo3" setterTypeRef="1" setterValue="ORDER_NO3" />
+        <map getterTypeRef="0" getterValue="OrderNo4" setterTypeRef="1" setterValue="ORDER_NO4" />
+      </input>
+    </event>
+    <event name="Ent_Click" order="9">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="OrderNo1" setterTypeRef="1" setterValue="ORDER_NO1" />
+        <map getterTypeRef="0" getterValue="OrderNo2" setterTypeRef="1" setterValue="ORDER_NO2" />
+        <map getterTypeRef="0" getterValue="OrderNo3" setterTypeRef="1" setterValue="ORDER_NO3" />
+        <map getterTypeRef="0" getterValue="OrderNo4" setterTypeRef="1" setterValue="ORDER_NO4" />
+      </input>
+    </event>
+  </events>
+</pageMapping>

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogressgraph.PCTCustomerProgressGraphBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogressgraph.PCTCustomerProgressGraph" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTCustomerProgressGraphSCH" />
+    <ref name="2" type="Control" typeName="txt_ConsignorName" />
+    <ref name="3" type="ViewState" typeName="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogressgraph.ViewStateKeys" />
+    <ref name="4" type="Control" typeName="txt_RegularCustomerCode" />
+    <ref name="5" type="Control" typeName="txt_RegularCustomerName" />
+    <ref name="6" type="Control" typeName="pul_AreaNo" />
+    <ref name="7" type="Control" typeName="txt_BatchNo" />
+    <ref name="8" type="Control" typeName="txt_BatchSeqNo" />
+    <ref name="9" type="Control" typeName="rdo_Auto" />
+    <ref name="10" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.regularCustomer.LstRegularCustomerParams" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Control" typeName="LST_CUSTOMER_CODE_1" />
+    <ref name="13" type="Control" typeName="LST_CUSTOMER_NAME_1" />
+    <ref name="14" type="Control" typeName="LST_ORDER_COUNT_1" />
+    <ref name="15" type="Control" typeName="LST_BOX_COUNT_1" />
+    <ref name="16" type="Control" typeName="LST_LINE_COUNT_1" />
+    <ref name="17" type="Control" typeName="LST_LOT_COUNT_1" />
+    <ref name="18" type="Control" typeName="txt_ProgressRate1" />
+    <ref name="19" type="Control" typeName="rdo_Manual" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaNo" dataType="WmsAreaFloorAllTrue" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_PCTCustomerProgress1">
+      <listcellColumn name="LST_CUSTOMER_CODE_1" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME_1" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ORDER_COUNT_1" orgIndex="3" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_1" orgIndex="4" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_1" orgIndex="5" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT_1" orgIndex="6" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+    <listcell name="lst_PCTCustomerProgress2">
+      <listcellColumn name="LST_CUSTOMER_CODE_2" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME_2" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ORDER_COUNT_2" orgIndex="3" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_2" orgIndex="4" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_2" orgIndex="5" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT_2" orgIndex="6" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+    <listcell name="lst_PCTCustomerProgress3">
+      <listcellColumn name="LST_CUSTOMER_CODE_3" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME_3" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ORDER_COUNT_3" orgIndex="3" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_3" orgIndex="4" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_3" orgIndex="5" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT_3" orgIndex="6" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+    <listcell name="lst_PCTCustomerProgress4">
+      <listcellColumn name="LST_CUSTOMER_CODE_4" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME_4" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_ORDER_COUNT_4" orgIndex="3" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_4" orgIndex="4" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_4" orgIndex="5" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT_4" orgIndex="6" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Checked" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_P_Search_RegularCustomerCd" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/regularCustomer/LstRegularCustomer" businessParameterRef="10" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="10" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="11" getValue="SEARCH_TABLE_PLAN" setRef="10" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="REGULAR_CUSTOMER_CODE" setRef="4" setValue="Value" />
+        <map getRef="10" getValue="REGULAR_CUSTOMER_NAME" setRef="5" setValue="Value" />
+      </output1>
+      <focus controlRef="4" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="4" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="6" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="6" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="BATCH_NO" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="BATCH_SEQ_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_VIEW" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="VS_CONSIGNOR_NAME" />
+        <map getRef="4" getValue="Value" setRef="3" setValue="VS_REGULAR_CUSTOMER_CODE" />
+        <map getRef="5" getValue="Value" setRef="3" setValue="VS_REGULAR_CUSTOMER_NAME" />
+        <map getRef="6" getValue="Value" setRef="3" setValue="VS_AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="3" setValue="VS_BATCH_NO" />
+        <map getRef="8" getValue="Value" setRef="3" setValue="VS_BATCH_SEQ_NO" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="18" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_PrevPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_CODE" setRef="1" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="3" getValue="VS_BATCH_NO" setRef="1" setValue="BATCH_NO" />
+        <map getRef="3" getValue="VS_BATCH_SEQ_NO" setRef="1" setValue="BATCH_SEQ_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_PREVIOUS_PAGE" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="VS_CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_CODE" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_NAME" setRef="5" setValue="Value" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="6" setValue="Value" />
+        <map getRef="3" getValue="VS_BATCH_NO" setRef="7" setValue="Value" />
+        <map getRef="3" getValue="VS_BATCH_SEQ_NO" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="18" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_NextPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_CODE" setRef="1" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="3" getValue="VS_BATCH_NO" setRef="1" setValue="BATCH_NO" />
+        <map getRef="3" getValue="VS_BATCH_SEQ_NO" setRef="1" setValue="BATCH_SEQ_NO" />
+        <map getRef="11" getValue="PROCESS_FLAG_NEXT_PAGE" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="VS_CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="VS_CONSIGNOR_NAME" setRef="2" setValue="Value" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_CODE" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="VS_REGULAR_CUSTOMER_NAME" setRef="5" setValue="Value" />
+        <map getRef="3" getValue="VS_AREA_NO" setRef="6" setValue="Value" />
+        <map getRef="3" getValue="VS_BATCH_NO" setRef="7" setValue="Value" />
+        <map getRef="3" getValue="VS_BATCH_SEQ_NO" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LOT_COUNT" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="BUTTON_FLAG" setRef="18" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_Auto" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <clear1>
+        <clear controlRef="9" type="Checked" />
+      </clear1>
+    </event>
+    <event control="rdo_Manual" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" />
+      </validate>
+      <clear1>
+        <clear controlRef="19" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

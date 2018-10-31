@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogress.PCTCustomerProgressBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogress.PCTCustomerProgress" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Control" typeName="txt_ConsignorName" />
+    <ref name="2" type="Control" typeName="txt_RegularCustomerCode" />
+    <ref name="3" type="Control" typeName="txt_RegularCustomerName" />
+    <ref name="4" type="Control" typeName="pul_AreaNo" />
+    <ref name="5" type="Control" typeName="txt_BatchNoPCT" />
+    <ref name="6" type="Control" typeName="txt_BatchSeqNo" />
+    <ref name="7" type="Control" typeName="rdo_Auto" />
+    <ref name="8" type="Control" typeName="lst_PCTCustomerProgress" />
+    <ref name="9" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTCustomerProgressSCH" />
+    <ref name="10" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.regularCustomer.LstRegularCustomerParams" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="13" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="14" type="Control" typeName="LST_PROGRESS_RATE" />
+    <ref name="15" type="Control" typeName="LST_ORDER_COUNT" />
+    <ref name="16" type="Control" typeName="LST_BOX_COUNT" />
+    <ref name="17" type="Control" typeName="LST_LINE_COUNT" />
+    <ref name="18" type="Control" typeName="LST_LOT_COUNT" />
+    <ref name="19" type="Control" typeName="rdo_Manual" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaNo" dataType="WmsAreaFloorAllTrue" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_PCTCustomerProgress">
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PROGRESS_RATE" orgIndex="3" resourceKey="LBL-W0213" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_COUNT" orgIndex="4" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT" orgIndex="6" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT" orgIndex="7" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="Clear" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="9" />
+      <output1>
+        <map getRef="9" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="9" getValue="CONSIGNOR_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_P_Search_RegularCustomerCd" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/regularCustomer/LstRegularCustomer" businessParameterRef="10" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="10" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="11" getValue="SEARCH_TABLE_PLAN" setRef="10" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="REGULAR_CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="10" getValue="REGULAR_CUSTOMER_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="9" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="4" getValue="Value" setRef="9" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="9" setValue="BATCH_NO" />
+        <map getRef="6" getValue="Value" setRef="9" setValue="BATCH_SEQ_NO" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="CUSTOMER_CODE" setRef="12" setValue="Value" />
+        <map getRef="9" getValue="CUSTOMER_NAME" setRef="13" setValue="Value" />
+        <map getRef="9" getValue="PROGRESS_RATE" setRef="14" setValue="Value" />
+        <map getRef="9" getValue="ORDER_COUNT" setRef="15" setValue="Value" />
+        <map getRef="9" getValue="BOX_COUNT" setRef="16" setValue="Value" />
+        <map getRef="9" getValue="LINE_COUNT" setRef="17" setValue="Value" />
+        <map getRef="9" getValue="LOT_COUNT" setRef="18" setValue="Value" />
+      </output1>
+    </event>
+    <event control="rdo_Auto" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <clear1>
+        <clear controlRef="7" type="Checked" />
+      </clear1>
+    </event>
+    <event control="rdo_Manual" name="Click" pattern="DisplayInput">
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <clear1>
+        <clear controlRef="19" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

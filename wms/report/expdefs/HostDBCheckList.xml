@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0806" downloadName="HostDBCheckList" reportName="LBL-W6042">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="load_type" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true"/>
+    <field name="file_name" type="string" printEnabled="true"/>
+    <field name="start_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="start_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true"/>
+    <field name="status" type="string" printEnabled="true"/>
+    <field name="file_line_no" type="number" format="##,##0" printEnabled="true"/>
+    <field name="error_level" type="string" printEnabled="true"/>
+    <field name="error_detail" type="string" printEnabled="true"/>
+    <field name="item_no" type="string" printEnabled="true"/>
+    <field name="data" type="string" printEnabled="true"/>
+</exportspec>

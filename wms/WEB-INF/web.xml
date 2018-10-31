@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: web.xml 7996 2011-07-06 00:52:24Z kitamaki $ -->
+<!DOCTYPE web-app
+     PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <!-- Event.xmlのパス -->
+  <context-param>
+    <param-name>eventXml</param-name>
+    <param-value>${catalina.base}/haisurf2</param-value>
+  </context-param>
+  <!-- Custom.xmlのパス -->
+  <context-param>
+    <param-name>customXml</param-name>
+    <param-value>${catalina.base}/haisurf2</param-value>
+  </context-param>
+  <!-- Sql.xmlのパス -->
+  <context-param>
+    <param-name>sqlXml</param-name>
+    <param-value>${catalina.base}/haisurf2</param-value>
+  </context-param>
+  <!-- Page.xmlのパス -->
+  <context-param>
+    <param-name>pageXml</param-name>
+    <param-value>${catalina.base}/haisurf2</param-value>
+  </context-param>
+  <!-- Event、Custom、Sqlの各XMLを読み込み後、保持するかどうか -->
+  <context-param>
+    <param-name>parseCache</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <!-- SSWind Mobile用キャッシュのPage.xmlのサイズの閾値 -->
+  <context-param>
+    <param-name>pageThreshold</param-name>
+    <param-value>3096000000</param-value>
+  </context-param>
+  <!-- アクセスログのパス -->
+  <context-param>
+    <param-name>accesslog</param-name>
+    <param-value>${catalina.base}/logs</param-value>
+  </context-param>
+  <!-- アクセスログのローテーション yyyy-mm-dd:年月日 yyyy-mm:年月 yyyy:年 数値:アクセスログファイルのサイズの上限(KB) -->
+  <context-param>
+    <param-name>accesslogRolling</param-name>
+    <param-value>5120</param-value>
+  </context-param>
+  <!-- アクセスログのバックアップ数 -->
+  <context-param>
+    <param-name>accesslogBackup</param-name>
+    <param-value>10</param-value>
+  </context-param>
+  <!-- ページ名を送るかどうか(SSWindのページリサイクル用) true:送る true以外又は設定が無い:送らない-->
+  <context-param>
+    <param-name>pageRecycle</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <!-- DBの値に使われるカンマの置換内容 -->
+  <context-param>
+    <param-name>commaReplace</param-name>
+    <param-value>''</param-value>
+  </context-param>
+  <!-- ページXMLをサーバでパースするか -->
+  <context-param>
+    <param-name>doPageXmlParse</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <filter>
+    <filter-name>RequestEncodingFilter</filter-name>
+    <filter-class>jp.co.daifuku.bluedog.webapp.RequestEncodingFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>CacheControlFilter</filter-name>
+    <filter-class>jp.co.daifuku.bluedog.webapp.CacheControlFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>RequestEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CacheControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>jp.co.daifuku.bluedog.webapp.SessionHandler</listener-class>
+  </listener>
+  <listener>
+    <listener-class>jp.co.daifuku.emanager.authentication.DfkSessionListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>jp.co.daifuku.bluedog.webapp.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>application-config</param-name>
+      <param-value>/WEB-INF/application-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>server-control</param-name>
+      <param-value>/WEB-INF/server-control.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>datasource</param-name>
+      <param-value>/WEB-INF/datasource.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>log4j-config</param-name>
+      <param-value>/WEB-INF/log4j-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>processor-config</param-name>
+      <param-value>/WEB-INF/processor-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dynamicaction-config</param-name>
+      <param-value>/WEB-INF/dynamicaction-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>session-clearURL</param-name>
+      <param-value>/menu/SubMenu.do</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <!-- Servlet -->
+  <servlet>
+    <servlet-name>haisurf</servlet-name>
+    <servlet-class>jp.co.sharedsys.basis.HaisurfServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>haisurfstart</servlet-name>
+    <servlet-class>jp.co.sharedsys.basis.HaisurfServletStart</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>handylist</servlet-name>
+    <servlet-class>jp.co.sharedsys.basis.ClientList</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>accesslog</servlet-name>
+    <servlet-class>jp.co.sharedsys.basis.AccessLog</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <!-- Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>haisurf</servlet-name>
+    <url-pattern>/haisurf</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>haisurfstart</servlet-name>
+    <url-pattern>/haisurfstart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>handylist</servlet-name>
+    <url-pattern>/handylist</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>accesslog</servlet-name>
+    <url-pattern>/accesslog</url-pattern>
+  </servlet-mapping>
+
+  <!-- session timeout for rft. (This is not used in web.) -->
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+
+  <!-- ダウンロード用のContentTypeの指定-->
+  <mime-mapping>
+    <extension>xls</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>csv</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>txt</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>log</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <welcome-file-list>
+    <welcome-file>jsp/emanager/login/index.jsp</welcome-file>
+    <welcome-file>../jsp/emanager/login/index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <taglib>
+    <taglib-uri>/WEB-INF/control/bluedog-html.tld</taglib-uri>
+    <taglib-location>/WEB-INF/control/bluedog-html.tld</taglib-location>
+  </taglib>
+
+</web-app>

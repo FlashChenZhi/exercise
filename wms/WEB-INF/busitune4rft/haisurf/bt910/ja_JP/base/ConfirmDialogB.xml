@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--確認ダイアログ画面(確認)-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>確認                 </caption>
+    </label>
+    <label name="lblMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%BusinessControlDataSheet.MESSAGE0%</caption>
+    </label>
+    <label name="lblMsg2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%BusinessControlDataSheet.MESSAGE1%</caption>
+    </label>
+    <button name="Ent" font-id="" visible="false" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ConfirmB_Ent</event>
+      <key>ET</key>
+    </button>
+    <label name="lblGuidance" font-id="font12r" visible="true">
+      <align>right</align>
+      <x>0</x>
+      <y>105</y>
+      <w>20</w>
+      <caption>ENT:確認</caption>
+    </label>
+    <label name="lblSubMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>20</w>
+      <caption>%BusinessControlDataSheet.SUBMESSAGE0%</caption>
+    </label>
+    <label name="lblSubMsg2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>%BusinessControlDataSheet.SUBMESSAGE1%</caption>
+    </label>
+    <label name="lblSubMsg3" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>%BusinessControlDataSheet.SUBMESSAGE2%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

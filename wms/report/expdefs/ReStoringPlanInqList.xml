@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0714" downloadName="ReStoringPlanInqList" reportName="LBL-W6039">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="station_no" type="string" header="LBL-W0022" printEnabled="true" xlsEnabled="true"/>
+    <field name="station_name" type="string" header="LBL-W0023" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_no" type="string" header="LBL-W0074" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="storage_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W0487" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+    <field name="plan_qty" type="number" format="#,##0" header="LBL-W0607" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="remove_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W0606" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+</exportspec>

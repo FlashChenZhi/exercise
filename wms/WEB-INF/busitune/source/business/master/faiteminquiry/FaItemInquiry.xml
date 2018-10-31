@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.faiteminquiry.FaItemInquiryBusiness" abstractClassName="jp.co.daifuku.wms.master.display.faiteminquiry.FaItemInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_FromItemCode" />
+    <ref name="1" type="Control" typeName="txt_FromItemName" />
+    <ref name="2" type="Control" typeName="txt_ToItemCode" />
+    <ref name="3" type="Control" typeName="txt_ToItemName" />
+    <ref name="4" type="Control" typeName="rdo_StockExistence_All" />
+    <ref name="5" type="Dasch" typeName="jp.co.daifuku.wms.master.dasch.FaItemInquiryDASCH" />
+    <ref name="6" type="ExportParameter" typeName="jp.co.daifuku.wms.master.exporter.ItemMasterListParams" />
+    <ref name="7" type="Control" typeName="StockExistence" />
+    <ref name="8" type="Constants" typeName="Constants" />
+    <ref name="9" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="10" type="Control" typeName="rdo_StockExistence_existence" />
+    <ref name="11" type="Boolean" typeName="Boolean" />
+    <ref name="12" type="Control" typeName="rdo_StockExistence_Noexistence" />
+    <ref name="13" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="14" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="15" type="Control" typeName="LST_NO" />
+    <ref name="16" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="17" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="18" type="Control" typeName="LST_SOFTZONE" />
+    <ref name="19" type="Control" typeName="LST_TEMPORARY_TYPE_NAME" />
+    <ref name="20" type="Control" typeName="btn_Print" />
+    <ref name="21" type="Control" typeName="btn_Preview" />
+  </refs>
+  <listcells>
+    <listcell name="lst_FaItemInquiry">
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_SOFTZONE" orgIndex="4" resourceKey="LBL-W0597" dataType="String" />
+      <listcellColumn name="LST_TEMPORARY_TYPE_NAME" orgIndex="5" resourceKey="LBL-W9039" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Checked" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Print" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Preview" name="Click" pattern="NoneGenerate" />
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="5" exportParameterRef="6" exportName="ItemMasterList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="7" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="FROM_ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="TO_ITEM_CODE" />
+        <map getRef="7" getValue="Value" setRef="5" setValue="STOCK_EXISTENCE" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="ITEM_CODE" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="ITEM_NAME" setRef="6" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="SOFT_ZONE_NAME" setRef="6" setValue="SOFT_ZONE_NAME" />
+        <map getRef="5" getValue="TEMPORARY_TYPE_NAME" setRef="6" setValue="TEMPORARY_TYPE_NAME" />
+        <map getRef="5" getValue="LAST_UPDATE_DATE" setRef="6" setValue="LAST_UPDATE_DATE" />
+      </output1>
+      <part11 operationRef="9" operation="XLS">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <block type="If" tag="1" desc="有が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="8" out1Value="STOCK_EXISTENCE_EXISTENCE" />
+        <block type="If" tag="2" desc="無が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="12" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="8" out1Value="STOCK_EXISTENCE_NOEXISTENCE" />
+        <block type="If" tag="3" desc="全てが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="8" out1Value="STOCK_EXISTENCE_ALL" />
+      </part11>
+    </event>
+    <event control="btn_P_FromSearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="13" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="13" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="13" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_P_ToSearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="13" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="13" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="2" setValue="Value" />
+        <map getRef="13" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_P_FromSearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="14" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="14" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_P_ToSearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="14" />
+      <input1>
+        <map getRef="3" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+        <map getRef="14" getValue="ITEM_CODE" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="3" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="5" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="FROM_ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="TO_ITEM_CODE" />
+        <map getRef="7" getValue="Value" setRef="5" setValue="STOCK_EXISTENCE" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="NO" setRef="15" setValue="Value" />
+        <map getRef="5" getValue="ITEM_CODE" setRef="16" setValue="Value" />
+        <map getRef="5" getValue="ITEM_NAME" setRef="17" setValue="Value" />
+        <map getRef="5" getValue="SOFT_ZONE_NAME" setRef="18" setValue="Value" />
+        <map getRef="5" getValue="TEMPORARY_TYPE_NAME" setRef="19" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

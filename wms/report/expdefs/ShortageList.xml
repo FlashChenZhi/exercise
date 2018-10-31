@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0317" downloadName="ShortageList" reportName="LBL-W6032">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="setting_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="setting_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="batch_no" type="string" header="LBL-W0028" printEnabled="true" xlsEnabled="true"/>
+    <field name="ticket_no" type="string" header="LBL-W0145" printEnabled="true" xlsEnabled="true"/>
+    <field name="line_no" type="string" header="LBL-W0066" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="plan_qty" type="number" format="###,###,###,##0" header="LBL-W0123" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="shortage_qty" type="number" format="###,###,###,##0" header="LBL-W0065" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+</exportspec>

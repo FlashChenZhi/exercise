@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.userranksetting.UserRankSettingBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.userranksetting.UserRankSetting">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_UserIdFrom" />
+    <ref name="1" type="Control" typeName="txt_UserIdTo" />
+    <ref name="2" type="Control" typeName="pul_Level" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.pcart.system.listbox.userid.LstUserIdParams" />
+    <ref name="4" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.UserRankSettingSCH" />
+    <ref name="5" type="Control" typeName="LST_USER_ID" />
+    <ref name="6" type="Control" typeName="LST_USER_NAME" />
+    <ref name="7" type="Control" typeName="LST_PRE_LEVEL" />
+    <ref name="8" type="Control" typeName="LST_SET_LEVEL" />
+    <ref name="9" type="ViewState" typeName="jp.co.daifuku.pcart.system.display.userranksetting.ViewStateKeys" />
+    <ref name="10" type="Control" typeName="HIDDEN_LAST_UP_DATE" />
+    <ref name="11" type="Control" typeName="btn_Set" />
+    <ref name="12" type="Control" typeName="btn_ListClear" />
+    <ref name="13" type="Control" typeName="lst_UserLevelSet" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Level" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_UserLevelSet">
+      <listcellColumn name="HIDDEN_LAST_UP_DATE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_USER_ID" orgIndex="1" resourceKey="LBL-P0081" dataType="String" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="2" resourceKey="LBL-W0033" dataType="String" />
+      <listcellColumn name="LST_PRE_LEVEL" orgIndex="3" resourceKey="LBL-P0161" dataType="String" />
+      <listcellColumn name="LST_SET_LEVEL" orgIndex="4" resourceKey="LBL-P0162" dataType="String" modifyCheck="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_SearchFrom" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/system/listbox/userid/LstUserId" businessParameterRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="USER_ID_FROM" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="USER_ID_FROM" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_SearchTo" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/system/listbox/userid/LstUserId" businessParameterRef="3" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="3" setValue="USER_ID_TO" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="USER_ID_TO" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="4" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="4" setValue="USER_ID_FROM" />
+        <map getRef="1" getValue="Value" setRef="4" setValue="USER_ID_TO" />
+        <map getRef="2" getValue="Value" setRef="4" setValue="LEVEL" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="USER_ID" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="4" getValue="PRE_LEVEL" setRef="7" setValue="Value" />
+        <map getRef="4" getValue="PRE_LEVEL" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="9" setValue="VS_USER_ID_FROM" />
+        <map getRef="1" getValue="Value" setRef="9" setValue="VS_USER_ID_TO" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="VS_LEVEL" />
+        <map getRef="4" getValue="LAST_UPDATE_DATE" setRef="10" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="12" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="13" type="Clear" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="4" />
+      <validate>
+        <validate controlRef="13" required="true" />
+        <validate controlRef="8" />
+      </validate>
+      <input1>
+        <map getRef="5" getValue="Value" setRef="4" setValue="USER_ID" />
+        <map getRef="6" getValue="Value" setRef="4" setValue="USER_NAME" />
+        <map getRef="7" getValue="Value" setRef="4" setValue="PRE_LEVEL" />
+        <map getRef="8" getValue="Value" setRef="4" setValue="SET_LEVEL" />
+        <map getRef="10" getValue="Value" setRef="4" setValue="LAST_UPDATE_DATE" />
+        <map getRef="9" getValue="VS_LEVEL" setRef="4" setValue="LEVEL" />
+        <map getRef="9" getValue="VS_USER_ID_FROM" setRef="4" setValue="USER_ID_FROM" />
+        <map getRef="9" getValue="VS_USER_ID_TO" setRef="4" setValue="USER_ID_TO" />
+      </input1>
+      <input2>
+        <map getRef="9" getValue="VS_LEVEL" setRef="4" setValue="LEVEL" />
+        <map getRef="9" getValue="VS_USER_ID_FROM" setRef="4" setValue="USER_ID_FROM" />
+        <map getRef="9" getValue="VS_USER_ID_TO" setRef="4" setValue="USER_ID_TO" />
+      </input2>
+      <output1>
+        <map getRef="4" getValue="USER_ID" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="4" getValue="PRE_LEVEL" setRef="7" setValue="Value" />
+        <map getRef="4" getValue="SET_LEVEL" setRef="8" setValue="Value" />
+        <map getRef="4" getValue="LAST_UPDATE_DATE" setRef="10" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

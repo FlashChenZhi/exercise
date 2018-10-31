@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogressvlgraph.PCTCustomerProgressVLGraphBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctcustomerprogressvlgraph.PCTCustomerProgressVLGraph" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTCustomerProgressVLGraphSCH" />
+    <ref name="1" type="Constants" typeName="Constants" />
+    <ref name="2" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="3" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="4" type="Control" typeName="LST_PROGRESS_RATE" />
+    <ref name="5" type="Control" typeName="LST_ORDER_COUNT" />
+    <ref name="6" type="Control" typeName="LST_BOX_COUNT" />
+    <ref name="7" type="Control" typeName="LST_LINE_COUNT" />
+    <ref name="8" type="Control" typeName="LST_LOT_COUNT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_PCTCustomerProgress">
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="1" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="2" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PROGRESS_RATE" orgIndex="3" resourceKey="LBL-W0213" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_COUNT" orgIndex="4" resourceKey="LBL-W0015" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT" orgIndex="5" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT" orgIndex="6" resourceKey="LBL-P0047" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_COUNT" orgIndex="7" resourceKey="LBL-P0148" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="PROCESS_FLAG_VIEW" setRef="0" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PROGRESS_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORDER_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="BOX_COUNT" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="BUTTON_FLAG" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="LOT_QTY" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="PROCESS_FLAG_VIEW" setRef="0" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PROGRESS_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORDER_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="BOX_COUNT" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="BUTTON_FLAG" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="LOT_QTY" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_PrevPage" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="PROCESS_FLAG_PREVIOUS_PAGE" setRef="0" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PROGRESS_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORDER_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="BOX_COUNT" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="BUTTON_FLAG" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="LOT_QTY" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_NextPage" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="PROCESS_FLAG_NEXT_PAGE" setRef="0" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PROGRESS_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORDER_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="BOX_COUNT" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="BUTTON_FLAG" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="LOT_QTY" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

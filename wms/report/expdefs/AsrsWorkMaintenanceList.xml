@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0705" downloadName="AsrsWorkMaintenanceList" reportName="LBL-W1313">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="source_station_no" type="string" printEnabled="true"/>
+    <field name="dest_station_no" type="string" printEnabled="true"/>
+    <field name="job_no" type="string" printEnabled="true"/>
+    <field name="work_type" type="string" printEnabled="true"/>
+    <field name="retrieval_detail" type="string" printEnabled="true"/>
+    <field name="cmd_status" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true"/>
+    <field name="carry_key" type="string" printEnabled="true"/>
+    <field name="schedule_no" type="string" printEnabled="true"/>
+    <field name="maintenance_type" type="string" printEnabled="true"/>
+    <field name="allocation_flag" type="string" printEnabled="true"/>
+    <field name="item_code" type="string" printEnabled="true"/>
+    <field name="item_name" type="string" printEnabled="true"/>
+    <field name="entering_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="stock_case_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="stock_piece_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="work_case_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="work_piece_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="storage_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="storage_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true"/>
+    <field name="lot_no" type="string" printEnabled="true"/>
+</exportspec>

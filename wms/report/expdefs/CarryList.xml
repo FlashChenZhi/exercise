@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0711" downloadName="CarryList" reportName="LBL-W6031">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="work_area" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="station_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="station_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="priority_flag" type="string" header="LBL-W0181" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_no" type="string" header="LBL-W0074" printEnabled="true" xlsEnabled="true"/>
+    <field name="from_station" type="string" header="LBL-W0277" printEnabled="true" xlsEnabled="true"/>
+    <field name="to_station" type="string" header="LBL-W0278" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="location" header="LBL-W8009" printEnabled="true" xlsEnabled="true"/>
+    <field name="to_location_no" type="location" header="LBL-W0044" printEnabled="true" xlsEnabled="true"/>
+    <field name="transport_type" type="string" header="LBL-W0166" printEnabled="true" xlsEnabled="true"/>
+    <field name="retrieval_command_detail" type="string" header="LBL-W0276" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_qty" type="number" format="###,###,###,##0" header="LBL-W0087" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="area_no" type="area" printEnabled="false" xlsEnabled="false"/>
+</exportspec>

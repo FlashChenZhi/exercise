@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.itemregist.ItemMasterRegistBusiness" abstractClassName="jp.co.daifuku.wms.master.display.itemregist.ItemMasterRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="txt_ItemName" />
+    <ref name="2" type="Control" typeName="pul_SoftZone" />
+    <ref name="3" type="Control" typeName="txt_EnteringQty" />
+    <ref name="4" type="Control" typeName="txt_JanCode" />
+    <ref name="5" type="Control" typeName="txt_CaseItf" />
+    <ref name="6" type="Control" typeName="txt_UpperStockQty" />
+    <ref name="7" type="Control" typeName="txt_LowerStockQty" />
+    <ref name="8" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.ItemMasterRegistSCH" />
+    <ref name="9" type="Constants" typeName="Constants" />
+    <ref name="10" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="11" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_SoftZone" dataType="WmsSoftZoneMaster" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Regist">
+      <sch2Display schRef="8" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="8" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="8" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="Value" setRef="8" setValue="SOFT_ZONE_ID" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="ENTERING_QTY" />
+        <map getRef="4" getValue="Value" setRef="8" setValue="JAN_CODE" />
+        <map getRef="5" getValue="Value" setRef="8" setValue="CASE_ITF" />
+        <map getRef="6" getValue="Value" setRef="8" setValue="UPPER_STOCK_QTY" />
+        <map getRef="7" getValue="Value" setRef="8" setValue="LOWER_STOCK_QTY" />
+        <map getRef="9" getValue="DEFAULT_CONSIGNOR_CODE" setRef="8" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="10" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" default="0" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" default="0" />
+        <out out1Ref="7" out1Value="Value" default="0" />
+      </part11>
+    </event>
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="11" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="11" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="DEFAULT_CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="11" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="11" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="11" getValue="SOFT_ZONE_ID" setRef="2" setValue="Value" />
+        <map getRef="11" getValue="ENTERING_QTY" setRef="3" setValue="Value" />
+        <map getRef="11" getValue="JAN" setRef="4" setValue="Value" />
+        <map getRef="11" getValue="ITF" setRef="5" setValue="Value" />
+        <map getRef="11" getValue="UPPER_QTY" setRef="6" setValue="Value" />
+        <map getRef="11" getValue="LOWER_QTY" setRef="7" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

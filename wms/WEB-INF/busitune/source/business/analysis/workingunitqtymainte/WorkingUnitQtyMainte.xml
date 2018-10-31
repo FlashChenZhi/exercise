@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.workingunitqtymainte.WorkingUnitQtyMainteBusiness" abstractClassName="jp.co.daifuku.wms.analysis.display.workingunitqtymainte.WorkingUnitQtyMainte" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="txt_ItemName" />
+    <ref name="2" type="Control" typeName="txt_WorkUnitQty" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="4" type="Constants" typeName="Constants" />
+    <ref name="5" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.WorkingUnitQtyMainteSCH" />
+    <ref name="6" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ItemSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Regist">
+      <sch2Display schRef="5" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="WORK_UNIT_QTY" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="6" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

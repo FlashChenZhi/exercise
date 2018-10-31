@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.unavailablelocation.AsUnavailableLocationBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.unavailablelocation.AsUnavailableLocation" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area_Event" />
+    <ref name="1" type="Control" typeName="txt_Location" />
+    <ref name="2" type="Control" typeName="rdo_ASRSLocationStatus_Unavail" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.locationstock.LstAsLocationStockParams" />
+    <ref name="4" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsUnavailableLocationSCH" />
+    <ref name="5" type="Control" typeName="ASRSLocationStatus" />
+    <ref name="6" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="7" type="Boolean" typeName="Boolean" />
+    <ref name="8" type="Constants" typeName="Constants" />
+    <ref name="9" type="Control" typeName="rdo_ASRSLocationStatus_Availab" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area_Event" dataType="WmsAreaAsrsAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Checked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="2" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_LocationDetail" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/locationstock/LstAsLocationStock" businessParameterRef="3" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="3" setValue="LOCATION_NO" />
+        <map getRef="0" getValue="Value" setRef="3" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="LOCATION" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="Edit">
+      <sch2Display schRef="4" />
+      <validate>
+        <validate controlRef="1" required="true" />
+        <validate controlRef="5" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="4" setValue="AREA" />
+        <map getRef="1" getValue="Value" setRef="4" setValue="LOCATION" />
+        <map getRef="5" getValue="Value" setRef="4" setValue="ASRS_LOCATION_STATUS" />
+      </input1>
+      <part11 operationRef="6" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <block type="If" tag="1" desc="禁止棚が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Checked" rightRef="7" rightValue="True" />
+        </block>
+        <out out1Ref="8" out1Value="PROHIBITION_FLAG_NG" />
+        <block type="If" tag="2" desc="使用可能棚が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="9" leftValue="Checked" rightRef="7" rightValue="True" />
+        </block>
+        <out out1Ref="8" out1Value="PROHIBITION_FLAG_OK" />
+      </part11>
+    </event>
+  </events>
+</business>

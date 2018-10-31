@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.stockhistoryresultinquiry.StockHistoryResultInquiryBusiness" abstractClassName="jp.co.daifuku.wms.system.display.stockhistoryresultinquiry.StockHistoryResultInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_SearchDateFrom" />
+    <ref name="1" type="Control" typeName="txt_SearchTimeFrom" />
+    <ref name="2" type="Control" typeName="txt_SearchDateTo" />
+    <ref name="3" type="Control" typeName="txt_SearchTimeTo" />
+    <ref name="4" type="Control" typeName="txt_ItemCode" />
+    <ref name="5" type="Control" typeName="txt_LotNo" />
+    <ref name="6" type="Control" typeName="pul_Area" />
+    <ref name="7" type="Control" typeName="pul_WorkFlag" />
+    <ref name="8" type="Control" typeName="txt_UserName" />
+    <ref name="9" type="Dasch" typeName="jp.co.daifuku.wms.system.dasch.StockHistoryResultInquiryDASCH" />
+    <ref name="10" type="Constants" typeName="Constants" />
+    <ref name="11" type="Control" typeName="CONSIGNOR_CODE" />
+    <ref name="12" type="Control" typeName="LST_REGIST_DATE" />
+    <ref name="13" type="Control" typeName="LST_REGIST_TIME" />
+    <ref name="14" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="15" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="16" type="Control" typeName="LST_LOT_NO" />
+    <ref name="17" type="Control" typeName="LST_INC_DEC_TYPE" />
+    <ref name="18" type="Control" typeName="LST_JOB_TYPE" />
+    <ref name="19" type="Control" typeName="LST_AREA_NO" />
+    <ref name="20" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="21" type="Control" typeName="LST_INC_DEC_QTY" />
+    <ref name="22" type="Control" typeName="LST_STORAGE_DATE" />
+    <ref name="23" type="Control" typeName="LST_STORAGE_TIME" />
+    <ref name="24" type="Control" typeName="LST_USER_NAME" />
+    <ref name="25" type="ExportParameter" typeName="jp.co.daifuku.wms.system.exporter.ResultInqListParams" />
+    <ref name="26" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="27" type="BusinessParameter" typeName="jp.co.daifuku.wms.system.listbox.user.LstSystemUserParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsArea" />
+    <pulldown name="pul_WorkFlag" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_StorageRetrievalResultList">
+      <listcellColumn name="CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_REGIST_DATE" orgIndex="1" resourceKey="LBL-W0164" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_REGIST_TIME" orgIndex="10" resourceKey="LBL-W0490" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="11" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="3" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_INC_DEC_TYPE" orgIndex="4" resourceKey="LBL-W0137" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_JOB_TYPE" orgIndex="5" resourceKey="LBL-W0079" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="6" resourceKey="LBL-W0011" dataType="Area" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="12" resourceKey="LBL-W0138" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_INC_DEC_QTY" orgIndex="7" resourceKey="LBL-W0087" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATE" orgIndex="8" resourceKey="LBL-W0160" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_TIME" orgIndex="13" resourceKey="LBL-W0157" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="9" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="8" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="9" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="SEARCH_DAY_FROM" />
+        <map getRef="1" getValue="Value" setRef="9" setValue="SEARCH_TIME_FROM" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="SEARCH_DAY_TO" />
+        <map getRef="3" getValue="Value" setRef="9" setValue="SEARCH_TIME_TO" />
+        <map getRef="4" getValue="Value" setRef="9" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="9" setValue="LOT_NO" />
+        <map getRef="6" getValue="Value" setRef="9" setValue="AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="9" setValue="JOB_TYPE" />
+        <map getRef="8" getValue="Value" setRef="9" setValue="USER_NAME" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="CONSIGNOR_CODE" setRef="11" setValue="Value" />
+        <map getRef="9" getValue="REGIST_DATE" setRef="12" setValue="Value" />
+        <map getRef="9" getValue="REGIST_DATE" setRef="13" setValue="Value" />
+        <map getRef="9" getValue="ITEM_CODE" setRef="14" setValue="Value" />
+        <map getRef="9" getValue="ITEM_NAME" setRef="15" setValue="Value" />
+        <map getRef="9" getValue="LOT_NO" setRef="16" setValue="Value" />
+        <map getRef="9" getValue="INC_DEC_TYPE" setRef="17" setValue="Value" />
+        <map getRef="9" getValue="JOB_TYPE" setRef="18" setValue="Value" />
+        <map getRef="9" getValue="AREA_NO" setRef="19" setValue="Value" />
+        <map getRef="9" getValue="LOCATION_NO" setRef="20" setValue="Value" />
+        <map getRef="9" getValue="INC_DEC_QTY" setRef="21" setValue="Value" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="22" setValue="Value" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="23" setValue="Value" />
+        <map getRef="9" getValue="USER_NAME" setRef="24" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="9" exportParameterRef="25" exportName="ResultInqList" exporter="Excel" />
+      <validate>
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" required="true" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="SEARCH_DAY_FROM" />
+        <map getRef="1" getValue="Value" setRef="9" setValue="SEARCH_TIME_FROM" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="SEARCH_DAY_TO" />
+        <map getRef="3" getValue="Value" setRef="9" setValue="SEARCH_TIME_TO" />
+        <map getRef="4" getValue="Value" setRef="9" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="9" setValue="LOT_NO" />
+        <map getRef="6" getValue="Value" setRef="9" setValue="AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="9" setValue="JOB_TYPE" />
+        <map getRef="8" getValue="Value" setRef="9" setValue="USER_NAME" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="REGIST_DATE" setRef="25" setValue="GENERATION_DAY" />
+        <map getRef="9" getValue="REGIST_DATE" setRef="25" setValue="GENERATION_TIME" />
+        <map getRef="9" getValue="ITEM_CODE" setRef="25" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="ITEM_NAME" setRef="25" setValue="ITEM_NAME" />
+        <map getRef="9" getValue="LOT_NO" setRef="25" setValue="LOT_NO" />
+        <map getRef="9" getValue="INC_DEC_TYPE" setRef="25" setValue="INC_DEC_TYPE" />
+        <map getRef="9" getValue="JOB_TYPE" setRef="25" setValue="JOB_TYPE" />
+        <map getRef="9" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="9" getValue="LOCATION_NO" setRef="25" setValue="LOCATION_NO" />
+        <map getRef="9" getValue="INC_DEC_QTY" setRef="25" setValue="WORK_QTY" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_DAY" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_TIME" />
+        <map getRef="9" getValue="USER_NAME" setRef="25" setValue="USER_NAME" />
+      </output1>
+      <part11 operationRef="26" operation="XLS">
+        <out out1Ref="0" out1Value="Value" out2Ref="1" out2Value="Value" />
+        <out out1Ref="2" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="9" exportParameterRef="25" exportName="ResultInqList" exporter="Print" />
+      <validate>
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" required="true" />
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="SEARCH_DAY_FROM" />
+        <map getRef="1" getValue="Value" setRef="9" setValue="SEARCH_TIME_FROM" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="SEARCH_DAY_TO" />
+        <map getRef="3" getValue="Value" setRef="9" setValue="SEARCH_TIME_TO" />
+        <map getRef="4" getValue="Value" setRef="9" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="9" setValue="LOT_NO" />
+        <map getRef="6" getValue="Value" setRef="9" setValue="AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="9" setValue="JOB_TYPE" />
+        <map getRef="8" getValue="Value" setRef="9" setValue="USER_NAME" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="DFK_DS_NO" setRef="25" setValue="DFK_DS_NO" />
+        <map getRef="9" getValue="DFK_USER_ID" setRef="25" setValue="DFK_USER_ID" />
+        <map getRef="9" getValue="DFK_USER_NAME" setRef="25" setValue="DFK_USER_NAME" />
+        <map getRef="9" getValue="SYS_DAY" setRef="25" setValue="SYS_DAY" />
+        <map getRef="9" getValue="SYS_TIME" setRef="25" setValue="SYS_TIME" />
+        <map getRef="0" getValue="Value" setRef="25" setValue="FROM_GENERATION_DAY" />
+        <map getRef="1" getValue="Value" setRef="25" setValue="FROM_GENERATION_TIME" />
+        <map getRef="2" getValue="Value" setRef="25" setValue="TO_GENERATION_DAY" />
+        <map getRef="3" getValue="Value" setRef="25" setValue="TO_GENERATION_TIME" />
+        <map getRef="9" getValue="REGIST_DATE" setRef="25" setValue="GENERATION_DAY" />
+        <map getRef="9" getValue="REGIST_DATE" setRef="25" setValue="GENERATION_TIME" />
+        <map getRef="9" getValue="ITEM_CODE" setRef="25" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="ITEM_NAME" setRef="25" setValue="ITEM_NAME" />
+        <map getRef="9" getValue="LOT_NO" setRef="25" setValue="LOT_NO" />
+        <map getRef="9" getValue="INC_DEC_TYPE" setRef="25" setValue="INC_DEC_TYPE" />
+        <map getRef="9" getValue="JOB_TYPE" setRef="25" setValue="JOB_TYPE" />
+        <map getRef="9" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="9" getValue="LOCATION_NO" setRef="25" setValue="LOCATION_NO" />
+        <map getRef="9" getValue="INC_DEC_QTY" setRef="25" setValue="WORK_QTY" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_DAY" />
+        <map getRef="9" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_TIME" />
+        <map getRef="9" getValue="USER_NAME" setRef="25" setValue="USER_NAME" />
+      </output1>
+      <part11 operationRef="26" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" out2Ref="1" out2Value="Value" />
+        <out out1Ref="2" out1Value="Value" out2Ref="3" out2Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_PSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/system/listbox/user/LstSystemUser" businessParameterRef="27" />
+      <input1>
+        <map getRef="8" getValue="Value" setRef="27" setValue="USER_NAME" />
+      </input1>
+      <output1>
+        <map getRef="27" getValue="USER_NAME" setRef="8" setValue="Value" />
+      </output1>
+      <focus controlRef="8" />
+    </event>
+  </events>
+</business>

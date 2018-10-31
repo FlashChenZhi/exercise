@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.workingtimesimu.WorkingTimeSimuBusiness" abstractClassName="jp.co.daifuku.wms.analysis.display.workingtimesimu.WorkingTimeSimu" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_SearchPlanDateAll" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.WorkingTimeSimuSCH" />
+    <ref name="2" type="Control" typeName="txt_StorageWorkerNum" />
+    <ref name="3" type="Control" typeName="txt_StorageWorkStartTime" />
+    <ref name="4" type="Control" typeName="txt_RetrievalWorkerNum" />
+    <ref name="5" type="Control" typeName="txt_RetrievalWorkStartTime" />
+    <ref name="6" type="Control" typeName="txt_WorkPlanDate" />
+    <ref name="7" type="Control" typeName="chk_BeforePlanDate" />
+    <ref name="8" type="Control" typeName="chk_AfterPlanDate" />
+    <ref name="9" type="Control" typeName="txt_StorageItemQtyPlan" />
+    <ref name="10" type="Control" typeName="txt_StorageItemQtyInp" />
+    <ref name="11" type="Control" typeName="txt_StoragePieceQtyPlan" />
+    <ref name="12" type="Control" typeName="txt_StoragePieceQtyInp" />
+    <ref name="13" type="Control" typeName="txt_RetrievalItemQtyPlan" />
+    <ref name="14" type="Control" typeName="txt_RetrievalItemQtyInp" />
+    <ref name="15" type="Control" typeName="txt_RetrievalPieceQtyPlan" />
+    <ref name="16" type="Control" typeName="txt_RetrievalPieceQtyInp" />
+    <ref name="17" type="Control" typeName="txt_StorageWorkingTime" />
+    <ref name="18" type="Control" typeName="txt_StorageWorkEndTime" />
+    <ref name="19" type="Control" typeName="txt_RetrievalWorkingTime" />
+    <ref name="20" type="Control" typeName="txt_RetrievalWorkEndTime" />
+    <ref name="21" type="String" typeName="String" />
+    <ref name="22" type="Number" typeName="Number" />
+    <ref name="23" type="Control" typeName="rdo_SearchPlanDateInput" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="STORAGE_WORKER_NUM" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_WORK_START_TIME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_WORKER_NUM" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_WORK_START_TIME" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Select" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="6" required="true" />
+      </validate>
+      <input1>
+        <map getRef="6" getValue="Value" setRef="1" setValue="WORK_PLAN_DATE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="BEFORE_PLAN_DATE" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="AFTER_PLAN_DATE" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="STORAGE_ITEM_QTY_PLAN" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_ITEM_QTY_INP" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_PIECE_QTY_PLAN" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_PIECE_QTY_INP" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_ITEM_QTY_PLAN" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_ITEM_QTY_INP" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_PIECE_QTY_PLAN" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_PIECE_QTY_INP" setRef="16" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="17" type="Empty" />
+        <clear controlRef="18" type="Empty" />
+        <clear controlRef="19" type="Empty" />
+        <clear controlRef="20" type="Empty" />
+      </clear1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_Simulate" name="Click" pattern="RegistGetParams">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="21" getValue="1" setRef="1" setValue="INSTOCK_WORKER_NUM" />
+        <map getRef="21" getValue="00:00" setRef="1" setValue="INSTOCK_WK_START_TIME" />
+        <map getRef="22" getValue="1" setRef="1" setValue="INSTOCK_ITEM_QTY" />
+        <map getRef="22" getValue="1" setRef="1" setValue="INSTOCK_PIECE_QTY" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="STORAGE_WORKER_NUM" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="STORAGE_WORK_START_TIME" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="STORAGE_ITEM_QTY_INP" />
+        <map getRef="12" getValue="Value" setRef="1" setValue="STORAGE_PIECE_QTY_INP" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="RETRIEVAL_WORKER_NUM" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="RETRIEVAL_WORK_START_TIME" />
+        <map getRef="14" getValue="Value" setRef="1" setValue="RETRIEVAL_ITEM_QTY_INP" />
+        <map getRef="16" getValue="Value" setRef="1" setValue="RETRIEVAL_PIECE_QTY_INP" />
+        <map getRef="21" getValue="1" setRef="1" setValue="SORTING_WORKER_NUM" />
+        <map getRef="21" getValue="00:00" setRef="1" setValue="SORTING_WK_START_TIME" />
+        <map getRef="22" getValue="1" setRef="1" setValue="SORTING_ITEM_QTY" />
+        <map getRef="22" getValue="1" setRef="1" setValue="SORTING_PIECE_QTY" />
+        <map getRef="21" getValue="1" setRef="1" setValue="SHIPPING_WORKER_NUM" />
+        <map getRef="21" getValue="00:00" setRef="1" setValue="SHIPPING_WK_START_TIME" />
+        <map getRef="22" getValue="1" setRef="1" setValue="SHIPPING_ITEM_QTY" />
+        <map getRef="22" getValue="1" setRef="1" setValue="SHIPPING_PIECE_QTY" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="STORAGE_WORKING_TIME" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_WORK_END_TIME" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_WORKING_TIME" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="RETRIEVAL_WORK_END_TIME" setRef="20" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="rdo_SearchPlanDateAll" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+        <clear controlRef="23" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="rdo_SearchPlanDateInput" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+        <clear controlRef="23" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

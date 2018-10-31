@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.inventorymovement.InventoryMovementBusiness" abstractClassName="jp.co.daifuku.wms.analysis.display.inventorymovement.InventoryMovement" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="pul_SearchCond" />
+    <ref name="2" type="Control" typeName="txt_ItemName" />
+    <ref name="3" type="Control" typeName="rdo_UnitMonth" />
+    <ref name="4" type="Control" typeName="pul_TermYearMonth" />
+    <ref name="5" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="6" type="Constants" typeName="Constants" />
+    <ref name="7" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.InventoryMovementSCH" />
+    <ref name="8" type="Control" typeName="ANA_InventoryMovement" />
+    <ref name="9" type="String" typeName="String" />
+    <ref name="10" type="ViewState" typeName="jp.co.daifuku.wms.analysis.display.inventorymovement.ViewStateKeys" />
+    <ref name="11" type="ExportParameter" typeName="jp.co.daifuku.wms.analysis.exporter.InventoryMovementParams" />
+    <ref name="12" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="13" type="Boolean" typeName="Boolean" />
+    <ref name="14" type="Control" typeName="rdo_UnitDay" />
+    <ref name="15" type="Control" typeName="btn_ExcelOutput" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_SearchCond" dataType="Default" />
+    <pulldown name="pul_TermYearMonth" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ItemSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="5" />
+      <input1>
+        <map getRef="6" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="5" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="SEARCH_COND" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="5" getValue="ITEM_NAME" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_View" name="Click" pattern="Query">
+      <sch2Display schRef="7" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="8" />
+        <validate controlRef="4" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="7" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="7" setValue="ITEM_NAME" />
+        <map getRef="8" getValue="Value" setRef="7" setValue="ANALYSIS_MODE" />
+        <map getRef="1" getValue="Value" setRef="7" setValue="ITEM_LIST_CONDITION" />
+        <map getRef="9" setRef="7" setValue="ANALYSIS_START_DATE" />
+        <map getRef="9" setRef="7" setValue="ANALYSIS_END_DATE" />
+        <map getRef="6" getValue="DEFAULT_CONSIGNOR_CODE" setRef="7" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="VS_ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="10" setValue="VS_SEARCH_COND" />
+        <map getRef="8" getValue="Value" setRef="10" setValue="VS_INVENTRY_MOVEMENT" />
+        <map getRef="4" getValue="Value" setRef="10" setValue="VS_TEEM_YEAR_MONTH" />
+      </output1>
+    </event>
+    <event control="btn_ExcelOutput" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="11" exportName="InventoryMovement" exporter="Excel" />
+      <output1>
+        <map getRef="9" setRef="11" setValue="ITEM_CODE" />
+        <map getRef="9" setRef="11" setValue="ITEM_NAME" />
+        <map getRef="9" setRef="11" setValue="DATE" />
+        <map getRef="9" setRef="11" setValue="INVENTORY_QTY" />
+        <map getRef="9" setRef="11" setValue="STORAGE_QTY" />
+        <map getRef="9" setRef="11" setValue="RETRIEVAL_QTY" />
+        <map getRef="9" setRef="11" setValue="UPPER_LIMIT_QTY" />
+        <map getRef="9" setRef="11" setValue="LOWER_LIMIT_QTY" />
+      </output1>
+      <part11 operationRef="12" operation="XLS">
+        <out out1Ref="10" out1Value="VS_ITEM_CODE" />
+        <out out1Ref="10" out1Value="VS_SEARCH_COND" />
+        <block type="If" tag="1" desc="月単位が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Checked" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="0" />
+        <block type="If" tag="2" desc="日単位が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="1" />
+        <out out1Ref="10" out1Value="VS_TEEM_YEAR_MONTH" />
+      </part11>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="14" type="UnChecked" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

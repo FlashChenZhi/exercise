@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <events>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input />
+      <pager pagerType="None" select="0" />
+    </event>
+  </events>
+</pageMapping>

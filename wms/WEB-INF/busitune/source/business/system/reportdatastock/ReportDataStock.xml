@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.reportdatastock.ReportDataStockBusiness" abstractClassName="jp.co.daifuku.wms.system.display.reportdatastock.ReportDataStock" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.ReportDataStockSCH" />
+    <ref name="2" type="Constants" typeName="Constants" />
+    <ref name="3" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="4" type="String" typeName="String" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_Start" name="Click" pattern="Regist">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="DEFAULT_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="3" operation="SETTING">
+        <out out1Ref="4" out1Value="1" />
+        <out out1Ref="0" out1Value="Value" />
+      </part11>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="ItemDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="page_Load" order="0">
+      <pager pagerType="None" select="0" />
+      <method methodName="page_Load" />
+    </event>
+    <event name="Back_Click" order="4">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="List_Click" order="6">
+      <method methodName="list_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="CP_Click" order="5">
+      <method methodName="cp_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="ITEM_CODE" />
+      </input>
+    </event>
+    <event name="ItemCode_Enter" order="1">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="ITEM_CODE" />
+      </input>
+    </event>
+    <event name="ItemCode_Scan" order="2">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="ITEM_CODE" />
+      </input>
+    </event>
+    <event name="Ent_Click" order="3">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="ITEM_CODE" />
+      </input>
+    </event>
+  </events>
+</pageMapping>

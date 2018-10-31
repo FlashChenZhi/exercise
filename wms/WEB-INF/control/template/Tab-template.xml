@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_ListWorkStart" keyword="" description="List Work Start" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0001" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_DataLoad" keyword="" description="Data Loading" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0002" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_SetModifyDelete" keyword="" description="Basic Info Setting -&gt; Detail Info Modify/Delete" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0004" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0005" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Set" keyword="" description="Set" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0003" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Regist" keyword="" description="Add" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0006" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ListWorkComplete" keyword="" description="List Work Result Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0009" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ListWorkMaintenance" keyword="" description="List Work Result Maintenance" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0010" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_SetRegist" keyword="" description="Basic Info Setting -&gt; Detail Info Add" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0004" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0011" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_PlanDataAllDelete" keyword="" description="Plan Data Batch Delete" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0012" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InquiryPrint" keyword="" description="Inquiry/Print" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0007" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Progress" keyword="" description="Progress" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0008" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ResultMaintenance" keyword="" description="Result Maintenance" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0013" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Start" keyword="" description="Start" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0014" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_RetrievalCancel" keyword="" description="Retrieval Cancel" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0015" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Inquiry" keyword="" description="Inquiry" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0016" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Maintenance" keyword="" description="Maintenance" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0017" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ListIssue" keyword="" description="List Print" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0018" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_DataReport" keyword="" description="Data Report" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0019" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_StockInfoReport" keyword="" description="Stock Info Report" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0020" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_DailyUpdate" keyword="" description="Daily Update" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0021" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Inquiry2" keyword="" description="Inquiry2" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0022" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_LocationSelectInputStorageInfo" keyword="" description="Select Location -&gt; Storage Info Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0023" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0024" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_NoPlanRetieval" keyword="" description="No Plan Retrieval Setting" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0025" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_LocationStatusInquiry" keyword="" description="Location Status Inquiry" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0026" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InfomationChange" keyword="" description="Info Change" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0027" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InfomationDelete" keyword="" description="Info Delete" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0028" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkStart" keyword="" description="Work Start" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0029" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_CompleteSet" keyword="" description="Complete Set" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0030" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_SetModifyDelete2" keyword="" description="Basic Info Setting -&gt; Detail Info Modify/Delete" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0004" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0005" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_SetRegist2" keyword="" description="Basic Info Setting -&gt; Detail Info Add" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0004" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0011" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_LocationSelectInputStorageInfo2" keyword="" description="Select Location -&gt; Storage Info Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0023" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0024" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ResultInquiry" keyword="" description="Result Inquiry" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0031" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="AST_LoginUserMaintenance" keyword="LoginUserMaintenance" description="Session Terminate" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9000" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="AST_Create" keyword="" description="Set" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9009" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="AST_Inquiry" keyword="" description="Inquiry" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9017" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="AST_WorkPlace_Create" keyword="" description="Work Place Set" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9016" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9009" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_BackUp" keyword="eManager" description="作成" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0003" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_Configure" keyword="eManager" description="設定" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0001" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_FinalCheck" keyword="eManager" description="確認" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0002" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_FunctionMap" keyword="eManager" description="一覧-設定" lastupdate="" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0005" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0001" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_Restore" keyword="eManager" description="復元" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0004" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_MakeLog" keyword="eManager" description="作成" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0006" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_CsvOut" keyword="eManager" description="取込-&gt;削除" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0007" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0008" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InfomationUpdate" keyword="" description="Info Update" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0032" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkDisplay" keyword="" description="Work Display" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0033" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InventoryStart" keyword="" description="Inventory Start" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TLE-W0622" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InventoryCancel" keyword="" description="Inventory Cancel" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TLE-W0623" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InventoryInput" keyword="" description="Inventory Result Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TLE-W0610" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="SM_SessionManager" keyword="" description="SessionManagement" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-SM001" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_HistorySearchDB" keyword="eManager" description="履歴検索(DB)" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0009" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0010" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0011" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0012" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_FileTaken" keyword="eManager" description="ファイル取込" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0013" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_AccessLog" keyword="eManager" description="画面アクセス" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0009" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_MasterLog" keyword="eManager" description="マスタ改廃" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0010" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_InventoryLog" keyword="eManager" description="在庫情報" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0011" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_OperationLog" keyword="eManager" description="画面操作" lastupdate="" username="">
+    <property name="arrowImage" value="" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0012" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_CancelRePrint" keyword="" description="Cancel / RePrint" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0034" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ABCAnalysis" keyword="" description="Condition Input -&gt; Analysis Result" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W1201" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W1202" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkSimu" keyword="" description="Calculation" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W1204" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Moving" keyword="" description="Stock Analysis" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W1203" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_InputCond" keyword="" description="Condition Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W1201" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_AllDecision" keyword="" description="All Decision" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0035" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ReceivingInput" keyword="" description="Receiving Result Input" lastupdate="2008/07/28 19:25:54" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="MBTN-W0004" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_BerthInput" keyword="" description="" lastupdate="2008/11/25 15:16:19" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9018" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkMnt2" keyword="PCT" description="オーダー単位　商品単位" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0001" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0002" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkMnt" keyword="PCT" description="オーダー単位　商品単位" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0001" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0002" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_BatchCancel" keyword="PCT" description="バッチキャンセル" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0003" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Issue" keyword="PCT" description="発行" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0004" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ErrorRateSetting" keyword="PCT" description="誤差率一括設定" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0005" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_DistinctionListIssue" keyword="PCT" description="差異リスト発行" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0006" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ZoneMaintenance" keyword="PCT" description="ゾーンメンテ(ゾーン)" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0007" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ZoneMaintLocation" keyword="PCT" description="エリア・棚" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0008" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Delete" keyword="" description="Delete" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0009" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="P_OperationLog" keyword="PCT" description="操作ログ" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0010" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Load" keyword="PCT" description="LOAD" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0011" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_UndoneWork" keyword="PCT" description="残作業" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0012" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Save" keyword="PCT" description="SAVE" lastupdate="2009/02/03 10:20:31" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0013" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_StartCancel" keyword="PCT" description="" lastupdate="2009/06/12 19:07:35" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-P0014" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_StockMaintenance" keyword="" description="" lastupdate="2009/10/16 10:26:33" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0017" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9021" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_StockMaintenance2" keyword="" description="" lastupdate="2009/10/16 10:26:33" username="">
+    <property name="arrowImage" value="true" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W0017" />
+        <property name="selected" value="false" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9021" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ListSelect" keyword="" description="" lastupdate="2009/10/26 13:07:21" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-W9023" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Create" keyword="[@FTTB:値を設定してください。]" description="" lastupdate="2009/10/20 11:40:03" username="">
+    <property name="arrowImage" value="false" />
+    <property name="async" value="false" />
+    <list-items type="TabColumns">
+      <list-item type="TabColumn">
+        <property name="text" value="" />
+        <property name="resourceKey" value="TAB-T0003" />
+        <property name="selected" value="true" />
+        <property name="tabClickEvent" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+</templates>

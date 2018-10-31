@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="NrtInspection" type="Page" />
+    <ref name="1" typeName="WRN_1" type="MessagePage" />
+    <ref name="10" typeName="ERR_1" type="MessagePage" />
+    <ref name="11" typeName="ERR_7" type="MessagePage" />
+    <ref name="12" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="13" typeName="LocationDataSheet" type="DataSheet" />
+    <ref name="14" typeName="ERR_5" type="MessagePage" />
+    <ref name="15" typeName="NrtQtyInput" type="Page" />
+    <ref name="16" typeName="NrtCancelConfirm" type="Page" />
+    <ref name="2" typeName="NoPlanRetrievalStockListDataSheet" type="DataSheet" />
+    <ref name="3" typeName="LotNoListDataSheet" type="DataSheet" />
+    <ref name="4" typeName="String" type="String" />
+    <ref name="5" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="6" typeName="NoPlanRetrievalOutDataSheet" type="DataSheet" />
+    <ref name="7" typeName="noplanretrieval" type="Flow" />
+    <ref name="8" typeName="ItemDataSheet" type="DataSheet" />
+    <ref name="9" typeName="NoPlanRetrievalInDataSheet" type="DataSheet" />
+    <ref name="17" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="17" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043012">
+              <conditions>
+                <condition typeRef="17" name="INSP_ENTZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043009">
+              <conditions>
+                <condition typeRef="17" name="INSP_CPMODE" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="itemCode_Scan" order="1">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="17" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043011">
+              <conditions>
+                <condition typeRef="17" name="INSP_OTHER" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043012">
+              <conditions>
+                <condition typeRef="17" name="INSP_ENTZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043009">
+              <conditions>
+                <condition typeRef="17" name="INSP_CPMODE" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="cancel_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtCancelConfirm">
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="cp_Click" order="3">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="input1_Click" order="4">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtQtyInput">
+              <params>
+                <map getterTypeRef="4" getterValue="1" setterTypeRef="5" setterValue="INPUT_TYPE" />
+                <map getterTypeRef="6" getterValue="RESULT_LOT_NO" setterTypeRef="6" setterValue="TEMP_RESULT_LOT_NO" />
+              </params>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="input2_Click" order="5">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtQtyInput">
+              <params>
+                <map getterTypeRef="4" getterValue="2" setterTypeRef="5" setterValue="INPUT_TYPE" />
+                <map getterTypeRef="6" getterValue="RESULT_LOT_NO" setterTypeRef="6" setterValue="TEMP_RESULT_LOT_NO" />
+              </params>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="6">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="7" nodeName="NrtLocationInput">
+              <conditions>
+                <condition typeRef="17" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="8" />
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+                <item dataSheetRef="9" />
+                <item dataSheetRef="6" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6043026">
+              <conditions>
+                <condition typeRef="17" name="INSP_ZERO" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="17" name="DAILY_UPDATING" />
+                <condition typeRef="17" name="MAINTENANCE" />
+                <condition typeRef="17" name="RESULTQTY_OVER" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6045001" message2="6043032">
+              <conditions>
+                <condition typeRef="17" name="UPDATE_FINISH" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="17" name="AREA_INVALIDITY" />
+                <condition typeRef="17" name="ILLEGAL_LOCATION_FORMAT" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="10">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="17" name="DATA_EXISTS" />
+                <condition typeRef="17" name="DB_ACCESS_ERROR" />
+                <condition typeRef="17" name="ERROR" />
+                <condition typeRef="17" name="INSTACIATE_ERROR" />
+                <condition typeRef="17" name="PATTERN_NG" />
+                <condition typeRef="17" name="SCHEDULE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="11">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Flow" flowTypeRef="7" nodeName="WorkerInput">
+                          <remove>
+                            <item dataSheetRef="12" />
+                            <item dataSheetRef="13" />
+                            <item dataSheetRef="8" />
+                            <item dataSheetRef="9" />
+                            <item dataSheetRef="6" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="17" name="NODATA" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+                <item dataSheetRef="3" />
+              </remove>
+              <nodes>
+                <node typeRef="14">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NrtInspection" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="15">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtInspection" />
+          </forwards>
+        </action>
+        <action name="caseQty_Enter" order="2">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="pieceQty_Enter" order="3">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="lotNo_Enter" order="4">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtInspection">
+              <conditions>
+                <condition typeRef="17" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043026">
+              <conditions>
+                <condition typeRef="17" name="INSP_ZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="return_Click" order="5">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="17" name="MOVE_FOCUS" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="NrtInspection">
+              <conditions>
+                <condition typeRef="17" name="NORMAL" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="16">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NrtInspection" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="7" nodeName="NrtLocationInput">
+              <remove>
+                <item dataSheetRef="8" />
+                <item dataSheetRef="9" />
+                <item dataSheetRef="6" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

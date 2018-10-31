@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--DC入荷キャンセル確認画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>確認                 </caption>
+    </label>
+    <label name="lblMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>現在の作業を</caption>
+    </label>
+    <label name="lblMsg2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>キャンセルしますか？</caption>
+    </label>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:はい      </caption>
+      <event>RecCancel_Ent</event>
+      <key>KL</key>
+    </button>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>72</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>R:いいえ</caption>
+      <event>RecCancel_Back</event>
+      <key>KR</key>
+    </button>
+  </form>
+</HaiSurf.Page>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.receiving.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.receiving.rft.schedule.RecSupplierListSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ReceivingInDataSheet" type="DataSheet" />
+    <ref name="4" typeName="SupplierListDataSheet" type="DataSheet" />
+    <ref name="5" typeName="jp.co.daifuku.wms.receiving.rft.schedule.RecStartSCH" type="Sch" />
+    <ref name="6" typeName="ItemDataSheet" type="DataSheet" />
+    <ref name="7" typeName="ReceivingOutDataSheet" type="DataSheet" />
+    <ref name="8" typeName="Number" type="Number" />
+    <ref name="9" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="10" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="back_Click" pattern="None" order="2" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="1" getterValue="RECEIVING_ITF_TO_JAN" setterTypeRef="0" setterValue="RECEIVING_ITF_TO_JAN" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="0" setterValue="PLAN_DATE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="SUPPLIER_CODE" setterTypeRef="4" setterValue="SUPPLIER_CODE" />
+        <map getterTypeRef="0" getterValue="SUPPLIER_NAME" setterTypeRef="4" setterValue="SUPPLIER_NAME" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Query" order="1">
+      <validate />
+      <schBase schRef="5" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="5" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="1" getterValue="RECEIVING_ITF_TO_JAN" setterTypeRef="5" setterValue="RECEIVING_ITF_TO_JAN" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="5" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="5" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="ITEM_CODE" setterTypeRef="5" setterValue="ITEM_CODE" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="5" setterValue="PLAN_DATE" />
+        <map getterTypeRef="4" getterValue="SUPPLIER_CODE" setterTypeRef="5" setterValue="SUPPLIER_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="5" getterValue="ITEM_NAME" setterTypeRef="6" setterValue="ITEM_NAME" />
+        <map getterTypeRef="5" getterValue="SETTING_UNIT_KEY" setterTypeRef="7" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_CODE" setterTypeRef="7" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_NAME" setterTypeRef="7" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="5" getterValue="PLAN_DATE" setterTypeRef="7" setterValue="PLAN_DATE" />
+        <map getterTypeRef="7" getterValue="PLAN_DATE" setterTypeRef="7" setterValue="DISP_PLAN_DATE" />
+        <map getterTypeRef="5" getterValue="SUPPLIER_CODE" setterTypeRef="7" setterValue="SUPPLIER_CODE" />
+        <map getterTypeRef="5" getterValue="SUPPLIER_NAME" setterTypeRef="7" setterValue="SUPPLIER_NAME" />
+        <map getterTypeRef="5" getterValue="COLLECT_JOB_NO" setterTypeRef="7" setterValue="COLLECT_JOB_NO" />
+        <map getterTypeRef="5" getterValue="ITEM_CODE" setterTypeRef="7" setterValue="ITEM_CODE" />
+        <map getterTypeRef="5" getterValue="ITEM_NAME" setterTypeRef="7" setterValue="ITEM_NAME" />
+        <map getterTypeRef="5" getterValue="PLAN_QTY" setterTypeRef="7" setterValue="PLAN_QTY" />
+        <map getterTypeRef="5" getterValue="PLAN_CASE_QTY" setterTypeRef="7" setterValue="PLAN_CASE_QTY" />
+        <map getterTypeRef="5" getterValue="PLAN_PIECE_QTY" setterTypeRef="7" setterValue="PLAN_PIECE_QTY" />
+        <map getterTypeRef="5" getterValue="RESULT_QTY" setterTypeRef="7" setterValue="RESULT_QTY" />
+        <map getterTypeRef="5" getterValue="RESULT_CASE_QTY" setterTypeRef="7" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="5" getterValue="RESULT_PIECE_QTY" setterTypeRef="7" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="5" getterValue="JAN" setterTypeRef="7" setterValue="JAN" />
+        <map getterTypeRef="5" getterValue="ITF" setterTypeRef="7" setterValue="ITF" />
+        <map getterTypeRef="5" getterValue="BUNDLE_ITF" setterTypeRef="7" setterValue="BUNDLE_ITF" />
+        <map getterTypeRef="5" getterValue="ENTERING_QTY" setterTypeRef="7" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="5" getterValue="BUNDLE_ENTERING_QTY" setterTypeRef="7" setterValue="BUNDLE_ENTERING_QTY" />
+        <map getterTypeRef="5" getterValue="TICKET_NO" setterTypeRef="7" setterValue="TICKET_NO" />
+        <map getterTypeRef="5" getterValue="TICKET_LINE_NO" setterTypeRef="7" setterValue="TICKET_LINE_NO" />
+        <map getterTypeRef="5" getterValue="PLAN_LOT_NO" setterTypeRef="7" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="5" getterValue="PLAN_LOT_NO" setterTypeRef="7" setterValue="PLAN_LOT_NO" />
+        <map getterTypeRef="5" getterValue="START_DATE_TIME" setterTypeRef="2" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="8" getterValue="0" setterTypeRef="2" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_NAME" setterTypeRef="9" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="5" getterValue="CASE_INPUT_ENABLED" setterTypeRef="2" setterValue="CASE_INPUT_ENABLED" />
+      </output>
+    </method>
+  </methods>
+</business>

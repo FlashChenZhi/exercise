@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE screen-template [
+<!ELEMENT templates (template+)>
+
+<!ATTLIST template display-name CDATA #REQUIRED
+                       description CDATA #REQUIRED
+                       jsp CDATA #REQUIRED
+                       preview-image CDATA #REQUIRED>
+]>
+
+<templates>
+  <template
+    display-name="01_uppertab"
+    description="uppertab"
+    jsp="/WEB-INF/tool/template/01_uppertab.jsp"
+    preview-image="/WEB-INF/tool/template/01_uppertab.gif" />
+  <template
+    display-name="02_upper"
+    description="upper"
+    jsp="/WEB-INF/tool/template/02_upper.jsp"
+    preview-image="/WEB-INF/tool/template/02_upper.gif" />
+  <template
+    display-name="03_uppertab-lowertab"
+    description="uppertab-lowertab"
+    jsp="/WEB-INF/tool/template/03_uppertab-lowertab.jsp"
+    preview-image="/WEB-INF/tool/template/03_uppertab-lowertab.gif" />
+  <template
+    display-name="04_uppertab-lower"
+    description="uppertab-lower"
+    jsp="/WEB-INF/tool/template/04_uppertab-lower.jsp"
+    preview-image="/WEB-INF/tool/template/04_uppertab-lower.gif" />
+  <template
+    display-name="05_upper-lowertab"
+    description="upper-lowertab"
+    jsp="/WEB-INF/tool/template/05_upper-lowertab.jsp"
+    preview-image="/WEB-INF/tool/template/05_upper-lowertab.gif" />
+  <template
+    display-name="06_upper-lower"
+    description="upper-lower"
+    jsp="/WEB-INF/tool/template/06_upper-lower.jsp"
+    preview-image="/WEB-INF/tool/template/06_upper-lower.gif" />
+  <!-- 20番台からListBox(PopUp用) -->
+  <template
+    display-name="20_listbox"
+    description="Listbox of ListCell"
+    jsp="/WEB-INF/tool/template/20_listbox.jsp"
+    preview-image="/WEB-INF/tool/template/20_listbox.gif" />
+  <template
+    display-name="21_listbox-ScrollListCell"
+    description="With SerchCondition"
+    jsp="/WEB-INF/tool/template/21_listbox-ScrollListCell.jsp"
+    preview-image="/WEB-INF/tool/template/21_listbox-ScrollListCell.gif" />
+  <template
+    display-name="W01_listbox display"
+    description="For eWarenavi"
+    jsp="/WEB-INF/tool/template/W01_listbox.jsp"
+    preview-image="/WEB-INF/tool/template/W01_listbox.gif" />
+</templates>

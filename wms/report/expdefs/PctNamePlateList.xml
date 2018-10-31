@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS1201" downloadName="PctNamePlateList" reportName="LBL-W6021">
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true"/>
+    <field name="user_id" type="string" printEnabled="true"/>
+    <field name="user_name" type="string" printEnabled="true"/>
+</exportspec>

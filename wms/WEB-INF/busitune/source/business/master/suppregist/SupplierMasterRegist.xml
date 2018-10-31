@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.suppregist.SupplierMasterRegistBusiness" abstractClassName="jp.co.daifuku.wms.master.display.suppregist.SupplierMasterRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_SupplierCode" />
+    <ref name="1" type="Control" typeName="txt_SupplierName" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.SupplierMasterRegistSCH" />
+    <ref name="3" type="Constants" typeName="Constants" />
+    <ref name="4" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="5" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.supp.LstSupplierParams" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Regist">
+      <sch2Display schRef="2" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="SUPPLIER_CODE" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="SUPPLIER_NAME" />
+        <map getRef="3" getValue="DEFAULT_CONSIGNOR_CODE" setRef="2" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="4" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/supp/LstSupplier" businessParameterRef="5" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="SUPPLIER_CODE" />
+        <map getRef="3" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="SUPPLIER_CODE" setRef="0" setValue="Value" />
+        <map getRef="5" getValue="SUPPLIER_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

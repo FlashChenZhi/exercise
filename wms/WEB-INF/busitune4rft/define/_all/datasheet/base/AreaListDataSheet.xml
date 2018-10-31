@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="エリア選択データシート" />
+  <comment lang="en" value="Area Selection Data Sheet" />
+  <comment lang="zh" value="区域选择数据表" />
+  <fields>
+    <field name="AREA_NAME" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="エリア名称" />
+      <comment lang="en" value="AreaName " />
+      <comment lang="zh" value="区域名称" />
+    </field>
+    <field name="AREA_NO" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="エリアNo." />
+      <comment lang="en" value="Area #" />
+      <comment lang="zh" value="区域No." />
+    </field>
+  </fields>
+</datasheet>

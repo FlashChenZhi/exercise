@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0715" downloadName="ReStoringDeleteList" reportName="LBL-W6040">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true"/>
+    <field name="station_no" type="string" printEnabled="true"/>
+    <field name="station_name" type="string" printEnabled="true"/>
+    <field name="work_no" type="string" printEnabled="true"/>
+    <field name="item_code" type="string" printEnabled="true"/>
+    <field name="item_name" type="string" printEnabled="true"/>
+    <field name="lot_no" type="string" printEnabled="true"/>
+    <field name="storage_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" printEnabled="true"/>
+    <field name="plan_qty" type="number" format="#,##0" printEnabled="true"/>
+    <field name="remove_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" printEnabled="true"/>
+</exportspec>

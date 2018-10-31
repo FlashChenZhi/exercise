@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="NoPlanRetrievalInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="NoPlanRetrievalOutDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="page_Load" order="0">
+      <pager pagerType="None" select="0" />
+      <method methodName="page_Load" />
+    </event>
+    <event name="CP_Click" order="9">
+      <method methodName="cp_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="All_Click" order="11">
+      <method methodName="all_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Ent_Click" order="7">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="CaseQty_Enter" order="3">
+      <method methodName="caseQty_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="PieceQty_Enter" order="4">
+      <method methodName="pieceQty_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="LotNo_Enter" order="5">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="LotNo_Scan" order="6">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="ItemCode_Scan" order="2">
+      <method methodName="itemCode_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="SCAN_CODE" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="ItemCode_Enter" order="1">
+      <method methodName="itemCode_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="SCAN_CODE" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="Cancel_Click" order="8">
+      <method methodName="cancel_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+    <event name="Detail_Click" order="10">
+      <method methodName="detail_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="CaseQty" setterTypeRef="2" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PieceQty" setterTypeRef="2" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="0" getterValue="LotNo" setterTypeRef="2" setterValue="RESULT_LOT_NO" />
+      </input>
+    </event>
+  </events>
+</pageMapping>

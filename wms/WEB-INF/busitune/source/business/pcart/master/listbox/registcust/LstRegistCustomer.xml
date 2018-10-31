@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.listbox.registcust.LstRegistCustomerBusiness" abstractClassName="jp.co.daifuku.pcart.master.listbox.registcust.LstRegistCustomer" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.registcust.LstRegistCustomerParams" />
+    <ref name="3" type="Control" typeName="LST_CUSTOMER_NAME" />
+    <ref name="4" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.LstRegistCustomerDASCH" />
+    <ref name="5" type="Control" typeName="LST_COLUMN_1" />
+  </refs>
+  <listcells>
+    <listcell name="lst_Customer">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="2" resourceKey="LBL-W0114" dataType="String" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="3" resourceKey="LBL-W0115" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="CUSTOMER_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="CUSTOMER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="4" />
+      <input1>
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="4" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="4" setValue="CUSTOMER_CODE" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="CUSTOMER_CODE" setRef="1" setValue="Value" />
+        <map getRef="4" getValue="CUSTOMER_NAME" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

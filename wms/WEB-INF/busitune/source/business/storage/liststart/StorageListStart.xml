@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.storage.display.liststart.StorageListStartBusiness" abstractClassName="jp.co.daifuku.wms.storage.display.liststart.StorageListStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_StoragePlanDate" />
+    <ref name="1" type="Control" typeName="btn_WorkStart" />
+    <ref name="2" type="Control" typeName="btn_AllCheck" />
+    <ref name="3" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="4" type="Control" typeName="btn_AllClear" />
+    <ref name="5" type="Control" typeName="chk_IssueReport" />
+    <ref name="6" type="Control" typeName="lst_StorageListStart" />
+    <ref name="7" type="Control" typeName="txt_FromItemCode" />
+    <ref name="8" type="Control" typeName="txt_ToItemCode" />
+    <ref name="9" type="Control" typeName="LST_SELECT" />
+    <ref name="10" type="Sch" typeName="jp.co.daifuku.wms.storage.schedule.StorageListStartSCH" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Control" typeName="LST_PLAN_DAY" />
+    <ref name="13" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="14" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="15" type="Control" typeName="LST_DETAIL_COUNT" />
+    <ref name="16" type="ViewState" typeName="jp.co.daifuku.wms.storage.display.liststart.ViewStateKeys" />
+    <ref name="17" type="String" typeName="String" />
+    <ref name="18" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="19" type="Boolean" typeName="Boolean" />
+  </refs>
+  <listcells>
+    <listcell name="lst_StorageListStart">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_PLAN_DAY" orgIndex="2" resourceKey="LBL-W0161" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="3" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="5" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_DETAIL_COUNT" orgIndex="4" resourceKey="LBL-W0180" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="5" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="9" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="9" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="10" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="PLAN_DAY" />
+        <map getRef="7" getValue="Value" setRef="10" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="Value" setRef="10" setValue="TO_ITEM_CODE" />
+        <map getRef="11" getValue="DEFAULT_CONSIGNOR_CODE" setRef="10" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="PLAN_DAY" setRef="12" setValue="Value" />
+        <map getRef="10" getValue="ITEM_CODE" setRef="13" setValue="Value" />
+        <map getRef="10" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="10" getValue="DETAIL_COUNT" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="16" setValue="PLAN_DAY" />
+        <map getRef="7" getValue="Value" setRef="16" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="Value" setRef="16" setValue="TO_ITEM_CODE" />
+        <map getRef="10" getValue="SETTING_UKEY" setRef="8" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_WorkStart" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="10" />
+      <validate>
+        <validate controlRef="6" required="true" />
+      </validate>
+      <input1>
+        <map getRef="9" getValue="Value" setRef="10" setValue="SELECT" />
+        <map getRef="12" getValue="Value" setRef="10" setValue="PLAN_DAY" />
+        <map getRef="13" getValue="Value" setRef="10" setValue="ITEM_CODE" />
+        <map getRef="11" getValue="DEFAULT_CONSIGNOR_CODE" setRef="10" setValue="CONSIGNOR_CODE" />
+        <map getRef="5" getValue="Value" setRef="10" setValue="ISSUE_REPORT" />
+        <map getRef="17" getValue="M_FUNCTIONID" setRef="10" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="18" operation="SETTING">
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <block type="If" tag="1" desc="帳票発行がチェックされていた場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="19" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="1" />
+        <block type="Else" tag="1" desc="帳票発行がチェックされていた場合" />
+        <out out1Ref="17" out1Value="0" />
+      </part11>
+      <input2>
+        <map getRef="16" getValue="ITEM_CODE" setRef="10" setValue="ITEM_CODE" />
+        <map getRef="16" getValue="PLAN_DAY" setRef="10" setValue="PLAN_DAY" />
+        <map getRef="16" getValue="TO_ITEM_CODE" setRef="10" setValue="TO_ITEM_CODE" />
+        <map getRef="11" getValue="DEFAULT_CONSIGNOR_CODE" setRef="10" setValue="CONSIGNOR_CODE" />
+      </input2>
+      <output1>
+        <map getRef="10" getValue="PLAN_DAY" setRef="12" setValue="Value" />
+        <map getRef="10" getValue="ITEM_CODE" setRef="13" setValue="Value" />
+        <map getRef="10" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="10" getValue="DETAIL_COUNT" setRef="15" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="6" type="Clear" />
+      </clear1>
+    </event>
+  </events>
+</business>

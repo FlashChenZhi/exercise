@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0802" downloadName="WorkerResultInqList" reportName="LBL-W1317">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="sort_condition" type="string" header="LBL-W0222" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_work_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0331" printEnabled="true" xlsEnabled="false" excelformat="14"/>
+    <field name="to_work_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0332" printEnabled="true" xlsEnabled="false" excelformat="14"/>
+    <field name="work_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0091" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="user_name" type="string" header="LBL-W0033" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_detail" type="string" header="LBL-W0090" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_start_time" type="date" format="$TIME_FORMAT.HMS" header="LBL-W0467" printEnabled="true" xlsEnabled="true" excelformat="21"/>
+    <field name="work_end_time" type="date" format="$TIME_FORMAT.HMS" header="LBL-W0488" printEnabled="true" xlsEnabled="true" excelformat="21"/>
+    <field name="real_work_time" type="string" header="LBL-W0082" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_qty" type="number" format="###,###,##0" header="LBL-W0088" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="work_cnt" type="number" format="###,###,##0" header="LBL-W0077" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="work_qty_hour" type="number" format="###,###,##0" header="LBL-W0089" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="work_cnt_hour" type="number" format="###,###,##0" header="LBL-W0078" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="terminal_no" type="string" header="LBL-W0005" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

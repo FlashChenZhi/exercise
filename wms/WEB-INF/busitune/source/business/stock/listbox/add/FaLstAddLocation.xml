@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.listbox.add.FaLstAddLocationBusiness" abstractClassName="jp.co.daifuku.wms.stock.listbox.add.FaLstAddLocation" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Control" typeName="LST_AREA_NO" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.stock.listbox.add.FaLstAddLocationParams" />
+    <ref name="3" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="4" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="5" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="6" type="Control" typeName="LST_LOT_NO" />
+    <ref name="7" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="8" type="Control" typeName="LST_STOCK_QTY" />
+    <ref name="9" type="Dasch" typeName="jp.co.daifuku.wms.stock.dasch.FaLstAddLocationDASCH" />
+    <ref name="10" type="Control" typeName="LST_SELECT" />
+    <ref name="11" type="Control" typeName="LST_STORAGE_DATETIME" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_AddLocationList">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="2" resourceKey="LBL-W0011" dataType="Area" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="3" resourceKey="LBL-W0138" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="4" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="5" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="6" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="7" resourceKey="LBL-W0073" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATETIME" orgIndex="8" resourceKey="LBL-W0487" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="AREA_NO" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="LOCATION_NO" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="LOT_NO" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="CONSIGNOR_CODE" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="STOCK_QTY" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="9" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="AREA_NO" setRef="9" setValue="AREA_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="9" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="LOCATION_NO" setRef="9" setValue="LOCATION_NO" />
+        <map getRef="2" getValue="LOT_NO" setRef="9" setValue="LOT_NO" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="SELECT" setRef="10" setValue="Value" />
+        <map getRef="9" getValue="AREA_NO" setRef="1" setValue="Value" />
+        <map getRef="9" getValue="LOCATION_NO" setRef="3" setValue="Value" />
+        <map getRef="9" getValue="ITEM_CODE" setRef="4" setValue="Value" />
+        <map getRef="9" getValue="ITEM_NAME" setRef="5" setValue="Value" />
+        <map getRef="9" getValue="LOT_NO" setRef="6" setValue="Value" />
+        <map getRef="9" getValue="STOCK_QTY" setRef="8" setValue="Value" />
+        <map getRef="9" getValue="STORAGE_DATETIME" setRef="11" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

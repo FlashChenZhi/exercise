@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.systemstate.SystemStateMaintenanceBusiness" abstractClassName="jp.co.daifuku.wms.system.display.systemstate.SystemStateMaintenance" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.SystemStateMaintenanceSCH" />
+    <ref name="1" type="Control" typeName="txt_InDailyProcess" />
+    <ref name="2" type="Control" typeName="txt_InLoadPlanData" />
+    <ref name="3" type="Control" typeName="txt_InCreateReportData" />
+    <ref name="4" type="Control" typeName="txt_InRetrievalAllocate" />
+    <ref name="5" type="Control" typeName="txt_InAllocationClear" />
+    <ref name="6" type="Control" typeName="HostCommunication" />
+    <ref name="7" type="ViewState" typeName="jp.co.daifuku.wms.system.display.systemstate.ViewStateKeys" />
+    <ref name="8" type="Control" typeName="btn_DailyProcess" />
+    <ref name="9" type="Control" typeName="btn_LoadPlanData" />
+    <ref name="10" type="Control" typeName="btn_CreateReportData" />
+    <ref name="11" type="Control" typeName="btn_RetrievalAllocate" />
+    <ref name="12" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="13" type="String" typeName="String" />
+    <ref name="14" type="Control" typeName="rdo_HostCommunication_Effectiv" />
+    <ref name="15" type="Boolean" typeName="Boolean" />
+    <ref name="16" type="Constants" typeName="Constants" />
+    <ref name="17" type="Control" typeName="rdo_HostCommunication_Invalidi" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="7" setValue="VS_HOST_COMMUNICATION" />
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="7" setValue="VS_IN_DAILY_PROCESS" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="7" setValue="VS_IN_LOAD_PLAN_DATA" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="7" setValue="VS_IN_CREATE_REPORT_DATA" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="7" setValue="VS_IN_RETRIEVAL_ALLOCATE" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="7" setValue="VS_IN_ALLOCATION_CLEAR" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="ReadOnly" />
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_DailyProcess" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="7" getValue="IN_DAILY_PROCESS" setRef="0" setValue="IN_DAILY_PROCESS" />
+      </input1>
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="1" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+      <input2>
+        <map getRef="7" getValue="IN_DAILY_PROCESS" setRef="0" setValue="IN_DAILY_PROCESS" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="1" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_LoadPlanData" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="7" getValue="IN_LOAD_PLAN_DATA" setRef="0" setValue="IN_LOAD_PLAN_DATA" />
+      </input1>
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="2" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+      <input2>
+        <map getRef="7" getValue="IN_LOAD_PLAN_DATA" setRef="0" setValue="IN_LOAD_PLAN_DATA" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="2" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_CreateReportData" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="7" getValue="IN_CREATE_REPORT_DATA" setRef="0" setValue="IN_CREATE_REPORT_DATA" />
+      </input1>
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="3" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+      <input2>
+        <map getRef="7" getValue="IN_CREATE_REPORT_DATA" setRef="0" setValue="IN_CREATE_REPORT_DATA" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_RetrievalAllocate" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="7" getValue="IN_RETRIEVAL_ALLOCATE" setRef="0" setValue="IN_RETRIEVAL_ALLOCATE" />
+      </input1>
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="4" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+      <input2>
+        <map getRef="7" getValue="IN_RETRIEVAL_ALLOCATE" setRef="0" setValue="IN_RETRIEVAL_ALLOCATE" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="7" getValue="IN_HOST_COMMUNICATION" setRef="0" setValue="IN_HOST_COMMUNICATION" />
+      </input1>
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="6" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+      <input2>
+        <map getRef="7" getValue="IN_HOST_COMMUNICATION" setRef="0" setValue="IN_HOST_COMMUNICATION" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="6" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="IN_HOST_COMMUNICATION" setRef="7" setValue="VS_HOST_COMMUNICATION" />
+        <map getRef="0" getValue="IN_DAILY_PROCESS" setRef="7" setValue="VS_IN_DAILY_PROCESS" />
+        <map getRef="0" getValue="IN_LOAD_PLAN_DATA" setRef="7" setValue="VS_IN_LOAD_PLAN_DATA" />
+        <map getRef="0" getValue="IN_CREATE_REPORT_DATA" setRef="7" setValue="VS_IN_CREATE_REPORT_DATA" />
+        <map getRef="0" getValue="IN_RETRIEVAL_ALLOCATE" setRef="7" setValue="VS_IN_RETRIEVAL_ALLOCATE" />
+        <map getRef="0" getValue="IN_ALLOCATION_CLEAR" setRef="7" setValue="VS_IN_ALLOCATION_CLEAR" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="ReadOnly" />
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="btn_AllocationClear" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <part11 operationRef="12" operation="SETTING">
+        <out out1Ref="13" out1Value="5" />
+        <out out1Ref="7" out1Value="VS_IN_DAILY_PROCESS" />
+        <out out1Ref="7" out1Value="VS_IN_LOAD_PLAN_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_CREATE_REPORT_DATA" />
+        <out out1Ref="7" out1Value="VS_IN_RETRIEVAL_ALLOCATE" />
+        <out out1Ref="7" out1Value="VS_IN_ALLOCATION_CLEAR" />
+        <block type="If" tag="1" desc="開始が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_ENABLED" />
+        <block type="If" tag="2" desc="停止が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Checked" rightRef="15" rightValue="True" />
+        </block>
+        <out out1Ref="16" out1Value="HOST_DISABLED" />
+        <block type="None" tag="3" desc="標準出力" />
+        <out out1Ref="7" out1Value="VS_HOST_COMMUNICATION" />
+      </part11>
+    </event>
+  </events>
+</business>

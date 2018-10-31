@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0905" downloadName="PctItemMasterList" reportName="LBL-W6020">
+    <field name="consignor_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="consignor_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_entering_qty" type="number" format="###,###,###,##0" header="LBL-P0053" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="jan" type="string" header="LBL-W0002" printEnabled="true" xlsEnabled="true"/>
+    <field name="itf" type="string" header="LBL-W0017" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="string" header="LBL-P0094" printEnabled="true" xlsEnabled="true"/>
+    <field name="single_weight" type="number" format="###,###,###,##0.0" header="LBL-P0127" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="weght_distinct_rate" type="number" format="###,###,###,##0" header="LBL-P0166" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="max_inspection_unit_qty" type="number" format="###,###,###,##0" header="LBL-P0168" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="last_update" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0068" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="work_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0069" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="item_picture_flag" type="string" header="LBL-P0209" printEnabled="true" xlsEnabled="true"/>
+    <field name="message1" type="string" header="LBL-W0032" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

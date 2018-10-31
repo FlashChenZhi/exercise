@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+  <appender name="CONNECTIONLOGFILE" class="org.apache.log4j.RollingFileAppender">
+    <param name="File"   value="C:/daifuku/wms/tomcat/logs/RFTconnectionlog.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+  <appender name="AUTHFILE" class="org.apache.log4j.RollingFileAppender">
+    <param name="File"   value="C:/daifuku/wms/tomcat/logs/RFTauthentication.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss}\t%m%n"/>
+    </layout>
+  </appender>
+
+   <!-- EManager SQL Log -->
+   <appender name="EMSQLFILE" class="org.apache.log4j.RollingFileAppender">
+    <param name="File"   value="C:/daifuku/wms/tomcat/logs/RFTEmSql.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+<!--
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+-->
+      <param name="ConversionPattern" value="%d{HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+  
+  <!-- EManager SQL log Category-->
+  <category name="EmSql">
+    <priority value="DEBUG"/>
+    <appender-ref ref="EMSQLFILE"/>
+    <appender-ref ref="STDOUT"/>
+  </category>
+
+  <!-- EManager Authentication log Category -->
+  <category name="authentication">
+    <priority value="DEBUG"/>
+    <appender-ref ref="AUTHFILE"/>
+    <appender-ref ref="STDOUT"/>
+  </category>
+    
+   <!-- BlueDOG FrameWork Connection log Category -->
+  <category name="connectionlog">
+    <priority value="INFO"/>
+    <appender-ref ref="CONNECTIONLOGFILE"/>
+    <appender-ref ref="STDOUT"/>
+  </category>
+  <root>
+    <priority value="ERROR" />
+  </root>
+
+</log4j:configuration>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.listbox.shippingresultabcanalysis.LstShippingResultABCAnalysisBusiness" abstractClassName="jp.co.daifuku.wms.analysis.listbox.shippingresultabcanalysis.LstShippingResultABCAnalysis" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.analysis.dasch.LstShippingResultABCAnalysisDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.analysis.listbox.shippingresultabcanalysis.LstShippingResultABCAnalysisParams" />
+    <ref name="3" type="Control" typeName="NO" />
+    <ref name="4" type="Control" typeName="ITEM_CODE" />
+    <ref name="5" type="Control" typeName="ITEM_NAME" />
+    <ref name="6" type="Control" typeName="CLASS" />
+    <ref name="7" type="Control" typeName="SHIP_QTY" />
+    <ref name="8" type="Control" typeName="WORK_QTY" />
+    <ref name="9" type="Control" typeName="SHIP_COUNT" />
+    <ref name="10" type="Control" typeName="PERCENT" />
+    <ref name="11" type="Control" typeName="CUMULATIVE_PERCENT" />
+    <ref name="12" type="Control" typeName="HIDDEN_PERCENT" />
+    <ref name="13" type="Control" typeName="HIDDEN_CUM_PERCENT" />
+    <ref name="14" type="ExportParameter" typeName="jp.co.daifuku.wms.analysis.exporter.ShippingResultABCAnalysisParams" />
+    <ref name="15" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_AbcList">
+      <listcellColumn name="HIDDEN_PERCENT" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CUM_PERCENT" orgIndex="0" dataType="String" />
+      <listcellColumn name="NO" orgIndex="1" resourceKey="LBL-W0004" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="CLASS" orgIndex="4" resourceKey="LBL-W1237" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="SHIP_QTY" orgIndex="5" resourceKey="LBL-W1240" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="WORK_QTY" orgIndex="6" resourceKey="RDB-W1201" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="SHIP_COUNT" orgIndex="7" resourceKey="LBL-W1206" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="PERCENT" orgIndex="8" resourceKey="LBL-W1238" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="CUMULATIVE_PERCENT" orgIndex="9" resourceKey="LBL-W1239" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="ANALYSIS_TYPE" setRef="1" setValue="ANALYSIS_TYPE" />
+        <map getRef="2" getValue="FROM_DATE" setRef="1" setValue="FROM_DATE" />
+        <map getRef="2" getValue="TO_DATE" setRef="1" setValue="TO_DATE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="THRESHOLD_A" setRef="1" setValue="THRESHOLD_A" />
+        <map getRef="2" getValue="THRESHOLD_B" setRef="1" setValue="THRESHOLD_B" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="CLASS" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SHIP_QTY" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="WORK_QTY" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="SHIP_COUNT" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="PERCENT" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="CUMULATIVE_PRECENT" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="PERCENT" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="CUMULATIVE_PERCENT" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="btn_XLS" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="14" exportName="ShippingResultABCAnalysis" exporter="Excel" />
+      <output1>
+        <map getRef="4" getValue="Value" setRef="14" setValue="ITEM_CODE" />
+        <map getRef="5" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="6" getValue="Value" setRef="14" setValue="RANK" />
+        <map getRef="7" getValue="Value" setRef="14" setValue="SHIPPING_QTY" />
+        <map getRef="8" getValue="Value" setRef="14" setValue="WORKING_QTY" />
+        <map getRef="9" getValue="Value" setRef="14" setValue="SHIPPING_CNT" />
+        <map getRef="12" getValue="Value" setRef="14" setValue="RATIO" />
+        <map getRef="13" getValue="Value" setRef="14" setValue="ACCUM_RATIO" />
+      </output1>
+      <part11 operationRef="15" operation="XLS_LIST">
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

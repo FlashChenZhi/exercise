@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.retrieval.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="オーダーNo.入力データシート" />
+  <comment lang="en" value="OrderNo. Input Data Sheet" />
+  <comment lang="zh" value="订单No.输入数据表" />
+  <fields>
+    <field name="FOCUS_FIELD" type="String" separateSize="0" />
+    <field name="ORDER_NO1" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.1" />
+      <comment lang="en" value="OrderNo.1" />
+      <comment lang="zh" value="订单No.1" />
+    </field>
+    <field name="ORDER_NO1_INPUT_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="オーダーNo.1入力フラグ" />
+      <comment lang="en" value="Order # 1 Input Flag" />
+      <comment lang="zh" value="订单No.1输入有效标志" />
+    </field>
+    <field name="ORDER_NO2" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.2" />
+      <comment lang="en" value="OrderNo.2" />
+      <comment lang="zh" value="订单No.2" />
+    </field>
+    <field name="ORDER_NO2_INPUT_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="オーダーNo.2入力フラグ" />
+      <comment lang="en" value="Order # 2 Input Flag" />
+      <comment lang="zh" value="订单No.2输入有效标志" />
+    </field>
+    <field name="ORDER_NO3" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.3" />
+      <comment lang="en" value="OrderNo.3" />
+      <comment lang="zh" value="订单No.3" />
+    </field>
+    <field name="ORDER_NO3_INPUT_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="オーダーNo.3入力フラグ" />
+      <comment lang="en" value="Order # 3 Input Flag" />
+      <comment lang="zh" value="订单No.3输入有效标志" />
+    </field>
+    <field name="ORDER_NO4" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.4" />
+      <comment lang="en" value="OrderNo.4" />
+      <comment lang="zh" value="订单No.4" />
+    </field>
+    <field name="ORDER_NO4_INPUT_ENABLED" type="Boolean" separateSize="0">
+      <comment lang="ja" value="オーダーNo.4入力フラグ" />
+      <comment lang="en" value="Order # 4 Input Flag" />
+      <comment lang="zh" value="订单No.4输入有效标志" />
+    </field>
+  </fields>
+</datasheet>

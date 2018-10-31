@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<properties xmlns="urn:busitune4rft:properties:1.0">
+
+  <!--
+    BusiTune上で非表示にするファイルを指定します。
+    プロジェクトフォルダ/haisurf 配下で表示しないファイルを指定します。
+    (_all、_hidden フォルダはデフォルトで表示されません。)
+    
+    hiddenPages要素
+    value：カンマ区切りでファイル名を指定します。
+  -->
+  <hiddenFiles value="Sql.xml, Event.xml, Custom.xml,"/>
+
+  <!--
+    定数クラスのキー名とジェネレート時に利用するインポートクラス名、出力ソースを指定します。
+    
+    constant要素
+    name   ：識別子を指定します(BusiTune画面上で表示されます)。
+    imports：ジェネレート時に出力するインポートクラス名(パッケージ含む)を指定します。複数指定時はカンマ区切りで指定します。
+    field  ：ジェネレート時に出力するフィールド名を指定します。
+  -->
+  <constants>
+    
+    <!-- sample
+    <constant name="DEFAULT_CONSIGNOR_CODE" 
+              imports="jp.co.daifuku.wms.WmsConstants" 
+              field="WmsConstants.DEFAULT_CONSIGNOR_NAME"/>
+    -->
+    
+    <constant name="TERMINAL_TYPE_HT" 
+              imports="jp.co.daifuku.wms.base.entity.SystemDefine" 
+              field="SystemDefine.TERMINAL_TYPE_HT"/>
+    <constant name="RFT_STATUS_FLAG_START" 
+              imports="jp.co.daifuku.wms.base.entity.SystemDefine" 
+              field="SystemDefine.RFT_STATUS_FLAG_START"/>
+    <constant name="RFT_STATUS_FLAG_STOP" 
+              imports="jp.co.daifuku.wms.base.entity.SystemDefine" 
+              field="SystemDefine.RFT_STATUS_FLAG_STOP"/>
+    <constant name="COMPLETION_FLAG_UNSTART" 
+              imports="jp.co.daifuku.wms.base.common.Parameter" 
+              field="Parameter.COMPLETION_FLAG_UNSTART"/>
+    <constant name="COMPLETION_FLAG_DECISION" 
+              imports="jp.co.daifuku.wms.base.common.Parameter" 
+              field="Parameter.COMPLETION_FLAG_DECISION"/>
+    <constant name="COMPLETION_FLAG_REMNANT" 
+              imports="jp.co.daifuku.wms.base.common.Parameter" 
+              field="Parameter.COMPLETION_FLAG_REMNANT"/>
+    <constant name="COMPLETION_FLAG_COMPLETED" 
+              imports="jp.co.daifuku.wms.base.common.Parameter" 
+              field="Parameter.COMPLETION_FLAG_COMPLETED"/>
+    <constant name="COMPLETION_FLAG_CANCEL" 
+              imports="jp.co.daifuku.wms.base.common.Parameter" 
+              field="Parameter.COMPLETION_FLAG_CANCEL"/>
+    <constant name="RESULT_UPDATE_TYPE_RETRIEVAL_START" 
+              imports="jp.co.daifuku.wms.retrieval.schedule.RetrievalInParameter" 
+              field="RetrievalInParameter.RESULT_UPDATE_TYPE_RETRIEVAL_START"/>
+    <constant name="RESULT_UPDATE_TYPE_RETRIEVAL_CONFIRM" 
+              imports="jp.co.daifuku.wms.retrieval.schedule.RetrievalInParameter" 
+              field="RetrievalInParameter.RESULT_UPDATE_TYPE_RETRIEVAL_CONFIRM"/>
+    <constant name="RESULT_UPDATE_TYPE_RETRIEVAL_SKIP" 
+              imports="jp.co.daifuku.wms.retrieval.schedule.RetrievalInParameter" 
+              field="RetrievalInParameter.RESULT_UPDATE_TYPE_RETRIEVAL_SKIP"/>
+    <constant name="LOCATION_FLAG_EMP" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.LOCATION_FLAG_EMP"/>
+    <constant name="LOCATION_FLAG_SPLY" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.LOCATION_FLAG_SPLY"/>
+    <constant name="DEFAULT_LOCATION_NO" 
+              imports="jp.co.daifuku.wms.base.common.WmsParam" 
+              field="WmsParam.DEFAULT_LOCATION_NO"/>
+    <constant name="FIELD_NAME_ORDERNO1" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.FIELD_NAME_ORDERNO1"/>
+    <constant name="FIELD_NAME_ORDERNO2" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.FIELD_NAME_ORDERNO2"/>
+    <constant name="FIELD_NAME_ORDERNO3" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.FIELD_NAME_ORDERNO3"/>
+    <constant name="FIELD_NAME_ORDERNO4" 
+              imports="jp.co.daifuku.wms.base.rft.RftConst" 
+              field="RftConst.FIELD_NAME_ORDERNO4"/>
+
+  </constants>
+  
+  <!--
+    DataSheetの日付型に利用できるタイプを指定します。
+    
+    dataFormt要素
+    name       ：識別子を指定します。
+    displayName：BusiTune画面上に表示されるテキストを指定します。#から指定するとメッセージリソースで翻訳します。
+    parameters ：DSDateFieldのコンストラクタの引数を指定します。
+    imports    ：ジェネレート時に出力するインポートクラス名(パッケージ含む)を指定します。複数指定時はカンマ区切りで指定します。
+  -->
+  <dateFormats>
+
+    <!-- sample
+    <dateFormat name="DateLongTimeSec" displayName="#DateFormat.DateLongTimeSec"
+                parameters="DATE_FORMAT.LONG, TIME_FORMAT.HMS"
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT, jp.co.daifuku.foundation.common.DfkDateFormat.TIME_FORMAT"/>
+    -->
+    
+    <dateFormat name="DateLongTimeSec" displayName="#DateFormat.DateLongTimeSec" 
+                parameters="DATE_FORMAT.LONG, TIME_FORMAT.HMS" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT, jp.co.daifuku.foundation.common.DfkDateFormat.TIME_FORMAT"/>
+    
+    <dateFormat name="DateLongTimeMillSec" displayName="#DateFormat.DateLongTimeMillSec" 
+                parameters="DATE_FORMAT.LONG, TIME_FORMAT.HMSS" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT, jp.co.daifuku.foundation.common.DfkDateFormat.TIME_FORMAT"/>
+    
+    <dateFormat name="DateLong" displayName="#DateFormat.DateLong" 
+                parameters="DATE_FORMAT.LONG, null" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT"/>
+    
+    <dateFormat name="DateMedium" displayName="#DateFormat.DateMedium" 
+                parameters="DATE_FORMAT.MEDIUM, null" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT"/>
+
+    <dateFormat name="DateShort" displayName="#DateFormat.DateShort" 
+                parameters="DATE_FORMAT.SHORT, null" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.DATE_FORMAT"/>
+
+    <dateFormat name="TimeSec" displayName="#DateFormat.TimeSec" 
+                parameters="null, TIME_FORMAT.HMS" 
+                imports="jp.co.daifuku.foundation.common.DfkDateFormat.TIME_FORMAT"/>
+  
+  </dateFormats>
+  
+  <!--
+    静的なHaiSurfページ情報定義ファイルを指定します。
+    ここで定義された内容がBusiTuneの画面でメッセージとして選択可能になります。
+    
+    messagePage要素
+    name       ：識別子を指定します。
+    displayName：BusiTune画面上に表示されるテキストを指定します。#から指定するとメッセージリソースで翻訳します。
+    type       ：画面のタイプを指定します。(Error/Warning/Information)
+    useMessage ：画面にメッセージを表示する数を指定します。(0～2)
+    page       ：HaiSurfページ情報定義ファイル名を指定します。
+    eventId    ：この画面を表示するためのイベントIDを指定します。指定されない場合は、pageで指定されたファイルを表示します。
+    
+    action要素
+    name       ：識別子を指定します。
+    displayName：BusiTune画面上に表示されるテキストを指定します。#から指定するとメッセージリソースで翻訳します。
+    eventId    ：画面内のイベントIDを指定します。
+  -->
+  <messagePages>
+
+    <!-- sample
+    <messagePage name="ERR_1" displayName="エラー（OK）" type="Error" useMessage="2" page="ErrorDialogA.xml">
+      <actions>
+        <action name="#1" displayName="OK" eventId="ErrA_Ok"/>
+        <action name="#2" displayName="キャンセル" eventId="ErrA_Cancel"/>
+      </actions>
+    </messagePage>
+    -->
+    
+    <messagePage name="ERR_1" displayName="#TLE-0001" type="Error" useMessage="2" page="ErrorDialogA.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0001" eventId="ErrorA_Back"/>
+      </actions>
+    </messagePage>
+
+    <messagePage name="ERR_8" displayName="#TLE-0001" type="Error" useMessage="2" page="ErrorDialogG.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0001" eventId="ErrorG_Back"/>
+      </actions>
+    </messagePage>
+
+    <messagePage name="ERR_2" displayName="#TLE-0002" type="Error" useMessage="2" page="ErrorDialogC.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0002" eventId="ErrorC_Ent"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="ERR_3" displayName="#TLE-0003" type="Error" useMessage="2" page="ErrorDialogB.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0003" eventId="ErrorB_Exit"/>
+        <action name="#2" displayName="#BTN-0002" eventId="ErrorB_Ent"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="ERR_4" displayName="#TLE-0004" type="Error" useMessage="2" page="ErrorDialogD.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0001" eventId="ErrorD_Back"/>
+        <action name="#2" displayName="#BTN-0004" eventId="ErrorD_Resend"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="ERR_5" displayName="#TLE-0005" type="Error" useMessage="2" page="ErrorDialogE.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0001" eventId="ErrorE_Back"/>
+        <action name="#2" displayName="#BTN-0005" eventId="ErrorE_Break"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="ERR_6" displayName="#TLE-0006" type="Error" useMessage="2" page="ErrorDialogF.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0006" eventId="ErrorF_Abort"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="ERR_7" displayName="#TLE-0007" type="Error" useMessage="2" page="ErrorDialogH.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0001" eventId="ErrorH_Back"/>
+        <action name="#2" displayName="#BTN-0006" eventId="ErrorH_Abort"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="WRN_1" displayName="#TLE-0008" type="Warning" useMessage="2" page="WarningDialogA.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0007" eventId="WarningA_Back"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="CNF_1" displayName="#TLE-0009" type="Information" useMessage="2" page="ConfirmDialogA.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0008" eventId="ConfirmA_Yes"/>
+        <action name="#2" displayName="#BTN-0009" eventId="ConfirmA_No"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="CNF_2" displayName="#TLE-0010" type="Information" useMessage="2" page="ConfirmDialogB.xml">
+      <actions>
+        <action name="#1" displayName="#BTN-0007" eventId="ConfirmB_Ent"/>
+      </actions>
+    </messagePage>
+    
+    <messagePage name="END" displayName="#TLE-0011" type="Information" useMessage="0" page="End.xml"/>
+  
+  </messagePages>
+  
+  <!--
+    DataSheetの基本フィールドを指定します。
+    ここで指定された内容が DataSheetのフィールドとして選択可能になります。
+    
+    field要素
+    name        ：DataSheetフィールド名を指定します。
+    type        ：フィールドのタイプを指定します。(String/Date/Number/Boolean)
+    format      ：書式を指定します。type=Date の場合、dateFormat のキー名を指定します。
+    separateSize：type=String の場合、文字列分割数を指定します。(0以上)
+    isArray     ：配列可能か否かを指定します。(true/false(デフォルト))
+  -->
+  <dataSheetFields>
+
+    <!-- sample
+    <field name="$VIEW_SIZE" type="Number" format="0" separateSize="0"/>
+    -->
+    
+    <!--一覧画面1ページ表示件数-->
+    <field name="$VIEW_SIZE" type="Number" format="0" separateSize="0"/>
+
+  </dataSheetFields>
+
+  <!--
+    BusiTuneで利用するリソースの種類と、新規リソースを作成する場合の元になるテンプレートファイルを指定します。
+    通常は変更しないでください。
+  -->
+  <resources>
+    
+    <!--
+      ビジネスリソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="Business" template="Business.xml"/>
+
+    <!--
+      DataSheetリソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="DataSheet" template="DataSheet.xml"/>
+
+    <!--
+      画面マッピングリソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="PageMapping" template="PageMapping.xml"/>
+
+    <!--
+      画面フローリソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="Flow" template="Flow.xml"/>
+
+    <!--
+      HaiSurf ページ情報定義リソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="HaiSurfPage" template="Page.xml"/>
+
+    <!--
+      HaiSurf カスタムクラス情報定義リソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="HaiSurfCustom" template="Custom.xml"/>
+
+    <!--
+      HaiSurf イベント情報定義リソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="HaiSurfEvent" template="Event.xml"/>
+
+    <!--
+      HaiSurf SQL情報定義リソース
+      template：テンプレートファイル名を指定します。(プロジェクトフォルダ/templates 配下のファイル名)
+    -->
+    <resource type="HaiSurfSql" template="Sql.xml"/>
+    
+  </resources>
+
+  <!--
+    BusiTuneでジェネレートされるファイルの基本情報を指定します。
+    通常は変更しないでください。    
+  -->
+  <generators>
+    
+    <!--
+      ビジネスクラス
+      
+      superClass：Java基本クラス名(パッケージ含む)を指定します。
+      template  ：Javaソーステンプレートファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+    -->
+    <generator type="Business" 
+               superClass="jp.co.daifuku.busitune.rft.haisurf.AbstractHSBusiness" 
+               template="Business.java"/>
+
+    <!--
+      SCHクラス
+      
+      superClass：Java基本クラス名(パッケージ含む)を指定します。
+      template  ：Javaソーステンプレートファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+      snippet   ：スニペットファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+    -->
+    <generator type="SchClass" 
+               superClass="jp.co.daifuku.busitune.rft.haisurf.da.AbstractHSScheduler" 
+               template="Sch.java" 
+               snippet="SchSnippet.xml"/>
+
+    <!--
+      SCHParamsクラス
+      
+      superClass：Java基本クラス名(パッケージ含む)を指定します。
+      template  ：Javaソーステンプレートファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+    -->
+    <generator type="SchParamsClass"
+               superClass="jp.co.daifuku.foundation.common.ScheduleParams" 
+               template="SchParams.java"/>
+
+    <!--
+      DataSheetクラス
+      
+      superClass：Java基本クラス名(パッケージ含む)を指定します。
+      template  ：Javaソーステンプレートファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+    -->
+    <generator type="DataSheet" 
+               superClass="jp.co.daifuku.busitune.rft.haisurf.BasicDSModel" 
+               template="DataSheet.java"/>
+
+    <!--
+      処理結果クラス
+      
+      class     ：Javaクラス名(パッケージ含む)を指定します。
+      superClass：Java基本クラス名(パッケージ含む)を指定します。
+      fieldType ：static フィールドのクラス名(パッケージ含む)を指定します。
+      template  ：Javaソーステンプレートファイル名を指定します。プロジェクトフォルダ/templates 配下のファイル名を指定します。
+    -->
+    <generator type="Result" 
+               class="jp.co.daifuku.wms.base.rft.ResultConst" 
+               superClass=""
+               fieldType="java.lang.String" 
+               template="Result.java"/>
+
+    <!--
+      HaiSurf カスタムクラス情報定義ファイル
+      file      ：出力ファイル名を指定します。
+    -->
+    <generator type="HaiSurfCustom"
+               file="Custom.xml"/>
+
+    <!--
+      HaiSurf イベント情報定義ファイル
+      file      ：出力ファイル名を指定します。
+    -->
+    <generator type="HaiSurfEvent"
+               file="Event.xml"/>
+
+    <!--
+      HaiSurfS QL情報定義ファイル
+      file      ：出力ファイル名を指定します。
+    -->
+    <generator type="HaiSurfSql"
+               file="Sql.xml"/>
+  </generators>
+
+  <!--
+    ジェネレート時のConnectionの取得方法を指定します。
+    
+    connection要素
+    getter  ：コネクション取得Javaソースを指定します。
+    imports ：インポートするクラス名(パッケージ含む)を指定します。複数指定時はカンマ区切りで指定します。
+  -->
+  <connection getter="ConnectionManager.getConnection(WMSConstants.DATASOURCE_RFT_NAME)" 
+              imports="jp.co.daifuku.bluedog.sql.ConnectionManager, jp.co.daifuku.wms.base.common.WMSConstants"/>
+
+  <!--
+    ジェネレート時のBEEP音設定を行います。
+    
+    beep要素
+    type    ：音源の種類(ValidateError/...more)
+    getter  ：音源取得Javaソースを指定します。
+    imports ：インポートするクラス名(パッケージ含む)を指定します。複数指定時はカンマ区切りで指定します。
+  -->
+  <beeps>
+    
+    <!--入力チェックエラー-->
+    <beep type="ValidateError" 
+           getter="RftConst.BEEP" 
+           imports="jp.co.daifuku.wms.base.rft.RftConst"/>
+    
+  </beeps>
+
+  <!--
+    ジェネレーターが出力する処理結果値の設定を行います。
+    generator要素(type=Result)のクラス名とは連動していないので、generator要素の設定とは別に定義する必要があります。
+    
+    result要素
+    type    ：処理結果値の種類(Default/ValidateError)
+    getter  ：処理結果値の取得Javaソースを指定します。
+    imports ：インポートするクラス名(パッケージ含む)を指定します。複数指定時はカンマ区切りで指定します。
+  -->
+  <results>
+    
+    <!--デフォルト-->
+    <result type="Default" 
+            getter="ResultConst.NORMAL" 
+            imports="jp.co.daifuku.wms.base.rft.ResultConst" />
+    
+    <!--入力チェックエラー-->
+    <result type="ValidateError" 
+            getter="ResultConst.VALIDATE_ERROR" 
+            imports="jp.co.daifuku.wms.base.rft.ResultConst" />
+  
+  </results>
+  
+</properties>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.rftstate.RFTState2Business" abstractClassName="jp.co.daifuku.wms.system.display.rftstate.RFTState2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_HalfWork_Cancel" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.RFTStateSCH" />
+    <ref name="2" type="Control" typeName="lbl_JavaSetRftNo" />
+    <ref name="3" type="Control" typeName="lbl_JavaSetTerminalType" />
+    <ref name="4" type="Control" typeName="lbl_JavaSetRftStatus" />
+    <ref name="5" type="Control" typeName="lbl_JavaSetUserName" />
+    <ref name="6" type="ViewState" typeName="jp.co.daifuku.wms.system.display.rftstate.ViewStateKeys" />
+    <ref name="7" type="BusinessParameter" typeName="jp.co.daifuku.wms.system.display.rftstate.RFTState2Params" />
+    <ref name="8" type="Control" typeName="HalfWork" />
+    <ref name="9" type="Control" typeName="Deficiency" />
+    <ref name="10" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="11" type="Boolean" typeName="Boolean" />
+    <ref name="12" type="String" typeName="String" />
+    <ref name="13" type="Control" typeName="rdo_HalfWork_Commit" />
+    <ref name="14" type="Control" typeName="rdo_Deficiency_PartialDelivery" />
+    <ref name="15" type="Control" typeName="rdo_Deficiency_Shortage" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="6" setValue="VS_TERMINAL_TYPE" />
+        <map getRef="1" getValue="USER_ID" setRef="6" setValue="VS_USER_ID" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="7" getValue="RFT_NO" setRef="1" setValue="RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="6" setValue="VS_TERMINAL_TYPE" />
+        <map getRef="1" getValue="USER_ID" setRef="6" setValue="VS_USER_ID" />
+      </output1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Edit">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="8" getValue="Value" setRef="1" setValue="WORK_ON_THE_WAY" />
+        <map getRef="9" getValue="Value" setRef="1" setValue="LACK_FLAG" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="RFT_NO" />
+        <map getRef="6" getValue="VS_USER_ID" setRef="1" setValue="USER_ID" />
+      </input1>
+      <part11 operationRef="10" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="6" out1Value="VS_TERMINAL_TYPE" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <block type="If" tag="1" desc="キャンセルするがチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="0" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="1" />
+        <block type="If" tag="2" desc="確定するがチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="13" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="2" />
+        <block type="If" tag="3" desc="分納がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="2" />
+        <block type="If" tag="4" desc="欠品がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="15" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="1" />
+      </part11>
+      <input2>
+        <map getRef="2" getValue="Value" setRef="1" setValue="RFT_NO" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="STATUS_FLAG_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="6" setValue="VS_TERMINAL_TYPE" />
+        <map getRef="1" getValue="USER_ID" setRef="6" setValue="VS_USER_ID" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

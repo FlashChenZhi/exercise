@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.retrieval.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="出庫入力データシート" />
+  <comment lang="en" value="Picking Input Data Sheet" />
+  <comment lang="zh" value="出库输入数据表" />
+  <fields>
+    <field name="AREA_NO" type="String" separateSize="0">
+      <comment lang="ja" value="エリアNo." />
+      <comment lang="en" value="Area #" />
+      <comment lang="zh" value="区域No." />
+    </field>
+    <field name="CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="荷主コード" />
+      <comment lang="en" value="Consignor Code" />
+      <comment lang="zh" value="货主代码" />
+    </field>
+    <field name="IS_LOCK" type="Boolean" separateSize="0">
+      <comment lang="ja" value="検索テーブルロックフラグ" />
+      <comment lang="en" value="Search Table Lock Flag" />
+      <comment lang="zh" value="检索表格锁定标志" />
+    </field>
+    <field name="ITEM_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="商品コード" />
+      <comment lang="en" value="Item Code" />
+      <comment lang="zh" value="商品代码" />
+    </field>
+    <field name="LOCATION" type="String" separateSize="0">
+      <comment lang="ja" value="ロケーションNo." />
+      <comment lang="en" value="Location #" />
+      <comment lang="zh" value="货架No." />
+    </field>
+    <field name="ORDER_NO1" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.1" />
+      <comment lang="en" value="OrderNo.1" />
+      <comment lang="zh" value="订单No.1" />
+    </field>
+    <field name="ORDER_NO2" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.2" />
+      <comment lang="en" value="OrderNo.2" />
+      <comment lang="zh" value="订单No.2" />
+    </field>
+    <field name="ORDER_NO3" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.3" />
+      <comment lang="en" value="OrderNo.3" />
+      <comment lang="zh" value="订单No.3" />
+    </field>
+    <field name="ORDER_NO4" type="String" separateSize="0">
+      <comment lang="ja" value="オーダーNo.4" />
+      <comment lang="en" value="OrderNo.4" />
+      <comment lang="zh" value="订单No.4" />
+    </field>
+    <field name="RESULT_CASE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ケース数" />
+      <comment lang="en" value="Result Case Qty" />
+      <comment lang="zh" value="实绩盒装数" />
+    </field>
+    <field name="RESULT_LOT_NO" type="String" separateSize="0">
+      <comment lang="ja" value="実績ロットNo." />
+      <comment lang="en" value="Result Lot #" />
+      <comment lang="zh" value="实绩批号" />
+    </field>
+    <field name="RESULT_PIECE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ピース数" />
+      <comment lang="en" value="Result Piece Qty" />
+      <comment lang="zh" value="实绩散装数" />
+    </field>
+    <field name="SCAN_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="スキャンコード" />
+      <comment lang="en" value="Scan Code" />
+      <comment lang="zh" value="扫描代码" />
+    </field>
+  </fields>
+</datasheet>

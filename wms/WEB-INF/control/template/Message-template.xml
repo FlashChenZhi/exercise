@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="OperationMsg" keyword="Common" description="Default Message" lastupdate="" username="">
+    <property name="msgResourceKey" value="" />
+    <property name="errorNoMin" value="6000" />
+    <property name="errorNoMax" value="7999" />
+    <property name="attentionNoMin" value="2000" />
+    <property name="attentionNoMax" value="3999" />
+    <property name="warningNoMin" value="4000" />
+    <property name="warningNoMax" value="5999" />
+    <property name="infoNoMin" value="0000" />
+    <property name="infoNoMax" value="1999" />
+    <property name="cssClass" value="message-001" />
+    <property name="balloon" value="true" />
+    <property name="balloonLevel" value="error,attention,warning" />
+  </template>
+  <template key="T_OperationMsg" keyword="eManager" description="Default Message" lastupdate="" username="">
+    <property name="msgResourceKey" value="" />
+    <property name="errorNoMin" value="6000" />
+    <property name="errorNoMax" value="7999" />
+    <property name="attentionNoMin" value="2000" />
+    <property name="attentionNoMax" value="3999" />
+    <property name="warningNoMin" value="4000" />
+    <property name="warningNoMax" value="5999" />
+    <property name="infoNoMin" value="0000" />
+    <property name="infoNoMax" value="1999" />
+    <property name="cssClass" value="message-001" />
+    <property name="balloon" value="true" />
+    <property name="balloonLevel" value="error,attention,warning" />
+  </template>
+  <template key="W_LstOperationMsg" keyword="ListBox" description="Default Message" lastupdate="2009/11/10 20:06:56" username="">
+    <property name="msgResourceKey" value="" />
+    <property name="errorNoMin" value="6000" />
+    <property name="errorNoMax" value="7999" />
+    <property name="attentionNoMin" value="2000" />
+    <property name="attentionNoMax" value="3999" />
+    <property name="warningNoMin" value="4000" />
+    <property name="warningNoMax" value="5999" />
+    <property name="infoNoMin" value="0000" />
+    <property name="infoNoMax" value="1999" />
+    <property name="cssClass" value="message-001" />
+    <property name="balloon" value="false" />
+    <property name="balloonLevel" value="" />
+  </template>
+  <template key="T_LstOperationMsg" keyword="eManager" description="ListBox Message" lastupdate="2010/01/20 10:27:59" username="">
+    <property name="msgResourceKey" value="" />
+    <property name="errorNoMin" value="6000" />
+    <property name="errorNoMax" value="7999" />
+    <property name="attentionNoMin" value="2000" />
+    <property name="attentionNoMax" value="3999" />
+    <property name="warningNoMin" value="4000" />
+    <property name="warningNoMax" value="5999" />
+    <property name="infoNoMin" value="0000" />
+    <property name="infoNoMax" value="1999" />
+    <property name="cssClass" value="message-001" />
+    <property name="balloon" value="false" />
+    <property name="balloonLevel" value="" />
+  </template>
+</templates>

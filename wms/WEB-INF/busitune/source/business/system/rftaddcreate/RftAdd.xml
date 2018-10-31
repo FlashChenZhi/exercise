@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.rftadd.RftAddBusiness" abstractClassName="jp.co.daifuku.wms.system.display.rftadd.RftAdd" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_MachineNumber" />
+    <ref name="1" type="Control" typeName="txt_IpAddress" />
+    <ref name="2" type="Control" typeName="rdo_Japanese" />
+    <ref name="3" type="Control" typeName="rdo_English" />
+    <ref name="4" type="Control" typeName="rdo_Chinese" />
+    <ref name="5" type="Control" typeName="pul_Model" />
+    <ref name="6" type="Control" typeName="chk_WorkKind_TC_Receiving" />
+    <ref name="7" type="Control" typeName="chk_WorkKind_DC_Receiving" />
+    <ref name="8" type="Control" typeName="chk_WorkKind_Storage_Receiving" />
+    <ref name="9" type="Control" typeName="chk_WorkKind_Storage" />
+    <ref name="10" type="Control" typeName="chk_WorkKind_Order_Retrieval" />
+    <ref name="11" type="Control" typeName="chk_WorkKind_Sort" />
+    <ref name="12" type="Control" typeName="chk_WorkKind_Shipping_Pick" />
+    <ref name="13" type="Control" typeName="chk_WorkKind_Shipping_Loading" />
+    <ref name="14" type="Control" typeName="chk_WorkKind_NoPlanStorage" />
+    <ref name="15" type="Control" typeName="chk_WorkKind_NoPlanRetrieval" />
+    <ref name="16" type="Control" typeName="chk_WorkKind_Inventry" />
+    <ref name="17" type="Control" typeName="chk_WorkKind_RelocatinoRetriev" />
+    <ref name="18" type="Control" typeName="chk_WorkKind_RelocatinoStorage" />
+    <ref name="19" type="Control" typeName="btn_Set" />
+    <ref name="20" type="Control" typeName="btn_Clear" />
+    <ref name="21" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.RftAddSCH" />
+    <ref name="22" type="Control" typeName="language" />
+    <ref name="23" type="String" typeName="String" />
+    <ref name="24" type="ViewState" typeName="jp.co.daifuku.wms.system.display.rftadd.ViewStateKeys" />
+    <ref name="25" type="Control" typeName="pul_RftAssort" />
+    <ref name="26" type="Control" typeName="btn_Entry" />
+    <ref name="27" type="Control" typeName="btn_Modify" />
+    <ref name="28" type="Control" typeName="btn_Delete" />
+    <ref name="29" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="30" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_RftAssort" dataType="WmsTerminalTypeModel" />
+    <pulldown name="pul_Model" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="Checked" />
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+        <clear controlRef="16" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Delete" name="Click" pattern="Query">
+      <sch2Display schRef="21" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="21" setValue="MACHINE_NUMBER" />
+      </input1>
+      <output1>
+        <map getRef="21" getValue="IP_ADDRESS" setRef="1" setValue="Value" />
+        <map getRef="21" getValue="LANGUAGE" setRef="22" setValue="Value" />
+        <map getRef="21" getValue="MODEL" setRef="5" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_TC_RECEIVING" setRef="6" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_DC_RECEIVING" setRef="7" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_STORAGE_RECEIVING" setRef="8" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_STORAGE" setRef="9" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_ORDER_RETRIEVAL" setRef="10" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SORT" setRef="11" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SHIPPING_PICK" setRef="12" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SHIPPING_LOADING" setRef="13" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_NO_PLAN_STORAGE" setRef="14" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_NO_PLAN_RETRIEVAL" setRef="15" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_INVENTRY" setRef="16" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_RELOCATINO_RETRIEV" setRef="17" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_RELOCATINO_STORAGE" setRef="18" setValue="Value" />
+        <map getRef="23" getValue="DELETE" setRef="24" setValue="BTN_KEY" />
+        <map getRef="21" getValue="RFT_ASSORT" setRef="24" setValue="VS_RFT_ASSORT" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+        <clear controlRef="27" type="Disabled" />
+        <clear controlRef="28" type="Disabled" />
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="ReadWrite" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="25" type="Enabled" />
+        <clear controlRef="26" type="Enabled" />
+        <clear controlRef="27" type="Enabled" />
+        <clear controlRef="28" type="Enabled" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Checked" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+        <clear controlRef="16" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="21" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="25" required="true" />
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="21" setValue="MACHINE_NUMBER" />
+        <map getRef="25" getValue="Value" setRef="21" setValue="RFT_ASSORT" />
+        <map getRef="1" getValue="Value" setRef="21" setValue="IP_ADDRESS" />
+        <map getRef="22" getValue="Value" setRef="21" setValue="LANGUAGE" />
+        <map getRef="5" getValue="Value" setRef="21" setValue="MODEL" />
+        <map getRef="6" getValue="Value" setRef="21" setValue="WORK_KIND_TC_RECEIVING" />
+        <map getRef="7" getValue="Value" setRef="21" setValue="WORK_KIND_DC_RECEIVING" />
+        <map getRef="8" getValue="Value" setRef="21" setValue="WORK_KIND_STORAGE_RECEIVING" />
+        <map getRef="9" getValue="Value" setRef="21" setValue="WORK_KIND_STORAGE" />
+        <map getRef="10" getValue="Value" setRef="21" setValue="WORK_KIND_ORDER_RETRIEVAL" />
+        <map getRef="11" getValue="Value" setRef="21" setValue="WORK_KIND_SORT" />
+        <map getRef="12" getValue="Value" setRef="21" setValue="WORK_KIND_SHIPPING_PICK" />
+        <map getRef="13" getValue="Value" setRef="21" setValue="WORK_KIND_SHIPPING_LOADING" />
+        <map getRef="14" getValue="Value" setRef="21" setValue="WORK_KIND_NO_PLAN_STORAGE" />
+        <map getRef="15" getValue="Value" setRef="21" setValue="WORK_KIND_NO_PLAN_RETRIEVAL" />
+        <map getRef="16" getValue="Value" setRef="21" setValue="WORK_KIND_INVENTRY" />
+        <map getRef="17" getValue="Value" setRef="21" setValue="WORK_KIND_RELOCATINO_RETRIEV" />
+        <map getRef="18" getValue="Value" setRef="21" setValue="WORK_KIND_RELOCATINO_STORAGE" />
+        <map getRef="24" getValue="BTN_KEY" setRef="21" setValue="BTN_DISTINCTION" />
+        <map getRef="24" getValue="VS_RFT_ASSORT" setRef="21" setValue="TERMINALTYPE" />
+      </input1>
+      <part11 operationRef="29" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="25" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <block type="If" tag="1" desc="日本語がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Checked" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="00" />
+        <block type="If" tag="2" desc="英語がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Checked" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="01" />
+        <block type="If" tag="3" desc="中国語がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="02" />
+        <out out1Ref="5" out1Value="Value" />
+        <block type="If" tag="4" desc="TC入荷がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="6" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="4" desc="TC入荷がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="5" desc="DC入荷がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="7" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="5" desc="DC入荷がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="6" desc="入庫(入荷エリア)がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="8" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="6" desc="入庫(入荷エリア)がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="7" desc="入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="9" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="7" desc="入庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="8" desc="オーダー出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="8" desc="オーダー出庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="9" desc="仕分がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="11" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="9" desc="仕分がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="10" desc="出荷検品(出荷先別)がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="12" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="10" desc="出荷検品(出荷先別)がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="11" desc="出荷積込がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="13" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="11" desc="出荷積込がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="12" desc="予定外入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="14" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="12" desc="予定外入庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="13" desc="予定外出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="15" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="13" desc="予定外出庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="14" desc="棚卸がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="16" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="14" desc="棚卸がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="15" desc="移動出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="17" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="15" desc="移動出庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+        <block type="If" tag="16" desc="移動入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="18" leftValue="Value" rightRef="30" rightValue="True" />
+        </block>
+        <out out1Ref="23" out1Value="1" />
+        <block type="Else" tag="16" desc="移動入庫がチェックされている場合" />
+        <out out1Ref="23" out1Value="0" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="0" type="ReadWrite" />
+        <clear controlRef="25" type="Enabled" />
+        <clear controlRef="26" type="Enabled" />
+        <clear controlRef="27" type="Enabled" />
+        <clear controlRef="28" type="Enabled" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="15" type="Disabled" />
+        <clear controlRef="16" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+        <clear controlRef="20" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Query">
+      <sch2Display schRef="21" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="21" setValue="MACHINE_NUMBER" />
+      </input1>
+      <output1>
+        <map getRef="21" getValue="IP_ADDRESS" setRef="1" setValue="Value" />
+        <map getRef="21" getValue="LANGUAGE" setRef="22" setValue="Value" />
+        <map getRef="21" getValue="MODEL" setRef="5" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_TC_RECEIVING" setRef="6" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_DC_RECEIVING" setRef="7" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_STORAGE_RECEIVING" setRef="8" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_STORAGE" setRef="9" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_ORDER_RETRIEVAL" setRef="10" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SORT" setRef="11" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SHIPPING_PICK" setRef="12" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_SHIPPING_LOADING" setRef="13" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_NO_PLAN_STORAGE" setRef="14" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_NO_PLAN_RETRIEVAL" setRef="15" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_INVENTRY" setRef="16" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_RELOCATINO_RETRIEV" setRef="17" setValue="Value" />
+        <map getRef="21" getValue="WORK_KIND_RELOCATINO_STORAGE" setRef="18" setValue="Value" />
+        <map getRef="23" getValue="MODIFY" setRef="24" setValue="BTN_KEY" />
+        <map getRef="21" getValue="RFT_ASSORT" setRef="24" setValue="VS_RFT_ASSORT" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+        <clear controlRef="27" type="Disabled" />
+        <clear controlRef="28" type="Disabled" />
+        <clear controlRef="1" type="ReadWrite" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="12" type="Enabled" />
+        <clear controlRef="13" type="Enabled" />
+        <clear controlRef="14" type="Enabled" />
+        <clear controlRef="15" type="Enabled" />
+        <clear controlRef="16" type="Enabled" />
+        <clear controlRef="17" type="Enabled" />
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Entry" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="21" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="21" setValue="MACHINE_NUMBER" />
+      </input1>
+      <input2 ignore="true" />
+      <output1>
+        <map getRef="23" getValue="CREATE" setRef="24" setValue="BTN_KEY" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+        <clear controlRef="27" type="Disabled" />
+        <clear controlRef="28" type="Disabled" />
+        <clear controlRef="1" type="ReadWrite" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="12" type="Enabled" />
+        <clear controlRef="13" type="Enabled" />
+        <clear controlRef="14" type="Enabled" />
+        <clear controlRef="15" type="Enabled" />
+        <clear controlRef="16" type="Enabled" />
+        <clear controlRef="17" type="Enabled" />
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Enabled" />
+      </clear1>
+      <focus controlRef="1" />
+    </event>
+  </events>
+</business>

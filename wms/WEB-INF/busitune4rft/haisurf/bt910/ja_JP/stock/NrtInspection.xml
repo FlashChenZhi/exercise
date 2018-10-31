@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--予定外出庫検品画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0" formscan="true" formscanevent="NrtInspect_Scan" scmodeonline="true">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>予定外出庫(検品)　　　　　　　</caption>
+    </label>
+    <label name="line1" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>15</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblLocation" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>棚：　　　　　　　　　　</caption>
+    </label>
+    <label name="lblLocationNo" font-id="font12" visible="true">
+      <align>left</align>
+      <x>20</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>%NoPlanRetrievalOutDataSheet.AREA_LOCATION%</caption>
+    </label>
+    <label name="lblItemCode" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>28</y>
+      <w>
+      </w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblItemName1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_NAME0%</caption>
+    </label>
+    <label name="lblItemName2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>14</w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_NAME1%</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>53</y>
+      <w>3</w>
+      <caption>%NoPlanRetrievalOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="line2" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>80</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblLot" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ﾛｯﾄ:%NoPlanRetrievalOutDataSheet.RESULT_LOT_NO%　　                   　</caption>
+    </label>
+    <label name="lblCasePiece" font-id="font12" visible="true">
+      <align>left</align>
+      <x>72</x>
+      <y>93</y>
+      <w>
+      </w>
+      <caption>%CommonDataSheet.CASE_PIECE_LABEL%ﾓｰﾄﾞ</caption>
+    </label>
+    <button name="Cancel" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:ｷｬﾝｾﾙ　　　　</caption>
+      <event>NrtInspect_Cancel</event>
+      <key>KL</key>
+    </button>
+    <button name="CP" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>60</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>R:ﾓｰﾄﾞ切替</caption>
+      <event>NrtInspect_CP</event>
+      <key>KR</key>
+    </button>
+    <button name="Input1" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>F2:入力</caption>
+      <event>NrtInspect_Input1</event>
+      <key>F2</key>
+    </button>
+    <button name="Input2" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtInspect_Input2</event>
+      <key>F3</key>
+    </button>
+    <button name="Ent" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>71</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>ENT:確定</caption>
+      <event>NrtInspect_Ent</event>
+      <key>ET</key>
+    </button>
+    <label name="lblEntering" font-id="font12" visible="true">
+      <align>left</align>
+      <x>108</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>入</caption>
+    </label>
+    <label name="lblCase" font-id="font12" visible="true">
+      <align>left</align>
+      <x>50</x>
+      <y>67</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ</caption>
+    </label>
+    <label name="lblPiece" font-id="font12" visible="true">
+      <align>left</align>
+      <x>96</x>
+      <y>67</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ</caption>
+    </label>
+    <label name="lblCaseQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>26</x>
+      <y>67</y>
+      <w>4</w>
+      <caption>%NoPlanRetrievalOutDataSheet.RESULT_CASE_QTY%</caption>
+    </label>
+    <label name="lblPieceQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>72</x>
+      <y>67</y>
+      <w>4</w>
+      <caption>%NoPlanRetrievalOutDataSheet.RESULT_PIECE_QTY%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

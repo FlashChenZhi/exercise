@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.changestationpopup.AsChangeStationPopupBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.changestationpopup.AsChangeStationPopup" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="LST_SELECT" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsChangeStationPopupSCH" />
+    <ref name="2" type="Control" typeName="LST_STATION_NO" />
+    <ref name="3" type="Control" typeName="LST_STATION_NAME" />
+    <ref name="4" type="Control" typeName="LST_MODE_TYPE" />
+    <ref name="5" type="Control" typeName="LST_CURRENT_MODE" />
+    <ref name="6" type="Control" typeName="LST_STATUS" />
+    <ref name="7" type="Control" typeName="LST_SUSPEND" />
+    <ref name="8" type="Control" typeName="LST_WORK_COUNT" />
+    <ref name="9" type="Control" typeName="HDN_MODE_TYPE" />
+    <ref name="10" type="Control" typeName="HDN_CURRENT_MODE" />
+    <ref name="11" type="Control" typeName="HDN_STATUS" />
+    <ref name="12" type="Control" typeName="HDN_SUSPEND" />
+    <ref name="13" type="Control" typeName="lst_ChangeStationStatus" />
+    <ref name="14" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="15" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ChangeStationStatus">
+      <listcellColumn name="HDN_MODE_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HDN_CURRENT_MODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HDN_STATUS" orgIndex="0" dataType="String" />
+      <listcellColumn name="HDN_SUSPEND" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="2" resourceKey="LBL-W0022" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NAME" orgIndex="3" resourceKey="LBL-W0023" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_MODE_TYPE" orgIndex="4" resourceKey="LBL-W0147" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CURRENT_MODE" orgIndex="5" resourceKey="LBL-W0075" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATUS" orgIndex="6" resourceKey="LBL-W0058" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SUSPEND" orgIndex="7" resourceKey="LBL-W0086" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_COUNT" orgIndex="8" resourceKey="LBL-W0080" dataType="Number" format="0" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="STATION_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATION_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="STATUS_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND_NAME" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_Operation" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="13" required="true" />
+      </validate>
+      <input1>
+        <map getRef="12" getValue="Value" setRef="1" setValue="SUSPEND" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <part11 operationRef="14" operation="SETTING">
+        <out out1Ref="15" out1Value="0" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="STATION_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATION_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="STATUS_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND_NAME" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_Suspension" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="13" required="true" />
+      </validate>
+      <input1>
+        <map getRef="12" getValue="Value" setRef="1" setValue="SUSPEND" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="STATION_NO" />
+      </input1>
+      <part11 operationRef="14" operation="SETTING">
+        <out out1Ref="15" out1Value="1" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="STATION_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATION_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="STATUS_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND_NAME" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="STATION_NO" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STATION_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="STATUS_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND_NAME" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+  </events>
+</business>

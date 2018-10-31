@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctcustregist.PCTCustomerMasterRegistBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctcustregist.PCTCustomerMasterRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Control" typeName="txt_CustomerCode" />
+    <ref name="2" type="Control" typeName="txt_CustomerName" />
+    <ref name="3" type="Control" typeName="pul_WorkPriority" />
+    <ref name="4" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTCustomerMasterRegistSCH" />
+    <ref name="5" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.registcust.LstRegistCustomerParams" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.consignor.LstConsignorParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_WorkPriority" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="Regist">
+      <sch2Display schRef="4" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="4" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="Value" setRef="4" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="Value" setRef="4" setValue="CUSTOMER_NAME" />
+        <map getRef="3" getValue="Value" setRef="4" setValue="JOB_PRIORITY" />
+      </input1>
+    </event>
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/registcust/LstRegistCustomer" businessParameterRef="5" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="5" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="Value" setRef="5" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="CUSTOMER_CODE" setRef="1" setValue="Value" />
+        <map getRef="5" getValue="CUSTOMER_NAME" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_SearchConsignor" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/consignor/LstConsignor" businessParameterRef="6" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

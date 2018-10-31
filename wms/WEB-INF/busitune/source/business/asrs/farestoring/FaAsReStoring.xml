@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.farestoring.FaAsReStoringBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.farestoring.FaAsReStoring" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_WorkNo" />
+    <ref name="1" type="Control" typeName="pul_SoftZone" />
+    <ref name="2" type="Control" typeName="pul_Area" />
+    <ref name="3" type="Control" typeName="pul_WorkPlace" />
+    <ref name="4" type="Control" typeName="pul_Station" />
+    <ref name="5" type="Control" typeName="lst_FaAsReStoring" />
+    <ref name="6" type="Control" typeName="btn_Set" />
+    <ref name="7" type="Control" typeName="btn_AllClear" />
+    <ref name="8" type="Control" typeName="btn_WorkListPrint" />
+    <ref name="9" type="Control" typeName="chk_LWorkListPrint" />
+    <ref name="10" type="Control" typeName="btn_Input" />
+    <ref name="11" type="Control" typeName="btn_Clear" />
+    <ref name="12" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.farestoringplandetail.FaLstAsReStoringPlanDetailParams" />
+    <ref name="13" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.FaAsReStoringSCH" />
+    <ref name="14" type="Control" typeName="LST_WORK_NO" />
+    <ref name="15" type="Control" typeName="HIDDEN_SOFT_ZONE_ID" />
+    <ref name="16" type="Control" typeName="LST_SOFT_ZONE_NAME" />
+    <ref name="17" type="String" typeName="String" />
+    <ref name="18" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="19" type="Boolean" typeName="Boolean" />
+    <ref name="20" type="Dasch" typeName="jp.co.daifuku.wms.storage.dasch.FaStorageListDASCH" />
+    <ref name="21" type="ExportParameter" typeName="jp.co.daifuku.wms.asrs.exporter.ReStoringWorkListParams" />
+    <ref name="22" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.farestoring.ViewStateKeys" />
+    <ref name="23" type="Constants" typeName="Constants" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsStorage" />
+    <pulldown name="pul_WorkPlace" dataType="WmsWorkspaceStorage" parent="pul_Area" />
+    <pulldown name="pul_Station" dataType="WmsStationStorageAuto" parent="pul_WorkPlace" />
+    <pulldown name="pul_SoftZone" dataType="WmsSoftZoneArea" parent="pul_Area" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaAsReStoring">
+      <listcellColumn name="HIDDEN_SOFT_ZONE_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W0108" dataType="String" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" />
+      <listcellColumn name="LST_NO" orgIndex="3" resourceKey="LBL-W0004" dataType="String" />
+      <listcellColumn name="LST_WORK_NO" orgIndex="4" resourceKey="LBL-W0074" dataType="String" />
+      <listcellColumn name="LST_SOFT_ZONE_NAME" orgIndex="5" resourceKey="LBL-W0597" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Clear" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_PWorkNoDetail" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/farestoringplandetail/FaLstAsReStoringPlanDetail" businessParameterRef="12" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="WORK_NO" />
+      </input1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Input" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="13" />
+      <validate>
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="2" getValue="Value" setRef="13" setValue="AREA_NO" />
+        <map getRef="3" getValue="Value" setRef="13" setValue="WORK_PLACE" />
+        <map getRef="4" getValue="Value" setRef="13" setValue="STATION_NO" />
+        <map getRef="0" getValue="Value" setRef="13" setValue="WORK_NO" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="SOFT_ZONE_ID" />
+      </input1>
+      <input2>
+        <map getRef="14" getValue="Value" setRef="13" setValue="WORK_NO" />
+        <map getRef="15" getValue="Value" setRef="13" setValue="SOFT_ZONE_ID" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="Value" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="Value" setRef="15" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="13" />
+      <validate>
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="15" getValue="Value" setRef="13" setValue="SOFT_ZONE_ID" />
+        <map getRef="14" getValue="Value" setRef="13" setValue="WORK_NO" />
+        <map getRef="2" getValue="Value" setRef="13" setValue="AREA_NO" />
+        <map getRef="3" getValue="Value" setRef="13" setValue="WORK_PLACE" />
+        <map getRef="4" getValue="Value" setRef="13" setValue="STATION_NO" />
+        <map getRef="9" getValue="Value" setRef="13" setValue="PRINT_FLAG" />
+        <map getRef="17" setRef="13" setValue="SETTING_UNIT_KEY" />
+        <map getRef="17" setRef="13" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="18" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <block type="If" tag="1" desc="作業リストのチェックあり">
+          <expr type="And" operator="Equal" leftRef="9" leftValue="Value" rightRef="19" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="1" />
+        <block type="Else" tag="1" desc="作業リストのチェックあり" />
+        <out out1Ref="17" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Clear" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_WorkListPrint" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="20" exportParameterRef="21" exportName="ReStoringWorkList" exporter="Print" />
+      <input1>
+        <map getRef="22" getValue="VS_SETTING_UNIT_KEY" setRef="20" setValue="SETTING_UNIT_KEY" />
+        <map getRef="23" getValue="SEARCH_ASRS_RESTORING_LIST" setRef="20" setValue="WORK_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="20" getValue="DFK_DS_NO" setRef="21" setValue="DFK_DS_NO" />
+        <map getRef="20" getValue="DFK_USER_ID" setRef="21" setValue="DFK_USER_ID" />
+        <map getRef="20" getValue="DFK_USER_NAME" setRef="21" setValue="DFK_USER_NAME" />
+        <map getRef="20" getValue="SYS_DAY" setRef="21" setValue="SYS_DAY" />
+        <map getRef="20" getValue="SYS_TIME" setRef="21" setValue="SYS_TIME" />
+        <map getRef="20" getValue="STATION_NO" setRef="21" setValue="STATION_NO" />
+        <map getRef="20" getValue="STATION_NAME" setRef="21" setValue="STATION_NAME" />
+        <map getRef="20" getValue="WORK_NO" setRef="21" setValue="WORK_NO" />
+        <map getRef="20" getValue="LOCATION_NO" setRef="21" setValue="LOCATION_NO" />
+        <map getRef="20" getValue="ITEM_CODE" setRef="21" setValue="ITEM_CODE" />
+        <map getRef="20" getValue="ITEM_NAME" setRef="21" setValue="ITEM_NAME" />
+        <map getRef="20" getValue="LOT_NO" setRef="21" setValue="LOT_NO" />
+        <map getRef="20" getValue="WORK_QTY" setRef="21" setValue="WORK_QTY" />
+        <map getRef="20" getValue="AREA_NO" setRef="21" setValue="AREA_NO" />
+      </output1>
+      <part11 operationRef="18" operation="PRINT">
+        <out out1Ref="17" />
+      </part11>
+    </event>
+    <event control="LST_MODIFY" name="Click" pattern="ListCellRowEdit">
+      <output1>
+        <map getRef="15" getValue="Value" setRef="1" setValue="Value" />
+        <map getRef="14" getValue="Value" setRef="0" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+  </events>
+</business>

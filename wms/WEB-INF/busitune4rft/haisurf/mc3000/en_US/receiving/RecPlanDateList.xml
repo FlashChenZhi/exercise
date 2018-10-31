@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--PlanDateList-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>26</h>
+      <caption>Date List</caption>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>192</x>
+      <y>6</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>(Page:%PlanDateListDataSheet.$PAGE%/%PlanDateListDataSheet.$NUM_PAGES%)</caption>
+    </label>
+    <button name="Ent1" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[0]%" inputchecked="false">
+      <x>0</x>
+      <y>54</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[0]%</caption>
+      <event>PlanDateL_Ent1</event>
+    </button>
+    <button name="Ent2" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[1]%" inputchecked="false">
+      <x>162</x>
+      <y>54</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[1]%</caption>
+      <event>PlanDateL_Ent2</event>
+    </button>
+    <button name="Ent3" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[2]%" inputchecked="false">
+      <x>0</x>
+      <y>108</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[2]%</caption>
+      <event>PlanDateL_Ent3</event>
+    </button>
+    <button name="Ent4" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[3]%" inputchecked="false">
+      <x>162</x>
+      <y>108</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[3]%</caption>
+      <event>PlanDateL_Ent4</event>
+    </button>
+    <button name="Ent5" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[4]%" inputchecked="false">
+      <x>0</x>
+      <y>162</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[4]%</caption>
+      <event>PlanDateL_Ent5</event>
+    </button>
+    <button name="Ent6" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[5]%" inputchecked="false">
+      <x>162</x>
+      <y>162</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[5]%</caption>
+      <event>PlanDateL_Ent6</event>
+    </button>
+    <button name="Ent7" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[6]%" inputchecked="false">
+      <x>0</x>
+      <y>216</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[6]%</caption>
+      <event>PlanDateL_Ent7</event>
+    </button>
+    <button name="Ent8" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.@ENABLED[7]%" inputchecked="false">
+      <x>162</x>
+      <y>216</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%PlanDateListDataSheet.@PLAN_DATE[7]%</caption>
+      <event>PlanDateL_Ent8</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.$PREV_ENABLED%" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>PlanDateL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%PlanDateListDataSheet.$NEXT_ENABLED%" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>PlanDateL_Next</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Retrun</caption>
+      <event>PlanDateL_Back</event>
+    </button>
+  </form>
+</HaiSurf.Page>

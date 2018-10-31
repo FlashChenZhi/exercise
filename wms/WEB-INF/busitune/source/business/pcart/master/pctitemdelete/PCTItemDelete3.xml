@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDelete3Business" abstractClassName="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDelete3">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemDelete3SCH" />
+    <ref name="1" type="Constants" typeName="Constants" />
+    <ref name="2" type="Control" typeName="lbl_In_DataFileFolder" />
+    <ref name="3" type="Control" typeName="lbl_In_DataFileName" />
+    <ref name="4" type="Control" typeName="btn_Start" />
+    <ref name="5" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctitemdelete.ViewStateKeys" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemDelete2SCH" />
+  </refs>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="1" getValue="DMPDATA_FILE_PATH" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="DMPDATA_FILE_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="4" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctitemdelete/PCTItemDelete" viewStateRef="5" />
+    </event>
+    <event control="btn_Start" name="Click" pattern="Regist">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="DMPDATA_FILE_PATH" setRef="6" setValue="DATA_FOLDER" />
+        <map getRef="1" getValue="DMPDATA_FILE_NAME" setRef="6" setValue="DATA_FILE_NAME" />
+      </input1>
+    </event>
+  </events>
+</business>

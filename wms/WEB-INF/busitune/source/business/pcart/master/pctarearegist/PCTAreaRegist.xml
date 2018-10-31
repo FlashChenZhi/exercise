@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctarearegist.PCTAreaRegistBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctarearegist.PCTAreaRegist">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_Area" />
+    <ref name="1" type="Control" typeName="txt_AreaName" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.area.LstAreaParams" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTAreaRegistSCH" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/area/LstArea" businessParameterRef="2" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="AREA_NO" setRef="0" setValue="Value" />
+        <map getRef="2" getValue="AREA_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="3" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="AREA_NAME" />
+      </input1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator>
+
+  <!-- 変数 -->
+  <valiable name="superClass">jp.co.daifuku.foundation.common.Params</valiable>
+  <valiable name="fieldClass">jp.co.daifuku.foundation.common.ParamKey</valiable>
+  <valiable name="imports" type="HashSet"/>
+  <valiable name="fields" type="List"/>
+
+  <!-- 初期インポート -->
+  <set name="imports" select="$superClass"/>
+
+  <!-- フィールド -->
+  <foreach select="fields/field">
+    <set name="imports" select="$fieldClass"/>
+    <set name="fields" xml:space="preserve">
+      /** <valueof select="@name"/> */<br/>
+      public static final <valueof select="class-name($fieldClass)"/> <valueof select="@name"/> = new <valueof select="class-name($fieldClass)"/>("<valueof select="@name"/>");<br/>
+      <br/>
+    </set>
+  </foreach>
+
+  <!-- 最終出力 -->
+  <template enableLineBreak="true">
+    // $Id$
+    package <valueof select="package-name(@class)"/>;
+
+    /*
+     * Copyright(c) 2000-2010 DAIFUKU Co.,Ltd. All Rights Reserved.
+     *
+     * This software is the proprietary information of DAIFUKU Co.,Ltd.
+     * Use is subject to license terms.
+     */
+    import java.io.IOException;
+    import java.util.Map;
+    import jp.co.daifuku.bluedog.util.StringParameters;
+    import jp.co.daifuku.foundation.common.Key;
+
+    <foreach select="$imports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import <valueof />;<br/>
+    </foreach>
+
+    /**
+     * Transfer Object class is used for transfering data between Business and Exporter(CSV,EXCEL) classes
+     *
+     * @version $Revision$, $Date$
+     * @author  BusiTune.
+     * @author  Last commit: $Author$
+     */
+    public class <valueof select="class-name(@class)"/>
+            extends <valueof select="class-name($superClass)"/>
+    {
+        //------------------------------------------------------------
+        // fields (upper case only)
+        //------------------------------------------------------------
+        <foreach select="$fields"/>
+
+        //------------------------------------------------------------
+        // class variables (prefix '$')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // instance variables (prefix '_')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // constructors
+        //------------------------------------------------------------
+        /**
+         * Default constructor
+         */
+        public <valueof select="class-name(@class)"/>()
+        {
+            super();
+        }
+
+        /**
+         * Constructor to create Object with request parameters
+         * This constructor when values are passes between two screens
+         * For exmaple, from POPUP to parent screen.
+         * @param param StringParameters
+         * @throws IOException
+         */
+        public <valueof select="class-name(@class)"/>(StringParameters param)
+                throws IOException
+        {
+            super(param);
+        }
+
+        /**
+         *
+         * @param initMap Map
+         */
+        public <valueof select="class-name(@class)"/>(Map&lt;Key, Object&gt; initMap)
+        {
+            super(initMap);
+        }
+
+        //------------------------------------------------------------
+        // public methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // accessor methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // package methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // protected methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // private methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // utility methods
+        //------------------------------------------------------------
+        /**
+         * Returns current repository info for this class
+         * @return version
+         */
+        public static String getVersion()
+        {
+            return "$Id$";
+        }
+    }
+    //end of class
+  </template>
+
+</generator>

@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="NstInspection" type="Page" />
+    <ref name="1" typeName="WRN_1" type="MessagePage" />
+    <ref name="10" typeName="NstLocationInput" type="Page" />
+    <ref name="11" typeName="noplanstorage" type="Flow" />
+    <ref name="12" typeName="ERR_7" type="MessagePage" />
+    <ref name="13" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="14" typeName="ItemDataSheet" type="DataSheet" />
+    <ref name="15" typeName="ERR_5" type="MessagePage" />
+    <ref name="16" typeName="LocationListDataSheet" type="DataSheet" />
+    <ref name="17" typeName="LocationDataSheet" type="DataSheet" />
+    <ref name="18" typeName="CNF_1" type="MessagePage" />
+    <ref name="19" typeName="StoLocationSearch" type="Page" />
+    <ref name="2" typeName="NoPlanStorageOutDataSheet" type="DataSheet" />
+    <ref name="20" typeName="NstCancelConfirm" type="Page" />
+    <ref name="21" typeName="StoLocationList" type="Page" />
+    <ref name="22" typeName="ERR_1" type="MessagePage" />
+    <ref name="3" typeName="noplanstorage_qytinput" type="Flow" />
+    <ref name="4" typeName="String" type="String" />
+    <ref name="5" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="6" typeName="Boolean" type="Boolean" />
+    <ref name="7" typeName="NoPlanStorageInDataSheet" type="DataSheet" />
+    <ref name="8" typeName="CNF_2" type="MessagePage" />
+    <ref name="9" typeName="NstEntQtyInput" type="Page" />
+    <ref name="23" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043012">
+              <conditions>
+                <condition typeRef="23" name="INSP_ENTZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043009">
+              <conditions>
+                <condition typeRef="23" name="INSP_CPMODE" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="itemCode_Scan" order="1">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043011">
+              <conditions>
+                <condition typeRef="23" name="INSP_OTHER" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043012">
+              <conditions>
+                <condition typeRef="23" name="INSP_ENTZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6043009">
+              <conditions>
+                <condition typeRef="23" name="INSP_CPMODE" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="cancel_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstCancelConfirm" />
+          </forwards>
+        </action>
+        <action name="cp_Click" order="3">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="input1_Click" order="4">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstEntQtyInput">
+              <params>
+                <map getterTypeRef="2" getterValue="ENTERING_QTY" setterTypeRef="2" setterValue="TEMP_ENTERING_QTY" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="input2_Click" order="5">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="3" nodeName="NstQtyInput">
+              <params>
+                <map getterTypeRef="4" getterValue="1" setterTypeRef="5" setterValue="INPUT_TYPE" />
+                <map getterTypeRef="2" getterValue="RESULT_LOT_NO" setterTypeRef="2" setterValue="TEMP_RESULT_LOT_NO" />
+                <map getterTypeRef="2" getterValue="RESULT_QTY" setterTypeRef="2" setterValue="TEMP_RESULT_QTY" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="input3_Click" order="6">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="3" nodeName="NstQtyInput">
+              <params>
+                <map getterTypeRef="4" getterValue="2" setterTypeRef="5" setterValue="INPUT_TYPE" />
+                <map getterTypeRef="2" getterValue="RESULT_LOT_NO" setterTypeRef="2" setterValue="TEMP_RESULT_LOT_NO" />
+                <map getterTypeRef="2" getterValue="RESULT_QTY" setterTypeRef="2" setterValue="TEMP_RESULT_QTY" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="7">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstLocationInput">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+            </forward>
+            <forward forwardType="Child" message1="6043026">
+              <conditions>
+                <condition typeRef="23" name="INSP_ZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="8">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="9">
+      <actions>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstInspection">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="enteringQty_Enter" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstInspection">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="10">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="11" nodeName="NstItemInput">
+              <conditions>
+                <condition typeRef="23" name="NORMAL_COMPLETE" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="2" />
+              </remove>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="AREA_INVALIDITY" />
+                <condition typeRef="23" name="DAILY_UPDATING" />
+                <condition typeRef="23" name="ILLEGAL_LOCATION_FORMAT" />
+                <condition typeRef="23" name="MAINTENANCE" />
+                <condition typeRef="23" name="RESULTQTY_OVER" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="DATA_EXISTS" />
+                <condition typeRef="23" name="DB_ACCESS_ERROR" />
+                <condition typeRef="23" name="ERROR" />
+                <condition typeRef="23" name="INSTACIATE_ERROR" />
+                <condition typeRef="23" name="PATTERN_NG" />
+                <condition typeRef="23" name="SCHEDULE_ERROR" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <nodes>
+                <node typeRef="12">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Flow" flowTypeRef="11" nodeName="WorkerInput">
+                          <remove>
+                            <item dataSheetRef="13" />
+                            <item dataSheetRef="14" />
+                            <item dataSheetRef="7" />
+                            <item dataSheetRef="2" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="23" name="NODATA" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <nodes>
+                <node typeRef="15">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstInspection">
+                          <params>
+                            <map getterTypeRef="4" setterTypeRef="2" setterValue="RESULT_AREA_LOCATION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="UPDATE_FINISH" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <nodes>
+                <node typeRef="15">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstInspection">
+                          <params>
+                            <map getterTypeRef="4" setterTypeRef="2" setterValue="RESULT_AREA_LOCATION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstInspection">
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="StoLocationSearch">
+              <params>
+                <map getterTypeRef="2" getterValue="CONSIGNOR_CODE" setterTypeRef="17" setterValue="CONSIGNOR_CODE" />
+                <map getterTypeRef="2" getterValue="ITEM_CODE" setterTypeRef="17" setterValue="ITEM_CODE" />
+              </params>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="11" nodeName="NstItemInput">
+              <conditions>
+                <condition typeRef="23" name="NORMAL_COMPLETE" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+                <item dataSheetRef="7" />
+                <item dataSheetRef="2" />
+              </remove>
+            </forward>
+            <forward forwardType="Child" message1="6041016">
+              <conditions>
+                <condition typeRef="23" name="SHELF_UNREGISTRATION" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="18">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstLocationInput">
+                          <params>
+                            <map getterTypeRef="6" getterValue="True" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6041017">
+              <conditions>
+                <condition typeRef="23" name="FIXED_SHELF_UNREGISTRATION" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="18">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstLocationInput">
+                          <params>
+                            <map getterTypeRef="6" getterValue="True" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="AREA_INVALIDITY" />
+                <condition typeRef="23" name="DAILY_UPDATING" />
+                <condition typeRef="23" name="ILLEGAL_LOCATION_FORMAT" />
+                <condition typeRef="23" name="MAINTENANCE" />
+                <condition typeRef="23" name="RESULTQTY_OVER" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="DATA_EXISTS" />
+                <condition typeRef="23" name="DB_ACCESS_ERROR" />
+                <condition typeRef="23" name="ERROR" />
+                <condition typeRef="23" name="INSTACIATE_ERROR" />
+                <condition typeRef="23" name="PATTERN_NG" />
+                <condition typeRef="23" name="SCHEDULE_ERROR" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="12">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Flow" flowTypeRef="11" nodeName="WorkerInput">
+                          <remove>
+                            <item dataSheetRef="13" />
+                            <item dataSheetRef="14" />
+                            <item dataSheetRef="7" />
+                            <item dataSheetRef="2" />
+                          </remove>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047001" message2="6047033">
+              <conditions>
+                <condition typeRef="23" name="NODATA" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="15">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstInspection">
+                          <params>
+                            <map getterTypeRef="4" setterTypeRef="2" setterValue="RESULT_AREA_LOCATION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="UPDATE_FINISH" />
+              </conditions>
+              <params>
+                <map getterTypeRef="6" getterValue="False" setterTypeRef="7" setterValue="FORCE_STRAGE_FLAG" />
+              </params>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+              <nodes>
+                <node typeRef="15">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="NstInspection">
+                          <params>
+                            <map getterTypeRef="4" setterTypeRef="2" setterValue="RESULT_AREA_LOCATION" />
+                          </params>
+                        </forward>
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="19">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="areaNo_Enter" order="1">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="searchLoc_Enter" order="2">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="StoLocationList">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="3">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstLocationInput">
+              <remove>
+                <item dataSheetRef="17" />
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list1_Click" order="4">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="StoLocationList">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="list2_Click" order="5">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="VALIDATE_ERROR" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+            <forward forwardType="Node" nodeName="StoLocationList">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="16" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="return_Click" order="6">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="20">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="11" nodeName="NstItemInput">
+              <remove>
+                <item dataSheetRef="7" />
+                <item dataSheetRef="2" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstInspection" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="21">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="23" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001">
+              <conditions>
+                <condition typeRef="23" name="AREA_INVALIDITY" />
+                <condition typeRef="23" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="StoLocationSearch" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="23" name="DB_ACCESS_ERROR" />
+                <condition typeRef="23" name="ERROR" />
+                <condition typeRef="23" name="PATTERN_NG" />
+              </conditions>
+              <nodes>
+                <node typeRef="22">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="StoLocationSearch" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="StoLocationSearch" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstLocationInput">
+              <params>
+                <map getterTypeRef="16" getterValue="AREA_LOCATION" setterTypeRef="7" setterValue="RESULT_AREA_LOCATION" />
+                <map getterTypeRef="16" getterValue="AREA_LOCATION" setterTypeRef="2" setterValue="RESULT_AREA_LOCATION" />
+              </params>
+              <remove>
+                <item dataSheetRef="17" />
+              </remove>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0603" downloadName="DeadStockInqList" reportName="LBL-W1302">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_retrieval_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="retrieval_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0070" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_no" type="area" header="LBL-W0011" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="location" header="LBL-W0138" printEnabled="true" xlsEnabled="true"/>
+    <field name="entering_qty" type="number" format="##,##0" header="LBL-W0019" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="stock_case_qty" type="number" format="###,###,###,##0" header="LBL-W0071" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="stock_piece_qty" type="number" format="###,###,###,##0" header="LBL-W0072" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="jan" type="string" header="LBL-W0002" printEnabled="true" xlsEnabled="true"/>
+    <field name="itf" type="string" header="LBL-W0017" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

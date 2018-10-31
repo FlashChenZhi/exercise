@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.listbox.dsno.DsNoListBusiness" abstractClassName="jp.co.daifuku.pcart.system.listbox.dsno.DsNoList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_DS_NO" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.system.listbox.dsno.DsNoListParams" />
+    <ref name="3" type="Control" typeName="LST_SCREEN_NAME" />
+    <ref name="4" type="Dasch" typeName="jp.co.daifuku.pcart.system.dasch.DsNoListDASCH" />
+    <ref name="5" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_DSNoList">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_DS_NO" orgIndex="2" resourceKey="LBL-W8003" dataType="String" />
+      <listcellColumn name="LST_SCREEN_NAME" orgIndex="3" resourceKey="LBL-W8007" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="DS" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="SCREEN_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="4" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="DS_NO" setRef="4" setValue="DS_NO" />
+        <map getRef="2" getValue="SCREEN_NAME" setRef="4" setValue="SCREEN_NAME" />
+        <map getRef="2" getValue="FROM_SEARCH_DATE" setRef="4" setValue="FROM_SEARCH_DATE" />
+        <map getRef="2" getValue="FROM_SEARCH_TIME" setRef="4" setValue="FROM_SEARCH_TIME" />
+        <map getRef="2" getValue="TO_SEARCH_DATE" setRef="4" setValue="TO_SEARCH_DATE" />
+        <map getRef="2" getValue="TO_SEARCH_TIME" setRef="4" setValue="TO_SEARCH_TIME" />
+        <map getRef="2" getValue="USER_ID" setRef="4" setValue="USER_ID" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="DS_NO" setRef="1" setValue="Value" />
+        <map getRef="4" getValue="SCREEN_NAME" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="DS_NO" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="SCREEN_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="ShippingCustomerInDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="page_Load" order="0">
+      <pager pagerType="None" select="0" />
+      <method methodName="page_Load" />
+    </event>
+    <event name="ItemCode_Enter" order="1">
+      <method methodName="itemCode_Scan" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="SCAN_CODE" />
+      </input>
+    </event>
+    <event name="ItemCode_Scan" order="2">
+      <method methodName="itemCode_Scan" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="ItemCode" setterTypeRef="1" setterValue="SCAN_CODE" />
+      </input>
+    </event>
+    <event name="Ent_Click" order="3">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Cancel_Click" order="4">
+      <method methodName="cancel_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="CP_Click" order="5">
+      <method methodName="cp_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Detail_Click" order="6">
+      <method methodName="detail_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="All_Click" order="7">
+      <method methodName="all_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Input_Click" order="8">
+      <method methodName="input1_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+  </events>
+</pageMapping>

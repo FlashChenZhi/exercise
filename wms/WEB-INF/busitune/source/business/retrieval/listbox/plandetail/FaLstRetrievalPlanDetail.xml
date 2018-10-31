@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.listbox.plandetail.FaLstRetrievalPlanDetailBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.listbox.plandetail.FaLstRetrievalPlanDetail" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.FaLstRetrievalPlanDetailDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.retrieval.listbox.plandetail.FaLstRetrievalPlanDetailParams" />
+    <ref name="3" type="Control" typeName="LST_SEARCH_CONDITION" />
+    <ref name="4" type="Control" typeName="LST_COLUMN_2" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+    </listcell>
+    <listcell name="lst_RetPlanInquiry">
+      <listcellColumn name="HIDDEN_ITEM_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TICKET" orgIndex="2" resourceKey="LBL-W0145" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE" orgIndex="3" resourceKey="LBL-W0066" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="4" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT" orgIndex="5" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_PICKING_PLAN_QTY" orgIndex="6" resourceKey="LBL-W1401" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_DATE" orgIndex="7" resourceKey="LBL-W0127" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_STATUS" orgIndex="8" resourceKey="LBL-W0086" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="BATCH_NO" setRef="1" setValue="BATCH_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="SEARCH_CONDITION" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="COLUMN_2" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

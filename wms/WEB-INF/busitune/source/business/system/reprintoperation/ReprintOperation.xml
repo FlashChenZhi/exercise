@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.reprintoperation.ReprintOperationBusiness" abstractClassName="jp.co.daifuku.wms.system.display.reprintoperation.ReprintOperation" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_ListName" />
+    <ref name="1" type="Control" typeName="pager" />
+    <ref name="2" type="Control" typeName="lst_ReprintOperation" />
+    <ref name="3" type="Dasch" typeName="jp.co.daifuku.wms.system.dasch.ReprintOperationDASCH" />
+    <ref name="4" type="Control" typeName="LST_NO" />
+    <ref name="5" type="Control" typeName="LST_LIST_NAME" />
+    <ref name="6" type="Control" typeName="LST_PRINTED_ON" />
+    <ref name="7" type="Control" typeName="LST_PRINTED_IN_SCREEN" />
+    <ref name="8" type="Control" typeName="HIDDEN_FILE_NAME" />
+    <ref name="9" type="Control" typeName="HIDDEN_XML_FILE_NAME" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_ListName" dataType="WmsListName" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_ReprintOperation">
+      <listcellColumn name="HIDDEN_FILE_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_XML_FILE_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_PRINT_START" orgIndex="1" resourceKey="LBL-W0557" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_NO" orgIndex="2" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LIST_NAME" orgIndex="3" resourceKey="LBL-W1412" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PRINTED_ON" orgIndex="4" resourceKey="LBL-W1292" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PRINTED_IN_SCREEN" orgIndex="5" resourceKey="LBL-W1396" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Clear" />
+        <clear controlRef="2" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="3" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="LIST_NAME" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="NO" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="LIST_NAME" setRef="5" setValue="Value" />
+        <map getRef="3" getValue="PRINTED_ON" setRef="6" setValue="Value" />
+        <map getRef="3" getValue="PRINTED_IN_SCREEN" setRef="7" setValue="Value" />
+        <map getRef="3" getValue="FILE_NAME" setRef="8" setValue="Value" />
+        <map getRef="3" getValue="XML_FILE_NAME" setRef="9" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_PRINT_START" name="Click" pattern="NoneGenerate" />
+  </events>
+</business>

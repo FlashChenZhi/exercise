@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <form destroy="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="true" />
+</HaiSurf.Page>

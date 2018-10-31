@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_Bank" keyword="" description="バンク" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_Zone" keyword="" description="ハードゾーン" lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_WorkPlace" keyword="" description="作業場" lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_Station" keyword="" description="ステーション" lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="AST_Bank" keyword="" description="バンク" lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_RMNo" keyword="" description="RM No." lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_LocationType" keyword="" description="棚管理方式" lastupdate="" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems">
+      <list-item type="LinkedPullDownItem">
+        <property name="forignKey" value="0" />
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0043" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="LinkedPullDownItem">
+        <property name="forignKey" value="0" />
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0044" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="LinkedPullDownItem">
+        <property name="forignKey" value="0" />
+        <property name="value" value="2" />
+        <property name="resourceKey" value="CMB-W0045" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="LinkedPullDownItem">
+        <property name="forignKey" value="7" />
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0043" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="LinkedPullDownItem">
+        <property name="forignKey" value="9" />
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0043" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_SubMenu" keyword="eManager" description="サブメニュー" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="AST_ZoneId" keyword="" description="ゾーンID" lastupdate="2009/02/16 19:03:37" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="AST_PriorityZone" keyword="" description="優先ゾーン" lastupdate="2009/02/16 19:03:37" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="AST_Width" keyword="" description="荷幅" lastupdate="2009/02/25 10:26:48" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+  <template key="W_SoftZone" keyword="" description="ソフトゾーン" lastupdate="2009/06/19 13:53:56" username="">
+    <property name="async" value="" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="LinkedPullDownItems" />
+  </template>
+</templates>

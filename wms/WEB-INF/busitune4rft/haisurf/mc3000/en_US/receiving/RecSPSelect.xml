@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ReceivingShortage/SplitSelection-->
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontQty" fontname="Courier New" bold="true" italic="false" size="24" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>200</w>
+      <h>26</h>
+      <caption>Shortage/Split</caption>
+    </label>
+    <label name="lblItemCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>90</y>
+      <w>300</w>
+      <h>24</h>
+      <caption>%ReceivingOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblPiece" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>265</x>
+      <y>203</y>
+      <w>43</w>
+      <h>14</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblCaseQty" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>60</x>
+      <y>185</y>
+      <w>85</w>
+      <h>32</h>
+      <caption>%ReceivingOutDataSheet.SHORTAGE_CASE_QTY%</caption>
+    </label>
+    <label name="lblCase" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>145</x>
+      <y>203</y>
+      <w>36</w>
+      <h>14</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblResultQty" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>180</x>
+      <y>185</y>
+      <w>85</w>
+      <h>32</h>
+      <caption>%ReceivingOutDataSheet.SHORTAGE_PIECE_QTY%</caption>
+    </label>
+    <label name="lblShortage" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>170</y>
+      <w>66</w>
+      <h>14</h>
+      <caption>Shortage:</caption>
+    </label>
+    <label name="lblItemName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>115</y>
+      <w>300</w>
+      <h>44</h>
+      <caption>%ReceivingOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <button name="Shortage" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Shortage</caption>
+      <event>RecSP_Shortage</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>80</y>
+      <w>324</w>
+      <h>140</h>
+    </label>
+    <button name="Pending" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Split</caption>
+      <event>RecSP_Pending</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RecSP_Back</event>
+    </button>
+  </form>
+</HaiSurf.Page>

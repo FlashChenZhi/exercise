@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0712" downloadName="FaDeleteStockList" reportName="LBL-W6022">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="allocation_flag" type="string" header="LBL-W0409" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_no" type="area" header="LBL-W0011" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="location" header="LBL-W0138" printEnabled="true" xlsEnabled="true"/>
+    <field name="stock_qty" type="number" format="###,###,###,##0" header="LBL-W0072" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="storage_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W0487" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

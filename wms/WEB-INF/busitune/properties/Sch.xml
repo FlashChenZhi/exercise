@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator>
+
+  <!-- 変数 -->
+  <valiable name="superClass">jp.co.daifuku.wms.base.common.AbstractSCH</valiable>
+  <valiable name="imports" type="HashSet"/>
+  <valiable name="staticImports" type="HashSet"/>
+  <valiable name="fields" type="List"/>
+  <valiable name="classVariables" type="List"/>
+  <valiable name="instanceVariables" type="List"/>
+  <valiable name="constructors" type="List"/>
+  <valiable name="publicMethods" type="List"/>
+  <valiable name="accessorMethods" type="List"/>
+  <valiable name="packageMethods" type="List"/>
+  <valiable name="protectedMethods" type="List"/>
+  <valiable name="privateMethods" type="List"/>
+  <valiable name="utilityMethods" type="List"/>
+
+  <!-- 初期インポート -->
+  <set name="imports" select="$superClass"/>
+  <set name="staticImports" select="@paramsClass"/>
+
+  <!--
+    スニペット定義を基準に出力する
+    v1.x互換
+  -->
+  <template test="patterns/pattern[@pattern='Query']">
+    <set name="imports">java.math.BigDecimal</set>
+    <set name="imports">jp.co.daifuku.common.CommonException</set>
+    <set name="imports">jp.co.daifuku.common.ReadWriteException</set>
+    <set name="imports">jp.co.daifuku.common.text.StringUtil</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.AbstractSCH</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WmsParam</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Consignor</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Item</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.ReplenishShortage</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Stock</set>
+    <set name="imports">jp.co.daifuku.wms.base.util.DisplayUtil</set>
+    <set name="imports">jp.co.daifuku.wms.handler.Entity</set>
+    <set name="imports">jp.co.daifuku.wms.handler.SearchKey</set>
+    <set name="imports">jp.co.daifuku.wms.handler.db.AbstractDBFinder</set>
+    <set name="imports">jp.co.daifuku.wms.handler.db.BasicDatabaseFinder</set>
+    <set name="imports">jp.co.daifuku.wms.handler.field.FieldName</set>
+    <set name="publicMethods">
+<![CDATA[
+    /**
+     * Receives data that was entered on the screen as parameter,
+     * and retrieves output data of the List Area from the database, and return it.<BR>
+     *
+     * @param p Receiving condition for display data saved in <CODE>ScheduleParams</CODE>.<BR>
+     * @return retrieved data saved in <CODE>Params</CODE> array.<BR>
+     *          Returns 0 array if no applicable record was found.<BR>
+     *          Displays up to the maximum number of display if the retrieved output exceeds the maximum.<BR>
+     *          Retuns null if an error occurs in the middle of entering condition.<BR>
+     * @throws CommonException Reports if an unexpected exception occurs when checkging.
+     */
+    public List<Params> query(ScheduleParams p)
+            throws CommonException
+    {
+        // Creates handler instances
+        AbstractDBFinder finder = null;
+        try
+        {
+            finder = new xxxFinder(getConnection());
+            finder.open(true);
+            // Start searching.
+            // Sets a message according to the obtained number.
+            if (!canLowerDisplay(finder.search(createSearchKey(p))))
+            {
+                return new ArrayList<Params>();
+            }
+
+            // Returns after setting entities at a parameter class for screen display.
+            return getDisplayData(finder);
+        }
+        finally
+        {
+            // Closes the Finder used for search.
+            closeFinder(finder);
+        }
+    }
+
+]]>
+    </set>
+    <set name="protectedMethods">
+<![CDATA[
+    /**
+     * Sets the search condition.
+     *
+     * @param p Search condition saved in ScheduleParams.
+     * @return xxxSearchKey
+     */
+    protected SearchKey createSearchKey(ScheduleParams p)
+    {
+        xxxSearchKey searchKey = new xxxSearchKey();
+
+        // set where
+        searchKey.setConsignorCode(p.getString(CONSIGNOR_CODE));
+        if (!StringUtil.isBlank(p.getString(ITEM_CODE)))
+        {
+            searchKey.setItemCode(p.getString(ITEM_CODE));
+        }
+        // If the search range is specified
+        if (p.getBoolean(DESIGNATE_RANGE))
+        {
+            if (!StringUtil.isBlank(p.getString(LOCATION)))
+            {
+                searchKey.setLocationNo(p.getString(LOCATION), ">=");
+            }
+            if (!StringUtil.isBlank(p.getString(TO_LOCATION)))
+            {
+                searchKey.setLocationNo(p.getString(TO_LOCATION), "<=");
+            }
+        }
+        else if (!StringUtil.isBlank(p.getString(LOCATION)))
+        {
+            searchKey.setLocationNo(p.getString(LOCATION));
+        }
+
+        // set join(Item Table)
+        searchKey.setJoin(Stock.CONSIGNOR_CODE, "", Item.CONSIGNOR_CODE, "(+)");
+        searchKey.setJoin(Stock.ITEM_CODE, "", Item.ITEM_CODE, "(+)");
+        // set join(Consignor Table)
+        searchKey.setJoin(Stock.CONSIGNOR_CODE, "", Consignor.CONSIGNOR_CODE, "(+)");
+
+        // set order by
+        searchKey.setItemCodeOrder(true);
+
+        // set collect
+        searchKey.setCollect(new FieldName(xxxEntity.STORE_NAME, FieldName.ALL_FIELDS));
+        searchKey.setCollect(Stock.CONSIGNOR_CODE);
+        searchKey.setCollect(Item.ITEM_NAME);
+
+        return searchKey;
+    }
+
+    /**
+     * Sets the display information.
+     *
+     * @param finder Search condition saved in xxxFinder.
+     * @return List<Params>
+     * @throws ReadWriteException Reports if a database error occurs.
+     */
+    protected List<Params> getDisplayData(AbstractDBFinder finder)
+            throws ReadWriteException
+    {
+        // Gets retrieved data up to the maximum number of display.
+        xxxEntity[] entities = (xxxEntity)finder.getEntities(0, WmsParam.MAX_NUMBER_OF_DISP);
+        List<Params> result = new ArrayList<Params>();
+
+        for (xxxEntity ent : entities)
+        {
+            Params param = new Params();
+
+            // Shipper Code
+            param.set(CONSIGNOR_CODE, ent.getConsignorCode());
+            // Shipper Name
+            param.set(CONSIGNOR_NAME, String.valueOf(ent.getValue(Consignor.CONSIGNOR_NAME, "")));
+            // Item Code
+            param.set(ITEM_CODE, ent.getItemCode());
+            // Item Name
+            param.set(ITEM_NAME, String.valueOf(ent.getValue(Item.ITEM_NAME, "")));
+            // Case Pack
+            int enteringQty = ent.getBigDecimal(Item.ENTERING_QTY, new BigDecimal(0)).intValue();
+            param.set(ENTERING_QTY, enteringQty);
+            // Allocatable Case Qty
+            param.set(ALLOCATE_CASE_QTY, DisplayUtil.getCaseQty(ent.getAllocationQty(), enteringQty));
+            // Allocatable Piece Qty
+            param.set(ALLOCATE_PIECE_QTY, DisplayUtil.getPieceQty(ent.getAllocationQty(), enteringQty));
+
+            result.add(param);
+        }
+
+        return result;
+    }
+
+]]>
+    </set>
+  </template>
+
+  <template test="patterns/pattern[@pattern='ListCellRegist' or @pattern='ListCellEdit' or @pattern='ListCellEditDasch']">
+    <set name="imports">java.math.BigDecimal</set>
+    <set name="imports">jp.co.daifuku.common.CommonException</set>
+    <set name="imports">jp.co.daifuku.common.LockTimeOutException</set>
+    <set name="imports">jp.co.daifuku.common.NotFoundException</set>
+    <set name="imports">jp.co.daifuku.common.ReadWriteException</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.AbstractSCH</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WmsMessageFormatter</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Consignor</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Item</set>
+    <set name="imports">jp.co.daifuku.wms.base.entity.Stock</set>
+    <set name="imports">jp.co.daifuku.wms.base.exception.OperatorException</set>
+    <set name="imports">jp.co.daifuku.wms.base.exception.RouteException</set>
+    <set name="publicMethods">
+<![CDATA[
+    /**
+     * Receieves the items that was input on the screen as a parameter and start schedule.<BR>
+     *
+     * @param startParams Setting items saved in <CODE>ScheduleParams</CODE> array.<BR>
+     * @throws CommonException Reports all the exceptions.
+     * @return Return true if the schedule ends normally and return false if it failed so.
+     */
+    public boolean startSCH(ScheduleParams... ps)
+            throws CommonException
+    {
+        // Checks before proceeding.
+        // Checks Daily Cleanup.
+        if (!canStart())
+        {
+            return false;
+        }
+
+        // Creates parameter to operator
+        xxxInParameter[] inParams = new xxxInParameter[ps.length];
+        for (int i = 0; i < inParams.length; i++)
+        {
+            inParams[i] = new xxxInParameter();
+
+            inParams[i].setConsignorCode(ps[i].getString(CONSIGNOR_CODE));
+            inParams[i].setItemCode(ps[i].getString(ITEM_CODE));
+            inParams[i].setEnteringQty(ps[i].getInt(ENTERING_QTY));
+        }
+
+        try
+        {
+            // Creates an operator.
+            xxxOperator operator = new xxxOperator(getConnection(), getClass());
+            // Invokes an operator.
+            xxxOutParameter outParam = operator.completeRetrieval(inParams);
+
+            // Start processing.
+            setMessage(WmsMessageFormatter.format(6021021));
+            return true;
+
+        }
+        catch (LockTimeOutException e)
+        {
+            // 6023114=
+            setMessage(WmsMessageFormatter.format(6023114));
+            return false;
+        }
+        catch (NotFoundException e)
+        {
+            // 6023115=Work process was cancelled because it was done on other terminal.
+            setMessage(WmsMessageFormatter.format(6023015));
+            return false;
+        }
+        catch (RouteException e)
+        {
+            setMessage(getRouteErrorMessage(e.getRouteStatus()));
+            return false;
+        }
+        catch (OperatorException e)
+        {
+            // Catches exceptions from Operator and displays the matched error message.
+
+            // Updated on other terminal, Used in other temrinal, or Work Process Completed
+            if (OperatorException.ERR_ALREADY_UPDATED.equals(e.getErrorCode())
+                    || OperatorException.ERR_WORKING_INPROGRESS.equals(e.getErrorCode())
+                    || OperatorException.ERR_ALREADY_COMPLETED.equals(e.getErrorCode()))
+            {
+                // 6023015=No.{0} Wrok Process was canceled because it was done on other terminal.
+                setMessage(WmsMessageFormatter.format(6023015, inParams[e.getErrorLineNo() - 1].getRowIndex()));
+                setErrorRowIndex(ps[e.getErrorLineNo() - 1].getRowIndex());
+                return false;
+            }
+            else if (OperatorException.ERR_SHORTAGE_ALLOCATION_QTY.equals(e.getErrorCode()))
+            {
+                // 6023189=No.{0} Please enter the value smaller than the allocatable number in Picking Qty.
+                setMessage(WmsMessageFormatter.format(6023189, inParams[e.getErrorLineNo() - 1].getRowIndex()));
+                setErrorRowIndex(ps[e.getErrorLineNo() - 1].getRowIndex());
+                return false;
+            }
+            // Throws exceptions other than described above.
+            throw e;
+        }
+    }
+
+]]>
+    </set>
+  </template>
+
+  <template test="patterns/pattern[@pattern='ListCellInput']">
+    <set name="imports">jp.co.daifuku.common.CommonException</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.AbstractSCH</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.Parameter</set>
+    <set name="publicMethods">
+<![CDATA[
+    /**
+     * Receives the items that was entered on the screen and data in the List Area as parameter,
+     * and check them.<BR>
+     *
+     * @param p A input parameter.
+     * @param ps A parameter in the List Area.
+     * @return Returns True if it is not input check, overflow, dupliation, or Item Master or Storage Location errors.
+     * @throws CommonException Reports if an unexpected exception occurs when checking.
+     */
+    public boolean check(ScheduleParams p, ScheduleParams... ps)
+            throws CommonException
+    {
+        // Checks if it exceeds the maximum number of display.
+        /* sample -----------------------------------------
+        // Checks the number of display.
+        if (ps != null && ps.length + 1 > WmsParam.MAX_NUMBER_OF_DISP)
+        {
+            // 6023019 = Cannot enter because the number exceeds {0}.
+            setMessage(WmsMessageFormatter.format(6023019, MAX_NUMBER_OF_DISP_DISP));
+            return false;
+        }
+        ---------------------------------------------------*/
+
+        // Checks if the input items and customer were registered on the master,
+        /* sample -----------------------------------------
+        // Gets the existence of the master package from a system controler.
+        WarenaviSystemController systemController = new WarenaviSystemController(getConnection(), this.getClass());
+        if (systemController.hasMasterPack())
+        {
+            // Checks if an item code exists.
+            ItemHandler itemHandler = new ItemHandler(getConnection());
+            ItemSearchKey itemKey = new ItemSearchKey();
+
+            itemKey.setConsignorCode(p.getString(CONSIGNOR_CODE));
+            itemKey.setItemCode(p.getString(ITEM_CODE));
+
+            if (itemHandler.count(itemKey) <= 0)
+            {
+                // 6023021=The item code is not registered on the master.
+                setMessage("6023021");
+                return false;
+            }
+        }
+        ---------------------------------------------------*/
+
+        // Checks the quantity.
+        /* sample -----------------------------------------
+        // If the case pack is 0 and the storage case quantity is 1 or larger,
+        if (p.getInt(ENTERING_QTY) == 0 && p.getInt(RESULT_CASE_QTY) >= 1)
+        {
+            // 6023036=Item code does not exist in the item master.
+            setMessage("6023036");
+            return false;
+        }
+
+        // Cheks the entered quantity.
+        if (p.getInt(RESULT_CASE_QTY) == 0 && p.getInt(RESULT_PIECE_QTY) == 0)
+        {
+            // 6023035=Enter more than 1 for Case Qty or Piece Qty.
+            setMessage("6023035");
+            return false;
+        }
+
+        // Checks overflow.
+        if ((long)((long)p.getInt(ENTERING_QTY) * (long)p.getInt(RESULT_CASE_QTY) + (long)p.getInt(RESULT_PIECE_QTY)) > (long)WmsParam.MAX_xxx_QTY)
+        {
+            // 6023217=Enter the value smaller than the  maximum stock quantity {0} for the storage quantity.
+            setMessage(WmsMessageFormatter.format(6023217, MAX_xxx_QTY_DISP));
+            return false;
+        }
+        ---------------------------------------------------*/
+
+        // Searches DB about data in the input fields and checks items to be checked.
+
+
+        // Checks with the List Area.
+        /* sample -----------------------------------------
+
+        //  Checks duplication with the area.
+        if (ps != null)
+        {
+            for (ScheduleParams schParam : ps)
+            {
+                if (p.getString(ITEM_CODE).equals(schParam.getString(ITEM_CODE))
+                        && p.getString(AREA_NO).equals(schParam.getString(AREA_NO))
+                        && p.getString(LOCATION_NO).equals(schParam.getString(LOCATION_NO))
+                        && p.getString(LOT_NO).equals(schParam.getString(LOT_NO)))
+                {
+                    // 6023020 = It is not possible to input it because the same data already exists.
+                    setMessage("6023020");
+                    return false;
+                }
+            }
+        }
+        ---------------------------------------------------*/
+        return true;
+    }
+
+]]>
+    </set>
+  </template>
+
+  <!-- 最終出力 -->
+  <template enableLineBreak="true">
+    // $Id$
+    package <valueof select="package-name(@class)"/>;
+
+    /*
+     * Copyright(c) 2000-2010 DAIFUKU Co.,Ltd. All Rights Reserved.
+     *
+     * This software is the proprietary information of DAIFUKU Co.,Ltd.
+     * Use is subject to license terms.
+     */
+    import java.sql.Connection;
+    import java.sql.SQLException;
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.Locale;
+
+    import jp.co.daifuku.authentication.DfkUserInfo;
+    import jp.co.daifuku.common.CommonException;
+    import jp.co.daifuku.foundation.common.Params;
+
+    <foreach select="$staticImports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import static <valueof />.*;<br/>
+    </foreach>
+
+    <foreach select="$imports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import <valueof />;<br/>
+    </foreach>
+
+    /**
+     * Scheduler(SCH) class  generated by BusiTune
+     *
+     * @version $Revision$, $Date$
+     * @author  BusiTune.
+     * @author  Last commit: $Author$
+     */
+    public class <valueof select="class-name(@class)"/>
+            extends <valueof select="class-name($superClass)"/>
+    {
+        //------------------------------------------------------------
+        // fields (upper case only)
+        //------------------------------------------------------------
+        <foreach select="$fields"/>
+
+        //------------------------------------------------------------
+        // class variables (prefix '$')
+        //------------------------------------------------------------
+        <foreach select="$classVariables"/>
+
+        //------------------------------------------------------------
+        // instance variables (prefix '_')
+        //------------------------------------------------------------
+        <foreach select="$instanceVariables"/>
+
+        //------------------------------------------------------------
+        // constructors
+        //------------------------------------------------------------
+        /**
+         * Constructor to create SCH object
+         * @param conn Database Connection
+         * @param parent Caller Class
+         * @param locale Browser Locale
+         * @param ui DfkUserInfo
+         * @throws CommonException
+         */
+        public <valueof select="class-name(@class)"/>(Connection conn, Class parent, Locale locale, DfkUserInfo ui)
+                throws CommonException
+        {
+            super(conn, parent, locale, ui);
+        }
+
+        <foreach select="$constructors"/>
+
+        //------------------------------------------------------------
+        // public methods
+        //------------------------------------------------------------
+        <foreach select="$publicMethods"/>
+
+        //------------------------------------------------------------
+        // accessor methods
+        //------------------------------------------------------------
+        <foreach select="$accessorMethods"/>
+
+        //------------------------------------------------------------
+        // package methods
+        //------------------------------------------------------------
+        <foreach select="$packageMethods"/>
+
+        //------------------------------------------------------------
+        // protected methods
+        //------------------------------------------------------------
+        <foreach select="$protectedMethods"/>
+
+        //------------------------------------------------------------
+        // private methods
+        //------------------------------------------------------------
+        <foreach select="$privateMethods"/>
+
+        //------------------------------------------------------------
+        // utility methods
+        //------------------------------------------------------------
+        /**
+         * Returns current repository info for this class
+         * @return version
+         */
+        public static String getVersion()
+        {
+            return "$Id$";
+        }
+
+        <foreach select="$utilityMethods"/>
+    }
+    //end of class
+  </template>
+
+</generator>

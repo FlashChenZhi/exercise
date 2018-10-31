@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.arearegist.AreaRegistBusiness" abstractClassName="jp.co.daifuku.wms.master.display.arearegist.AreaRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_Area" />
+    <ref name="1" type="Control" typeName="txt_AreaName" />
+    <ref name="2" type="Control" typeName="pul_AreaType" />
+    <ref name="3" type="Control" typeName="pul_LocationType" />
+    <ref name="4" type="Control" typeName="pul_TemporaryArea" />
+    <ref name="5" type="Control" typeName="chk_MoveTemporaryStorage" />
+    <ref name="6" type="Control" typeName="pul_VacantSearchType" />
+    <ref name="7" type="Control" typeName="pul_ReceivingArea" />
+    <ref name="8" type="Control" typeName="chk_ReceivingArea" />
+    <ref name="9" type="Control" typeName="txt_Location" />
+    <ref name="10" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.AreaRegistSCH" />
+    <ref name="11" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="12" type="Boolean" typeName="Boolean" />
+    <ref name="13" type="String" typeName="String" />
+    <ref name="14" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.area.LstAreaParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaType" dataType="Default" />
+    <pulldown name="pul_LocationType" dataType="Default" parent="pul_AreaType" />
+    <pulldown name="pul_TemporaryArea" dataType="WmsAreaTempAll" />
+    <pulldown name="pul_VacantSearchType" dataType="Default" />
+    <pulldown name="pul_ReceivingArea" dataType="WmsAreaReceiveAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="UnChecked" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="9" type="ReadWrite" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="UnChecked" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="9" type="ReadWrite" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="10" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="9" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="10" setValue="AREA_NAME" />
+        <map getRef="2" getValue="Value" setRef="10" setValue="AREA_TYPE" />
+        <map getRef="3" getValue="Value" setRef="10" setValue="LOCATION_TYPE" />
+        <map getRef="4" getValue="Value" setRef="10" setValue="TEMPORARY_AREA" />
+        <map getRef="6" getValue="Value" setRef="10" setValue="VACANT_SEARCH_TYPE" />
+        <map getRef="7" getValue="Value" setRef="10" setValue="RECEIVING_AREA" />
+        <map getRef="9" getValue="Value" setRef="10" setValue="LOCATION_STYLE" />
+        <map getRef="5" getValue="Value" setRef="10" setValue="MOVE_TEMPORARY_STORAGE" />
+        <map getRef="8" getValue="Value" setRef="10" setValue="CHK_RECEIVING_AREA" />
+      </input1>
+      <part11 operationRef="11" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <block type="If" tag="1" desc="仮置きエリア移動ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="12" rightValue="True" />
+        </block>
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="13" out1Value="1" />
+        <block type="Else" tag="1" desc="仮置きエリア移動ありが選択されている場合" />
+        <out out1Ref="13" />
+        <out out1Ref="13" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="6" out1Value="Value" />
+        <block type="If" tag="3" desc="入荷エリア定義ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="8" leftValue="Value" rightRef="12" rightValue="True" />
+        </block>
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="13" out1Value="1" />
+        <block type="Else" tag="3" desc="入荷エリア定義ありが選択されている場合" />
+        <out out1Ref="13" />
+        <out out1Ref="13" out1Value="0" />
+      </part11>
+    </event>
+    <event control="btn_Search" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/area/LstArea" businessParameterRef="14" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="14" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="AREA_NO" setRef="0" setValue="Value" />
+        <map getRef="14" getValue="AREA_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

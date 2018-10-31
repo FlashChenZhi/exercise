@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.masterdataload.MasterDataLoadBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.masterdataload.MasterDataLoad" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.MasterDataLoadSCH" />
+    <ref name="1" type="Control" typeName="HIDDEN_DATA_TYPE" />
+    <ref name="2" type="Control" typeName="HIDDEN_DATA_COUNT" />
+    <ref name="3" type="Control" typeName="HIDDEN_CLASS_NAME" />
+    <ref name="4" type="Control" typeName="HIDDEN_AUTO_PRINT" />
+    <ref name="5" type="Control" typeName="LST_SELECT" />
+    <ref name="6" type="Control" typeName="LST_LOAD_DATA_TYPE" />
+    <ref name="7" type="Control" typeName="LST_LOAD_FILE_NAME" />
+    <ref name="8" type="Control" typeName="LST_MESSAGE" />
+    <ref name="9" type="Control" typeName="lst_LoadData" />
+  </refs>
+  <listcells>
+    <listcell name="lst_LoadData">
+      <listcellColumn name="HIDDEN_DATA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_DATA_COUNT" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="HIDDEN_CLASS_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_AUTO_PRINT" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_LOAD_DATA_TYPE" orgIndex="2" resourceKey="LBL-W0106" dataType="String" />
+      <listcellColumn name="LST_LOAD_FILE_NAME" orgIndex="3" resourceKey="LBL-P0199" dataType="String" />
+      <listcellColumn name="LST_MESSAGE" orgIndex="4" resourceKey="LBL-W0032" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="DATA_COUNT" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="AUTO_PRINT" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="LOAD_DATA_TYPE" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LOAD_FILE_NAME" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="8" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="5" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="RegistGetParams">
+      <sch2Display schRef="0" />
+      <validate>
+        <validate controlRef="9" required="true" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="0" setValue="DATA_TYPE" />
+        <map getRef="3" getValue="Value" setRef="0" setValue="CLASS_NAME" />
+        <map getRef="4" getValue="Value" setRef="0" setValue="AUTO_PRINT" />
+        <map getRef="5" getValue="Value" setRef="0" setValue="SELECT" />
+        <map getRef="6" getValue="Value" setRef="0" setValue="LOAD_DATA_TYPE" />
+        <map getRef="7" getValue="Value" setRef="0" setValue="LOAD_FILE_NAME" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="DATA_COUNT" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="AUTO_PRINT" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="LOAD_DATA_TYPE" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LOAD_FILE_NAME" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="DATA_COUNT" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="AUTO_PRINT" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="SELECT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="LOAD_DATA_TYPE" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LOAD_FILE_NAME" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="8" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="5" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

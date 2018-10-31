@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0507" downloadName="ShipLoadList" reportName="LBL-W1337">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true"/>
+    <field name="plan_date" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="customer_code" type="string" printEnabled="true"/>
+    <field name="customer_name" type="string" printEnabled="true"/>
+    <field name="postal_code" type="string" printEnabled="true"/>
+    <field name="prefecture" type="string" printEnabled="true"/>
+    <field name="address" type="string" printEnabled="true"/>
+    <field name="address2" type="string" printEnabled="true"/>
+    <field name="telephone" type="string" printEnabled="true"/>
+    <field name="batch_no" type="string" printEnabled="true"/>
+    <field name="route" type="string" printEnabled="true"/>
+    <field name="berth_no" type="string" printEnabled="true"/>
+    <field name="ticket_no" type="string" printEnabled="true"/>
+    <field name="line_no" type="string" printEnabled="true"/>
+    <field name="item_code" type="string" printEnabled="true"/>
+    <field name="item_name" type="string" printEnabled="true"/>
+    <field name="lot_no" type="string" printEnabled="true"/>
+    <field name="entering_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="shipping_case_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="shipping_piece_qty" type="number" format="###,###,###,##0" printEnabled="true"/>
+    <field name="inspection" type="string" printEnabled="true"/>
+</exportspec>

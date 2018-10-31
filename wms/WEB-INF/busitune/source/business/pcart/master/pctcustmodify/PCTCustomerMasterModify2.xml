@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctcustmodify.PCTCustomerMasterModify2Business" abstractClassName="jp.co.daifuku.pcart.master.display.pctcustmodify.PCTCustomerMasterModify2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_CustomerName" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTCustomerMasterModifySCH" />
+    <ref name="2" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctcustmodify.ViewStateKeys" />
+    <ref name="3" type="Control" typeName="lbl_JavaSetConsignorCode" />
+    <ref name="4" type="Control" typeName="lbl_JavaSetCustomerCode" />
+    <ref name="5" type="Control" typeName="pul_WorkPriority" />
+    <ref name="6" type="Constants" typeName="Constants" />
+    <ref name="7" type="Control" typeName="btn_Modify" />
+    <ref name="8" type="Control" typeName="btn_Delete" />
+    <ref name="9" type="Control" typeName="btn_Clear" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_WorkPriority" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="VS_CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="VS_LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="JOB_PRIORITY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="VS_LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="LAST_USED_DATE" setRef="2" setValue="VS_LAST_USED_DATE" />
+        <map getRef="1" getValue="JOB_PRIORITY" setRef="2" setValue="VS_JOB_PRIORITY" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="2" setValue="VS_CUSTOMER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctcustmodify/PCTCustomerMasterModify" viewStateRef="2" />
+      <output1>
+        <map getRef="3" getValue="Value" setRef="2" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="VS_CUSTOMER_CODE" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Edit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="5" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CUSTOMER_NAME" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="JOB_PRIORITY" />
+        <map getRef="2" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="VS_CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="VS_LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="6" getValue="PROCESS_FLAG_MODIFY" setRef="1" setValue="PROCESS_FLAG" />
+        <map getRef="2" getValue="VS_LAST_USED_DATE" setRef="1" setValue="LAST_USED_DATE" />
+      </input1>
+      <input2>
+        <map getRef="2" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="VS_CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+      </input2>
+      <output1>
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="JOB_PRIORITY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="VS_LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="LAST_USED_DATE" setRef="2" setValue="VS_LAST_USED_DATE" />
+        <map getRef="1" getValue="JOB_PRIORITY" setRef="2" setValue="VS_JOB_PRIORITY" />
+        <map getRef="1" getValue="CUSTOMER_NAME" setRef="2" setValue="VS_CUSTOMER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CUSTOMER_NAME" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="JOB_PRIORITY" />
+        <map getRef="2" getValue="VS_CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="VS_CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="VS_LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="6" getValue="PROCESS_FLAG_DELETE" setRef="1" setValue="PROCESS_FLAG" />
+        <map getRef="2" getValue="VS_LAST_USED_DATE" setRef="1" setValue="LAST_USED_DATE" />
+      </input1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_MenuNoFunc" name="Click" pattern="NoneGenerate" />
+  </events>
+</business>

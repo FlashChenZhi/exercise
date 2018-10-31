@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.locatemodify.LocateModifyBusiness" abstractClassName="jp.co.daifuku.wms.master.display.locatemodify.LocateModify" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="txt_FromLocate" />
+    <ref name="2" type="Control" typeName="txt_ToLocate" />
+    <ref name="3" type="Control" typeName="btn_ModifySet" />
+    <ref name="4" type="Control" typeName="txt_Area" />
+    <ref name="5" type="Control" typeName="txt_AreaName" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.LocateModifySCH" />
+    <ref name="7" type="Control" typeName="HDNIDX_UPDAY" />
+    <ref name="8" type="Control" typeName="HDNIDX_AREA_NO" />
+    <ref name="9" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="10" type="Control" typeName="LST_AISLE_NO" />
+    <ref name="11" type="Control" typeName="lst_LocateListMaintenance" />
+    <ref name="12" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="13" type="ViewState" typeName="jp.co.daifuku.wms.master.display.locatemodify.ViewStateKeys" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorLocateAll" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_LocateListMaintenance">
+      <listcellColumn name="HDNIDX_UPDAY" orgIndex="0" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="HDNIDX_AREA_NO" orgIndex="0" dataType="Area" />
+      <listcellColumn name="LST_DELETE" orgIndex="1" resourceKey="LBL-W0094" dataType="String" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="2" resourceKey="LBL-W0138" dataType="Location" />
+      <listcellColumn name="LST_AISLE_NO" orgIndex="3" resourceKey="LBL-W0009" dataType="Number" format="0" modifyCheck="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="5" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="6" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="6" setValue="FROM_LOCATE_NO" />
+        <map getRef="2" getValue="Value" setRef="6" setValue="TO_LOCATE_NO" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="UPDAY" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="AREA_NO" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="LOCATION_NO" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="AISLE_NO" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="AREA_NO" setRef="4" setValue="Value" />
+        <map getRef="6" getValue="AREA_NAME" setRef="5" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_ModifySet" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="6" />
+      <validate>
+        <validate controlRef="11" required="true" />
+        <validate controlRef="10" />
+      </validate>
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="UPDAY" />
+        <map getRef="4" getValue="Value" setRef="6" setValue="AREA_NO" />
+        <map getRef="9" getValue="Value" setRef="6" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="Value" setRef="6" setValue="AISLE_NO" />
+      </input1>
+      <part11 operationRef="12" operation="MODIFY">
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="4" getValue="Value" setRef="6" setValue="AREA_NO" />
+        <map getRef="13" getValue="FROM_LOCATE_NO" setRef="6" setValue="FROM_LOCATE_NO" />
+        <map getRef="13" getValue="TO_LOCATE_NO" setRef="6" setValue="TO_LOCATE_NO" />
+      </input2>
+      <output1>
+        <map getRef="6" getValue="AREA_NO" setRef="4" setValue="Value" />
+        <map getRef="6" getValue="AREA_NAME" setRef="5" setValue="Value" />
+        <map getRef="6" getValue="UPDAY" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="AREA_NO" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="LOCATION_NO" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="AISLE_NO" setRef="10" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_DELETE" name="Click" pattern="ListCellRowDelete">
+      <sch2Display schRef="6" />
+      <input1>
+        <map getRef="4" getValue="Value" setRef="6" setValue="AREA_NO" />
+        <map getRef="7" getValue="Value" setRef="6" setValue="UPDAY" />
+        <map getRef="9" getValue="Value" setRef="6" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="Value" setRef="6" setValue="AISLE_NO" />
+      </input1>
+      <part11 operationRef="12" operation="DELETE">
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

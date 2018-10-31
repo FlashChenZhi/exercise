@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    実行方法
+
+    コンパイル(n2a含む)     : ant compile
+    リビルド                : ant rebuild
+-->
+
+
+	
+<project name="eWareNavi" default="compile" basedir=".">
+
+<!-- **** Property **** -->
+    <!-- プロジェクトフォルダ -->
+    <property name="tomcat.home" value="${basedir}/../../.." />
+    <property name="project.home" value="${basedir}/.."/>
+	<property name="app.home" value="${basedir}/../../../.." />
+	
+    <!-- ソースファイルがあるディレクトリ -->
+    <property name="src.dir" value="${project.home}/WEB-INF/src" />
+	
+    <!-- クラスファイルを出力するディレクトリ -->
+    <property name="classes.dir" value="${project.home}/WEB-INF/classes" />
+	
+
+<!-- **** Task **** -->
+	<!-- リビルド -->
+    <target name="rebuild" depends="clean, compile">
+    </target>
+
+    <!-- コンパイル -->
+    <target name="compile" depends="native2ascii">
+        <mkdir dir="${classes.dir}" />
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" encoding="UTF-8">
+            <classpath>
+                <fileset dir="${project.home}/WEB-INF/lib">
+                    <include name="*.jar" />
+                </fileset>
+                <fileset dir="${tomcat.home}/common/lib">
+                    <include name="servlet-api.jar" />
+                    <include name="jsp-api.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+        <rmic classname="jp.co.daifuku.rmi.RmiServAbstImpl" base="${classes.dir}" classpath="${classes.dir}"/>
+    </target>
+
+
+	<!-- n2a -->
+    <target name="native2ascii">
+    	<delete>
+    		<fileset dir="${classes.dir}">
+    			<include name="**/*.properties"/>
+    		</fileset>
+    	</delete>
+        <native2ascii dest="${classes.dir}" encoding="utf-8" src="${src.dir}" includes="**/*.properties" />
+    </target>
+
+    <!-- クリーン（生成したファイルやフォルダの削除） -->
+    <target name="clean">
+        <delete dir="${classes.dir}" />
+        <mkdir dir="${classes.dir}" />
+    </target>
+    
+
+</project>

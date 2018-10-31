@@ -1,0 +1,109 @@
+// $Id$
+package jp.co.daifuku.wms.base.rft.datasheet;
+
+/*
+ * Copyright(c) 2000-2011 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+import java.util.Locale;
+import jp.co.daifuku.busitune.rft.haisurf.BasicDSModel;
+import jp.co.daifuku.busitune.rft.haisurf.DSKey;
+import jp.co.daifuku.busitune.rft.haisurf.DSStringField;
+import jp.co.sharedsys.basis.helper.DataSheetFactory;
+
+/**
+ *
+ * @version $Revision$, $Date$
+ * @author  HighTune.
+ * @author  Last commit: $Author$
+ */
+public class LocationDataSheet
+        extends BasicDSModel
+{
+    //------------------------------------------------------------
+    // fields (upper case only)
+    //------------------------------------------------------------
+    /** DATASHEET_NAME */
+    private static final String DATASHEET_NAME = "LocationDataSheet";
+
+    /** AREA_LOCATION */
+    public static final DSKey AREA_LOCATION = new DSKey("AREA_LOCATION", new DSStringField(), false, 0);
+
+    /** AREA_NO */
+    public static final DSKey AREA_NO = new DSKey("AREA_NO", new DSStringField(), false, 0);
+
+    /** CONSIGNOR_CODE */
+    public static final DSKey CONSIGNOR_CODE = new DSKey("CONSIGNOR_CODE", new DSStringField(), false, 0);
+
+    /** ITEM_CODE */
+    public static final DSKey ITEM_CODE = new DSKey("ITEM_CODE", new DSStringField(), false, 0);
+
+    /** LOCATION_DISP */
+    public static final DSKey LOCATION_DISP = new DSKey("LOCATION_DISP", new DSStringField(), false, 0);
+
+    /** LOCATION_NO */
+    public static final DSKey LOCATION_NO = new DSKey("LOCATION_NO", new DSStringField(), false, 0);
+
+    /** SEARCH_AREA */
+    public static final DSKey SEARCH_AREA = new DSKey("SEARCH_AREA", new DSStringField(), false, 0);
+
+    /** SEARCH_LOCATION */
+    public static final DSKey SEARCH_LOCATION = new DSKey("SEARCH_LOCATION", new DSStringField(), false, 0);
+
+    //------------------------------------------------------------
+    // class variables (prefix '$')
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // instance variables (prefix '_')
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // constructors
+    //------------------------------------------------------------
+    /**
+     * Default constructor
+     *
+     * @param dsf DataSheet factory
+     * @param locale Locale
+     */
+    public LocationDataSheet(DataSheetFactory dsf, Locale locale)
+    {
+        super(DATASHEET_NAME, dsf, locale);
+    }
+
+    //------------------------------------------------------------
+    // public methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // accessor methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // package methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // protected methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // private methods
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // utility methods
+    //------------------------------------------------------------
+    /**
+     * Returns current repository info for this class
+     * @return version
+     */
+    public static String getVersion()
+    {
+        return "$Id$";
+    }
+}
+//end of class

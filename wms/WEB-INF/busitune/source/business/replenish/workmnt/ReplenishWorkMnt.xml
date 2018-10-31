@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.replenish.display.workmnt.ReplenishWorkMntBusiness" abstractClassName="jp.co.daifuku.wms.replenish.display.workmnt.ReplenishWorkMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_ReplenishmentWorkFlagPlan" />
+    <ref name="1" type="Control" typeName="LST_SELECT" />
+    <ref name="2" type="Control" typeName="btn_RePrint" />
+    <ref name="3" type="Control" typeName="btn_WorkCancel" />
+    <ref name="4" type="Control" typeName="btn_AllCheck" />
+    <ref name="5" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="6" type="Control" typeName="btn_AllClear" />
+    <ref name="7" type="Control" typeName="lst_ReplenishmentCancelRePrint" />
+    <ref name="8" type="Sch" typeName="jp.co.daifuku.wms.replenish.schedule.ReplenishWorkMntSCH" />
+    <ref name="9" type="Control" typeName="ReplenishmentWorkFlag" />
+    <ref name="10" type="Constants" typeName="Constants" />
+    <ref name="11" type="Control" typeName="LST_AREA_TYPE" />
+    <ref name="12" type="Control" typeName="LST_SETTING_UNIT_KEY" />
+    <ref name="13" type="Control" typeName="LST_RETRIEVAL_AREA_NO" />
+    <ref name="14" type="Control" typeName="LST_FROM_LOCATION_NO" />
+    <ref name="15" type="Control" typeName="LST_TO_LOCATION_NO" />
+    <ref name="16" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="17" type="Control" typeName="LST_START_DATETIME" />
+    <ref name="18" type="Control" typeName="LST_ITEM_COUNT" />
+    <ref name="19" type="ViewState" typeName="jp.co.daifuku.wms.replenish.display.workmnt.ViewStateKeys" />
+    <ref name="20" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="21" type="Boolean" typeName="Boolean" />
+    <ref name="22" type="Dasch" typeName="jp.co.daifuku.wms.replenish.dasch.ReplenishWorkDASCH" />
+    <ref name="23" type="ExportParameter" typeName="jp.co.daifuku.wms.replenish.exporter.ReplenishmentListParams" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ReplenishmentCancelRePrint">
+      <listcellColumn name="LST_AREA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_SETTING_UNIT_KEY" orgIndex="2" resourceKey="LBL-W0034" dataType="String" />
+      <listcellColumn name="LST_RETRIEVAL_AREA_NO" orgIndex="3" resourceKey="LBL-W0011" dataType="Area" />
+      <listcellColumn name="LST_FROM_LOCATION_NO" orgIndex="4" resourceKey="LBL-W0055" dataType="Location" />
+      <listcellColumn name="LST_TO_LOCATION_NO" orgIndex="5" resourceKey="LBL-W0113" dataType="Location" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="6" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_START_DATETIME" orgIndex="7" resourceKey="LBL-W0122" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_ITEM_COUNT" orgIndex="8" resourceKey="LBL-W0129" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="1" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="7" type="Clear" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="8" />
+      <input1>
+        <map getRef="9" getValue="Value" setRef="8" setValue="SELECTED_JOB_TYPE" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="8" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="8" getValue="AREA_TYPE" setRef="11" setValue="Value" />
+        <map getRef="8" getValue="SETTING_UNIT_KEY" setRef="12" setValue="Value" />
+        <map getRef="8" getValue="RETRIEVAL_AREA_NO" setRef="13" setValue="Value" />
+        <map getRef="8" getValue="FROM_LOCATION_NO" setRef="14" setValue="Value" />
+        <map getRef="8" getValue="TO_LOCATION_NO" setRef="15" setValue="Value" />
+        <map getRef="8" getValue="ITEM_CODE" setRef="16" setValue="Value" />
+        <map getRef="8" getValue="START_DATETIME" setRef="17" setValue="Value" />
+        <map getRef="8" getValue="ITEM_COUNT" setRef="18" setValue="Value" />
+        <map getRef="9" getValue="Value" setRef="19" setValue="SELECTED_JOB_TYPE" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="19" setValue="CONSIGNOR_CODE" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_WorkCancel" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="8" />
+      <input1>
+        <map getRef="12" getValue="Value" setRef="8" setValue="SETTING_UNIT_KEY" />
+      </input1>
+      <part11 operationRef="20" operation="SETTING">
+        <block type="If" tag="0" desc="計画補充がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="0" leftValue="Checked" rightRef="21" rightValue="True" />
+        </block>
+        <out out1Ref="10" out1Value="JOB_TYPE_NORMAL_REPLENISHMENT" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <block type="Else" tag="0" desc="計画補充がチェックされている場合" />
+        <out out1Ref="10" out1Value="JOB_TYPE_EMERGENCY_REPLENISHMENT" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="19" getValue="CONSIGNOR_CODE" setRef="8" setValue="CONSIGNOR_CODE" />
+        <map getRef="19" getValue="SELECTED_JOB_TYPE" setRef="8" setValue="SELECTED_JOB_TYPE" />
+      </input2>
+      <output1>
+        <map getRef="8" getValue="AREA_TYPE" setRef="11" setValue="Value" />
+        <map getRef="8" getValue="SETTING_UNIT_KEY" setRef="12" setValue="Value" />
+        <map getRef="8" getValue="RETRIEVAL_AREA_NO" setRef="13" setValue="Value" />
+        <map getRef="8" getValue="FROM_LOCATION_NO" setRef="14" setValue="Value" />
+        <map getRef="8" getValue="TO_LOCATION_NO" setRef="15" setValue="Value" />
+        <map getRef="8" getValue="ITEM_CODE" setRef="16" setValue="Value" />
+        <map getRef="8" getValue="START_DATETIME" setRef="17" setValue="Value" />
+        <map getRef="8" getValue="ITEM_COUNT" setRef="18" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_RePrint" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="22" exportParameterRef="23" exportName="ReplenishmentList" exporter="Print" />
+      <validate>
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="12" getValue="Value" setRef="22" setValue="SETTING_UKEYS" />
+      </input1>
+      <output1>
+        <map getRef="22" getValue="DFK_DS_NO" setRef="23" setValue="DFK_DS_NO" />
+        <map getRef="22" getValue="DFK_USER_ID" setRef="23" setValue="DFK_USER_ID" />
+        <map getRef="22" getValue="DFK_USER_NAME" setRef="23" setValue="DFK_USER_NAME" />
+        <map getRef="22" getValue="SYS_DAY" setRef="23" setValue="SYS_DAY" />
+        <map getRef="22" getValue="SYS_TIME" setRef="23" setValue="SYS_TIME" />
+        <map getRef="22" getValue="JOB_NO" setRef="23" setValue="JOB_NO" />
+        <map getRef="22" getValue="REP_RETRIEVAL_AREA_NO" setRef="23" setValue="REP_RETRIEVAL_AREA_NO" />
+        <map getRef="22" getValue="REP_RETRIEVAL_AREA_NAME" setRef="23" setValue="REP_RETRIEVAL_AREA_NAME" />
+        <map getRef="22" getValue="JOB_TYPE" setRef="23" setValue="JOB_TYPE" />
+        <map getRef="22" getValue="REP_RETRIEVAL_LOCATION_NO" setRef="23" setValue="REP_RETRIEVAL_LOCATION_NO" />
+        <map getRef="22" getValue="ITEM_CODE" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="22" getValue="ITEM_NAME" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="22" getValue="LOT_NO" setRef="23" setValue="LOT_NO" />
+        <map getRef="22" getValue="ENTERING_QTY" setRef="23" setValue="ENTERING_QTY" />
+        <map getRef="22" getValue="PLAN_CASE_QTY" setRef="23" setValue="PLAN_CASE_QTY" />
+        <map getRef="22" getValue="PLAN_PIECE_QTY" setRef="23" setValue="PLAN_PIECE_QTY" />
+        <map getRef="22" getValue="REP_STORAGE_AREA_NO" setRef="23" setValue="REP_STORAGE_AREA_NO" />
+        <map getRef="22" getValue="REP_LOCATION_NO" setRef="23" setValue="REP_LOCATION_NO" />
+      </output1>
+      <part11 operationRef="20" operation="PRINT">
+        <block type="If" tag="0" desc="計画補充がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="0" leftValue="Checked" rightRef="21" rightValue="True" />
+        </block>
+        <out out1Ref="10" out1Value="JOB_TYPE_NORMAL_REPLENISHMENT" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <block type="Else" tag="0" desc="計画補充がチェックされている場合" />
+        <out out1Ref="10" out1Value="JOB_TYPE_EMERGENCY_REPLENISHMENT" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.faretrievallist.FaRetrievalListBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.faretrievallist.FaRetrievalList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="pul_WorkPlace" />
+    <ref name="2" type="Control" typeName="txt_FromSearchDate" />
+    <ref name="3" type="Control" typeName="txt_FromSearchTime" />
+    <ref name="4" type="Control" typeName="txt_ToSearchDate" />
+    <ref name="5" type="Control" typeName="txt_ToSearchTime" />
+    <ref name="6" type="Control" typeName="pul_FFaRetrievalWorkKind" />
+    <ref name="7" type="Control" typeName="LST_SELECT" />
+    <ref name="8" type="Control" typeName="lst_FaRetrievalWorkList" />
+    <ref name="9" type="Control" typeName="pager" />
+    <ref name="10" type="Control" typeName="btn_Print" />
+    <ref name="11" type="Control" typeName="btn_Preview" />
+    <ref name="12" type="Control" typeName="btn_AllCheck" />
+    <ref name="13" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="14" type="Control" typeName="btn_AllClear" />
+    <ref name="15" type="Dasch" typeName="jp.co.daifuku.wms.retrieval.dasch.FaRetrievalListDASCH" />
+    <ref name="16" type="Control" typeName="pul_Station" />
+    <ref name="17" type="Control" typeName="HIDDEN_SETTING_UNIT_KEY" />
+    <ref name="18" type="Control" typeName="HIDDEN_WORK_TYPE" />
+    <ref name="19" type="Control" typeName="LST_STATION_NO" />
+    <ref name="20" type="Control" typeName="LST_WORK_TYPE_NAME" />
+    <ref name="21" type="ViewState" typeName="jp.co.daifuku.wms.retrieval.display.faretrievallist.ViewStateKeys" />
+    <ref name="22" type="ExportParameter" typeName="jp.co.daifuku.wms.retrieval.exporter.AsRetrievalWorkListParams" />
+    <ref name="23" type="Constants" typeName="Constants" />
+    <ref name="24" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="25" type="Control" typeName="LST_SETTING_DATE" />
+    <ref name="26" type="ExportParameter" typeName="jp.co.daifuku.wms.retrieval.exporter.RetrievalWorkListParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAndAsrsRetrieval" />
+    <pulldown name="pul_WorkPlace" dataType="WmsWorkspaceFloorAndAsrsRetrieval" parent="pul_Area" />
+    <pulldown name="pul_Station" dataType="WmsStationFloorAndAsrsRetrieval" parent="pul_WorkPlace" />
+    <pulldown name="pul_FFaRetrievalWorkKind" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaRetrievalWorkList">
+      <listcellColumn name="HIDDEN_SETTING_UNIT_KEY" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_WORK_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="2" resourceKey="LBL-W0022" dataType="String" />
+      <listcellColumn name="LST_WORK_TYPE_NAME" orgIndex="3" resourceKey="LBL-W0275" dataType="String" />
+      <listcellColumn name="LST_SETTING_DATE" orgIndex="4" resourceKey="LBL-W1394" dataType="Date" format="DateLongTimeSec" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="7" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="7" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="8" type="Clear" />
+        <clear controlRef="9" type="Clear" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Disabled" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="15" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="16" getValue="Value" setRef="15" setValue="STATION_NO" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="FROM_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="FROM_SEARCH_TIME" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="TO_SEARCH_DAY" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="TO_SEARCH_TIME" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="WORK_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="SETTING_UNIT_KEY" setRef="17" setValue="Value" />
+        <map getRef="15" getValue="WORK_TYPE" setRef="18" setValue="Value" />
+        <map getRef="15" getValue="WORK_TYPE_NAME" setRef="19" setValue="Value" />
+        <map getRef="15" getValue="SETTING_DATE" setRef="20" setValue="Value" />
+        <map getRef="2" getValue="Value" setRef="21" setValue="FROM_SEARCH_DAY" />
+        <map getRef="3" getValue="Value" setRef="21" setValue="FROM_SEARCH_TIME" />
+        <map getRef="4" getValue="Value" setRef="21" setValue="TO_SEARCH_DAY" />
+        <map getRef="5" getValue="Value" setRef="21" setValue="TO_SEARCH_TIME" />
+      </output1>
+      <clear1>
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="12" type="Enabled" />
+        <clear controlRef="13" type="Enabled" />
+        <clear controlRef="14" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="15" exportParameterRef="22" exportName="AsRetrievalWorkList" exporter="Print" />
+      <validate>
+        <validate controlRef="8" required="true" />
+      </validate>
+      <input1>
+        <map getRef="17" getValue="Value" setRef="15" setValue="SETTING_UNIT_KEY" />
+        <map getRef="23" getValue="SEARCH_ASRS_RETRIEVAL_LIST" setRef="15" setValue="WORK_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="DFK_DS_NO" setRef="22" setValue="DFK_DS_NO" />
+        <map getRef="15" getValue="DFK_USER_ID" setRef="22" setValue="DFK_USER_ID" />
+        <map getRef="15" getValue="DFK_USER_NAME" setRef="22" setValue="DFK_USER_NAME" />
+        <map getRef="15" getValue="SYS_DAY" setRef="22" setValue="SYS_DAY" />
+        <map getRef="15" getValue="SYS_TIME" setRef="22" setValue="SYS_TIME" />
+        <map getRef="15" getValue="STATION_NO" setRef="22" setValue="STATION_NO" />
+        <map getRef="15" getValue="STATION_NAME" setRef="22" setValue="STATION_NAME" />
+        <map getRef="21" getValue="FROM_SEARCH_DAY" setRef="22" setValue="FROM_SEARCH_DAY" />
+        <map getRef="21" getValue="FROM_SEARCH_TIME" setRef="22" setValue="FROM_SEARCH_TIME" />
+        <map getRef="21" getValue="TO_SEARCH_DAY" setRef="22" setValue="TO_SEARCH_DAY" />
+        <map getRef="21" getValue="TO_SEARCH_TIME" setRef="22" setValue="TO_SEARCH_TIME" />
+        <map getRef="15" getValue="WORK_NO" setRef="22" setValue="WORK_NO" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="22" setValue="LOCATION_NO" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="22" setValue="ITEM_CODE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="22" setValue="ITEM_NAME" />
+        <map getRef="15" getValue="LOT_NO" setRef="22" setValue="LOT_NO" />
+        <map getRef="15" getValue="RETRIEVAL_COMMAND_DETAIL" setRef="22" setValue="RETRIEVAL_COMMAND_DETAIL" />
+        <map getRef="15" getValue="PRIORITY_FLAG" setRef="22" setValue="PRIORITY_FLAG" />
+        <map getRef="15" getValue="WORK_QTY" setRef="22" setValue="WORK_QTY" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="22" setValue="STOCK_QTY" />
+        <map getRef="15" getValue="BATCH_NO" setRef="22" setValue="BATCH_NO" />
+        <map getRef="15" getValue="TICKET_NO" setRef="22" setValue="TICKET_NO" />
+        <map getRef="15" getValue="LINE_NO" setRef="22" setValue="LINE_NO" />
+      </output1>
+      <part11 operationRef="24" operation="PRINT">
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="25" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="15" exportParameterRef="26" exportName="RetrievalWorkList" exporter="Preview" />
+      <validate>
+        <validate controlRef="8" required="true" />
+      </validate>
+      <input1>
+        <map getRef="17" getValue="Value" setRef="15" setValue="SETTING_UNIT_KEY" />
+        <map getRef="23" getValue="SEARCH_ASRS_RETRIEVAL_LIST" setRef="15" setValue="WORK_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="DFK_DS_NO" setRef="26" setValue="DFK_DS_NO" />
+        <map getRef="15" getValue="DFK_USER_ID" setRef="26" setValue="DFK_USER_ID" />
+        <map getRef="15" getValue="DFK_USER_NAME" setRef="26" setValue="DFK_USER_NAME" />
+        <map getRef="15" getValue="SYS_DAY" setRef="26" setValue="SYS_DAY" />
+        <map getRef="15" getValue="SYS_TIME" setRef="26" setValue="SYS_TIME" />
+        <map getRef="15" getValue="SETTING_UNIT_KEY" setRef="26" setValue="LIST_NO" />
+        <map getRef="21" getValue="FROM_SEARCH_DAY" setRef="26" setValue="FROM_SEARCH_DAY" />
+        <map getRef="21" getValue="FROM_SEARCH_TIME" setRef="26" setValue="FROM_SEARCH_TIME" />
+        <map getRef="21" getValue="TO_SEARCH_DAY" setRef="26" setValue="TO_SEARCH_DAY" />
+        <map getRef="21" getValue="TO_SEARCH_TIME" setRef="26" setValue="TO_SEARCH_TIME" />
+        <map getRef="15" getValue="AREA_NO" setRef="26" setValue="AREA_NO" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="26" setValue="LOCATION_NO" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="26" setValue="ITEM_CODE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="26" setValue="ITEM_NAME" />
+        <map getRef="15" getValue="LOT_NO" setRef="26" setValue="LOT_NO" />
+        <map getRef="15" getValue="RETRIEVAL_COMMAND_DETAIL" setRef="26" setValue="RETRIEVAL_COMMAND_DETAIL" />
+        <map getRef="15" getValue="PRIORITY_FLAG" setRef="26" setValue="PRIORITY_FLAG" />
+        <map getRef="15" getValue="WORK_QTY" setRef="26" setValue="WORK_QTY" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="26" setValue="STOCK_QTY" />
+        <map getRef="15" getValue="BATCH_NO" setRef="26" setValue="BATCH_NO" />
+        <map getRef="15" getValue="TICKET_NO" setRef="26" setValue="TICKET_NO" />
+        <map getRef="15" getValue="LINE_NO" setRef="26" setValue="LINE_NO" />
+      </output1>
+      <part11 operationRef="24" operation="PREVIEW">
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="25" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

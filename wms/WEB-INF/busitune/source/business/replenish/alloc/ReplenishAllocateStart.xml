@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.replenish.display.alloc.ReplenishAllocateStartBusiness" abstractClassName="jp.co.daifuku.wms.replenish.display.alloc.ReplenishAllocateStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_ToReplenishmentArea" />
+    <ref name="1" type="Control" typeName="txt_FromLocation" />
+    <ref name="2" type="Control" typeName="txt_ToLocation" />
+    <ref name="3" type="Control" typeName="txt_ItemCode" />
+    <ref name="4" type="Control" typeName="txt_ReplenishmentRate" />
+    <ref name="5" type="Control" typeName="pul_AllocatedPattern" />
+    <ref name="6" type="Control" typeName="chk_IssueReport" />
+    <ref name="7" type="Sch" typeName="jp.co.daifuku.wms.replenish.schedule.ReplenishAllocateStartSCH" />
+    <ref name="8" type="Constants" typeName="Constants" />
+    <ref name="9" type="String" typeName="String" />
+    <ref name="10" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="11" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_ToReplenishmentArea" dataType="WmsAreaFloorFixedlocate" />
+    <pulldown name="pul_AllocatedPattern" dataType="WmsAllocPriorityReplenish" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="6" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="Regist">
+      <sch2Display schRef="7" />
+      <validate>
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="0" required="true" />
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="7" setValue="TO_REPLENISHMENT_AREA" />
+        <map getRef="1" getValue="Value" setRef="7" setValue="FROM_LOCATION" />
+        <map getRef="2" getValue="Value" setRef="7" setValue="TO_LOCATION" />
+        <map getRef="3" getValue="Value" setRef="7" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="7" setValue="RATE" />
+        <map getRef="5" getValue="Value" setRef="7" setValue="ALLOC_PATTERN" />
+        <map getRef="6" getValue="Value" setRef="7" setValue="ISSUE_REPORT" />
+        <map getRef="8" getValue="DEFAULT_CONSIGNOR_CODE" setRef="7" setValue="CONSIGNOR_CODE" />
+        <map getRef="9" getValue="M_FUNCTIONID" setRef="7" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="10" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <block type="If" tag="1" desc="帳票発行がチェックされていない場合">
+          <expr type="And" operator="Equal" leftRef="6" leftValue="Value" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="1" />
+        <block type="Else" tag="1" desc="帳票発行がチェックされていない場合" />
+        <out out1Ref="9" out1Value="0" />
+      </part11>
+    </event>
+  </events>
+</business>

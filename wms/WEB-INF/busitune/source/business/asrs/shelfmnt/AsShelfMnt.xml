@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.shelfmnt.AsShelfMntBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.shelfmnt.AsShelfMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="chk_EmptyLocation" />
+    <ref name="2" type="Control" typeName="chk_EmptyPBLocation" />
+    <ref name="3" type="Control" typeName="chk_StoredLocation" />
+    <ref name="4" type="Control" typeName="btn_PInquiry" />
+    <ref name="5" type="Control" typeName="txt_Location" />
+    <ref name="6" type="Control" typeName="btn_PLocationDetail" />
+    <ref name="7" type="Control" typeName="btn_Submit" />
+    <ref name="8" type="Control" typeName="btn_PModify" />
+    <ref name="9" type="Control" typeName="btn_PDelete" />
+    <ref name="10" type="Control" typeName="lbl_InJavaSetLocation" />
+    <ref name="11" type="Control" typeName="lbl_InJavaSetLocationStatus" />
+    <ref name="12" type="Control" typeName="txt_ItemCode" />
+    <ref name="13" type="Control" typeName="btn_PSearchItemCode" />
+    <ref name="14" type="Control" typeName="txt_ItemName" />
+    <ref name="15" type="Control" typeName="txt_SoftZoneName" />
+    <ref name="16" type="Control" typeName="txt_EnteringQty" />
+    <ref name="17" type="Control" typeName="txt_JanCode" />
+    <ref name="18" type="Control" typeName="txt_CaseITF" />
+    <ref name="19" type="Control" typeName="txt_LotNo" />
+    <ref name="20" type="Control" typeName="txt_StockCaseQty" />
+    <ref name="21" type="Control" typeName="txt_StockPieceQty" />
+    <ref name="22" type="Control" typeName="txt_StorageDate" />
+    <ref name="23" type="Control" typeName="txt_StorageTime" />
+    <ref name="24" type="Control" typeName="btn_Set" />
+    <ref name="25" type="Control" typeName="btn_Clear" />
+    <ref name="26" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsShelfMntSCH" />
+    <ref name="27" type="Constants" typeName="Constants" />
+    <ref name="28" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.shelfmnt.ViewStateKeys" />
+    <ref name="29" type="String" typeName="String" />
+    <ref name="30" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="31" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.stockdetailnbtn.LstAsStockDetailNoBtnParams" />
+    <ref name="32" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="33" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.stockdetail.LstAsStockDetailParams" />
+    <ref name="34" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.locationstatus.LstAsLocationStatusParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Enabled" />
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="ReadWrite" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="ReadOnly" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="15" type="ReadOnly" />
+        <clear controlRef="15" type="Empty" />
+        <clear controlRef="16" type="ReadOnly" />
+        <clear controlRef="16" type="Empty" />
+        <clear controlRef="17" type="ReadOnly" />
+        <clear controlRef="17" type="Empty" />
+        <clear controlRef="18" type="ReadOnly" />
+        <clear controlRef="18" type="Empty" />
+        <clear controlRef="19" type="ReadOnly" />
+        <clear controlRef="19" type="Empty" />
+        <clear controlRef="20" type="ReadOnly" />
+        <clear controlRef="20" type="Empty" />
+        <clear controlRef="21" type="ReadOnly" />
+        <clear controlRef="21" type="Empty" />
+        <clear controlRef="22" type="ReadOnly" />
+        <clear controlRef="22" type="Empty" />
+        <clear controlRef="23" type="ReadOnly" />
+        <clear controlRef="23" type="Empty" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="ReadOnly" />
+        <clear controlRef="16" type="ReadOnly" />
+        <clear controlRef="17" type="ReadOnly" />
+        <clear controlRef="18" type="ReadOnly" />
+        <clear controlRef="19" type="ReadOnly" />
+        <clear controlRef="20" type="ReadOnly" />
+        <clear controlRef="21" type="ReadOnly" />
+        <clear controlRef="22" type="ReadOnly" />
+        <clear controlRef="23" type="ReadOnly" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="15" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="26" />
+      <validate>
+        <validate controlRef="5" required="true" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="LOCATION_NO" />
+        <map getRef="27" getValue="M_CREATE" setRef="26" setValue="PROCESSTYPE_KEY" />
+      </input1>
+      <input2>
+        <map getRef="27" getValue="M_CREATE" setRef="26" setValue="PROCESSTYPE_KEY" />
+      </input2>
+      <output1>
+        <map getRef="5" getValue="Value" setRef="10" setValue="Value" />
+        <map getRef="27" getValue="M_CREATE" setRef="28" setValue="PROCESSTYPE_KEY" />
+        <map getRef="29" setRef="28" setValue="STOCK_ID" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Disabled" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="12" type="ReadWrite" />
+        <clear controlRef="13" type="Enabled" />
+        <clear controlRef="19" type="ReadWrite" />
+        <clear controlRef="20" type="ReadWrite" />
+        <clear controlRef="21" type="ReadWrite" />
+        <clear controlRef="22" type="ReadWrite" />
+        <clear controlRef="23" type="ReadWrite" />
+        <clear controlRef="24" type="Enabled" />
+        <clear controlRef="25" type="Enabled" />
+      </clear1>
+      <focus controlRef="12" />
+    </event>
+    <event control="btn_PSearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="30" />
+      <input1>
+        <map getRef="12" getValue="Value" setRef="30" setValue="ITEM_CODE" />
+        <map getRef="27" getValue="DEFAULT_CONSIGNOR_CODE" setRef="30" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="30" getValue="ITEM_CODE" setRef="12" setValue="Value" />
+        <map getRef="30" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="30" getValue="SOFT_ZONE_NAME" setRef="15" setValue="Value" />
+        <map getRef="30" getValue="ENTERING_QTY" setRef="16" setValue="Value" />
+        <map getRef="30" getValue="JAN" setRef="17" setValue="Value" />
+        <map getRef="30" getValue="ITF" setRef="18" setValue="Value" />
+      </output1>
+      <focus controlRef="12" />
+    </event>
+    <event control="btn_PLocationDetail" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/stockdetailnbtn/LstAsStockDetailNoBtn" businessParameterRef="31" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="31" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="31" setValue="LOCATION_NO" />
+      </input1>
+      <focus controlRef="5" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="26" />
+      <validate>
+        <validate controlRef="5" />
+        <validate controlRef="12" required="true" />
+        <validate controlRef="14" />
+        <validate controlRef="16" />
+        <validate controlRef="17" />
+        <validate controlRef="18" />
+        <validate controlRef="19" />
+        <validate controlRef="20" />
+        <validate controlRef="21" />
+        <validate controlRef="22" />
+        <validate controlRef="23" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="LOCATION_NO" />
+        <map getRef="12" getValue="Value" setRef="26" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="Value" setRef="26" setValue="ITEM_NAME" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="ENTERING_QTY" />
+        <map getRef="17" getValue="Value" setRef="26" setValue="JAN" />
+        <map getRef="18" getValue="Value" setRef="26" setValue="ITF" />
+        <map getRef="19" getValue="Value" setRef="26" setValue="LOT_NO" />
+        <map getRef="20" getValue="Value" setRef="26" setValue="STOCK_CASE_QTY" />
+        <map getRef="21" getValue="Value" setRef="26" setValue="STOCK_PIECE_QTY" />
+        <map getRef="22" getValue="Value" setRef="26" setValue="STORAGE_DAY" />
+        <map getRef="23" getValue="Value" setRef="26" setValue="STORAGE_TIME" />
+        <map getRef="28" getValue="PROCESSTYPE_KEY" setRef="26" setValue="PROCESSTYPE_KEY" />
+        <map getRef="28" getValue="STOCK_ID" setRef="26" setValue="STOCK_ID" />
+        <map getRef="28" getValue="LAST_UPDATE_DATE" setRef="26" setValue="LAST_UPDATE_DATE" />
+        <map getRef="27" getValue="DEFAULT_CONSIGNOR_CODE" setRef="26" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="32" operation="REGIST">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" default="0" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="20" out1Value="Value" default="0" />
+        <out out1Ref="21" out1Value="Value" default="0" />
+        <out out1Ref="22" out1Value="Value" out2Ref="23" out2Value="Value" />
+        <out out1Ref="28" out1Value="VS_STOCK_CASE_QTY" />
+        <out out1Ref="28" out1Value="VS_STOCK_PIECE_QTY" />
+        <out out1Ref="28" out1Value="VS_STORAGE_DATE" out2Ref="28" out2Value="VS_STORAGE_TIME" />
+      </part11>
+      <clear1>
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Disabled" />
+        <clear controlRef="14" type="ReadOnly" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="15" type="ReadOnly" />
+        <clear controlRef="15" type="Empty" />
+        <clear controlRef="16" type="ReadOnly" />
+        <clear controlRef="16" type="Empty" />
+        <clear controlRef="17" type="ReadOnly" />
+        <clear controlRef="17" type="Empty" />
+        <clear controlRef="18" type="ReadOnly" />
+        <clear controlRef="18" type="Empty" />
+        <clear controlRef="19" type="ReadOnly" />
+        <clear controlRef="19" type="Empty" />
+        <clear controlRef="20" type="ReadOnly" />
+        <clear controlRef="20" type="Empty" />
+        <clear controlRef="21" type="ReadOnly" />
+        <clear controlRef="21" type="Empty" />
+        <clear controlRef="22" type="ReadOnly" />
+        <clear controlRef="22" type="Empty" />
+        <clear controlRef="23" type="ReadOnly" />
+        <clear controlRef="23" type="Empty" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="0" type="Enabled" />
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="ReadWrite" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_PModify" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/stockdetail/LstAsStockDetail" businessParameterRef="33" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="33" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="33" setValue="LOCATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="33" getValue="ITEM_CODE" setRef="12" setValue="Value" />
+        <map getRef="33" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="33" getValue="SOFT_ZONE_NAME" setRef="15" setValue="Value" />
+        <map getRef="33" getValue="ENTERING_QTY" setRef="16" setValue="Value" />
+        <map getRef="33" getValue="JAN" setRef="17" setValue="Value" />
+        <map getRef="33" getValue="ITF" setRef="18" setValue="Value" />
+        <map getRef="33" getValue="LOT_NO" setRef="19" setValue="Value" />
+        <map getRef="33" getValue="STOCK_CASE_QTY" setRef="20" setValue="Value" />
+        <map getRef="33" getValue="STOCK_PIECE_QTY" setRef="21" setValue="Value" />
+        <map getRef="33" getValue="STORAGE_DATE" setRef="22" setValue="Value" />
+        <map getRef="33" getValue="STORAGE_TIME" setRef="23" setValue="Value" />
+        <map getRef="33" getValue="STOCK_ID" setRef="28" setValue="STOCK_ID" />
+        <map getRef="33" getValue="LAST_UPDATE_DATE" setRef="28" setValue="LAST_UPDATE_DATE" />
+        <map getRef="27" getValue="M_MODIFY" setRef="28" setValue="PROCESSTYPE_KEY" />
+        <map getRef="33" getValue="STOCK_CASE_QTY" setRef="28" setValue="VS_STOCK_CASE_QTY" />
+        <map getRef="33" getValue="STOCK_PIECE_QTY" setRef="28" setValue="VS_STOCK_PIECE_QTY" />
+        <map getRef="33" getValue="STORAGE_DATE" setRef="28" setValue="VS_STORAGE_DATE" />
+        <map getRef="33" getValue="STORAGE_TIME" setRef="28" setValue="VS_STORAGE_TIME" />
+      </output1>
+      <focus controlRef="20" />
+    </event>
+    <event control="btn_PDelete" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/stockdetail/LstAsStockDetail" businessParameterRef="33" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="33" setValue="AREA_NO" />
+        <map getRef="5" getValue="Value" setRef="33" setValue="LOCATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="33" getValue="ITEM_CODE" setRef="12" setValue="Value" />
+        <map getRef="33" getValue="ITEM_NAME" setRef="14" setValue="Value" />
+        <map getRef="33" getValue="SOFT_ZONE_NAME" setRef="15" setValue="Value" />
+        <map getRef="33" getValue="ENTERING_QTY" setRef="16" setValue="Value" />
+        <map getRef="33" getValue="JAN" setRef="17" setValue="Value" />
+        <map getRef="33" getValue="ITF" setRef="18" setValue="Value" />
+        <map getRef="33" getValue="LOT_NO" setRef="19" setValue="Value" />
+        <map getRef="33" getValue="STOCK_CASE_QTY" setRef="20" setValue="Value" />
+        <map getRef="33" getValue="STOCK_PIECE_QTY" setRef="21" setValue="Value" />
+        <map getRef="33" getValue="STORAGE_DATE" setRef="22" setValue="Value" />
+        <map getRef="33" getValue="STORAGE_TIME" setRef="23" setValue="Value" />
+        <map getRef="33" getValue="STOCK_ID" setRef="28" setValue="STOCK_ID" />
+        <map getRef="33" getValue="LAST_UPDATE_DATE" setRef="28" setValue="LAST_UPDATE_DATE" />
+        <map getRef="27" getValue="M_DELETE" setRef="28" setValue="PROCESSTYPE_KEY" />
+      </output1>
+    </event>
+    <event control="btn_PInquiry" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/locationstatus/LstAsLocationStatus" businessParameterRef="34" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="34" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="34" setValue="PROHIBITION_EMPTY" />
+        <map getRef="2" getValue="Value" setRef="34" setValue="PROHIBITION_EMPTY_PALLET" />
+        <map getRef="3" getValue="Value" setRef="34" setValue="PROHIBITION_STORAGED" />
+        <map getRef="3" getValue="Value" setRef="34" setValue="PROHIBITION_ERROR" />
+      </input1>
+      <output1>
+        <map getRef="34" getValue="LOCATION_NO" setRef="5" setValue="Value" />
+      </output1>
+      <focus controlRef="5" />
+    </event>
+  </events>
+</business>

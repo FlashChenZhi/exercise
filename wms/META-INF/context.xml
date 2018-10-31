@@ -1,0 +1,14 @@
+<!--
+
+    Context configuration file for the Tomcat Manager Web App
+
+    $Id: wms.xml 999 2010-10-25 04:19:46Z kishimoto $
+
+-->
+
+
+<Context processTlds="false">
+
+    <Manager pathname="" />
+
+</Context>

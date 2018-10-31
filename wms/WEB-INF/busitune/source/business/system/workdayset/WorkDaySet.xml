@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.workdayset.WorkDaySetBusiness" abstractClassName="jp.co.daifuku.wms.system.display.workdayset.WorkDaySet" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_WorkDate" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.WorkDaySetSCH" />
+    <ref name="2" type="Control" typeName="txt_PresentWorkDate" />
+    <ref name="3" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="PRESENT_WORK_DATE" setRef="2" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CHANGE_WORK_DATE" />
+      </input1>
+      <part11 operationRef="3" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="PRESENT_WORK_DATE" setRef="2" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

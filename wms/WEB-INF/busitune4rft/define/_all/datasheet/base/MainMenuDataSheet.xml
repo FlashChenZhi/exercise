@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="メインメニューデータシート" />
+  <comment lang="en" value="Main Menu Data Sheet" />
+  <comment lang="zh" value="主菜单数据表" />
+  <fields>
+    <field name="JOB_DETAILS" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="作業区分詳細" />
+      <comment lang="en" value="Work Type Details " />
+      <comment lang="zh" value="作业分类详情" />
+    </field>
+    <field name="JOB_TYPE" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="作業区分" />
+      <comment lang="en" value="Work Type " />
+      <comment lang="zh" value="作业分类" />
+    </field>
+    <field name="MENU_CODE" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="メニューコード" />
+      <comment lang="en" value="Menu Code" />
+      <comment lang="zh" value="菜单代码" />
+    </field>
+    <field name="MENU_NAME" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="メニュー名称" />
+      <comment lang="en" value="Menu Name " />
+      <comment lang="zh" value="菜单名称" />
+    </field>
+    <field name="MENU_NO" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="選択メニューNo." />
+      <comment lang="en" value="Selected Menu #" />
+      <comment lang="zh" value="选择菜单No." />
+    </field>
+  </fields>
+</datasheet>

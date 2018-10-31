@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune4rft:business:1.0" javaPackage="jp.co.daifuku.wms.base.rft.display">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.LocationListSCH" type="Sch" />
+    <ref name="1" typeName="LocationDataSheet" type="DataSheet" />
+    <ref name="2" typeName="LocationListDataSheet" type="DataSheet" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="SEARCH_AREA" setterTypeRef="0" setterValue="SEARCH_AREA" />
+        <map getterTypeRef="1" getterValue="SEARCH_LOCATION" setterTypeRef="0" setterValue="SEARCH_LOCATION" />
+        <map getterTypeRef="1" getterValue="ITEM_CODE" setterTypeRef="0" setterValue="ITEM_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="AREA_LOCATION" setterTypeRef="2" setterValue="AREA_LOCATION" />
+        <map getterTypeRef="0" getterValue="AREA_NO" setterTypeRef="2" setterValue="AREA_NO" />
+        <map getterTypeRef="0" getterValue="LOCATION_NO" setterTypeRef="2" setterValue="LOCATION_NO" />
+        <map getterTypeRef="0" getterValue="DISP_LOCATION" setterTypeRef="2" setterValue="DISP_LOCATION" />
+        <map getterTypeRef="0" getterValue="TITLE" setterTypeRef="2" setterValue="TITLE" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="None" order="2" />
+    <method name="back_Click" pattern="None" order="1" />
+  </methods>
+</business>

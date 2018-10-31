@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.planmodify.RetrievalPlanModifyBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.planmodify.RetrievalPlanModify" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_RetrievalPlanDate" />
+    <ref name="1" type="Control" typeName="txt_SlipNumber" />
+    <ref name="2" type="Control" typeName="txt_LineNo" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.wms.retrieval.listbox.plan.LstRetrievalPlanMntParams" />
+    <ref name="4" type="Constants" typeName="Constants" />
+    <ref name="5" type="ViewState" typeName="jp.co.daifuku.wms.retrieval.display.planmodify.ViewStateKeys" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.wms.retrieval.schedule.RetrievalPlanModifySCH" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_SearchRetrievalPlan" name="Click" pattern="Popup">
+      <popup2Display uri="/retrieval/listbox/plan/LstRetrievalPlanMnt" businessParameterRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="TICKET_NO" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="STATUS_FLAG_UNSTART" setRef="3" setValue="STATUS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="PLAN_DAY" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="TICKET_NO" setRef="1" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="5" getValue="PLAN_DAY" setRef="0" setValue="Value" />
+        <map getRef="5" getValue="SLIP_NUMBER" setRef="1" setValue="Value" />
+        <map getRef="5" getValue="LINE_NO" setRef="2" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Next" name="Click" pattern="Forward">
+      <sch2Forward schRef="6" uri="/retrieval/planmodify/RetrievalPlanModify2" viewStateRef="5" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="Value" setRef="6" setValue="SLIP_NUMBER" />
+        <map getRef="2" getValue="Value" setRef="6" setValue="LINE_NO" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="SLIP_NUMBER" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="LINE_NO" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+      </output1>
+    </event>
+  </events>
+</business>

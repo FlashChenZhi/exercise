@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--バッチNo.一覧画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>バッチNo.一覧　　　　　　</caption>
+    </label>
+    <label name="lblPagetitle" font-id="font12" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>%BatchListDataSheet.$PAGE%/%BatchListDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <label name="BatchNo1" font-id="%BatchListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[0]%</caption>
+    </label>
+    <label name="BatchNo2" font-id="%BatchListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[1]%</caption>
+    </label>
+    <label name="BatchNo3" font-id="%BatchListDataSheet.@FONT[2]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[2]%</caption>
+    </label>
+    <label name="BatchNo4" font-id="%BatchListDataSheet.@FONT[3]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[3]%</caption>
+    </label>
+    <label name="BatchNo5" font-id="%BatchListDataSheet.@FONT[4]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[4]%</caption>
+    </label>
+    <label name="BatchNo6" font-id="%BatchListDataSheet.@FONT[5]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[5]%</caption>
+    </label>
+    <label name="BatchNo7" font-id="%BatchListDataSheet.@FONT[6]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>20</w>
+      <caption>%BatchListDataSheet.@BATCH_NO[6]%</caption>
+    </label>
+    <label name="lblMsg" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>バッチNo.を選択</caption>
+    </label>
+    <button name="Prev" font-id="" visible="false" enabled="%BatchListDataSheet.$PREV_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>BatchL_Prev</event>
+      <key>LT</key>
+    </button>
+    <button name="Next" font-id="" visible="false" enabled="%BatchListDataSheet.$NEXT_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>BatchL_Next</event>
+      <key>RT</key>
+    </button>
+    <button name="Up" font-id="" visible="false" enabled="%BatchListDataSheet.$UP_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>BatchL_Up</event>
+      <key>UP</key>
+    </button>
+    <button name="Down" font-id="" visible="false" enabled="%BatchListDataSheet.$DOWN_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>BatchL_Down</event>
+      <key>DW</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="false">
+      <x>66</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption> ENT:選択</caption>
+      <event>BatchL_Ent</event>
+      <key>ET</key>
+    </button>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る     </caption>
+      <event>BatchL_Back</event>
+      <key>KL</key>
+    </button>
+  </form>
+</HaiSurf.Page>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--Receiving/StorageAreaConfirmation-->
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>320</w>
+      <h>26</h>
+      <caption>Receiving/Storage Area</caption>
+    </label>
+    <label name="lblTemporary" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>60</y>
+      <w>180</w>
+      <h>20</h>
+      <caption>Temporary Area #:</caption>
+    </label>
+    <label name="lblTemporaryAreaNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>80</y>
+      <w>100</w>
+      <h>18</h>
+      <caption>%ReceivingAreaDataSheet.TEMP_AREA_NO%</caption>
+    </label>
+    <label name="lblTemporaryName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>100</y>
+      <w>210</w>
+      <h>20</h>
+      <caption>Temporary Area Name:</caption>
+    </label>
+    <label name="lblTemporaryAreaName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>120</y>
+      <w>308</w>
+      <h>40</h>
+      <caption>%ReceivingAreaDataSheet.TEMP_AREA_NAME%</caption>
+    </label>
+    <label name="lblStorage" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>162</y>
+      <w>180</w>
+      <h>20</h>
+      <caption>Storage Area #:</caption>
+    </label>
+    <label name="lblStorageAreaNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>182</y>
+      <w>100</w>
+      <h>18</h>
+      <caption>%ReceivingAreaDataSheet.AREA_NO%</caption>
+    </label>
+    <label name="lblStorageName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>202</y>
+      <w>210</w>
+      <h>20</h>
+      <caption>Storage Area Name:</caption>
+    </label>
+    <label name="lblStorageAreaName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>222</y>
+      <w>308</w>
+      <h>40</h>
+      <caption>%ReceivingAreaDataSheet.AREA_NAME%</caption>
+    </label>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>OK</caption>
+      <event>RecTemp_Ent</event>
+    </button>
+    <button name="List" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>200</x>
+      <y>56</y>
+      <w>124</w>
+      <h>40</h>
+      <caption>Change</caption>
+      <event>RecTemp_List</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>56</y>
+      <w>324</w>
+      <h>210</h>
+    </label>
+  </form>
+</HaiSurf.Page>

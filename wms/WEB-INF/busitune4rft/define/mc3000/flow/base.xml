@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow startupNode="TopPage" sessionErrorNode="SessionError" xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="TopPage" type="Page" />
+    <ref name="1" typeName="ERR_3" type="MessagePage" />
+    <ref name="10" typeName="noplanretrieval" type="Flow" />
+    <ref name="11" typeName="ExitConfirm" type="Page" />
+    <ref name="12" typeName="MainMenuDataSheet" type="DataSheet" />
+    <ref name="13" typeName="ERR_2" type="MessagePage" />
+    <ref name="14" typeName="SessionError" type="Page" />
+    <ref name="2" typeName="END" type="MessagePage" />
+    <ref name="3" typeName="ERR_1" type="MessagePage" />
+    <ref name="4" typeName="MainMenu" type="Page" />
+    <ref name="5" typeName="receiving" type="Flow" />
+    <ref name="6" typeName="receivingstorage" type="Flow" />
+    <ref name="7" typeName="shipping" type="Flow" />
+    <ref name="8" typeName="retrieval" type="Flow" />
+    <ref name="9" typeName="noplanstorage" type="Flow" />
+    <ref name="15" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="15" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="15" name="ILLEGAL_IP_ADDRESS" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Child">
+                          <nodes>
+                            <node typeRef="2" />
+                          </nodes>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child" message1="6047034">
+              <conditions>
+                <condition typeRef="15" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="1">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Child">
+                          <nodes>
+                            <node typeRef="2" />
+                          </nodes>
+                        </forward>
+                      </forwards>
+                    </action>
+                    <action name="#2" order="1">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="start_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="MainMenu">
+              <conditions>
+                <condition typeRef="15" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001" message2="6043016">
+              <conditions>
+                <condition typeRef="15" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="15" name="ALREADY_RESTARTED" />
+                <condition typeRef="15" name="DB_ACCESS_ERROR" />
+                <condition typeRef="15" name="ERROR" />
+                <condition typeRef="15" name="ILLEGAL_TERMINAL_NUMBER" />
+                <condition typeRef="15" name="SCHEDULE_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="exit_Click" order="2">
+          <forwards>
+            <forward forwardType="Child">
+              <nodes>
+                <node typeRef="2" />
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="4">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="15" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043001" message2="6043016">
+              <conditions>
+                <condition typeRef="15" name="NODATA" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="TopPage" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="15" name="DB_ACCESS_ERROR" />
+                <condition typeRef="15" name="ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="TopPage" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="exit_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="ExitConfirm">
+              <conditions>
+                <condition typeRef="15" name="NORMAL" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="ent_Click" order="3">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="5" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_RECEIVING" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="6" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_RECEIVING_STORAGE" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="7" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_SHIPPING" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="8" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_RETRIEVAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="9" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_NOPLAN_STORAGE" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="10" nodeName="WorkerInput">
+              <conditions>
+                <condition typeRef="15" name="JOBTYPE_NOPLAN_RETRIEVAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6047008">
+              <conditions>
+                <condition typeRef="15" name="INSTACIATE_ERROR" />
+                <condition typeRef="15" name="JOBTYPE_INVENTORY" />
+                <condition typeRef="15" name="JOBTYPE_MOVE_RETRIEVAL" />
+                <condition typeRef="15" name="JOBTYPE_MOVE_STORAGE" />
+                <condition typeRef="15" name="JOBTYPE_SHIPPING_LOAD" />
+                <condition typeRef="15" name="JOBTYPE_SORTING" />
+                <condition typeRef="15" name="JOBTYPE_STORAGE" />
+                <condition typeRef="15" name="JOBTYPE_TC_RECEIVING" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="15" name="DB_ACCESS_ERROR" />
+                <condition typeRef="15" name="ERROR" />
+                <condition typeRef="15" name="SCHEDULE_ERROR" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="11">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="yes_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="TopPage">
+              <conditions>
+                <condition typeRef="15" name="NORMAL" />
+              </conditions>
+              <remove>
+                <item dataSheetRef="12" />
+              </remove>
+            </forward>
+            <forward forwardType="Child">
+              <conditions>
+                <condition typeRef="15" name="DB_ACCESS_ERROR" />
+                <condition typeRef="15" name="ERROR" />
+                <condition typeRef="15" name="ILLEGAL_TERMINAL_NUMBER" />
+              </conditions>
+              <nodes>
+                <node typeRef="13">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="Node" nodeName="TopPage" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+        <action name="no_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="MainMenu" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="14">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="ent_Click" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="TopPage" />
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

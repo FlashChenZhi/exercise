@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="T_LogMessage" keyword="eManager" description="ログのメッセージ" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="maxLength" value="100" />
+    <property name="cols" value="80" />
+    <property name="rows" value="2" />
+    <property name="readOnly" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txa-T001" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="" />
+    <property name="errRequired" value="6403004" />
+    <property name="errTabooStr" value="6403005" />
+    <property name="errMaxLength" value="6403006" />
+    <property name="clientErrTabooStr" value="MSG-T0036" />
+    <property name="clientErrMaxLength" value="MSG-T0037" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="T_LogDetail" keyword="eManager" description="ログの詳細" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="maxLength" value="500" />
+    <property name="cols" value="80" />
+    <property name="rows" value="5" />
+    <property name="readOnly" value="true" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="txa-T001" />
+    <property name="accessKey" value="" />
+    <property name="errMsgParamKey" value="" />
+    <property name="errRequired" value="6403004" />
+    <property name="errTabooStr" value="6403005" />
+    <property name="errMaxLength" value="6403006" />
+    <property name="clientErrTabooStr" value="MSG-T0036" />
+    <property name="clientErrMaxLength" value="MSG-T0037" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+</templates>

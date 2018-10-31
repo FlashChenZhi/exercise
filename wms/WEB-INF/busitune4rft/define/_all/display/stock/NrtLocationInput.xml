@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.ReportWorkEndSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="String" type="String" />
+    <ref name="4" typeName="LocationDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Control" type="Control" />
+    <ref name="6" typeName="jp.co.daifuku.wms.stock.rft.schedule.NrtLocationInputSCH" type="Sch" />
+    <ref name="7" typeName="ConsignorDataSheet" type="DataSheet" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="back_Click" pattern="Commit" order="1">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+      </schInput>
+      <output />
+    </method>
+    <method name="toMenu_Click" pattern="Commit" order="3">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+      </schInput>
+      <output>
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="USER_ID" />
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="USER_NAME" />
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="PASSWORD" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Query" order="2">
+      <validate>
+        <item fieldTypeRef="4" field="AREA_LOCATION" required="true" focusTypeRef="5" focus="LocAreaNo" />
+      </validate>
+      <schBase schRef="6" />
+      <schInput>
+        <map getterTypeRef="7" getterValue="CONSIGNOR_CODE" setterTypeRef="6" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="4" getterValue="AREA_LOCATION" setterTypeRef="6" setterValue="AREA_LOCATION" />
+      </schInput>
+      <output>
+        <map getterTypeRef="6" getterValue="LOCATION_DISP" setterTypeRef="4" setterValue="LOCATION_DISP" />
+        <map getterTypeRef="6" getterValue="AREA_NO" setterTypeRef="4" setterValue="AREA_NO" />
+        <map getterTypeRef="6" getterValue="LOCATION_NO" setterTypeRef="4" setterValue="LOCATION_NO" />
+      </output>
+    </method>
+  </methods>
+</business>

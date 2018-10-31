@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.ship.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="欠品保留一覧データシート" />
+  <comment lang="en" value="Shortage Suspend List Data Sheet" />
+  <comment lang="zh" value="缺货预约一览数据表" />
+  <fields>
+    <field name="ITEM_CODE" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="商品コード" />
+      <comment lang="en" value="Item Code" />
+      <comment lang="zh" value="商品代码" />
+    </field>
+    <field name="ITEM_NAME" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="商品名称" />
+      <comment lang="en" value="ItemName " />
+      <comment lang="zh" value="商品名称" />
+    </field>
+    <field name="SHORTAGE_CASE_QTY" type="Number" format="0" separateSize="0" isArray="true">
+      <comment lang="ja" value="不足ケース数" />
+      <comment lang="en" value="Shortage Case Qty" />
+      <comment lang="zh" value="不足盒装数" />
+    </field>
+    <field name="SHORTAGE_PIECE_QTY" type="Number" format="0" separateSize="0" isArray="true">
+      <comment lang="ja" value="不足ピース数" />
+      <comment lang="en" value="Shortage Piece Qty" />
+      <comment lang="zh" value="不足散装数" />
+    </field>
+  </fields>
+</datasheet>

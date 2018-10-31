@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.base.listbox.locate.LstLocateBusiness" abstractClassName="jp.co.daifuku.wms.base.listbox.locate.LstLocate" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.locate.LstLocateParams" />
+    <ref name="3" type="Dasch" typeName="jp.co.daifuku.wms.base.dasch.LstLocateDASCH" />
+    <ref name="4" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_Locate">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="2" resourceKey="LBL-W0138" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="LOCATION" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="3" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="AREA_NO" setRef="3" setValue="AREA_NO" />
+        <map getRef="2" getValue="LOCATION_NO" setRef="3" setValue="LOCATION_NO" />
+        <map getRef="2" getValue="FROM_TO_FLAG" setRef="3" setValue="FROM_TO_FLAG" />
+        <map getRef="2" getValue="TO_LOCATION_NO" setRef="3" setValue="TO_LOCATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="SELECT" setRef="4" setValue="Value" />
+        <map getRef="3" getValue="LOCATION_NO" setRef="1" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="LOCATION_NO" />
+      </output1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--UnplannedStorageConfirmQty-->
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontQty" fontname="Courier New" bold="true" italic="false" size="24" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" modeonline="true" focus="%CommonDataSheet.FocusField%" wave="%CommonDataSheet.BeepWav%" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>26</h>
+      <caption>Confirm Qty</caption>
+    </label>
+    <edit name="ItemCode" autoselect="true" enabled="true" font-id="fontBold" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="false" voicedigit="true" voiceunit="non">
+      <x>18</x>
+      <y>47</y>
+      <w>280</w>
+      <h>25</h>
+      <text>%NoPlanStorageOutDataSheet.ITEM_CODE%</text>
+      <event>NstQtyI_Scan</event>
+    </edit>
+    <label name="lblItemName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>75</y>
+      <w>308</w>
+      <h>52</h>
+      <caption>%NoPlanStorageOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <edit name="CaseQty" autoselect="true" enabled="%CommonDataSheet.CASE_INPUT_ENABLED%" font-id="fontQty" inputchecked="true" visible="true" password="false" maxlength="4" scan="false" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>35</x>
+      <y>140</y>
+      <w>85</w>
+      <h>38</h>
+      <text>%NoPlanStorageOutDataSheet.RESULT_CASE_QTY%</text>
+      <event>NstQtyI_CaseEnt</event>
+    </edit>
+    <label name="lblCase" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>120</x>
+      <y>164</y>
+      <w>36</w>
+      <h>16</h>
+      <caption>Cases</caption>
+    </label>
+    <edit name="PieceQty" autoselect="true" enabled="true" font-id="fontQty" inputchecked="true" keystyle="none" visible="true" password="false" maxlength="4" scan="false" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="false" voicedigit="true" voiceunit="non">
+      <x>175</x>
+      <y>140</y>
+      <w>85</w>
+      <h>38</h>
+      <text>%NoPlanStorageOutDataSheet.RESULT_PIECE_QTY%</text>
+      <event>NstQtyI_PieceEnt</event>
+    </edit>
+    <label name="lblPiece" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>260</x>
+      <y>164</y>
+      <w>43</w>
+      <h>16</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblEntering" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>200</y>
+      <w>72</w>
+      <h>20</h>
+      <caption>Case pack:</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>80</x>
+      <y>200</y>
+      <w>44</w>
+      <h>20</h>
+      <caption>%NoPlanStorageOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>245</y>
+      <w>50</w>
+      <h>20</h>
+      <caption>Lot #:</caption>
+    </label>
+    <edit name="LotNo" autoselect="true" enabled="true" font-id="fontBold" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="false" voicedigit="true" voiceunit="non">
+      <x>60</x>
+      <y>240</y>
+      <w>240</w>
+      <h>25</h>
+      <text>%NoPlanStorageOutDataSheet.RESULT_LOT_NO%</text>
+      <event>NstQtyI_LotNoEnt</event>
+    </edit>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Submit</caption>
+      <event>NstQtyI_Commit</event>
+    </button>
+    <button name="Cancel" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Cancel</caption>
+      <event>NstQtyI_Back</event>
+    </button>
+    <button name="CP" font-id="fontBtn" visible="true" backcolor="%CommonDataSheet.CASE_PIECE_COLOR%" enabled="true" inputchecked="false" modeonline="true">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>%CommonDataSheet.CASE_PIECE_LABEL%</caption>
+      <event>NstQtyI_CP</event>
+    </button>
+    <button name="Detail" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>200</x>
+      <y>0</y>
+      <w>124</w>
+      <h>40</h>
+      <caption>Details</caption>
+      <event>NstQtyI_Detail</event>
+    </button>
+    <button name="Input" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%NoPlanStorageOutDataSheet.ENTERING_QTY_INPUT_ENABLED%" inputchecked="false" modeonline="true">
+      <x>200</x>
+      <y>190</y>
+      <w>120</w>
+      <h>40</h>
+      <caption>Input</caption>
+      <event>NstQtyI_Input</event>
+    </button>
+    <label name="panel1" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>44</y>
+      <w>324</w>
+      <h>85</h>
+    </label>
+    <label name="panel2" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>135</y>
+      <w>324</w>
+      <h>135</h>
+    </label>
+  </form>
+</HaiSurf.Page>

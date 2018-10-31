@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.retrieval.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="Number" type="Number" />
+    <ref name="1" typeName="RetrievalOutDataSheet" type="DataSheet" />
+    <ref name="2" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+    </method>
+    <method name="input2_Click" pattern="None" order="6" />
+    <method name="itemCode_Scan" pattern="NoSch" order="1">
+      <validate />
+      <output />
+      <focus fieldTypeRef="2" field="ItemCode" />
+    </method>
+    <method name="ent_Click" pattern="NoSch" order="5">
+      <validate />
+      <output />
+    </method>
+    <method name="back_Click" pattern="NoSch" order="2">
+      <validate />
+      <output>
+        <map getterTypeRef="0" getterValue="0" setterTypeRef="1" setterValue="RESULT_QTY" />
+        <map getterTypeRef="0" getterValue="0" setterTypeRef="1" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="0" setterTypeRef="1" setterValue="RESULT_PIECE_QTY" />
+        <map getterTypeRef="1" getterValue="PLAN_LOT_NO" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+      </output>
+    </method>
+    <method name="cp_Click" pattern="NoSch" order="3">
+      <validate />
+      <output />
+      <focus fieldTypeRef="2" field="ItemCode" />
+    </method>
+    <method name="detail_Click" pattern="None" order="7" />
+    <method name="input1_Click" pattern="None" order="4" />
+  </methods>
+</business>

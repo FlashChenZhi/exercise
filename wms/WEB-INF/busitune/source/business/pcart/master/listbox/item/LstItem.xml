@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.listbox.pctitem.PCTLstItemBusiness" abstractClassName="jp.co.daifuku.pcart.master.listbox.pctitem.PCTLstItem" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctitem.PCTLstItemParams" />
+    <ref name="3" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="4" type="Control" typeName="LST_LOT_QTY" />
+    <ref name="5" type="Control" typeName="LST_JAN" />
+    <ref name="6" type="Control" typeName="LST_ITF" />
+    <ref name="7" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.PCTLstItemDASCH" />
+    <ref name="8" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ItemList">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_LOT_QTY" orgIndex="4" resourceKey="LBL-P0053" dataType="Number" format="0" />
+      <listcellColumn name="LST_JAN" orgIndex="5" resourceKey="LBL-W0002" dataType="String" />
+      <listcellColumn name="LST_ITF" orgIndex="6" resourceKey="LBL-W0017" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="COLUMN_4" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="UPC_CODE" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="CASE_ITF" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="LOT_QTY" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="JAN" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="ITF" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="7" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="ITEM_CODE" setRef="7" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="ITEM_NAME" setRef="7" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="LOT_QTY" setRef="7" setValue="LOT_QTY" />
+        <map getRef="2" getValue="ITF" setRef="7" setValue="ITF" />
+        <map getRef="2" getValue="JAN" setRef="7" setValue="JAN" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="7" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="SEARCHTABLE" setRef="7" setValue="SEARCHTABLE" />
+        <map getRef="2" getValue="TO_ITEM_CODE" setRef="7" setValue="TO_ITEM_CODE" />
+        <map getRef="2" getValue="LAST_UPDATE_DATE" setRef="7" setValue="LAST_UPDATE_DATE" />
+      </input1>
+      <output1>
+        <map getRef="7" getValue="SELECT" setRef="8" setValue="Value" />
+        <map getRef="7" getValue="ITEM_CODE" setRef="1" setValue="Value" />
+        <map getRef="7" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+        <map getRef="7" getValue="LOT_QTY" setRef="4" setValue="Value" />
+        <map getRef="7" getValue="JAN" setRef="5" setValue="Value" />
+        <map getRef="7" getValue="ITF" setRef="6" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

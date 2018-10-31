@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.listbox.fasettingdate.FaLstRetrievalSettingDateBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.listbox.fasettingdate.FaLstRetrievalSettingDate" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="LST_START_DATETIME" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.retrieval.listbox.fasettingdate.FaLstRetrievalSettingDateParams" />
+    <ref name="2" type="Dasch" typeName="jp.co.daifuku.wms.retrieval.dasch.FaLstRetrievalSettingDateDASCH" />
+    <ref name="3" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="4" type="Control" typeName="LST_TYPE" />
+  </refs>
+  <listcells>
+    <listcell name="lst_FaRetrievalSettingDateList">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_START_DATETIME" orgIndex="2" resourceKey="LBL-W1394" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_TYPE" orgIndex="3" resourceKey="LBL-W9039" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus" />
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="START_DATETIME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="2" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="2" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="PLAN_DATE" setRef="2" setValue="PLAN_DATE" />
+        <map getRef="1" getValue="START_DATE" setRef="2" setValue="START_DATE" />
+        <map getRef="1" getValue="START_TIME" setRef="2" setValue="START_TIME" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="COLUMN_1" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="START_DATETIME" setRef="0" setValue="Value" />
+        <map getRef="2" getValue="TYPE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctitemmodify.PCTItemModify2Business" abstractClassName="jp.co.daifuku.pcart.master.display.pctitemmodify.PCTItemModify2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemName" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctitemmodify.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="lbl_InConsignorCode" />
+    <ref name="3" type="Control" typeName="lbl_InItemCode" />
+    <ref name="4" type="Control" typeName="lbl_InLotEnteringQty" />
+    <ref name="5" type="Control" typeName="txt_JanCode" />
+    <ref name="6" type="Control" typeName="txt_CaseITF" />
+    <ref name="7" type="Control" typeName="txt_BundleItf" />
+    <ref name="8" type="Control" typeName="txt_UnitWeight" />
+    <ref name="9" type="Control" typeName="txt_WeightErrorRate" />
+    <ref name="10" type="Control" typeName="txt_MaxCheckUnitNumber" />
+    <ref name="11" type="Control" typeName="txt_Message" />
+    <ref name="12" type="Control" typeName="txt_LocationNo" />
+    <ref name="13" type="Control" typeName="txt_ItemImageSet" />
+    <ref name="14" type="Control" typeName="chk_Delete" />
+    <ref name="15" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemModify2SCH" />
+    <ref name="16" type="Constants" typeName="Constants" />
+    <ref name="17" type="Control" typeName="btn_ModifySet" />
+    <ref name="18" type="Control" typeName="btn_Delete" />
+    <ref name="19" type="Control" typeName="btn_Clear" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctitemmodify/PCTItemModify" viewStateRef="1" />
+      <output1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="VS_ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="VS_LOT_QTY" />
+      </output1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="15" />
+      <input1>
+        <map getRef="1" getValue="VS_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="VS_ITEM_CODE" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="VS_LOT_QTY" setRef="15" setValue="LOT_QTY" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="CONSIGNOR_CODE" setRef="2" setValue="Value" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="3" setValue="Value" />
+        <map getRef="15" getValue="LOT_QTY" setRef="4" setValue="Value" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="0" setValue="Value" />
+        <map getRef="15" getValue="JAN" setRef="5" setValue="Value" />
+        <map getRef="15" getValue="ITF" setRef="6" setValue="Value" />
+        <map getRef="15" getValue="BUNDLE_ITF" setRef="7" setValue="Value" />
+        <map getRef="15" getValue="SINGLE_WEIGHT" setRef="8" setValue="Value" />
+        <map getRef="15" getValue="WEIGHT_DISTINCT_RATE" setRef="9" setValue="Value" />
+        <map getRef="15" getValue="MAX_INSPECTION_UNIT_QTY" setRef="10" setValue="Value" />
+        <map getRef="15" getValue="INFORMATION" setRef="11" setValue="Value" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="12" setValue="Value" />
+        <map getRef="15" getValue="ITEM_PICTURE_REGIST" setRef="13" setValue="Value" />
+        <map getRef="15" getValue="LAST_UPDATE_DATE" setRef="1" setValue="VS_LAST_UPDATE_DATE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="1" setValue="VS_ITEM_NAME" />
+        <map getRef="15" getValue="JAN" setRef="1" setValue="VS_JAN" />
+        <map getRef="15" getValue="ITF" setRef="1" setValue="VS_ITF" />
+        <map getRef="15" getValue="BUNDLE_ITF" setRef="1" setValue="VS_BUNDLE_ITF" />
+        <map getRef="15" getValue="SINGLE_WEIGHT" setRef="1" setValue="VS_SINGLE_WEIGHT" />
+        <map getRef="15" getValue="WEIGHT_DISTINCT_RATE" setRef="1" setValue="VS_WEIGHT_DISTINCT_RATE" />
+        <map getRef="15" getValue="INFORMATION" setRef="1" setValue="VS_INFORMATION" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="1" setValue="VS_LOCATION_NO" />
+      </output1>
+      <clear1>
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="13" type="ReadOnly" />
+        <clear controlRef="14" type="UnChecked" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ModifySet" name="Click" pattern="Edit">
+      <sch2Display schRef="15" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+        <validate controlRef="10" />
+        <validate controlRef="11" />
+        <validate controlRef="12" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="JAN" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="ITF" />
+        <map getRef="7" getValue="Value" setRef="15" setValue="BUNDLE_ITF" />
+        <map getRef="8" getValue="Value" setRef="15" setValue="SINGLE_WEIGHT" />
+        <map getRef="9" getValue="Value" setRef="15" setValue="WEIGHT_DISTINCT_RATE" />
+        <map getRef="10" getValue="Value" setRef="15" setValue="MAX_INSPECTION_UNIT_QTY" />
+        <map getRef="11" getValue="Value" setRef="15" setValue="INFORMATION" />
+        <map getRef="12" getValue="Value" setRef="15" setValue="LOCATION_NO" />
+        <map getRef="14" getValue="Value" setRef="15" setValue="DELETE_FLAG" />
+        <map getRef="1" getValue="VS_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="VS_ITEM_CODE" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="VS_LAST_UPDATE_DATE" setRef="15" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="VS_LOT_QTY" setRef="15" setValue="LOT_QTY" />
+        <map getRef="16" getValue="PROCESS_FLAG_MODIFY" setRef="15" setValue="PROCESS_FLAG" />
+      </input1>
+      <input2>
+        <map getRef="1" getValue="VS_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="VS_ITEM_CODE" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="VS_LOT_QTY" setRef="15" setValue="LOT_QTY" />
+      </input2>
+      <output1>
+        <map getRef="15" getValue="ITEM_NAME" setRef="0" setValue="Value" />
+        <map getRef="15" getValue="JAN" setRef="5" setValue="Value" />
+        <map getRef="15" getValue="ITF" setRef="6" setValue="Value" />
+        <map getRef="15" getValue="BUNDLE_ITF" setRef="7" setValue="Value" />
+        <map getRef="15" getValue="SINGLE_WEIGHT" setRef="8" setValue="Value" />
+        <map getRef="15" getValue="WEIGHT_DISTINCT_RATE" setRef="9" setValue="Value" />
+        <map getRef="15" getValue="MAX_INSPECTION_UNIT_QTY" setRef="10" setValue="Value" />
+        <map getRef="15" getValue="INFORMATION" setRef="11" setValue="Value" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="12" setValue="Value" />
+        <map getRef="15" getValue="ITEM_PICTURE_REGIST" setRef="13" setValue="Value" />
+        <map getRef="15" getValue="LAST_UPDATE_DATE" setRef="1" setValue="VS_LAST_UPDATE_DATE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="1" setValue="VS_ITEM_NAME" />
+        <map getRef="15" getValue="JAN" setRef="1" setValue="VS_JAN" />
+        <map getRef="15" getValue="ITF" setRef="1" setValue="VS_ITF" />
+        <map getRef="15" getValue="BUNDLE_ITF" setRef="1" setValue="VS_BUNDLE_ITF" />
+        <map getRef="15" getValue="SINGLE_WEIGHT" setRef="1" setValue="VS_SINGLE_WEIGHT" />
+        <map getRef="15" getValue="WEIGHT_DISTINCT_RATE" setRef="1" setValue="VS_WEIGHT_DISTINCT_RATE" />
+        <map getRef="15" getValue="INFORMATION" setRef="1" setValue="VS_INFORMATION" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="1" setValue="VS_LOCATION_NO" />
+      </output1>
+      <clear1>
+        <clear controlRef="14" type="UnChecked" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="15" />
+      <input1>
+        <map getRef="1" getValue="VS_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="VS_ITEM_CODE" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="VS_LAST_UPDATE_DATE" setRef="15" setValue="LAST_UPDATE_DATE" />
+        <map getRef="1" getValue="VS_LOT_QTY" setRef="15" setValue="LOT_QTY" />
+        <map getRef="16" getValue="PROCESS_FLAG_DELETE" setRef="15" setValue="PROCESS_FLAG" />
+      </input1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="UnChecked" />
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="8" type="ReadOnly" />
+        <clear controlRef="9" type="ReadOnly" />
+        <clear controlRef="10" type="ReadOnly" />
+        <clear controlRef="11" type="ReadOnly" />
+        <clear controlRef="12" type="ReadOnly" />
+        <clear controlRef="14" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

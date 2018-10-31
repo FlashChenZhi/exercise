@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctundonework.PCTUndoneWorkBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctundonework.PCTUndoneWork" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTUndoneWorkSCH" />
+    <ref name="2" type="Control" typeName="txt_ConsignorName" />
+    <ref name="3" type="Control" typeName="pul_Area" />
+    <ref name="4" type="Control" typeName="LST_AREA_NO" />
+    <ref name="5" type="Control" typeName="LST_START_WORK_ZONE" />
+    <ref name="6" type="Control" typeName="LST_PROGRESS_RATE" />
+    <ref name="7" type="Control" typeName="LST_PLAN_ORDER_COUNT" />
+    <ref name="8" type="Control" typeName="LST_COMPLETE_ORDER_COUNT" />
+    <ref name="9" type="Control" typeName="LST_SURPLUS_ORDER_COUNT" />
+    <ref name="10" type="Control" typeName="rdo_Auto" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAllTrue" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_UndoneWorkList">
+      <listcellColumn name="LST_AREA_NO" orgIndex="1" resourceKey="LBL-P0043" dataType="String" />
+      <listcellColumn name="LST_START_WORK_ZONE" orgIndex="2" resourceKey="LBL-P0227" dataType="String" />
+      <listcellColumn name="LST_PROGRESS_RATE" orgIndex="3" resourceKey="LBL-W0213" dataType="String" />
+      <listcellColumn name="LST_PLAN_ORDER_COUNT" orgIndex="4" resourceKey="LBL-P0224" dataType="Number" format="0" />
+      <listcellColumn name="LST_COMPLETE_ORDER_COUNT" orgIndex="5" resourceKey="LBL-P0225" dataType="Number" format="0" />
+      <listcellColumn name="LST_SURPLUS_ORDER_COUNT" orgIndex="6" resourceKey="LBL-P0226" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="CONSIGNOR_NAME" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="AREA_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="START_WORK_ZONE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="PLAN_ORDER_COUNT" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="COMPLETE_ORDER_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="SURPLUS_ORDER_COUNT" setRef="9" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="10" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="AREA_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="START_WORK_ZONE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PROGRESS_RATE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="PLAN_ORDER_COUNT" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="COMPLETE_ORDER_COUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="SURPLUS_ORDER_COUNT" setRef="9" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

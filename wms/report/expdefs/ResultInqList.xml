@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0803" downloadName="ResultInqList" reportName="LBL-W1318">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_generation_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_generation_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_generation_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_generation_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="generation_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0164" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="generation_time" type="date" format="$TIME_FORMAT.HMS" header="LBL-W0490" printEnabled="true" xlsEnabled="true" excelformat="21"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="inc_dec_type" type="string" header="LBL-W0137" printEnabled="true" xlsEnabled="true"/>
+    <field name="job_type" type="string" header="LBL-W0079" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_no" type="area" header="LBL-W0011" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_no" type="location" header="LBL-W9037" printEnabled="true" xlsEnabled="true"/>
+    <field name="work_qty" type="number" format="###,###,###,##0" header="LBL-W0087" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="storage_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0160" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="storage_time" type="date" format="$TIME_FORMAT.HMS" header="LBL-W0157" printEnabled="true" xlsEnabled="true" excelformat="21"/>
+    <field name="user_name" type="string" header="LBL-W0033" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.fastart.FaRetrievalStartBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.fastart.FaRetrievalStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_FromBatchNo" />
+    <ref name="1" type="Control" typeName="txt_ToBatchNo" />
+    <ref name="2" type="Control" typeName="LST_SELECT" />
+    <ref name="3" type="Control" typeName="btn_Start" />
+    <ref name="4" type="Control" typeName="btn_AllCheck" />
+    <ref name="5" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="6" type="Control" typeName="btn_AllClear" />
+    <ref name="7" type="Control" typeName="pul_LAllocatedPattern" />
+    <ref name="8" type="Control" typeName="chk_LWorkListPrint" />
+    <ref name="9" type="Control" typeName="chk_LShortageListPrint" />
+    <ref name="10" type="Control" typeName="rdo_LCancelTicketNo" />
+    <ref name="11" type="Control" typeName="rdo_LPossibleWorkRetrieval" />
+    <ref name="12" type="Control" typeName="lst_FaPlannedRetrieval" />
+    <ref name="13" type="Dasch" typeName="jp.co.daifuku.wms.retrieval.dasch.FaRetrievalStartDASCH" />
+    <ref name="14" type="Constants" typeName="Constants" />
+    <ref name="15" type="Control" typeName="LST_BATCH_NO" />
+    <ref name="16" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="17" type="Control" typeName="HIDDEN_PLAN_DAY" />
+    <ref name="18" type="Control" typeName="pager" />
+    <ref name="19" type="Sch" typeName="jp.co.daifuku.wms.retrieval.schedule.FaRetrievalStartSCH" />
+    <ref name="20" type="Control" typeName="OrderCondition" />
+    <ref name="21" type="String" typeName="String" />
+    <ref name="22" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="23" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_LAllocatedPattern" dataType="WmsAllocPriorityNormal" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaPlannedRetrieval">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_PLAN_DAY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_BATCH_NO" orgIndex="2" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_DETAIL" orgIndex="3" resourceKey="LBL-W0179" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="2" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="2" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="9" type="UnChecked" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="10" type="Checked" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="12" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="13" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="13" setValue="FROM_BATCH_NO" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="TO_BATCH_NO" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="BATCH_NO" setRef="15" setValue="Value" />
+        <map getRef="13" getValue="CONSIGNOR_CODE" setRef="16" setValue="Value" />
+        <map getRef="13" getValue="PLAN_DAY" setRef="17" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="LST_DETAIL" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="18" type="Clear" />
+        <clear controlRef="12" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="19" />
+      <validate>
+        <validate controlRef="7" required="true" />
+        <validate controlRef="12" required="true" />
+      </validate>
+      <input1>
+        <map getRef="16" getValue="Value" setRef="19" setValue="CONSIGNOR_CODE" />
+        <map getRef="17" getValue="Value" setRef="19" setValue="PLAN_DAY" />
+        <map getRef="15" getValue="Value" setRef="19" setValue="BATCH_NO" />
+        <map getRef="7" getValue="Value" setRef="19" setValue="ALLOCATED_PATTERN" />
+        <map getRef="8" getValue="Value" setRef="19" setValue="WORK_LIST_PRINT_FLAG" />
+        <map getRef="9" getValue="Value" setRef="19" setValue="SHORTAGE_LIST_PRINT_FLAG" />
+        <map getRef="20" getValue="Value" setRef="19" setValue="SHORTAGE_WORK_FLAG" />
+        <map getRef="21" setRef="19" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="22" operation="SETTING">
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="15" out1Value="Value" />
+        <block type="If" tag="1" desc="AS/RS作業リスト発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="8" leftValue="Value" rightRef="23" rightValue="True" />
+        </block>
+        <out out1Ref="21" out1Value="1" />
+        <block type="Else" tag="1" desc="AS/RS作業リスト発行が選択されている場合" />
+        <out out1Ref="21" out1Value="0" />
+        <block type="If" tag="2" desc="欠品リスト発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="9" leftValue="Value" rightRef="23" rightValue="True" />
+        </block>
+        <out out1Ref="21" out1Value="1" />
+        <block type="Else" tag="2" desc="欠品リスト発行が選択されている場合" />
+        <out out1Ref="21" out1Value="0" />
+        <block type="If" tag="3" desc="&quot;伝票No.単位で作業を取消&quot;が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Checked" rightRef="23" rightValue="True" />
+        </block>
+        <out out1Ref="14" out1Value="SHORTAGE_WORK_TICKET_CANCEL" />
+        <block type="If" tag="4" desc="&quot;可能な作業は出庫する&quot;が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="11" leftValue="Checked" rightRef="23" rightValue="True" />
+        </block>
+        <out out1Ref="14" out1Value="SHORTAGE_WORK_POSSIBLE_RETRIEVAL" />
+      </part11>
+    </event>
+  </events>
+</business>

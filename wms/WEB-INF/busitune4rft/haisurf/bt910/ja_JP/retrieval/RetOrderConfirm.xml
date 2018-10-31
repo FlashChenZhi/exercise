@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--オーダー出庫オーダー確認画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font16" keyence_mag="1" size="16" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2" formscan="true" formscanevent="RetOrderCf_Scan" scmodeonline="true">
+    <label name="line1" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>オーダー確認　　　　</caption>
+    </label>
+    <label name="lblOrderNo" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>(%RetrievalOutDataSheet.LINE_NO%)%RetrievalOutDataSheet.ORDER_NO%</caption>
+    </label>
+    <label name="line2" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>28</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblCustomerName" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>
+      </w>
+      <caption>%RetrievalOutDataSheet.CUSTOMER_NAME%                                          </caption>
+    </label>
+    <label name="lblItemCode" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>41</y>
+      <w>
+      </w>
+      <caption>%RetrievalOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblItemName" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>%RetrievalOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <label name="lblCaseQty" font-id="font16" visible="true">
+      <align>right</align>
+      <x>0</x>
+      <y>70</y>
+      <w>4</w>
+      <caption>%RetrievalOutDataSheet.RESULT_CASE_QTY%</caption>
+    </label>
+    <label name="lblCaseTitle" font-id="" visible="true">
+      <align>left</align>
+      <x>34</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ</caption>
+    </label>
+    <label name="lblPieceQty" font-id="font16" visible="true">
+      <align>right</align>
+      <x>60</x>
+      <y>70</y>
+      <w>4</w>
+      <caption>%RetrievalOutDataSheet.RESULT_PIECE_QTY%</caption>
+    </label>
+    <label name="lblPieceTitle" font-id="" visible="true">
+      <align>left</align>
+      <x>94</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ</caption>
+    </label>
+    <label name="lblLotNo" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>ﾛｯﾄ:%RetrievalOutDataSheet.RESULT_LOT_NO%        　　　　　　　　　　</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る　　　　</caption>
+      <event>RetOrderCf_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:確定　　</caption>
+      <event>RetOrderCf_Ent</event>
+      <key>ET</key>
+    </button>
+    <button name="F2" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>78</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>F2:入力　　</caption>
+      <event>RetOrderCf_F2</event>
+      <key>F2</key>
+    </button>
+    <button name="F3" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>132</x>
+      <y>118</y>
+      <w>
+      </w>
+      <event>RetOrderCf_F3</event>
+      <key>F3</key>
+    </button>
+    <label name="lblSurvival" font-id="font12" visible="true">
+      <align>right</align>
+      <x>76</x>
+      <y>0</y>
+      <w>4</w>
+      <caption>%RetrievalOutDataSheet.SURVIVAL_RECORD%/</caption>
+    </label>
+    <label name="lblTotal" font-id="font12" visible="true">
+      <align>right</align>
+      <x>100</x>
+      <y>0</y>
+      <w>3</w>
+      <caption>%RetrievalOutDataSheet.TOTAL_RECORD%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

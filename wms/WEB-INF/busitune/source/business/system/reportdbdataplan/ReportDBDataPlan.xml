@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.reportdbdataplan.ReportDBDataPlanBusiness" abstractClassName="jp.co.daifuku.wms.system.display.reportdbdataplan.ReportDBDataPlan" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.ReportDBDataPlanSCH" />
+    <ref name="1" type="Control" typeName="HIDDEN_DATA_TYPE" />
+    <ref name="2" type="Control" typeName="LST_REPORT_DATA_TYPE" />
+    <ref name="3" type="Control" typeName="LST_MESSAGE" />
+    <ref name="4" type="Control" typeName="HIDDEN_LOG_FLAG" />
+    <ref name="5" type="Control" typeName="HIDDEN_CLASS_NAME" />
+    <ref name="6" type="Control" typeName="LST_SELECT" />
+    <ref name="7" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ReportData">
+      <listcellColumn name="HIDDEN_DATA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LOG_FLAG" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CLASS_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_REPORT_DATA_TYPE" orgIndex="2" resourceKey="LBL-W0178" dataType="String" />
+      <listcellColumn name="LST_MESSAGE" orgIndex="3" resourceKey="LBL-W0032" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="REPORT_DATA_TYPE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="LOG_FLAG" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="5" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="6" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="RegistGetParams">
+      <sch2Display schRef="0" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="0" setValue="DATA_TYPE" />
+        <map getRef="6" getValue="Value" setRef="0" setValue="SELECT" />
+        <map getRef="5" getValue="Value" setRef="0" setValue="CLASS_NAME" />
+        <map getRef="2" getValue="Value" setRef="0" setValue="REPORT_DATA_TYPE" />
+      </input1>
+      <part11 operationRef="7" operation="SETTING">
+        <out out1Ref="1" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="LOG_FLAG" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="SELECT" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="REPORT_DATA_TYPE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="DATA_TYPE" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="LOG_FLAG" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="CLASS_NAME" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="REPORT_DATA_TYPE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="MESSAGE" setRef="3" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="6" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

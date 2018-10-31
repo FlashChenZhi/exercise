@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.areamodify.AreaModify2Business" abstractClassName="jp.co.daifuku.wms.master.display.areamodify.AreaModify2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_AreaName" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.master.display.areamodify.ViewStateKeys" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.AreaModifySCH" />
+    <ref name="3" type="Control" typeName="pul_TemporaryArea" />
+    <ref name="4" type="Control" typeName="pul_VacantSearchType" />
+    <ref name="5" type="Control" typeName="pul_ReceivingArea" />
+    <ref name="6" type="Control" typeName="lbl_InArea" />
+    <ref name="7" type="Control" typeName="lbl_InLocationStyle" />
+    <ref name="8" type="Control" typeName="lbl_InAreaType" />
+    <ref name="9" type="Control" typeName="lbl_InLocationType" />
+    <ref name="10" type="Control" typeName="chk_MoveTemporaryStorage" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="13" type="Boolean" typeName="Boolean" />
+    <ref name="14" type="String" typeName="String" />
+    <ref name="15" type="Control" typeName="chk_ReceivingArea" />
+    <ref name="16" type="Control" typeName="btn_Modify" />
+    <ref name="17" type="Control" typeName="btn_Delete" />
+    <ref name="18" type="Control" typeName="btn_Clear" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_TemporaryArea" dataType="WmsAreaTempAll" />
+    <pulldown name="pul_VacantSearchType" dataType="Default" />
+    <pulldown name="pul_ReceivingArea" dataType="WmsAreaReceiveAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/master/areamodify/AreaModify" viewStateRef="1" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="1" getValue="AREA_NO" setRef="2" setValue="AREA_NO" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="AREA_NAME" setRef="0" setValue="Value" />
+        <map getRef="2" getValue="TEMPORARY_AREA" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="VACANT_SEARCH_TYPE" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="RECEIVING_AREA" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="AREA_NO" setRef="6" setValue="Value" />
+        <map getRef="2" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="2" getValue="LOCATION_STYLE" setRef="7" setValue="Value" />
+        <map getRef="2" getValue="AREA_TYPE" setRef="8" setValue="Value" />
+        <map getRef="2" getValue="LOCATION_TYPE" setRef="9" setValue="Value" />
+        <map getRef="2" getValue="AREA_NAME" setRef="1" setValue="VS_AREA_NAME" />
+        <map getRef="2" getValue="TEMPORARY_AREA" setRef="1" setValue="VS_TEMPORARY_AREA" />
+        <map getRef="2" getValue="VACANT_SEARCH_TYPE" setRef="1" setValue="VS_VACANT_SEARCH_TYPE" />
+        <map getRef="2" getValue="RECEIVING_AREA" setRef="1" setValue="VS_RECEIVING_AREA" />
+        <map getRef="2" getValue="AREA_TYPE" setRef="1" setValue="VS_AREA_TYPE" />
+        <map getRef="2" getValue="LOCATION_TYPE" setRef="1" setValue="VS_LOCATION_TYPE" />
+      </output1>
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Edit">
+      <sch2Display schRef="2" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="AREA_NAME" />
+        <map getRef="10" getValue="Value" setRef="2" setValue="MOVE_TEMPORARY_STORAGE" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="VACANT_SEARCH_TYPE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="TEMPORARY_AREA" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="RECEIVING_AREA" />
+        <map getRef="1" getValue="AREA_NO" setRef="2" setValue="AREA_NO" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="LAST_UPDATE_DATE" />
+        <map getRef="11" getValue="PROCESS_FLAG_MODIFY" setRef="2" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="12" operation="MODIFY">
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_AREA_TYPE" />
+        <out out1Ref="1" out1Value="VS_LOCATION_TYPE" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+        <block type="If" tag="1" desc="仮置エリア移動ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="14" out1Value="1" />
+        <block type="Else" tag="1" desc="仮置エリア移動ありが選択されている場合" />
+        <out out1Ref="14" />
+        <out out1Ref="14" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="4" out1Value="Value" />
+        <block type="If" tag="3" desc="入荷エリア定義ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="15" leftValue="Value" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="14" out1Value="1" />
+        <block type="Else" tag="3" desc="入荷エリア定義ありが選択されている場合" />
+        <out out1Ref="14" />
+        <out out1Ref="14" out1Value="0" />
+        <block type="None" tag="4" desc="標準出力" />
+        <out out1Ref="1" out1Value="VS_AREA_NAME" />
+        <out out1Ref="1" out1Value="VS_TEMPORARY_AREA" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_VACANT_SEARCH_TYPE" />
+        <out out1Ref="1" out1Value="VS_RECEIVING_AREA" />
+        <out out1Ref="15" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="1" getValue="AREA_NO" setRef="2" setValue="AREA_NO" />
+      </input2>
+      <output1>
+        <map getRef="2" getValue="AREA_NAME" setRef="0" setValue="Value" />
+        <map getRef="2" getValue="TEMPORARY_AREA" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="VACANT_SEARCH_TYPE" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="RECEIVING_AREA" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="2" getValue="AREA_NAME" setRef="1" setValue="VS_AREA_NAME" />
+        <map getRef="2" getValue="TEMPORARY_AREA" setRef="1" setValue="VS_TEMPORARY_AREA" />
+        <map getRef="2" getValue="VACANT_SEARCH_TYPE" setRef="1" setValue="VS_VACANT_SEARCH_TYPE" />
+        <map getRef="2" getValue="RECEIVING_AREA" setRef="1" setValue="VS_RECEIVING_AREA" />
+      </output1>
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="1" getValue="AREA_NO" setRef="2" setValue="AREA_NO" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="2" setValue="LAST_UPDATE_DATE" />
+        <map getRef="11" getValue="PROCESS_FLAG_DELETE" setRef="2" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="12" operation="DELETE">
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_AREA_TYPE" />
+        <out out1Ref="1" out1Value="VS_LOCATION_TYPE" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_AREA_NAME" />
+        <out out1Ref="1" out1Value="VS_TEMPORARY_AREA" />
+        <block type="If" tag="1" desc="仮置エリア移動ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="14" out1Value="1" />
+        <block type="Else" tag="1" desc="仮置エリア移動ありが選択されている場合" />
+        <out out1Ref="14" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="1" out1Value="VS_VACANT_SEARCH_TYPE" />
+        <out out1Ref="1" out1Value="VS_RECEIVING_AREA" />
+        <block type="If" tag="3" desc="入荷エリア定義ありが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="15" leftValue="Value" rightRef="13" rightValue="True" />
+        </block>
+        <out out1Ref="14" out1Value="1" />
+        <block type="Else" tag="3" desc="入荷エリア定義ありが選択されている場合" />
+        <out out1Ref="14" out1Value="0" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="10" type="UnChecked" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="15" type="UnChecked" />
+        <clear controlRef="16" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

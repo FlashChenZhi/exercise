@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.inventorychk.display.cancel.InventoryCancelBusiness" abstractClassName="jp.co.daifuku.wms.inventorychk.display.cancel.InventoryCancel" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.inventorychk.schedule.InventoryCancelSCH" />
+    <ref name="2" type="Control" typeName="LST_CYCLE_COUNT_START_DATETIME" />
+    <ref name="3" type="Control" typeName="LST_AREA" />
+    <ref name="4" type="Control" typeName="LST_AREA_NAME" />
+    <ref name="5" type="Control" typeName="LST_START_LOCATION" />
+    <ref name="6" type="Control" typeName="LST_END_LOCATION" />
+    <ref name="7" type="Control" typeName="HIDDEN_SCHEDULE" />
+    <ref name="8" type="Control" typeName="HIDDEN_LASTUPDATE_DATE" />
+    <ref name="9" type="Control" typeName="lst_InventoryCancelList" />
+    <ref name="10" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_InventoryCancelList">
+      <listcellColumn name="HIDDEN_SCHEDULE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_LASTUPDATE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_CYCLE_COUNT_START_DATETIME" orgIndex="2" resourceKey="LBL-W0451" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_AREA" orgIndex="3" resourceKey="LBL-W0011" dataType="Area" />
+      <listcellColumn name="LST_AREA_NAME" orgIndex="4" resourceKey="LBL-W0013" dataType="String" />
+      <listcellColumn name="LST_START_LOCATION" orgIndex="5" resourceKey="LBL-W0055" dataType="Location" />
+      <listcellColumn name="LST_END_LOCATION" orgIndex="6" resourceKey="LBL-W0113" dataType="Location" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="REGIST_DATE" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="AREA_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="FROM_LOCATION_NO" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TO_LOCATION_NO" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SCHEDULE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="LASTUPDATE" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ReDisplayFunc" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="REGIST_DATE" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="AREA_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="FROM_LOCATION_NO" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TO_LOCATION_NO" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SCHEDULE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="LASTUPDATE" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="9" required="true" />
+      </validate>
+      <input1>
+        <map getRef="7" getValue="Value" setRef="1" setValue="SCHEDULE" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="LASTUPDATE" />
+        <map getRef="0" getValue="Value" setRef="1" setValue="COLUMN_1" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="REGIST_DATE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="AREA_NAME" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="FROM_LOCATION_NO" />
+        <map getRef="6" getValue="Value" setRef="1" setValue="TO_LOCATION_NO" />
+      </input1>
+      <part11 operationRef="10" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="SCHEDULE" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="LASTUPDATE" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="REGIST_DATE" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="AREA_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="FROM_LOCATION_NO" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="TO_LOCATION_NO" setRef="6" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

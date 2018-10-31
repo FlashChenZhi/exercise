@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingAreaList-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>26</h>
+      <caption>Area List</caption>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>192</x>
+      <y>6</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>(Page:%AreaListDataSheet.$PAGE%/%AreaListDataSheet.$NUM_PAGES%)</caption>
+    </label>
+    <button name="Ent1" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.@ENABLED[0]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>54</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>1</caption>
+      <event>RetAreaL_Ent1</event>
+    </button>
+    <button name="Ent2" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.@ENABLED[1]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>108</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>2</caption>
+      <event>RetAreaL_Ent2</event>
+    </button>
+    <button name="Ent3" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.@ENABLED[2]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>162</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>3</caption>
+      <event>RetAreaL_Ent3</event>
+    </button>
+    <button name="Ent4" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.@ENABLED[3]%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>216</y>
+      <w>60</w>
+      <h>54</h>
+      <caption>4</caption>
+      <event>RetAreaL_Ent4</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.$PREV_ENABLED%" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>RetAreaL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%AreaListDataSheet.$NEXT_ENABLED%" inputchecked="false" modeonline="true">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>RetAreaL_Next</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Retrun</caption>
+      <event>RetAreaL_Back</event>
+    </button>
+    <label name="lblAreaNo1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>54</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%AreaListDataSheet.@AREA_NO[0]%</caption>
+    </label>
+    <label name="lblAreaName1" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>72</y>
+      <w>262</w>
+      <h>36</h>
+      <caption>%AreaListDataSheet.@AREA_NAME[0]%</caption>
+    </label>
+    <label name="lblAreaNo2" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>108</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%AreaListDataSheet.@AREA_NO[1]%</caption>
+    </label>
+    <label name="lblAreaName2" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>126</y>
+      <w>262</w>
+      <h>36</h>
+      <caption>%AreaListDataSheet.@AREA_NAME[1]%</caption>
+    </label>
+    <label name="lblAreaNo3" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>162</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%AreaListDataSheet.@AREA_NO[2]%</caption>
+    </label>
+    <label name="lblAreaName3" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>60</x>
+      <y>180</y>
+      <w>262</w>
+      <h>36</h>
+      <caption>%AreaListDataSheet.@AREA_NAME[2]%</caption>
+    </label>
+    <label name="lblAreaNo4" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>216</y>
+      <w>262</w>
+      <h>18</h>
+      <caption>%AreaListDataSheet.@AREA_NO[3]%</caption>
+    </label>
+    <label name="lblAreaName4" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>60</x>
+      <y>234</y>
+      <w>262</w>
+      <h>36</h>
+      <caption>%AreaListDataSheet.@AREA_NAME[3]%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

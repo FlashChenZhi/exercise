@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--MainMenu-->
+  <font name="fontTitleBar" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontSmall" fontname="Tahoma" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtnLarge" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitleBar" font-id="fontTitleBar" visible="true" forecolor="FFFFFF" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>4</y>
+      <w>324</w>
+      <h>14</h>
+      <caption>MainMenu                                           %TermInfoDataSheet.TERMINAL_NO%</caption>
+    </label>
+    <label name="titleBar" visible="true" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>324</w>
+      <h>23</h>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>200</x>
+      <y>30</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>Page:%MainMenuDataSheet.$PAGE%/%MainMenuDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <button name="Menu1" font-id="fontBtnLarge" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.@ENABLED[0]%" inputchecked="false">
+      <x>0</x>
+      <y>54</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%MainMenuDataSheet.@MENU_NAME[0]%</caption>
+      <event>MainMenu_Menu1</event>
+    </button>
+    <button name="Menu2" font-id="fontBtnLarge" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.@ENABLED[1]%" inputchecked="false">
+      <x>0</x>
+      <y>108</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%MainMenuDataSheet.@MENU_NAME[1]%</caption>
+      <event>MainMenu_Menu2</event>
+    </button>
+    <button name="Menu3" font-id="fontBtnLarge" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.@ENABLED[2]%" inputchecked="false">
+      <x>0</x>
+      <y>162</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%MainMenuDataSheet.@MENU_NAME[2]%</caption>
+      <event>MainMenu_Menu3</event>
+    </button>
+    <button name="Menu4" font-id="fontBtnLarge" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.@ENABLED[3]%" inputchecked="false">
+      <x>0</x>
+      <y>216</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%MainMenuDataSheet.@MENU_NAME[3]%</caption>
+      <event>MainMenu_Menu4</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.$PREV_ENABLED%" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>MainMenu_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%MainMenuDataSheet.$NEXT_ENABLED%" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>MainMenu_Next</event>
+    </button>
+    <button name="Exit" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Stop</caption>
+      <event>MainMenu_Exit</event>
+    </button>
+  </form>
+</HaiSurf.Page>

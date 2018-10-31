@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.fainquiryretrieval.FaInquiryRetrievalBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.fainquiryretrieval.FaInquiryRetrieval" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="rdo_Search_ItemCode" />
+    <ref name="2" type="Control" typeName="txt_ItemName" />
+    <ref name="3" type="Control" typeName="txt_LotNo" />
+    <ref name="4" type="Control" typeName="txt_FromRMNo" />
+    <ref name="5" type="Control" typeName="txt_ToRMNo" />
+    <ref name="6" type="Control" typeName="txt_Location" />
+    <ref name="7" type="Control" typeName="btn_PItemCodeSearch" />
+    <ref name="8" type="Control" typeName="btn_PItemNameSearch" />
+    <ref name="9" type="Control" typeName="LST_SELECT" />
+    <ref name="10" type="Control" typeName="LST_ALL_QTY" />
+    <ref name="11" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="12" type="Constants" typeName="Constants" />
+    <ref name="13" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="14" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.FaInquiryRetrievalSCH" />
+    <ref name="15" type="Control" typeName="pul_Area" />
+    <ref name="16" type="Control" typeName="pul_WorkPlace" />
+    <ref name="17" type="Control" typeName="pul_Station" />
+    <ref name="18" type="Control" typeName="btn_Display" />
+    <ref name="19" type="Control" typeName="btn_Clear" />
+    <ref name="20" type="Control" typeName="btn_WorkStart" />
+    <ref name="21" type="Control" typeName="btn_ClearListInput" />
+    <ref name="22" type="Control" typeName="btn_AllCheck" />
+    <ref name="23" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="24" type="Control" typeName="btn_ListClear" />
+    <ref name="25" type="Control" typeName="chk_LWorkListPrint" />
+    <ref name="26" type="Control" typeName="pul_LPrioriryFlag" />
+    <ref name="27" type="Control" typeName="lst_FaInquiryRetrieval" />
+    <ref name="28" type="Control" typeName="pager" />
+    <ref name="29" type="Control" typeName="rdo_Search_Location" />
+    <ref name="30" type="Control" typeName="LST_PICKING_QTY" />
+    <ref name="31" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.FaInquiryRetrievalDASCH" />
+    <ref name="32" type="Control" typeName="SearchCondition" />
+    <ref name="33" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="34" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="35" type="Control" typeName="LST_LOT_NO" />
+    <ref name="36" type="Control" typeName="LST_AREA_NO" />
+    <ref name="37" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="38" type="Control" typeName="LST_MIXED_LOAD" />
+    <ref name="39" type="Control" typeName="LST_STOCK_QTY" />
+    <ref name="40" type="Control" typeName="HIDDEN_STORAGE_DATE" />
+    <ref name="41" type="Control" typeName="HIDDEN_PALLET_ID" />
+    <ref name="42" type="Control" typeName="HIDDEN_STOCK_ID" />
+    <ref name="43" type="Control" typeName="HIDDEN_LAST_UPDATE_DATE" />
+    <ref name="44" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="45" type="Control" typeName="HIDDEN_AREA_TYPE" />
+    <ref name="46" type="String" typeName="String" />
+    <ref name="47" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="48" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAndAsrsRetrievalAll" />
+    <pulldown name="pul_WorkPlace" dataType="WmsWorkspaceFloorAndAsrsRetrieval" parent="pul_Area" />
+    <pulldown name="pul_Station" dataType="WmsStationFloorAndAsrsRetrieval" parent="pul_WorkPlace" />
+    <pulldown name="pul_LPrioriryFlag" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaInquiryRetrieval">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_STORAGE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeSec" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_LAST_UPDATE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeMillSec" />
+      <listcellColumn name="HIDDEN_STOCK_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_PALLET_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_AREA_TYPE" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="4" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="5" resourceKey="LBL-W0011" dataType="Area" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="6" resourceKey="LBL-W0138" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_MIXED_LOAD" orgIndex="7" resourceKey="LBL-W1377" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="8" resourceKey="LBL-W0073" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PICKING_QTY" orgIndex="9" resourceKey="LBL-W0123" dataType="Number" format="0" modifyCheck="true" />
+      <listcellColumn name="LST_ALL_QTY" orgIndex="10" resourceKey="LBL-W0134" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="0" type="ReadWrite" />
+        <clear controlRef="2" type="ReadWrite" />
+        <clear controlRef="3" type="ReadWrite" />
+        <clear controlRef="4" type="ReadWrite" />
+        <clear controlRef="5" type="ReadWrite" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="9" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="9" type="UnChecked" />
+        <clear controlRef="10" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_PItemNameSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="11" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="11" setValue="ITEM_NAME" />
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="11" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="11" getValue="ITEM_NAME" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_PItemCodeSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="13" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="13" setValue="ITEM_CODE" />
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="13" getValue="ITEM_NAME" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="14" />
+      <clear1>
+        <clear controlRef="15" type="Enabled" />
+        <clear controlRef="16" type="Enabled" />
+        <clear controlRef="17" type="Enabled" />
+        <clear controlRef="18" type="Enabled" />
+        <clear controlRef="19" type="Enabled" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+        <clear controlRef="22" type="Disabled" />
+        <clear controlRef="23" type="Disabled" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="27" type="Clear" />
+        <clear controlRef="28" type="Clear" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+        <clear controlRef="22" type="Disabled" />
+        <clear controlRef="23" type="Disabled" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+        <clear controlRef="15" type="Enabled" />
+        <clear controlRef="16" type="Enabled" />
+        <clear controlRef="17" type="Enabled" />
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="29" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_ClearListInput" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="30" type="Empty" />
+        <clear controlRef="10" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="31" isSession="true" />
+      <input1>
+        <map getRef="15" getValue="Value" setRef="31" setValue="AREA_NO" />
+        <map getRef="17" getValue="Value" setRef="31" setValue="STATION_NO" />
+        <map getRef="32" getValue="Value" setRef="31" setValue="SEARCH_CONDITION" />
+        <map getRef="0" getValue="Value" setRef="31" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="31" setValue="ITEM_NAME" />
+        <map getRef="3" getValue="Value" setRef="31" setValue="LOT_NO" />
+        <map getRef="4" getValue="Value" setRef="31" setValue="FROM_RM_NO" />
+        <map getRef="5" getValue="Value" setRef="31" setValue="TO_RM_NO" />
+        <map getRef="6" getValue="Value" setRef="31" setValue="LOCATION_NO" />
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="31" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="31" getValue="ITEM_CODE" setRef="33" setValue="Value" />
+        <map getRef="31" getValue="ITEM_NAME" setRef="34" setValue="Value" />
+        <map getRef="31" getValue="LOT_NO" setRef="35" setValue="Value" />
+        <map getRef="31" getValue="AREA_NO" setRef="36" setValue="Value" />
+        <map getRef="31" getValue="LOCATION_NO" setRef="37" setValue="Value" />
+        <map getRef="31" getValue="MIXED_LOAD" setRef="38" setValue="Value" />
+        <map getRef="31" getValue="ALLOCATE_QTY" setRef="39" setValue="Value" />
+        <map getRef="31" getValue="PICKING_QTY" setRef="30" setValue="Value" />
+        <map getRef="31" getValue="STORAGE_DATE" setRef="40" setValue="Value" />
+        <map getRef="31" getValue="PALLET_ID" setRef="41" setValue="Value" />
+        <map getRef="31" getValue="STOCK_ID" setRef="42" setValue="Value" />
+        <map getRef="31" getValue="LAST_UPDATE_DATE" setRef="43" setValue="Value" />
+        <map getRef="31" getValue="CONSIGNOR_CODE" setRef="44" setValue="Value" />
+        <map getRef="31" getValue="AREA_TYPE" setRef="45" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="20" type="Enabled" />
+        <clear controlRef="21" type="Enabled" />
+        <clear controlRef="22" type="Enabled" />
+        <clear controlRef="23" type="Enabled" />
+        <clear controlRef="24" type="Enabled" />
+        <clear controlRef="25" type="Enabled" />
+        <clear controlRef="26" type="Enabled" />
+        <clear controlRef="15" type="Disabled" />
+        <clear controlRef="16" type="Disabled" />
+        <clear controlRef="17" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_WorkStart" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="14" />
+      <validate>
+        <validate controlRef="26" required="true" />
+        <validate controlRef="27" required="true" />
+      </validate>
+      <input1>
+        <map getRef="9" getValue="Value" setRef="14" setValue="SELECT" />
+        <map getRef="33" getValue="Value" setRef="14" setValue="ITEM_CODE" />
+        <map getRef="34" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="35" getValue="Value" setRef="14" setValue="LOT_NO" />
+        <map getRef="37" getValue="Value" setRef="14" setValue="LOCATION_NO" />
+        <map getRef="38" getValue="Value" setRef="14" setValue="MIXED_LOAD" />
+        <map getRef="39" getValue="Value" setRef="14" setValue="STOCK_QTY" />
+        <map getRef="39" getValue="Value" setRef="14" setValue="ALLOCATE_QTY" />
+        <map getRef="30" getValue="Value" setRef="14" setValue="PICKING_QTY" />
+        <map getRef="10" getValue="Value" setRef="14" setValue="ALL_QTY" />
+        <map getRef="43" getValue="Value" setRef="14" setValue="LAST_UPDATE_DATE" />
+        <map getRef="42" getValue="Value" setRef="14" setValue="STOCK_ID" />
+        <map getRef="15" getValue="Value" setRef="14" setValue="PUL_AREA_NO" />
+        <map getRef="36" getValue="Value" setRef="14" setValue="AREA_NO" />
+        <map getRef="17" getValue="Value" setRef="14" setValue="STATION_NO" />
+        <map getRef="4" getValue="Value" setRef="14" setValue="FROM_RM_NO" />
+        <map getRef="5" getValue="Value" setRef="14" setValue="TO_RM_NO" />
+        <map getRef="16" getValue="Value" setRef="14" setValue="WORK_PLACE" />
+        <map getRef="44" getValue="Value" setRef="14" setValue="CONSIGNOR_CODE" />
+        <map getRef="41" getValue="Value" setRef="14" setValue="PALLET_ID" />
+        <map getRef="26" getValue="Value" setRef="14" setValue="STATUS_FLAG" />
+        <map getRef="25" getValue="Value" setRef="14" setValue="WORK_LIST_PRINT_FLAG" />
+        <map getRef="46" getValue="FUNCTION_ID" setRef="14" setValue="FUNCTION_ID" />
+        <map getRef="45" getValue="Value" setRef="14" setValue="AREA_TYPE" />
+      </input1>
+      <part11 operationRef="47" operation="SETTING">
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <block type="If" tag="1" desc="作業リスト発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="25" leftValue="Value" rightRef="48" rightValue="True" />
+        </block>
+        <out out1Ref="46" out1Value="1" />
+        <block type="Else" tag="1" desc="作業リスト発行が選択されている場合" />
+        <out out1Ref="46" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="26" out1Value="Value" />
+        <out out1Ref="33" out1Value="Value" />
+        <out out1Ref="35" out1Value="Value" />
+        <out out1Ref="36" out1Value="Value" />
+        <out out1Ref="37" out1Value="Value" />
+        <block type="If" tag="3" desc="混載が空白の場合">
+          <expr type="And" operator="Equal" leftRef="38" leftValue="Value" rightRef="46" />
+        </block>
+        <out out1Ref="46" out1Value="0" />
+        <block type="Else" tag="3" desc="混載が空白の場合" />
+        <out out1Ref="46" out1Value="1" />
+        <block type="None" tag="4" desc="標準出力" />
+        <out out1Ref="39" out1Value="Value" />
+        <out out1Ref="30" out1Value="Value" />
+        <block type="If" tag="5" desc="全数が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="48" rightValue="True" />
+        </block>
+        <out out1Ref="46" out1Value="1" />
+        <block type="Else" tag="5" desc="全数が選択されている場合" />
+        <out out1Ref="46" out1Value="0" />
+      </part11>
+      <clear1>
+        <clear controlRef="27" type="Clear" />
+        <clear controlRef="20" type="Disabled" />
+        <clear controlRef="21" type="Disabled" />
+        <clear controlRef="22" type="Disabled" />
+        <clear controlRef="23" type="Disabled" />
+        <clear controlRef="24" type="Disabled" />
+        <clear controlRef="25" type="Disabled" />
+        <clear controlRef="26" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

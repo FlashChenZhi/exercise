@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.shippingresultabcanalysis.ShippingResultABCAnalysis2Business" abstractClassName="jp.co.daifuku.wms.analysis.display.shippingresultabcanalysis.ShippingResultABCAnalysis2" completed="true">
+  <refs>
+    <ref name="0" type="ViewState" typeName="jp.co.daifuku.wms.analysis.display.shippingresultabcanalysis.ViewStateKeys" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.analysis.listbox.shippingresultabcanalysis.LstShippingResultABCAnalysisParams" />
+    <ref name="2" type="String" typeName="String" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.wms.analysis.schedule.ShippingResultABCAnalysisSCH" />
+    <ref name="4" type="Control" typeName="btn_ListAll" />
+    <ref name="5" type="Control" typeName="btn_ListA" />
+    <ref name="6" type="Control" typeName="btn_ListB" />
+    <ref name="7" type="Control" typeName="btn_ListC" />
+  </refs>
+  <events>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/analysis/shippingresultabcanalysis/ShippingResultABCAnalysis" viewStateRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_ListAll" name="Click" pattern="Popup">
+      <popup2Display uri="/analysis/listbox/shippingresultabcanalysis/LstShippingResultABCAnalysis" businessParameterRef="1" />
+      <input1>
+        <map getRef="0" getValue="FROM_DATE" setRef="1" setValue="FROM_DATE" />
+        <map getRef="0" getValue="TO_DATE" setRef="1" setValue="TO_DATE" />
+        <map getRef="0" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="ANALYSIS_TYPE" setRef="1" setValue="ANALYSIS_TYPE" />
+        <map getRef="0" getValue="THRESHOLD_A" setRef="1" setValue="THRESHOLD_A" />
+        <map getRef="0" getValue="THRESHOLD_B" setRef="1" setValue="THRESHOLD_B" />
+        <map getRef="2" getValue="All" setRef="1" setValue="RANK" />
+        <map getRef="2" setRef="1" setValue="DISP_RANK" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="1" setValue="CUSTOMER_NAME" />
+      </input1>
+    </event>
+    <event control="btn_ListA" name="Click" pattern="Popup">
+      <popup2Display uri="/analysis/listbox/shippingresultabcanalysis/LstShippingResultABCAnalysis" businessParameterRef="1" />
+      <input1>
+        <map getRef="0" getValue="FROM_DATE" setRef="1" setValue="FROM_DATE" />
+        <map getRef="0" getValue="TO_DATE" setRef="1" setValue="TO_DATE" />
+        <map getRef="0" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="ANALYSIS_TYPE" setRef="1" setValue="ANALYSIS_TYPE" />
+        <map getRef="0" getValue="THRESHOLD_A" setRef="1" setValue="THRESHOLD_A" />
+        <map getRef="0" getValue="THRESHOLD_B" setRef="1" setValue="THRESHOLD_B" />
+        <map getRef="2" getValue="A" setRef="1" setValue="RANK" />
+        <map getRef="2" setRef="1" setValue="DISP_RANK" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="1" setValue="CUSTOMER_NAME" />
+      </input1>
+    </event>
+    <event control="btn_ListB" name="Click" pattern="Popup">
+      <popup2Display uri="/analysis/listbox/shippingresultabcanalysis/LstShippingResultABCAnalysis" businessParameterRef="1" />
+      <input1>
+        <map getRef="0" getValue="FROM_DATE" setRef="1" setValue="FROM_DATE" />
+        <map getRef="0" getValue="TO_DATE" setRef="1" setValue="TO_DATE" />
+        <map getRef="0" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="ANALYSIS_TYPE" setRef="1" setValue="ANALYSIS_TYPE" />
+        <map getRef="0" getValue="THRESHOLD_A" setRef="1" setValue="THRESHOLD_A" />
+        <map getRef="0" getValue="THRESHOLD_B" setRef="1" setValue="THRESHOLD_B" />
+        <map getRef="2" getValue="B" setRef="1" setValue="RANK" />
+        <map getRef="2" setRef="1" setValue="DISP_RANK" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="1" setValue="CUSTOMER_NAME" />
+      </input1>
+    </event>
+    <event control="btn_ListC" name="Click" pattern="Popup">
+      <popup2Display uri="/analysis/listbox/shippingresultabcanalysis/LstShippingResultABCAnalysis" businessParameterRef="1" />
+      <input1>
+        <map getRef="0" getValue="FROM_DATE" setRef="1" setValue="FROM_DATE" />
+        <map getRef="0" getValue="TO_DATE" setRef="1" setValue="TO_DATE" />
+        <map getRef="0" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="1" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="ANALYSIS_TYPE" setRef="1" setValue="ANALYSIS_TYPE" />
+        <map getRef="0" getValue="THRESHOLD_A" setRef="1" setValue="THRESHOLD_A" />
+        <map getRef="0" getValue="THRESHOLD_B" setRef="1" setValue="THRESHOLD_B" />
+        <map getRef="2" getValue="C" setRef="1" setValue="RANK" />
+        <map getRef="2" setRef="1" setValue="DISP_RANK" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="1" setValue="CUSTOMER_NAME" />
+      </input1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="3" />
+      <input1>
+        <map getRef="0" getValue="FROM_DATE" setRef="3" setValue="FROM_DATE" />
+        <map getRef="0" getValue="TO_DATE" setRef="3" setValue="TO_DATE" />
+        <map getRef="0" getValue="CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="3" setValue="CUSTOMER_CODE" />
+        <map getRef="0" getValue="ANALYSIS_TYPE" setRef="3" setValue="ANALYSIS_TYPE" />
+        <map getRef="0" getValue="THRESHOLD_A" setRef="3" setValue="THRESHOLD_A" />
+        <map getRef="0" getValue="THRESHOLD_B" setRef="3" setValue="THRESHOLD_B" />
+      </input1>
+      <clear1>
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

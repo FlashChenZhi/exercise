@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" downloadName="ShippingResultABCAnalysis">
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="false" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="false" xlsEnabled="true"/>
+    <field name="rank" type="string" header="LBL-W1237" printEnabled="false" xlsEnabled="true"/>
+    <field name="shipping_qty" type="number" header="LBL-W1240" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="working_qty" type="number" header="RDB-W1201" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="shipping_cnt" type="number" header="LBL-W1206" printEnabled="false" xlsEnabled="true" excelformat="3"/>
+    <field name="ratio" type="string" header="LBL-W1238" printEnabled="false" xlsEnabled="true" excelformat="4"/>
+    <field name="accum_ratio" type="string" header="LBL-W1239" printEnabled="false" xlsEnabled="true" excelformat="4"/>
+</exportspec>

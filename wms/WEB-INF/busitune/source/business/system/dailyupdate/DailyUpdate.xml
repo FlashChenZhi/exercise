@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.dailyupdate.DailyUpdateBusiness" abstractClassName="jp.co.daifuku.wms.system.display.dailyupdate.DailyUpdate" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_InWorkDate" />
+    <ref name="1" type="Control" typeName="rdo_NoWorkInfomation_Delete" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.DailyUpdateSCH" />
+    <ref name="3" type="Control" typeName="NoWorkInfomation" />
+    <ref name="4" type="Control" typeName="LST_STATUS" />
+    <ref name="5" type="Control" typeName="LST_REASON" />
+    <ref name="6" type="Control" typeName="LST_NG_HAPPENED_POINT" />
+    <ref name="7" type="Control" typeName="btn_ReDisplay" />
+    <ref name="8" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="9" type="Control" typeName="txt_ExecutionDate" />
+    <ref name="10" type="Control" typeName="txt_ExecutionTime" />
+    <ref name="11" type="Boolean" typeName="Boolean" />
+    <ref name="12" type="Constants" typeName="Constants" />
+    <ref name="13" type="Control" typeName="rdo_NoWorkInfomation_CarryOver" />
+  </refs>
+  <listcells>
+    <listcell name="lst_DailyUpdate">
+      <listcellColumn name="LST_STATUS" orgIndex="1" resourceKey="LBL-W1443" dataType="String" />
+      <listcellColumn name="LST_REASON" orgIndex="2" resourceKey="LBL-W0003" dataType="String" />
+      <listcellColumn name="LST_NG_HAPPENED_POINT" orgIndex="3" resourceKey="LBL-W0163" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Checked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="WORK_DATE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="NO_WORK_INFOMATION" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="STATUS" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="REASON" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="NG_HAPPENED_POINT" setRef="6" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_DvdCopy" name="Click" pattern="Regist">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="WORK_DATE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="NO_WORK_INFOMATION" />
+      </input1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="Regist">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="WORK_DATE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="NO_WORK_INFOMATION" />
+      </input1>
+      <part11 operationRef="8" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" out2Ref="10" out2Value="Value" />
+        <block type="If" tag="1" desc="削除するが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="1" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="UNSTART_DELETE" />
+        <block type="If" tag="2" desc="作業情報を持ち越すが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="13" leftValue="Checked" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="UNSTART_HOLD" />
+      </part11>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="WORK_DATE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="NO_WORK_INFOMATION" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="STATUS" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="REASON" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="NG_HAPPENED_POINT" setRef="6" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="Enabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

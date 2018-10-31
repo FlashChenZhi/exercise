@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ReceivingStorageDetails(StorageStart)-->
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblConsignor" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>6</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>6</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>22</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%ReceivingStorageOutDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <label name="lblLocation" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>60</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Loc#:</caption>
+    </label>
+    <label name="lblLocationNo" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>60</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.PLAN_AREA_LOCATION%</caption>
+    </label>
+    <label name="lblJan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>122</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>UPC:</caption>
+    </label>
+    <label name="lblJanCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>122</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.JAN%</caption>
+    </label>
+    <label name="lblItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>140</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>ITF:</caption>
+    </label>
+    <label name="lblItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>140</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.ITF%</caption>
+    </label>
+    <label name="lblSlash1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>140</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>140</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblBundleItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>158</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>B-ITF:</caption>
+    </label>
+    <label name="lblBundleItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>158</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.BUNDLE_ITF%</caption>
+    </label>
+    <label name="lblSlash2" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>158</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblBundleEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>158</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.BUNDLE_ENTERING_QTY%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>176</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Lot #:</caption>
+    </label>
+    <label name="lblLotNo" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>176</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%ReceivingStorageOutDataSheet.LOT_NO%</caption>
+    </label>
+    <label name="lblName" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>194</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Name:</caption>
+    </label>
+    <label name="lblItemName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>194</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%ReceivingStorageOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>StdStartDetail_Back</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>324</w>
+      <h>110</h>
+    </label>
+    <label name="lblStock" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>244</y>
+      <w>90</w>
+      <h>20</h>
+      <caption>Stock Qty:</caption>
+    </label>
+    <label name="lblStockCaseQty" font-id="fontBold" visible="true">
+      <align>right</align>
+      <x>105</x>
+      <y>244</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>%ReceivingStorageOutDataSheet.STOCK_CASE_QTY%</caption>
+    </label>
+    <label name="lblCase" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>140</x>
+      <y>244</y>
+      <w>42</w>
+      <h>20</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblStockPieceQty" font-id="fontBold" visible="true">
+      <align>right</align>
+      <x>190</x>
+      <y>244</y>
+      <w>35</w>
+      <h>20</h>
+      <caption>%ReceivingStorageOutDataSheet.STOCK_PIECE_QTY%</caption>
+    </label>
+    <label name="lblPiece" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>225</x>
+      <y>244</y>
+      <w>50</w>
+      <h>20</h>
+      <caption>Pieces</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

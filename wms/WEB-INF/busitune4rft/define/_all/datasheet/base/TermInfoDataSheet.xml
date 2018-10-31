@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="端末データシート" />
+  <comment lang="en" value="Terminal Data Sheet" />
+  <comment lang="zh" value="终端数据表" />
+  <fields>
+    <field name="INVENTORY_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="棚卸荷主スキップコード" />
+      <comment lang="en" value="Cycle Count Consignor Skip Code" />
+      <comment lang="zh" value="盘货货主跳过代码" />
+    </field>
+    <field name="INVENTORY_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="棚卸C/P初期モード" />
+      <comment lang="en" value="Cycle Count C/P Initial Mode" />
+      <comment lang="zh" value="盘货C/P初始模式" />
+    </field>
+    <field name="INVENTORY_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="棚卸検品モード" />
+      <comment lang="en" value="Cycle Count Check Mode" />
+      <comment lang="zh" value="盘货质检模式" />
+    </field>
+    <field name="INVENTORY_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="棚卸ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Cycle Count ITF to JAN Validity Flag" />
+      <comment lang="zh" value="盘货ITFtoJAN有效标志" />
+    </field>
+    <field name="IP_ADDRESS" type="String" separateSize="0">
+      <comment lang="ja" value="IPアドレス" />
+      <comment lang="en" value="IP Address" />
+      <comment lang="zh" value="IP地址" />
+    </field>
+    <field name="MOVE_RETRIEVAL_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="移動出庫荷主スキップコード" />
+      <comment lang="en" value="Relocation Picking Consignor Skip Code" />
+    </field>
+    <field name="MOVE_RETRIEVAL_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="移動出庫C/P初期モード" />
+      <comment lang="en" value="Relocation Picking C/P Initial Mode" />
+      <comment lang="zh" value="移动出库货主跳过代码" />
+    </field>
+    <field name="MOVE_RETRIEVAL_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="移動出庫検品モード" />
+      <comment lang="en" value="Relocation Picking Check Mode" />
+      <comment lang="zh" value="移动出库质检模式" />
+    </field>
+    <field name="MOVE_RETRIEVAL_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="移動出庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Relocation Picking ITF to JAN Validity Flag" />
+      <comment lang="zh" value="移动出库ITFtoJAN有效标志" />
+    </field>
+    <field name="MOVE_STORAGE_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="移動入庫荷主スキップコード" />
+      <comment lang="en" value="Relocation Storage Consignor Skip Code" />
+      <comment lang="zh" value="移动入库货主跳过代码" />
+    </field>
+    <field name="MOVE_STORAGE_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="移動入庫C/P初期モード" />
+      <comment lang="en" value="Relocation Storage C/P Initial Mode" />
+      <comment lang="zh" value="移动入库C/P初始模式" />
+    </field>
+    <field name="MOVE_STORAGE_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="移動入庫検品モード" />
+      <comment lang="en" value="Relocation Storage Check Mode" />
+      <comment lang="zh" value="移动入库质检模式" />
+    </field>
+    <field name="MOVE_STORAGE_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="移動入庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Relocation Storage ITF to JAN Validity Flag" />
+      <comment lang="zh" value="移动入库ITFtoJAN有效标志" />
+    </field>
+    <field name="NO_PLAN_RETRIEVAL_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="予定外出庫荷主スキップコード" />
+      <comment lang="en" value="Unplanned Picking Consignor Skip Code" />
+      <comment lang="zh" value="预定外出库货主跳过代码" />
+    </field>
+    <field name="NO_PLAN_RETRIEVAL_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="予定外出庫C/P初期モード" />
+      <comment lang="en" value="Unplanned Picking C/P Initial Mode" />
+      <comment lang="zh" value="预定外出库C/P初始模式" />
+    </field>
+    <field name="NO_PLAN_RETRIEVAL_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="予定外出庫検品モード" />
+      <comment lang="en" value="Unplanned Picking Check Mode" />
+      <comment lang="zh" value="预定外出库质检模式" />
+    </field>
+    <field name="NO_PLAN_RETRIEVAL_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="予定外出庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Unplanned Picking ITF to JAN Validity Flag" />
+      <comment lang="zh" value="预定外出库ITFtoJAN有效标志" />
+    </field>
+    <field name="NO_PLAN_STORAGE_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="予定外入庫荷主スキップコード" />
+      <comment lang="en" value="Unplanned Storage Consignor Skip Code" />
+      <comment lang="zh" value="预定外入库货主跳过代码" />
+    </field>
+    <field name="NO_PLAN_STORAGE_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="予定外入庫C/P初期モード" />
+      <comment lang="en" value="Unplanned Storage C/P Initial Mode" />
+      <comment lang="zh" value="预定外入库C/P初始模式" />
+    </field>
+    <field name="NO_PLAN_STORAGE_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="予定外入庫検品モード" />
+      <comment lang="en" value="Unplanned Storage Check Mode" />
+      <comment lang="zh" value="预定外入库质检模式" />
+    </field>
+    <field name="NO_PLAN_STORAGE_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="予定外入庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Unplanned Storage ITF to JAN Validity Flag" />
+      <comment lang="zh" value="预定外入库ITFtoJAN有效标志" />
+    </field>
+    <field name="PASSWORD_INPUT_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="パスワード入力モード" />
+      <comment lang="en" value="Password Input Mode" />
+      <comment lang="zh" value="密码输入模式" />
+    </field>
+    <field name="RECEIVING_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="入荷荷主スキップコード" />
+      <comment lang="en" value="Receiving Consignor Skip Code" />
+      <comment lang="zh" value="进货货主跳过代码" />
+    </field>
+    <field name="RECEIVING_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="入荷C/P初期モード" />
+      <comment lang="en" value="Receiving C/P Initial Mode" />
+      <comment lang="zh" value="进货C/P初始模式" />
+    </field>
+    <field name="RECEIVING_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="入荷ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Receiving ITF to JAN Validity Flag" />
+      <comment lang="zh" value="进货ITFtoJAN有效标志" />
+    </field>
+    <field name="RETRIEVAL_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="出庫荷主スキップコード" />
+      <comment lang="en" value="Picking Consignor Skip Code" />
+      <comment lang="zh" value="出库货主跳过代码" />
+    </field>
+    <field name="RETRIEVAL_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="出庫C/P初期モード" />
+      <comment lang="en" value="Picking C/P Initial Mode" />
+      <comment lang="zh" value="出库C/P初始模式" />
+    </field>
+    <field name="RETRIEVAL_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="出庫検品モード" />
+      <comment lang="en" value="Picking Check Mode" />
+      <comment lang="zh" value="出库质检模式" />
+    </field>
+    <field name="RETRIEVAL_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="出庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Picking ITF to JAN Validity Flag" />
+      <comment lang="zh" value="出库ITFtoJAN有效标志" />
+    </field>
+    <field name="SHIPPING_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="出荷荷主スキップコード" />
+      <comment lang="en" value="Shipping Consignor Skip Code" />
+      <comment lang="zh" value="发货货主跳过代码" />
+    </field>
+    <field name="SHIPPING_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="出荷C/P初期モード" />
+      <comment lang="en" value="Shipping C/P Initial Mode" />
+      <comment lang="zh" value="发货C/P初始模式" />
+    </field>
+    <field name="SHIPPING_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="出荷ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Shipping ITF to JAN Validity Flag" />
+      <comment lang="zh" value="发货ITFtoJAN有效标志" />
+    </field>
+    <field name="SORTING_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="仕分荷主スキップコード" />
+      <comment lang="en" value="Consolidation Consignor Skip Code" />
+      <comment lang="zh" value="分类货主跳过代码" />
+    </field>
+    <field name="SORTING_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="仕分C/P初期モード" />
+      <comment lang="en" value="Consolidation C/P Initial Mode" />
+      <comment lang="zh" value="分类C/P初始模式" />
+    </field>
+    <field name="SORTING_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="仕分検品モード" />
+      <comment lang="en" value="Consolidation Check Mode" />
+      <comment lang="zh" value="分类质检模式" />
+    </field>
+    <field name="SORTING_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="仕分ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Consolidation ITF to JAN Validity Flag" />
+      <comment lang="zh" value="分类ITFtoJAN有效标志" />
+    </field>
+    <field name="STORAGE_CONSIGNOR" type="String" separateSize="0">
+      <comment lang="ja" value="入庫荷主スキップコード" />
+      <comment lang="en" value="Storage Consignor Skip Code" />
+      <comment lang="zh" value="入库货主跳过代码" />
+    </field>
+    <field name="STORAGE_CP_MODE" type="String" separateSize="0">
+      <comment lang="ja" value="入庫C/P初期モード" />
+      <comment lang="en" value="Storage C/P Initial Mode" />
+      <comment lang="zh" value="入库C/P初始模式" />
+    </field>
+    <field name="STORAGE_INSPECTION_MODE" type="Boolean" separateSize="0">
+      <comment lang="ja" value="入庫検品モード" />
+      <comment lang="en" value="Storage Check Mode" />
+      <comment lang="zh" value="入库质检模式" />
+    </field>
+    <field name="STORAGE_ITF_TO_JAN" type="Boolean" separateSize="0">
+      <comment lang="ja" value="入庫ITFtoJAN有効フラグ" />
+      <comment lang="en" value="Storage ITF to JAN Validity Flag" />
+      <comment lang="zh" value="入库ITFtoJAN有效标志" />
+    </field>
+    <field name="TERMINAL_NO" type="String" separateSize="0">
+      <comment lang="ja" value="端末No." />
+      <comment lang="en" value="Terminal #" />
+      <comment lang="zh" value="终端No." />
+    </field>
+    <field name="TERMINAL_TYPE" type="String" separateSize="0">
+      <comment lang="ja" value="端末区分" />
+      <comment lang="en" value="Terminal Type" />
+      <comment lang="zh" value="终端分类" />
+    </field>
+  </fields>
+</datasheet>

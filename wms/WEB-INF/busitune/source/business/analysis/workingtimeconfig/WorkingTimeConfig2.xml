@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.analysis.display.workingtimeconfig.WorkingTimeConfig2Business" abstractClassName="jp.co.daifuku.wms.analysis.display.workingtimeconfig.WorkingTimeConfig2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_AveTimeItem" />
+    <ref name="1" type="Control" typeName="txt_AvePiece" />
+    <ref name="2" type="Control" typeName="txt_AveTimePiece" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

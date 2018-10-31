@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.display.fashelfinquiry.FaShelfInquiryBusiness" abstractClassName="jp.co.daifuku.wms.stock.display.fashelfinquiry.FaShelfInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="chk_StoredLocation" />
+    <ref name="2" type="Control" typeName="chk_EmptyLocation" />
+    <ref name="3" type="Control" typeName="chk_WorkLocation" />
+    <ref name="4" type="Control" typeName="chk_ProhibitedLocation" />
+    <ref name="5" type="Control" typeName="chk_UnreachableLocation" />
+    <ref name="6" type="Control" typeName="txt_FromLocation" />
+    <ref name="7" type="Control" typeName="txt_ToLocation" />
+    <ref name="8" type="Control" typeName="txt_ItemCode_EntEvent" />
+    <ref name="9" type="Control" typeName="txt_ItemName" />
+    <ref name="10" type="Control" typeName="lbl_In_LocationStyle" />
+    <ref name="11" type="Control" typeName="lst_FaShelfInquiry" />
+    <ref name="12" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="13" type="Constants" typeName="Constants" />
+    <ref name="14" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="15" type="Dasch" typeName="jp.co.daifuku.wms.stock.dasch.FaShelfInquiryDASCH" />
+    <ref name="16" type="Control" typeName="HIDDEN_ITEM_NAME" />
+    <ref name="17" type="Control" typeName="LST_NO" />
+    <ref name="18" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="19" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="20" type="Control" typeName="LST_LOT_NO" />
+    <ref name="21" type="Control" typeName="LST_LAST_PICKING_DATE" />
+    <ref name="22" type="Control" typeName="LST_STORAGE_DATETIME" />
+    <ref name="23" type="Control" typeName="LST_STOCK_QTY" />
+    <ref name="24" type="Control" typeName="HIDDEN_LOCATION_STATUS" />
+    <ref name="25" type="ExportParameter" typeName="jp.co.daifuku.wms.stock.exporter.StockByLocationListParams" />
+    <ref name="26" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="27" type="Boolean" typeName="Boolean" />
+    <ref name="28" type="String" typeName="String" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorAsrsAllFalse" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaShelfInquiry">
+      <listcellColumn name="HIDDEN_ITEM_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_LOCATION_STATUS" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="2" resourceKey="LBL-W0138" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="3" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="4" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LAST_PICKING_DATE" orgIndex="5" resourceKey="LBL-W0070" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATETIME" orgIndex="6" resourceKey="LBL-W0487" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="7" resourceKey="LBL-W0073" dataType="Number" format="0" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="2" type="UnChecked" />
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="2" type="UnChecked" />
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="11" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_SearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="12" />
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="ITEM_CODE" setRef="8" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="9" setValue="Value" />
+      </output1>
+      <focus controlRef="8" />
+    </event>
+    <event control="btn_SearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="14" />
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+        <map getRef="9" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="ITEM_CODE" setRef="8" setValue="Value" />
+        <map getRef="14" getValue="ITEM_NAME" setRef="9" setValue="Value" />
+      </output1>
+      <focus controlRef="9" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="15" isSession="true" />
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="15" setValue="STORED_LOCATION" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="EMPTY_LOCATION" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="WORK_LOCATION" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="PROHIBITED_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="UNREACHABLE_LOCATION" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="FROM_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="15" setValue="TO_LOCATION_NO" />
+        <map getRef="8" getValue="Value" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="ITEM_NAME" setRef="16" setValue="Value" />
+        <map getRef="15" getValue="NO" setRef="17" setValue="Value" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="18" setValue="Value" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="19" setValue="Value" />
+        <map getRef="15" getValue="LOT_NO" setRef="20" setValue="Value" />
+        <map getRef="15" getValue="LAST_PICKING_DATE" setRef="21" setValue="Value" />
+        <map getRef="15" getValue="STORAGE_DATETIME" setRef="22" setValue="Value" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="23" setValue="Value" />
+        <map getRef="15" getValue="LOCATION_STATUS" setRef="24" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="15" exportParameterRef="25" exportName="StockByLocationList" exporter="Print" />
+      <validate>
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="15" setValue="STORED_LOCATION" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="EMPTY_LOCATION" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="WORK_LOCATION" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="PROHIBITED_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="UNREACHABLE_LOCATION" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="FROM_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="15" setValue="TO_LOCATION_NO" />
+        <map getRef="8" getValue="Value" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="DFK_DS_NO" setRef="25" setValue="DFK_DS_NO" />
+        <map getRef="15" getValue="DFK_USER_ID" setRef="25" setValue="DFK_USER_ID" />
+        <map getRef="15" getValue="DFK_USER_NAME" setRef="25" setValue="DFK_USER_NAME" />
+        <map getRef="15" getValue="SYS_DAY" setRef="25" setValue="SYS_DAY" />
+        <map getRef="15" getValue="SYS_TIME" setRef="25" setValue="SYS_TIME" />
+        <map getRef="15" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="15" getValue="SEARCH_LOCATION_STATUS" setRef="25" setValue="SEARCH_LOCATION_STATUS" />
+        <map getRef="15" getValue="FROM_LOCATION_NO" setRef="25" setValue="FROM_LOCATION_NO" />
+        <map getRef="15" getValue="TO_LOCATION_NO" setRef="25" setValue="TO_LOCATION_NO" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="25" setValue="SEARCH_ITEM_CODE" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="25" setValue="LOCATION_NO" />
+        <map getRef="15" getValue="LOCATION_STATUS" setRef="25" setValue="LOCATION_STATUS" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="25" setValue="ITEM_CODE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="25" setValue="ITEM_NAME" />
+        <map getRef="15" getValue="LOT_NO" setRef="25" setValue="LOT_NO" />
+        <map getRef="15" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_DATE" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="25" setValue="STOCK_QTY" />
+      </output1>
+      <part11 operationRef="26" operation="PRINT">
+        <out out1Ref="0" out1Value="Value" />
+        <block type="If" tag="1" desc="実棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="1" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="1" desc="実棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="2" desc="空棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="2" desc="空棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="3" desc="作業棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="3" desc="作業棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="4" desc="禁止棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="4" desc="禁止棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="5" desc="アクセス不可棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="5" desc="アクセス不可棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="None" tag="6" desc="標準出力" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="15" exportParameterRef="25" exportName="StockByLocationList" exporter="Preview" />
+      <validate>
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="15" setValue="STORED_LOCATION" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="EMPTY_LOCATION" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="WORK_LOCATION" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="PROHIBITED_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="UNREACHABLE_LOCATION" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="FROM_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="15" setValue="TO_LOCATION_NO" />
+        <map getRef="8" getValue="Value" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="DFK_DS_NO" setRef="25" setValue="DFK_DS_NO" />
+        <map getRef="15" getValue="DFK_USER_ID" setRef="25" setValue="DFK_USER_ID" />
+        <map getRef="15" getValue="DFK_USER_NAME" setRef="25" setValue="DFK_USER_NAME" />
+        <map getRef="15" getValue="SYS_DAY" setRef="25" setValue="SYS_DAY" />
+        <map getRef="15" getValue="SYS_TIME" setRef="25" setValue="SYS_TIME" />
+        <map getRef="15" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="15" getValue="SEARCH_LOCATION_STATUS" setRef="25" setValue="SEARCH_LOCATION_STATUS" />
+        <map getRef="15" getValue="FROM_LOCATION_NO" setRef="25" setValue="FROM_LOCATION_NO" />
+        <map getRef="15" getValue="TO_LOCATION_NO" setRef="25" setValue="TO_LOCATION_NO" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="25" setValue="SEARCH_ITEM_CODE" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="25" setValue="LOCATION_NO" />
+        <map getRef="15" getValue="LOCATION_STATUS" setRef="25" setValue="LOCATION_STATUS" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="25" setValue="ITEM_CODE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="25" setValue="ITEM_NAME" />
+        <map getRef="15" getValue="LOT_NO" setRef="25" setValue="LOT_NO" />
+        <map getRef="15" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_DATE" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="25" setValue="STOCK_QTY" />
+      </output1>
+      <part11 operationRef="26" operation="PREVIEW">
+        <out out1Ref="0" out1Value="Value" />
+        <block type="If" tag="1" desc="実棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="1" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="1" desc="実棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="2" desc="空棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="2" desc="空棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="3" desc="作業棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="3" desc="作業棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="4" desc="禁止棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="4" desc="禁止棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="5" desc="アクセス不可棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="5" desc="アクセス不可棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="None" tag="6" desc="標準出力" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="15" exportParameterRef="25" exportName="StockByLocationList" exporter="Excel" />
+      <validate>
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="15" setValue="STORED_LOCATION" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="EMPTY_LOCATION" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="WORK_LOCATION" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="PROHIBITED_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="UNREACHABLE_LOCATION" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="FROM_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="15" setValue="TO_LOCATION_NO" />
+        <map getRef="8" getValue="Value" setRef="15" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="AREA_NO" setRef="25" setValue="AREA_NO" />
+        <map getRef="15" getValue="LOCATION_NO" setRef="25" setValue="LOCATION_NO" />
+        <map getRef="15" getValue="LOCATION_STATUS" setRef="25" setValue="LOCATION_STATUS" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="25" setValue="ITEM_CODE" />
+        <map getRef="15" getValue="ITEM_NAME" setRef="25" setValue="ITEM_NAME" />
+        <map getRef="15" getValue="LOT_NO" setRef="25" setValue="LOT_NO" />
+        <map getRef="15" getValue="STORAGE_DATE" setRef="25" setValue="STORAGE_DATE" />
+        <map getRef="15" getValue="STOCK_QTY" setRef="25" setValue="STOCK_QTY" />
+      </output1>
+      <part11 operationRef="26" operation="XLS">
+        <out out1Ref="0" out1Value="Value" />
+        <block type="If" tag="1" desc="実棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="1" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="1" desc="実棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="2" desc="空棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="2" desc="空棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="3" desc="作業棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="3" desc="作業棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="4" desc="禁止棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="4" desc="禁止棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="If" tag="5" desc="アクセス不可棚チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="27" rightValue="True" />
+        </block>
+        <out out1Ref="28" out1Value="1" />
+        <block type="Else" tag="5" desc="アクセス不可棚チェックが選択されている場合" />
+        <out out1Ref="28" out1Value="0" />
+        <block type="None" tag="6" desc="標準出力" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+      </part11>
+    </event>
+  </events>
+</business>

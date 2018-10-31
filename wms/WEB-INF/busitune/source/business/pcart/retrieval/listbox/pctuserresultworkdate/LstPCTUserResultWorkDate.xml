@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.listbox.pctuserresultworkdate.LstPCTUserResultWorkDateBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.listbox.pctuserresultworkdate.LstPCTUserResultWorkDate" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstPCTUserResultWorkDateDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.pctuserresultworkdate.LstPCTUserResultWorkDateParams" />
+    <ref name="3" type="String" typeName="String" />
+    <ref name="4" type="Control" typeName="LST_WORK_DATE" />
+    <ref name="5" type="Control" typeName="LST_PRODUCTION_RATE" />
+    <ref name="6" type="Control" typeName="LST_WORKER_COUNT" />
+    <ref name="7" type="Control" typeName="LST_TERMINAL_COUNT" />
+    <ref name="8" type="Control" typeName="LST_START_TIME" />
+    <ref name="9" type="Control" typeName="LST_END_TIME" />
+    <ref name="10" type="Control" typeName="LST_OPERATE_TIME" />
+    <ref name="11" type="Control" typeName="LST_ORDER_COUNT" />
+    <ref name="12" type="Control" typeName="LST_ORDER_COUNT_PER_HOUR" />
+    <ref name="13" type="Control" typeName="LST_BOX_COUNT" />
+    <ref name="14" type="Control" typeName="LST_BOX_COUNT_PER_HOUR" />
+    <ref name="15" type="Control" typeName="LST_LINE_COUNT" />
+    <ref name="16" type="Control" typeName="LST_LINE_COUNT_PER_HOUR" />
+    <ref name="17" type="Control" typeName="LST_LOT_QTY" />
+    <ref name="18" type="Control" typeName="LST_LOT_QTY_PER_HOUR" />
+    <ref name="19" type="Control" typeName="LST_PIECE_QTY" />
+    <ref name="20" type="Control" typeName="LST_PIECE_QTY_PER_HOUR" />
+    <ref name="21" type="Control" typeName="LST_BOX_COUNT_PER_ORDER" />
+    <ref name="22" type="Control" typeName="LST_LINE_COUNT_PER_ORDER" />
+    <ref name="23" type="Control" typeName="LST_LOT_QTY_PER_LINE_COUNT" />
+    <ref name="24" type="Control" typeName="LST_PIECE_QTY_PER_LINE_COUNT" />
+    <ref name="25" type="Control" typeName="LST_MISS_RATE" />
+    <ref name="26" type="ExportParameter" typeName="jp.co.daifuku.pcart.retrieval.exporter.PCTUserResultWorkDateListParams" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="HIDDEN_CONSIGNOR_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_AREA_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_WORK_DAY_FROM" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_WORK_DAY_TO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_WEEK_DAY" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_BATCH_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_AREA_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_LEVEL" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SEARCH_CONDITION_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SEARCH_CONDITION_2" orgIndex="2" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SEARCH_CONDITION_3" orgIndex="3" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SEARCH_CONDITION_4" orgIndex="4" dataType="String" tooltipEnabled="true" />
+    </listcell>
+    <listcell name="lst_Header">
+      <listcellColumn name="LST_AVERAGE_1" orgIndex="1" resourceKey="LBL-P0063" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_4" orgIndex="4" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_5" orgIndex="5" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_6" orgIndex="6" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_7" orgIndex="7" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_8" orgIndex="8" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_9" orgIndex="9" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_10" orgIndex="10" dataType="String" />
+      <listcellColumn name="LST_AVERAGE_11" orgIndex="11" dataType="String" />
+    </listcell>
+    <listcell name="lst_UserResultSummaryAvg">
+      <listcellColumn name="LST_AVG_PRODUCTION_RATE" orgIndex="1" resourceKey="LBL-P0066" dataType="String" />
+      <listcellColumn name="LST_AVG_WORKER_COUNT" orgIndex="2" resourceKey="LBL-P0083" dataType="String" />
+      <listcellColumn name="LST_AVG_TERMINAL_COUNT" orgIndex="12" resourceKey="LBL-P0084" dataType="String" />
+      <listcellColumn name="LST_AVG_OPERATE_TIME" orgIndex="3" resourceKey="LBL-P0086" dataType="String" />
+      <listcellColumn name="LST_AVG_ORDER_COUNT" orgIndex="4" resourceKey="LBL-P0046" dataType="String" />
+      <listcellColumn name="LST_AVG_ORDER_COUNT_PER_HOUR" orgIndex="13" resourceKey="LBL-P0085" dataType="String" />
+      <listcellColumn name="LST_AVG_BOX_COUNT" orgIndex="5" resourceKey="LBL-P0090" dataType="String" />
+      <listcellColumn name="LST_AVG_BOX_COUNT_PER_HOUR" orgIndex="14" resourceKey="LBL-P0085" dataType="String" />
+      <listcellColumn name="LST_AVG_LINE_COUNT" orgIndex="6" resourceKey="LBL-P0047" dataType="String" />
+      <listcellColumn name="LST_AVG_LINE_COUNT_PER_HOUR" orgIndex="15" resourceKey="LBL-P0085" dataType="String" />
+      <listcellColumn name="LST_AVG_LOT_QTY" orgIndex="7" resourceKey="LBL-P0074" dataType="String" />
+      <listcellColumn name="LST_AVG_LOT_QTY_PER_HOUR" orgIndex="16" resourceKey="LBL-P0085" dataType="String" />
+      <listcellColumn name="LST_AVG_PIECE_QTY" orgIndex="8" resourceKey="LBL-P0075" dataType="String" />
+      <listcellColumn name="LST_AVG_PIECE_QTY_PER_HOUR" orgIndex="17" resourceKey="LBL-P0085" dataType="String" />
+      <listcellColumn name="LST_AVG_BOX_COUNT_PER_ORDER" orgIndex="9" resourceKey="LBL-P0076" dataType="String" />
+      <listcellColumn name="LST_AVG_LINE_COUNT_PER_ORDER" orgIndex="18" resourceKey="LBL-P0077" dataType="String" />
+      <listcellColumn name="LST_AVG_LOT_QTY_PER_LINE_COUNT" orgIndex="10" resourceKey="LBL-P0078" dataType="String" />
+      <listcellColumn name="LST_AVG_PIECE_QTY_PER_LINE_COUNT" orgIndex="19" resourceKey="LBL-P0079" dataType="String" />
+      <listcellColumn name="LST_AVG_MISS_RATE" orgIndex="11" resourceKey="LBL-P0080" dataType="String" />
+    </listcell>
+    <listcell name="lst_UserResultWorkDateList">
+      <listcellColumn name="LST_WORK_DATE" orgIndex="1" resourceKey="LBL-W0091" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_PRODUCTION_RATE" orgIndex="2" resourceKey="LBL-P0066" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORKER_COUNT" orgIndex="3" resourceKey="LBL-P0083" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_COUNT" orgIndex="14" resourceKey="LBL-P0084" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_START_TIME" orgIndex="4" resourceKey="LBL-P0067" dataType="Date" format="DateLongTimeMillSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_END_TIME" orgIndex="15" resourceKey="LBL-P0068" dataType="Date" format="DateLongTimeMillSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_OPERATE_TIME" orgIndex="5" resourceKey="LBL-P0086" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_COUNT" orgIndex="6" resourceKey="LBL-P0046" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_COUNT_PER_HOUR" orgIndex="16" resourceKey="LBL-P0085" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT" orgIndex="7" resourceKey="LBL-P0090" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_PER_HOUR" orgIndex="17" resourceKey="LBL-P0085" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT" orgIndex="8" resourceKey="LBL-P0047" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_PER_HOUR" orgIndex="18" resourceKey="LBL-P0085" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_QTY" orgIndex="9" resourceKey="LBL-P0074" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_QTY_PER_HOUR" orgIndex="19" resourceKey="LBL-P0085" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PIECE_QTY" orgIndex="10" resourceKey="LBL-P0075" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PIECE_QTY_PER_HOUR" orgIndex="20" resourceKey="LBL-P0085" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_BOX_COUNT_PER_ORDER" orgIndex="11" resourceKey="LBL-P0076" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LINE_COUNT_PER_ORDER" orgIndex="21" resourceKey="LBL-P0077" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOT_QTY_PER_LINE_COUNT" orgIndex="12" resourceKey="LBL-P0078" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PIECE_QTY_PER_LINE_COUNT" orgIndex="22" resourceKey="LBL-P0079" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_MISS_RATE" orgIndex="13" resourceKey="LBL-P0080" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="slb_Download" name="Click" pattern="NoneGenerate" />
+    <event control="slb_Preview" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="WORKDAY_FROM" setRef="1" setValue="WORKDAY_FROM" />
+        <map getRef="2" getValue="WORKDAY_TO" setRef="1" setValue="WORKDAY_TO" />
+        <map getRef="2" getValue="MONDAY" setRef="1" setValue="MONDAY" />
+        <map getRef="2" getValue="TUESDAY" setRef="1" setValue="TUESDAY" />
+        <map getRef="2" getValue="WEDNESDAY" setRef="1" setValue="WEDNESDAY" />
+        <map getRef="2" getValue="THURSDAY" setRef="1" setValue="THURSDAY" />
+        <map getRef="2" getValue="FRIDAY" setRef="1" setValue="FRIDAY" />
+        <map getRef="2" getValue="SATURDAY" setRef="1" setValue="SATURDAY" />
+        <map getRef="2" getValue="SUNDAY" setRef="1" setValue="SUNDAY" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="BATCH_NO" setRef="1" setValue="BATCH_NO" />
+        <map getRef="2" getValue="LEVEL_A" setRef="1" setValue="LEVEL_A" />
+        <map getRef="2" getValue="LEVEL_B" setRef="1" setValue="LEVEL_B" />
+        <map getRef="2" getValue="LEVEL_C" setRef="1" setValue="LEVEL_C" />
+        <map getRef="2" getValue="COLLECT_CONDITION" setRef="1" setValue="COLLECT_CONDITION" />
+        <map getRef="2" getValue="DISPLAY_RANK" setRef="1" setValue="DISPLAY_RANK" />
+        <map getRef="2" getValue="USEDAY_OF_WEEK_FLAG" setRef="1" setValue="USEDAY_OF_WEEK_FLAG" />
+        <map getRef="3" getValue="SYS_DAY" setRef="1" setValue="SYS_DAY" />
+        <map getRef="3" getValue="SYS_TIME" setRef="1" setValue="SYS_TIME" />
+        <map getRef="3" getValue="CONSIGNOR_NAME" setRef="1" setValue="CONSIGNOR_NAME" />
+        <map getRef="3" getValue="AREA_NAME" setRef="1" setValue="AREA_NAME" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="WORKDAY" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="PRODUCTION_RATE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="WORKER_COUNT" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_COUNT" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="START_TIME" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="END_TIME" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="OPERATE_TIME" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="ORDER_COUNT_PER_HOUR" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT_PER_HOUR" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT_PER_HOUR" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="LOT_QTY" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="LOT_QTY_PER_HOUR" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY_PER_HOUR" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="BOX_COUNT_PER_ORDER" setRef="21" setValue="Value" />
+        <map getRef="1" getValue="LINE_COUNT_PER_ORDER" setRef="22" setValue="Value" />
+        <map getRef="1" getValue="LOT_QTY_PER_LINE_COUNT" setRef="23" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY_PER_LINE_COUNT" setRef="24" setValue="Value" />
+        <map getRef="1" getValue="MISS_RATE" setRef="25" setValue="Value" />
+        <map getRef="1" getValue="AVG_PRODUCTION_RATE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_WORKER_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_TERMINAL_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_OPERATE_TIME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_ORDER_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_ORDER_COUNT_PER_HOUR" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_BOX_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_BOX_COUNT_PER_HOUR" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LINE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LINE_COUNT_PER_HOUR" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LOT_QTY" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LOT_QTY_PER_HOUR" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_PIECE_QTY" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_PIECE_QTY_PER_HOUR" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_BOX_COUNT_PER_ORDER" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LINE_COUNT_PER_ORDER" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_LOT_QTY_PER_LINE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_PIECE_QTY_PER_LINE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="AVG_MISS_RATE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="26" exportName="PctUserResultWorkDateList" exporter="Preview" />
+      <output1>
+        <map getRef="3" getValue="SYS_DAY" setRef="26" setValue="SYS_DAY" />
+        <map getRef="3" getValue="SYS_TIME" setRef="26" setValue="SYS_TIME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_FROM" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_TO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WEEK_DAY" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LEVEL" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PRODUCTION_RATE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="HEADS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_TIME_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="MISS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="PRODUCTION_RATE" />
+        <map getRef="6" getValue="Value" setRef="26" setValue="HEADS" />
+        <map getRef="7" getValue="Value" setRef="26" setValue="CNT" />
+        <map getRef="8" getValue="Value" setRef="26" setValue="START_DATE" />
+        <map getRef="9" getValue="Value" setRef="26" setValue="END_DATE" />
+        <map getRef="10" getValue="Value" setRef="26" setValue="WORK_TIME" />
+        <map getRef="11" getValue="Value" setRef="26" setValue="ORDER_CNT" />
+        <map getRef="12" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR" />
+        <map getRef="13" getValue="Value" setRef="26" setValue="BOX_CNT" />
+        <map getRef="14" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR" />
+        <map getRef="15" getValue="Value" setRef="26" setValue="LINE_CNT" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR" />
+        <map getRef="17" getValue="Value" setRef="26" setValue="LOT_CNT" />
+        <map getRef="18" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR" />
+        <map getRef="19" getValue="Value" setRef="26" setValue="PIECE_CNT" />
+        <map getRef="20" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR" />
+        <map getRef="21" getValue="Value" setRef="26" setValue="BOX_PER_ORDER" />
+        <map getRef="22" getValue="Value" setRef="26" setValue="LINE_PER_ORDER" />
+        <map getRef="23" getValue="Value" setRef="26" setValue="LOT_PER_LINE" />
+        <map getRef="24" getValue="Value" setRef="26" setValue="PIECE_PER_LINE" />
+        <map getRef="25" getValue="Value" setRef="26" setValue="MISS" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="26" exportName="PctUserResultWorkDateList" exporter="Print" />
+      <output1>
+        <map getRef="3" getValue="SYS_DAY" setRef="26" setValue="SYS_DAY" />
+        <map getRef="3" getValue="SYS_TIME" setRef="26" setValue="SYS_TIME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_FROM" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_TO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WEEK_DAY" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LEVEL" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PRODUCTION_RATE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="HEADS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_TIME_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="MISS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="PRODUCTION_RATE" />
+        <map getRef="6" getValue="Value" setRef="26" setValue="HEADS" />
+        <map getRef="7" getValue="Value" setRef="26" setValue="CNT" />
+        <map getRef="8" getValue="Value" setRef="26" setValue="START_DATE" />
+        <map getRef="9" getValue="Value" setRef="26" setValue="END_DATE" />
+        <map getRef="10" getValue="Value" setRef="26" setValue="WORK_TIME" />
+        <map getRef="11" getValue="Value" setRef="26" setValue="ORDER_CNT" />
+        <map getRef="12" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR" />
+        <map getRef="13" getValue="Value" setRef="26" setValue="BOX_CNT" />
+        <map getRef="14" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR" />
+        <map getRef="15" getValue="Value" setRef="26" setValue="LINE_CNT" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR" />
+        <map getRef="17" getValue="Value" setRef="26" setValue="LOT_CNT" />
+        <map getRef="18" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR" />
+        <map getRef="19" getValue="Value" setRef="26" setValue="PIECE_CNT" />
+        <map getRef="20" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR" />
+        <map getRef="21" getValue="Value" setRef="26" setValue="BOX_PER_ORDER" />
+        <map getRef="22" getValue="Value" setRef="26" setValue="LINE_PER_ORDER" />
+        <map getRef="23" getValue="Value" setRef="26" setValue="LOT_PER_LINE" />
+        <map getRef="24" getValue="Value" setRef="26" setValue="PIECE_PER_LINE" />
+        <map getRef="25" getValue="Value" setRef="26" setValue="MISS" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="26" exportName="PctUserResultWorkDateList" exporter="Excel" />
+      <output1>
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_FROM" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY_TO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WEEK_DAY" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LEVEL" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_CODE" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CONSIGNOR_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="AREA_NAME" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PRODUCTION_RATE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="HEADS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_TIME_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="BOX_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LINE_PER_ORDER_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="LOT_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="PIECE_PER_LINE_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="MISS_AVG" />
+        <map getRef="4" getValue="Value" setRef="26" setValue="WORK_DAY" />
+        <map getRef="5" getValue="Value" setRef="26" setValue="PRODUCTION_RATE" />
+        <map getRef="6" getValue="Value" setRef="26" setValue="HEADS" />
+        <map getRef="7" getValue="Value" setRef="26" setValue="CNT" />
+        <map getRef="8" getValue="Value" setRef="26" setValue="START_DATE" />
+        <map getRef="9" getValue="Value" setRef="26" setValue="END_DATE" />
+        <map getRef="10" getValue="Value" setRef="26" setValue="WORK_TIME" />
+        <map getRef="11" getValue="Value" setRef="26" setValue="ORDER_CNT" />
+        <map getRef="12" getValue="Value" setRef="26" setValue="ORDER_CNT_PER_HOUR" />
+        <map getRef="13" getValue="Value" setRef="26" setValue="BOX_CNT" />
+        <map getRef="14" getValue="Value" setRef="26" setValue="BOX_CNT_PER_HOUR" />
+        <map getRef="15" getValue="Value" setRef="26" setValue="LINE_CNT" />
+        <map getRef="16" getValue="Value" setRef="26" setValue="LINE_CNT_PER_HOUR" />
+        <map getRef="17" getValue="Value" setRef="26" setValue="LOT_CNT" />
+        <map getRef="18" getValue="Value" setRef="26" setValue="LOT_CNT_PER_HOUR" />
+        <map getRef="19" getValue="Value" setRef="26" setValue="PIECE_CNT" />
+        <map getRef="20" getValue="Value" setRef="26" setValue="PIECE_CNT_PER_HOUR" />
+        <map getRef="21" getValue="Value" setRef="26" setValue="BOX_PER_ORDER" />
+        <map getRef="22" getValue="Value" setRef="26" setValue="LINE_PER_ORDER" />
+        <map getRef="23" getValue="Value" setRef="26" setValue="LOT_PER_LINE" />
+        <map getRef="24" getValue="Value" setRef="26" setValue="PIECE_PER_LINE" />
+        <map getRef="25" getValue="Value" setRef="26" setValue="MISS" />
+      </output1>
+    </event>
+  </events>
+</business>

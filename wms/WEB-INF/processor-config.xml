@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE processor-config[
+<!ELEMENT processor-config (requestprocessor-mappings,responseprocessor-mappings)>
+<!ELEMENT request-processors (requestprocessor-mapping+)>
+<!ELEMENT response-processors (responseprocessor-mapping+)>
+<!ATTLIST requestprocessor-mapping
+  name CDATA #REQUIRED
+  class NMTOKEN #REQUIRED
+  responseprocessor CDATA #REQUIRED >
+<!ATTLIST responseprocessor-mapping
+  name CDATA #REQUIRED
+  class NMTOKEN #REQUIRED >
+]>
+
+<processor-config>
+
+  <requestprocessor-mappings>
+    <requestprocessor-mapping
+     name = "async"
+     class = "jp.co.daifuku.bluedog.webapp.processor.ASyncProcessor"
+     responseprocessor = "JSON"
+    />
+    <requestprocessor-mapping
+     name = "sync"
+     class = "jp.co.daifuku.bluedog.webapp.processor.SyncProcessor"
+     responseprocessor = "HTML"
+    />
+  </requestprocessor-mappings>
+
+  <responseprocessor-mappings>
+<!--<responseprocessor-mapping
+     name = "XML"
+     class = "jp.co.daifuku.bluedog.webapp.processor.XMLResponseProcessor"
+    />
+-->
+    <responseprocessor-mapping
+     name = "JSON"
+     class = "jp.co.daifuku.bluedog.webapp.processor.JSONResponseProcessor"
+    />
+    <responseprocessor-mapping
+     name = "HTML"
+     class = "jp.co.daifuku.bluedog.webapp.processor.HTMLResponseProcessor"
+    />
+  </responseprocessor-mappings>
+
+</processor-config>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.rftstate.RFTState2Business" abstractClassName="jp.co.daifuku.pcart.system.display.rftstate.RFTState2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_HalfWork_Cancel" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.RFTState2SCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.system.display.rftstate.RFTState2Params" />
+    <ref name="3" type="Control" typeName="lbl_InRftNo" />
+    <ref name="4" type="Control" typeName="lbl_InTerminalType" />
+    <ref name="5" type="Control" typeName="lbl_InRftStatus" />
+    <ref name="6" type="Control" typeName="lbl_InUserName" />
+    <ref name="7" type="Control" typeName="HalfWork" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="RFT_NO" setRef="1" setValue="RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="HALF_WORK" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Submit" name="Click" pattern="RegistGetParams">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="HALF_WORK" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="3" getValue="Value" setRef="1" setValue="RFT_NO" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="HALF_WORK" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_TYPE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="HALF_WORK" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

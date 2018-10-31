@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_Download" keyword="" description="Download">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="" />
+    <property name="visible" value="false" />
+    <property name="showProgress" value="" />
+    <property name="progressMessage" value="" />
+    <property name="target" value="DownLoad" />
+    <property name="features" value="width=32,height=40" />
+    <property name="functionKey" value="" />
+    <property name="beforeConfirm" value="" />
+    <property name="onconfirmOK" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="W_Preview" keyword="" description="Preview">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="" />
+    <property name="visible" value="false" />
+    <property name="showProgress" value="" />
+    <property name="progressMessage" value="" />
+    <property name="target" value="Preview" />
+    <property name="features" value="top=30,left=1,toolbar=no,directories=no,status=no,menubar=no,location=no,scrollbars=yes,resizable=yes" />
+    <property name="functionKey" value="" />
+    <property name="beforeConfirm" value="" />
+    <property name="onconfirmOK" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+  <template key="ANA_Download" keyword="Unuseable (Erase it later)" description="Download">
+    <property name="async" value="false" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="" />
+    <property name="visible" value="false" />
+    <property name="showProgress" value="" />
+    <property name="progressMessage" value="" />
+    <property name="target" value="DownLoad" />
+    <property name="features" value="width=32,height=40" />
+    <property name="functionKey" value="" />
+    <property name="beforeConfirm" value="" />
+    <property name="onconfirmOK" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
+</templates>

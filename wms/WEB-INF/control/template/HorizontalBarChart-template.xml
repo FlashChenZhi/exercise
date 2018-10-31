@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_TaskProgress" keyword="" description="">
+    <property name="async" value="false" />
+    <property name="visible" value="true" />
+    <property name="target" value="" />
+    <property name="features" value="" />
+    <property name="width" value="850" />
+    <property name="height" value="70" />
+    <property name="clickable" value="false" />
+    <property name="permeate" value="false" />
+    <property name="rangeAboutMaxValue" value="100" />
+    <property name="value" value="0" />
+  </template>
+</templates>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="MainMenuDataSheet" type="DataSheet" />
+    <ref name="1" typeName="Number" type="Number" />
+    <ref name="2" typeName="Control" type="Control" />
+  </refs>
+  <events>
+    <event name="Prev_Click" order="1">
+      <pager pagerType="PagePrev" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Next_Click" order="2">
+      <pager pagerType="PageNext" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Up_Click" order="4">
+      <pager pagerType="RecordUp" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Down_Click" order="5">
+      <pager pagerType="RecordDown" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Exit_Click" order="3">
+      <method methodName="exit_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input>
+        <map getterTypeRef="1" getterValue="8" setterTypeRef="0" setterValue="$VIEW_SIZE" />
+      </input>
+      <pager pagerType="None" select="0" />
+    </event>
+    <event name="MenuNo_Enter" order="7">
+      <method methodName="menuNo_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="2" getterValue="MenuNo" setterTypeRef="0" setterValue="MENU_NO" />
+      </input>
+    </event>
+    <event name="Ent_Click" order="6">
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+  </events>
+</pageMapping>

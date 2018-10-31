@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.pctsystemsetting.PCTSystemSettingBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.pctsystemsetting.PCTSystemSetting" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.PCTSystemSettingSCH" />
+    <ref name="1" type="Control" typeName="RankSetting" />
+    <ref name="2" type="Control" typeName="txt_RankAStdNumber" />
+    <ref name="3" type="Control" typeName="txt_RankBStdNumber" />
+    <ref name="4" type="Control" typeName="txt_WeightErrorRateInit" />
+    <ref name="5" type="Control" typeName="txt_OriconMaxWeight" />
+    <ref name="6" type="Control" typeName="txt_CenterName" />
+    <ref name="7" type="Control" typeName="txt_ItemDataload" />
+    <ref name="8" type="Control" typeName="btn_NoProcess" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="RANK_SETTING_FLAG" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="A_RANK_STANDARD_VALUE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="B_RANK_STANDARD_VALUE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DEFULT_DISTINCT_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORICON_MAX_WEIGHT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="CENTER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="PCTMASTER_LOAD_FLAG" setRef="7" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="RANK_SETTING_FLAG" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="A_RANK_STANDARD_VALUE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="B_RANK_STANDARD_VALUE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DEFULT_DISTINCT_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORICON_MAX_WEIGHT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="CENTER_NAME" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="PCTMASTER_LOAD_FLAG" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <validate>
+        <validate controlRef="1" />
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="5" required="true" />
+        <validate controlRef="6" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="0" setValue="RANK_SETTING_FLAG" />
+        <map getRef="2" getValue="Value" setRef="0" setValue="A_RANK_STANDARD_VALUE" />
+        <map getRef="3" getValue="Value" setRef="0" setValue="B_RANK_STANDARD_VALUE" />
+        <map getRef="4" getValue="Value" setRef="0" setValue="DEFULT_DISTINCT_RATE" />
+        <map getRef="5" getValue="Value" setRef="0" setValue="ORICON_MAX_WEIGHT" />
+        <map getRef="6" getValue="Value" setRef="0" setValue="CENTER_NAME" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="RANK_SETTING_FLAG" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="A_RANK_STANDARD_VALUE" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="B_RANK_STANDARD_VALUE" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="DEFULT_DISTINCT_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ORICON_MAX_WEIGHT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="CENTER_NAME" setRef="6" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_NoProcess" name="Click" pattern="Edit">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="PCTMASTER_LOAD_FLAG" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

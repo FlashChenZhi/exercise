@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="userProject" elementFormDefault="qualified" xmlns="userProject"
+	xmlns:mstns="userProject" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="userProject">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="lastLanguage" type="xs:string"></xs:element>
+				<xs:element name="defaultPackage" type="xs:string"></xs:element>
+				<xs:element name="controls">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="control" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="displayProperties" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence></xs:sequence>
+															<xs:attribute name="name" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+											<xs:key name="displayPropertiesKey" msdata:PrimaryKey="true">
+												<xs:selector xpath=".//mstns:property" />
+												<xs:field xpath="@name" />
+											</xs:key>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="taskOption">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="global">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="option" maxOccurs="unbounded" type="option"></xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="templateFile">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="option" type="option" maxOccurs="unbounded"></xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="propertyFile">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="option" type="option" maxOccurs="unbounded" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="option">
+		<xs:sequence />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="value" type="xs:boolean" />
+	</xs:complexType>
+</xs:schema>

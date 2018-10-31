@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0616" downloadName="StockByLocationList" reportName="LBL-W6026">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="area_no" type="area" header="LBL-W0011" printEnabled="true" xlsEnabled="true"/>
+    <field name="search_location_status" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_location_no" type="location" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_location_no" type="location" printEnabled="true" xlsEnabled="false"/>
+    <field name="search_item_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="location_no" type="location" header="LBL-W8009" printEnabled="true" xlsEnabled="true"/>
+    <field name="location_status" type="string" header="LBL-W0299" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="storage_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W0487" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+    <field name="stock_qty" type="number" format="###,###,###,##0" header="LBL-W0073" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+</exportspec>

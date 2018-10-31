@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--トップページ画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font16" keyence_mag="1" size="16" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="1" kanainput="0">
+    <label name="line1" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font16" visible="true">
+      <align>center</align>
+      <x>0</x>
+      <y>20</y>
+      <w>15</w>
+      <caption>eWareNavi</caption>
+    </label>
+    <label name="lblVer" font-id="font12" visible="true">
+      <align>right</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>Ver3.4.1</caption>
+    </label>
+    <label name="line2" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>20</w>
+    </label>
+    <label name="line3" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>52</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>70</y>
+      <w>20</w>
+      <caption>(この画面で電源を</caption>
+    </label>
+    <label name="lblMsg2" font-id="font12" visible="true">
+      <align>right</align>
+      <x>0</x>
+      <y>84</y>
+      <w>20</w>
+      <caption>切ってください)</caption>
+    </label>
+    <label name="lblMsg3" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>107</y>
+      <w>20</w>
+      <caption>L:電源OFF   ENT:開始</caption>
+    </label>
+    <button name="Start" font-id="" visible="false" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>TopPage_Start</event>
+      <key>ET</key>
+    </button>
+    <label name="lblSpace" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTerminalNo" font-id="font12" visible="true">
+      <align>right</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>               %TermInfoDataSheet.TERMINAL_NO%号</caption>
+    </label>
+    <button name="Exit" font-id="" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>TopPage_Exit</event>
+      <key>KL</key>
+    </button>
+  </form>
+</HaiSurf.Page>

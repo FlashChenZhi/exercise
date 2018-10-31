@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--DC入荷場エリア確認画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>入荷場エリア確認    </caption>
+    </label>
+    <label name="lblTempAreaNo" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>仮置きエリア:%ReceivingAreaDataSheet.TEMP_AREA_NO%</caption>
+    </label>
+    <label name="lblTempAreaName1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%ReceivingAreaDataSheet.TEMP_AREA_NAME0%</caption>
+    </label>
+    <label name="lblTempAreaName2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%ReceivingAreaDataSheet.TEMP_AREA_NAME1%</caption>
+    </label>
+    <label name="lblAreaName1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>20</w>
+      <caption>%ReceivingAreaDataSheet.AREA_NAME0%</caption>
+    </label>
+    <label name="lblMsg" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>エリアを確認</caption>
+    </label>
+    <button name="List" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>F1:変更     </caption>
+      <event>RecTemp_List</event>
+      <key>F1</key>
+    </button>
+    <label name="lblLack" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>入庫エリア:%ReceivingAreaDataSheet.AREA_NO%</caption>
+    </label>
+    <label name="lblAreaName2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>%ReceivingAreaDataSheet.AREA_NAME1%</caption>
+    </label>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:完了</caption>
+      <event>RecTemp_Ent</event>
+      <key>ET</key>
+    </button>
+  </form>
+</HaiSurf.Page>

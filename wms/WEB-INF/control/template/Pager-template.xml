@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+	<template key="Pager" keyword="List Cell" description="Pager" lastupdate="2009/01/29 16:23:47"
+		 username="">
+		<property name="async" value="true"/>
+		<property name="max" value=""/>
+		<property name="index" value=""/>
+		<property name="page" value="20"/>
+		<property name="visible" value="true"/>
+		<property name="cssClass" value=""/>
+	</template>
+	<template key="T_PagerSync" keyword="eManager" description="Pager" lastupdate="" username="">
+		<property name="async" value="true"/>
+		<property name="max" value=""/>
+		<property name="index" value=""/>
+		<property name="page" value="5"/>
+		<property name="visible" value="true"/>
+		<property name="cssClass" value=""/>
+	</template>
+	<template key="PagerPCT" keyword="PCT" description="Pager" lastupdate="2009/02/03 10:38:08"
+		 username="">
+		<property name="async" value="true"/>
+		<property name="max" value=""/>
+		<property name="index" value=""/>
+		<property name="page" value="50"/>
+		<property name="visible" value="true"/>
+		<property name="cssClass" value=""/>
+	</template>
+</templates>

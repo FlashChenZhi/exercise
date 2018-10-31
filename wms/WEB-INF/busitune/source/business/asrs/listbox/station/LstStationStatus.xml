@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.listbox.station.LstStationStatusBusiness" abstractClassName="jp.co.daifuku.wms.asrs.listbox.station.LstStationStatus" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.LstStationStatusDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.station.LstStationStatusParams" />
+    <ref name="3" type="Control" typeName="LST_SELECT" />
+    <ref name="4" type="Control" typeName="LST_STATION_NO" />
+    <ref name="5" type="Control" typeName="LST_MODE_TYPE" />
+    <ref name="6" type="Control" typeName="LST_CURRENT_MODE" />
+    <ref name="7" type="Control" typeName="LST_STATUS" />
+    <ref name="8" type="Control" typeName="LST_SUSPEND" />
+    <ref name="9" type="Control" typeName="LST_WORK_COUNT" />
+    <ref name="10" type="Control" typeName="LST_MODE_REQUEST" />
+    <ref name="11" type="Control" typeName="HIDDEN_STATION_NAME" />
+    <ref name="12" type="Control" typeName="HIDDEN_MODE_TYPE" />
+    <ref name="13" type="Control" typeName="HIDDEN_CURRENT_MODE" />
+    <ref name="14" type="Control" typeName="HIDDEN_STATUS" />
+    <ref name="15" type="Control" typeName="HIDDEN_SUSPEND" />
+    <ref name="16" type="Control" typeName="HIDDEN_MODE_REQUEST" />
+  </refs>
+  <listcells>
+    <listcell name="lst_StationStatus">
+      <listcellColumn name="HIDDEN_STATION_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_MODE_TYPE" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_CURRENT_MODE" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_STATUS" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_SUSPEND" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_MODE_REQUEST" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="2" resourceKey="LBL-W0022" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_MODE_TYPE" orgIndex="3" resourceKey="LBL-W0147" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CURRENT_MODE" orgIndex="4" resourceKey="LBL-W0075" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATUS" orgIndex="5" resourceKey="LBL-W0058" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SUSPEND" orgIndex="6" resourceKey="LBL-W0086" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_COUNT" orgIndex="7" resourceKey="LBL-W0080" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_MODE_REQUEST" orgIndex="8" resourceKey="LBL-W0076" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="STATION_NO" setRef="1" setValue="MACHINE_STATUS" />
+        <map getRef="2" getValue="MODE_TYPE" setRef="1" setValue="MODE_TYPE" />
+        <map getRef="2" getValue="CURRENT_MODE" setRef="1" setValue="CURRENT_MODE" />
+        <map getRef="2" getValue="STATUS" setRef="1" setValue="STATUS" />
+        <map getRef="2" getValue="SUSPEND" setRef="1" setValue="SUSPEND" />
+        <map getRef="2" getValue="WORK_COUNT" setRef="1" setValue="WORK_COUNT" />
+        <map getRef="2" getValue="WORK_MODE_CHANGE" setRef="1" setValue="WORK_MODE_CHANGE" />
+        <map getRef="2" getValue="STATION" setRef="1" setValue="STATION" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="SELECT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="STATION_NO" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="MODE_TYPE" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="CURRENT_MODE" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="SUSPEND" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="WORK_COUNT" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="MODE_REQUEST" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="STATION" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_MODE_TYPE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_CURRENT_MODE" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_STATUS" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_SUSPEND" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="HIDDEN_MODE_REQUEST" setRef="16" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="4" getValue="Value" setRef="2" setValue="STATION_NO" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="MODE_TYPE" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="CURRENT_MODE" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="STATUS" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="SUSPEND" />
+        <map getRef="9" getValue="Value" setRef="2" setValue="WORK_COUNT" />
+        <map getRef="10" getValue="Value" setRef="2" setValue="MODE_REQUEST" />
+        <map getRef="11" getValue="Value" setRef="2" setValue="STATION" />
+        <map getRef="12" getValue="Value" setRef="2" setValue="HIDDEN_MODE_TYPE_SET" />
+        <map getRef="13" getValue="Value" setRef="2" setValue="HIDDEN_CURRENT_MODE_SET" />
+        <map getRef="14" getValue="Value" setRef="2" setValue="HIDDEN_STATUS_SET" />
+        <map getRef="15" getValue="Value" setRef="2" setValue="HIDDEN_SUSPEND_SET" />
+        <map getRef="16" getValue="Value" setRef="2" setValue="HIDDEN_MODE_REQUEST_SET" />
+      </output1>
+    </event>
+  </events>
+</business>

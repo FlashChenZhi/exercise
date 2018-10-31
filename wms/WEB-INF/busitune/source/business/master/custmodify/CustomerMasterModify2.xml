@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.custmodify.CustomerMasterModify2Business" abstractClassName="jp.co.daifuku.wms.master.display.custmodify.CustomerMasterModify2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_CustomerName" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.master.display.custmodify.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="lbl_JavaSetCustomerCode" />
+    <ref name="3" type="Control" typeName="txt_Route" />
+    <ref name="4" type="Control" typeName="txt_ZipCode" />
+    <ref name="5" type="Control" typeName="txt_AdministrativeDivisions" />
+    <ref name="6" type="Control" typeName="txt_Address" />
+    <ref name="7" type="Control" typeName="txt_BuildingName" />
+    <ref name="8" type="Control" typeName="txt_TelephoneNumber" />
+    <ref name="9" type="Control" typeName="txt_Contact1" />
+    <ref name="10" type="Control" typeName="txt_Contact2" />
+    <ref name="11" type="Control" typeName="txt_SortPlace" />
+    <ref name="12" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.CustomerMasterModifySCH" />
+    <ref name="13" type="Control" typeName="txt_LastUpdateDate" />
+    <ref name="14" type="Control" typeName="txt_LastUsedDate" />
+    <ref name="15" type="Constants" typeName="Constants" />
+    <ref name="16" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="17" type="Control" typeName="btn_Modify" />
+    <ref name="18" type="Control" typeName="btn_Delete" />
+    <ref name="19" type="Control" typeName="btn_Clear" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/master/custmodify/CustomerMasterModify" viewStateRef="1" />
+      <output1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="CUSTOMER_CODE" />
+      </output1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="12" />
+      <input1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="CUSTOMER_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="12" setValue="LAST_UPDATE_DATE" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="CUSTOMER_NAME" setRef="0" setValue="Value" />
+        <map getRef="12" getValue="ROUTE" setRef="3" setValue="Value" />
+        <map getRef="12" getValue="POSTAL_CODE" setRef="4" setValue="Value" />
+        <map getRef="12" getValue="PREFECTURE" setRef="5" setValue="Value" />
+        <map getRef="12" getValue="ADDRESS1" setRef="6" setValue="Value" />
+        <map getRef="12" getValue="ADDRESS2" setRef="7" setValue="Value" />
+        <map getRef="12" getValue="TELEPHONE" setRef="8" setValue="Value" />
+        <map getRef="12" getValue="CONTACT1" setRef="9" setValue="Value" />
+        <map getRef="12" getValue="CONTACT2" setRef="10" setValue="Value" />
+        <map getRef="12" getValue="SORT_PLACE" setRef="11" setValue="Value" />
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="13" setValue="Value" />
+        <map getRef="12" getValue="LAST_USED_DATE" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="CUSTOMER_CODE" setRef="2" setValue="Value" />
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="12" getValue="JAVA_SET_CUSTOMER_CODE" setRef="1" setValue="VS_CUSTOMER_CODE" />
+        <map getRef="12" getValue="CUSTOMER_NAME" setRef="1" setValue="VS_CUSTOMER_NAME" />
+        <map getRef="12" getValue="ROUTE" setRef="1" setValue="VS_ROUTE" />
+        <map getRef="12" getValue="POSTAL_CODE" setRef="1" setValue="VS_ZIP_CODE" />
+        <map getRef="12" getValue="PREFECTURE" setRef="1" setValue="VS_ADMINISTRATIVE_DIVISIONS" />
+        <map getRef="12" getValue="ADDRESS1" setRef="1" setValue="VS_ADDRESS" />
+        <map getRef="12" getValue="ADDRESS2" setRef="1" setValue="VS_BUILDING_NAME" />
+        <map getRef="12" getValue="TELEPHONE" setRef="1" setValue="VS_TELEPHONE_NUMBER" />
+        <map getRef="12" getValue="CONTACT1" setRef="1" setValue="VS_CONTACT1" />
+        <map getRef="12" getValue="CONTACT2" setRef="1" setValue="VS_CONTACT2" />
+        <map getRef="12" getValue="SORT_PLACE" setRef="1" setValue="VS_SORT_PLACE" />
+      </output1>
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Edit">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+        <validate controlRef="10" />
+        <validate controlRef="11" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="CUSTOMER_NAME" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="ROUTE" />
+        <map getRef="4" getValue="Value" setRef="12" setValue="POSTAL_CODE" />
+        <map getRef="5" getValue="Value" setRef="12" setValue="PREFECTURE" />
+        <map getRef="6" getValue="Value" setRef="12" setValue="ADDRESS1" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="ADDRESS2" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="TELEPHONE" />
+        <map getRef="9" getValue="Value" setRef="12" setValue="CONTACT1" />
+        <map getRef="10" getValue="Value" setRef="12" setValue="CONTACT2" />
+        <map getRef="11" getValue="Value" setRef="12" setValue="SORT_PLACE" />
+        <map getRef="14" getValue="Value" setRef="12" setValue="LAST_USED_DATE" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="CUSTOMER_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="12" setValue="LAST_UPDATE_DATE" />
+        <map getRef="15" getValue="PROCESS_FLAG_MODIFY" setRef="12" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="16" operation="MODIFY">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" />
+        <out out1Ref="8" out1Value="Value" />
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_CUSTOMER_NAME" />
+        <out out1Ref="1" out1Value="VS_ROUTE" />
+        <out out1Ref="1" out1Value="VS_ZIP_CODE" />
+        <out out1Ref="1" out1Value="VS_ADMINISTRATIVE_DIVISIONS" />
+        <out out1Ref="1" out1Value="VS_ADDRESS" />
+        <out out1Ref="1" out1Value="VS_BUILDING_NAME" />
+        <out out1Ref="1" out1Value="VS_TELEPHONE_NUMBER" />
+        <out out1Ref="1" out1Value="VS_CONTACT1" />
+        <out out1Ref="1" out1Value="VS_CONTACT2" />
+        <out out1Ref="1" out1Value="VS_SORT_PLACE" />
+      </part11>
+      <input2>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="CUSTOMER_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="12" setValue="LAST_UPDATE_DATE" />
+        <map getRef="15" getValue="PROCESS_FLAG_MODIFY" setRef="12" setValue="PROCESS_FLAG" />
+      </input2>
+      <output1>
+        <map getRef="12" getValue="CUSTOMER_NAME" setRef="0" setValue="Value" />
+        <map getRef="12" getValue="ROUTE" setRef="3" setValue="Value" />
+        <map getRef="12" getValue="POSTAL_CODE" setRef="4" setValue="Value" />
+        <map getRef="12" getValue="PREFECTURE" setRef="5" setValue="Value" />
+        <map getRef="12" getValue="ADDRESS1" setRef="6" setValue="Value" />
+        <map getRef="12" getValue="ADDRESS2" setRef="7" setValue="Value" />
+        <map getRef="12" getValue="TELEPHONE" setRef="8" setValue="Value" />
+        <map getRef="12" getValue="CONTACT1" setRef="9" setValue="Value" />
+        <map getRef="12" getValue="CONTACT2" setRef="10" setValue="Value" />
+        <map getRef="12" getValue="SORT_PLACE" setRef="11" setValue="Value" />
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="13" setValue="Value" />
+        <map getRef="12" getValue="LAST_USED_DATE" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="1" setValue="LAST_UPDATE_DATE" />
+        <map getRef="12" getValue="CUSTOMER_NAME" setRef="1" setValue="VS_CUSTOMER_NAME" />
+        <map getRef="12" getValue="ROUTE" setRef="1" setValue="VS_ROUTE" />
+        <map getRef="12" getValue="POSTAL_CODE" setRef="1" setValue="VS_ZIP_CODE" />
+        <map getRef="12" getValue="PREFECTURE" setRef="1" setValue="VS_ADMINISTRATIVE_DIVISIONS" />
+        <map getRef="12" getValue="ADDRESS1" setRef="1" setValue="VS_ADDRESS" />
+        <map getRef="12" getValue="ADDRESS2" setRef="1" setValue="VS_BUILDING_NAME" />
+        <map getRef="12" getValue="TELEPHONE" setRef="1" setValue="VS_TELEPHONE_NUMBER" />
+        <map getRef="12" getValue="CONTACT1" setRef="1" setValue="VS_CONTACT1" />
+        <map getRef="12" getValue="CONTACT2" setRef="1" setValue="VS_CONTACT2" />
+        <map getRef="12" getValue="SORT_PLACE" setRef="1" setValue="VS_SORT_PLACE" />
+      </output1>
+    </event>
+    <event control="btn_Delete" name="Click" pattern="Delete">
+      <sch2Display schRef="12" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="CUSTOMER_NAME" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="ROUTE" />
+        <map getRef="4" getValue="Value" setRef="12" setValue="POSTAL_CODE" />
+        <map getRef="5" getValue="Value" setRef="12" setValue="PREFECTURE" />
+        <map getRef="6" getValue="Value" setRef="12" setValue="ADDRESS1" />
+        <map getRef="7" getValue="Value" setRef="12" setValue="ADDRESS2" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="TELEPHONE" />
+        <map getRef="9" getValue="Value" setRef="12" setValue="CONTACT1" />
+        <map getRef="10" getValue="Value" setRef="12" setValue="CONTACT2" />
+        <map getRef="11" getValue="Value" setRef="12" setValue="SORT_PLACE" />
+        <map getRef="14" getValue="Value" setRef="12" setValue="LAST_USED_DATE" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="CUSTOMER_CODE" setRef="12" setValue="CUSTOMER_CODE" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="12" setValue="LAST_UPDATE_DATE" />
+        <map getRef="15" getValue="PROCESS_FLAG_DELETE" setRef="12" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="16" operation="DELETE">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="1" out1Value="VS_CUSTOMER_NAME" />
+        <out out1Ref="1" out1Value="VS_ROUTE" />
+        <out out1Ref="1" out1Value="VS_ZIP_CODE" />
+        <out out1Ref="1" out1Value="VS_ADMINISTRATIVE_DIVISIONS" />
+        <out out1Ref="1" out1Value="VS_ADDRESS" />
+        <out out1Ref="1" out1Value="VS_BUILDING_NAME" />
+        <out out1Ref="1" out1Value="VS_TELEPHONE_NUMBER" />
+        <out out1Ref="1" out1Value="VS_CONTACT1" />
+        <out out1Ref="1" out1Value="VS_CONTACT2" />
+        <out out1Ref="1" out1Value="VS_SORT_PLACE" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="17" type="Disabled" />
+        <clear controlRef="18" type="Disabled" />
+        <clear controlRef="19" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

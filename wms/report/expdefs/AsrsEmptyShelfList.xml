@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0707" downloadName="AsrsEmptyShelfList" reportName="LBL-W1315">
+    <field name="dfk_ds_no" type="string" printEnabled="true"/>
+    <field name="dfk_user_id" type="string" printEnabled="true"/>
+    <field name="dfk_user_name" type="string" printEnabled="true"/>
+    <field name="area_no" type="area" printEnabled="true"/>
+    <field name="area_name" type="string" printEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true"/>
+    <field name="rm_no" type="string" printEnabled="true"/>
+    <field name="location_no" type="location" printEnabled="true"/>
+</exportspec>

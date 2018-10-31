@@ -1,0 +1,900 @@
+<!-- 2010/03/16 T.Sumiyama Mod IE8対応後のCSS修正 -->
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/browser-style.css">
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/listcell.css">
+<link rel="stylesheet" type="text/css" href="../css/tool.css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<form>
+<!------------------------------------------->
+<!------------------ NoStyle --------------->
+<!------------------------------------------->
+<div class ="controls" style="clear:both;">
+	<table><tr><th><a class="selectorName" name="NoStyle">Style List</a></th></tr></table>
+   	<ul class="controlItems">
+   		<li class="cssLabel">Text Style</li>
+		<li><a class="cssList" href="#Label">Label</a></li>
+		<li><a class="cssList" href="#AppendLabel">AppendLabel</a></li>
+		<li><a class="cssList" href="#Message">Message</a></li>
+		<li class="cssLabel">Input Form Style</li>
+		<li><a class="cssList" href="#TextBox">TextBox</a></li>
+		<li><a class="cssList" href="#TextArea">TextArea</a></li>
+		<li class="cssLabel">Select Form Style</li>
+		<li><a class="cssList" href="#Pulldown">Pulldown</a></li>
+		<li><a class="cssList" href="#FileBrows">FileBrows</a></li>
+		<li><a class="cssList" href="#ListBox">ListBox</a></li>
+	</ul>
+	<ul class="controlItems">
+		<li class="cssLabel">Click Control Style</li>
+		<li><a class="cssList" href="#Button">Button</a></li>
+		<li><a class="cssList" href="#CheckBox">CheckBox</a></li>
+		<li><a class="cssList" href="#RadioButton">RadioButton</a></li>
+		<li class="cssLabel">ListCell Style</li>
+		<li><a class="cssList" href="#ListcellHeader">ListcellHeader</a></li>
+		<li><a class="cssList" href="#ListcellDetail">ListcellDetail</a></li>
+		<li><a class="cssList" href="#ListcellTable">ListcellTable</a></li>
+	</ul>
+</div>
+
+<!------------------------------------------->
+<!------------------ Label ------------------>
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="Label">Label</a></th></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-black-001</span><br>
+				<span id="lbl-black-001" class="lbl-black-001 selectImage" onClick="location.href='#';">lbl-black-001</span></div></td>
+		<td class="directionBox">
+				For LableCharactor color is black. <br><br>
+		        黒文字ラベル<br>通常の画面に使用して下さい</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 1.75em;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 1.75em;</span><br>
+				<span class="cssName">margin-left</span><span class="cssValue">: 7px;</span><br>
+				<span class="cssName">vertical-align</span><span class="cssValue">: middle;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-blk-lc01</span><br>
+	        	<div id="lbl-blk-lc01" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+		        <div id="lbl-blk-lc01" style="width:150px;background:#fff;height:25px;border:1px solid #413a8a;" class="selectImage" onClick="location.href='#'; return false;">
+		        	<span id="lbl-blk-lc01" class="lbl-blk-lc01 selectImage" onClick="location.href='#';">テストテストテストテストテスト</span>
+		        </div><br>
+			</div></td>
+		<td class="directionBox">
+				For ListCell Lable Charactor color is black. <br><br>
+		        リストセル用<br>
+		        文字数がwidthより長い場合は表示されません</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-blk-lc02</span><br>
+				<table id="lbl-blk-lc02" class="selectImage" style="width:150px; height:40px;border:#413a8a solid 1px;" onClick="location.href='#';">
+					<tr id="lbl-blk-lc02"  style="width:150px; height:25px;" class="headerSpan"><td id="lbl-blk-lc02"  class="listcell-header"></td></tr>
+					<tr id="lbl-blk-lc02" >
+						<td id="lbl-blk-lc02" class="listcell-detail-left" style="width:70px; height:40px;">
+							<span id="lbl-blk-lc02"  style="width:150px;" class="cellSpan-Labels">
+								<span id="lbl-blk-lc02" class="lbl-blk-lc02 selectImage" onClick="location.href='#';">テストテストテストテストテスト</span></span></td></tr></table></div></td>
+		<td class="directionBox">
+				For ListCell Lable<br>Charactor color is black. <br><br>
+		        リストセル用(改行可能)<br>
+		        リストセルの行の高さを<br>文字の行数×20に<br>設定して下さい</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">word-break</span><span class="cssValue">: breke-all;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 20px;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-link-001</span><br>
+				<a href="#" id="lbl-link-001" class="lbl-link-001 selectImage">lbl-link-001</a></div></td>
+		<td class="directionBox">
+				For Link Lable<br>Charactor color is default. <br><br>
+		        リンク表示ラベル<br>
+		        デフォルト色で表示され、アンダーバーが付きます。</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 1.75em;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 1.75em;</span><br>
+				<span class="cssName">margin-left</span><span class="cssValue">: 7px;</span><br>
+				<span class="cssName">vertical-align</span><span class="cssValue">: middle;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-link-lc01</span><br>
+				<div id="lbl-link-lc01" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+		        <div id="lbl-link-lc01" style="width:150px;background:#fff;height:25px;border:1px solid #413a8a;" class="selectImage" onClick="location.href='#'; return false;">
+		        	<a href="#" id="lbl-link-lc01" class="lbl-link-lc01 selectImage">lbl-link-lc01</a>
+		        </div><br>
+			</div></td>
+		<td class="directionBox">
+				For Link Lable in ListCell<br>Charactor color is default. <br><br>
+		        リストセル用リンク表示ラベル<br>
+		        デフォルト色で表示され、アンダーバーが付きます。</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ AppendLabel------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="AppendLabel">AppendLabel</a></th></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">lbl-blk-ap01</span><br>
+				<input id="lbl-blk-ap01" type="checkbox" class="chk-001 selectImage" onClick="location.href='#';return false;"><label id="lbl-blk-ap01" for="chk-001" class="lbl-blk-ap01">lbl-blk-ap01</label><br>
+				<input id="lbl-blk-ap01" type="radio" class="rdo-001 selectImage" onClick="location.href='#';return false;"><label id="lbl-blk-ap01" for="rdo-001" class="lbl-blk-ap01">lbl-blk-ap01</label></div></td>
+		<td class="directionBox">
+			For Lable<br>Charactor color is black. <br><br>
+			ラベル用黒文字</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 1.75em;</span><br>
+				<span class="cssName">margin-left</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">vertical-align</span><span class="cssValue">: middle;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ Message------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="Message">Message</a></th></tr>
+	<tr>
+		<td class="imgTd">
+			<div class="imgBox">
+				<span class="className">message-001</span><br>
+				<span id="message-001" class="message-001 selectImage" style="background:#fff;height:23px;width:180px;" onClick="location.href='#';return false;">メッセージ用のラベル</span></div></td>
+		<td class="directionBox">
+			For Message<br>Charactor color is black. <br><br>
+			メッセージコントロール用ラベル</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 23px;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ TextBox ---------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="TextBox">Text Box</a></th></tr>
+	<tr>
+		<td class="imgTd"><div class="imgBox">
+	        <span class="className">txt-001</span><br>
+	        <input id="txt-001" type="text" size="15" value="txt-001" class="txt-001 selectImage" onClick="location.href='#';return false;"></div></td>
+	    <td class="directionBox">
+			Nomal charactor type<br>text box.<br><br>
+			通常文字項目</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: bold 16px/20px monospace;</span><br></div></td></tr>
+	<tr>
+		<td class="imgTd"><div class="imgBox">
+	        <span class="className">txt-003</span><br>
+	        <input id="txt-003" type="text" size="15" value="txt-003" class="txt-003 selectImage" onClick="location.href='#';return false;"></div></td>
+	    <td class="directionBox">
+			For Number, Time, Date and alphanumeric only TextBox.(IME mode off)<br><br>
+	        半角・数値・日付テキストボックス(IME mode off)</td>
+		<td>
+			<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: bold 16px/20px monospace;</span><br>
+				<span class="cssName">ime-mode</span><span class="cssValue">: disabled;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">txt-004</span><br>
+	        <input id="txt-004" type="text" size="15" value="txt-004" class="txt-004 selectImage" onClick="location.href='#';return false;"></div></td>
+	    <td class="directionBox">
+			Flat textbox.<br><br>
+			フラットなテキストボックス</td>
+	    <td>
+	    	<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: normal 100%/1.75em monospace;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0 1px;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">txt-lc01</span><br>
+	        <table id="txt-lc01" border="0" cellspacing="0" cellpadding="0" class="selectImage" style="border-top:1px solid #413a8a;border-right:1px solid #413a8a;border-bottom:1px solid #413a8a;border-left:1px solid #413a8a; width:150px;" onClick="location.href='#';return false;">
+			<tr id="txt-lc01"><td id="txt-lc01" style="white-space:nowrap; width:150px; height:25px;" class="listcell-header"><span id="txt-lc01" class="headerSpan" style="height:25px;line-height:25px; width:100px;">test</span></td><td></td></tr>
+			<tr id="txt-lc01" bgcolor="white" ><td style="white-space:nowrap; width:150px; height:25px;" class="listcell-detail-center"><span id="txt-lc01" style="width:150px;" class="cellSpan" ><input id="txt-lc01" size=10 type="text" value="txt-lc01" class="txt-lc01 selectImage" onClick="location.href='#';return false;"></span></td></tr></table></div></td>
+	    <td class="directionBox">
+			Nomal charactor type<br>text box in ListCell.<br><br>
+			リストセル用の通常テキストボックス</td>
+	    <td>
+	    	<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: normal 100%/1.75em monospace;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0 1px;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">txt-lc02</span><br>
+	        <table id="txt-lc02" border="0" cellspacing="0" cellpadding="0" class="selectImage" style="border-top:1px solid #413a8a;border-right:1px solid #413a8a;border-bottom:1px solid #413a8a;border-left:1px solid #413a8a; width:150px;" onClick="location.href='#';return false;">
+			<tr id="txt-lc02" ><td id="txt-lc02" style="white-space:nowrap; width:150px; height:25px;" class="listcell-header"><span id="txt-lc02" class="headerSpan" style="height:25px;line-height:25px; width:100px;">test</span></td><td></td></tr>
+			<tr id="txt-lc02" bgcolor="white" ><td id="txt-lc02" style="white-space:nowrap; width:150px; height:25px;" class="listcell-detail-center"><span id="txt-lc02" style="width:150px;" class="cellSpan" ><input id="txt-lc02" size=10 type="text" value="txt-lc02" class="txt-lc02 selectImage" onClick="location.href='#';return false;"></span></td></tr></table></div></td>
+	    <td class="directionBox">
+			For Number, Time, Date and alphanumeric only TextBox in ListCell.(IME mode off)<br><br>
+	        リストセル用の半角・数値・日付テキストボックス(IME mode off)<br>
+	        ただし、DateTextBoxでカレンダー表示時はボタンがずれるので、通常のを使用し、行の高さを調節して対応して下さい。</td>
+	    <td>
+	    	<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: normal 100%/1.75em monospace;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0 1px;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br></div></td></tr>
+	<tr >
+	    <td class="imgTd"><div class="imgBox" >
+	        <span class="className">txt-lc03</span><br>
+			<table id="txt-lc03" border="0" cellspacing="0" cellpadding="0" class="selectImage" style="border-top:1px solid #413a8a;border-right:1px solid #413a8a;border-bottom:1px solid #413a8a;border-left:1px solid #413a8a; width:150px;" onClick="location.href='#';return false;">
+			<tr id="txt-lc03"><td id="txt-lc03" style="white-space:nowrap; width:150px; height:25px;" class="listcell-header"><span id="txt-lc03" class="headerSpan" style="height:25px;line-height:25px; width:100px;">test</span></td><td></td></tr>
+			<tr id="txt-lc03" bgcolor="white" ><td style="white-space:nowrap; width:150px; height:25px;" class="listcell-detail-center"><span id="txt-lc03" style="width:150px;" class="cellSpan" ><input id="txt-lc03" size=10 type="text" value="txt-lc03" class="txt-lc03 selectImage" onClick="location.href='#';return false;"></span></td></tr></table></div></td>
+		<td class="directionBox">
+			Flat textbox in ListCell.<br><br>
+			リストセル用のフラットなテキストボックス</td>
+	    <td>
+	    	<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: normal 100%/1.75em monospace;</span><br>
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0 1px;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ TextArea ---------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="TextArea">Text Box</a></th></tr>
+	<tr>
+		<td class="imgTd"><div class="imgBox">
+	        <span class="className">txa-001</span><br>
+	        <textarea id="txa-001" rows="3" cols="12" class="txa-001 selectImage" onClick="location.href='#'; return false;">txa-001</textarea></div></td>
+	   	<td class="directionBox">
+			Nomal charactor type text Area.<br><br>
+			通常のテキストエリア</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 120%;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+				<span class="cssName">word-break</span><span class="cssValue">: break-all;</span><br>
+				<span class="cssName">overflow-y</span><span class="cssValue">: auto;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ Button ----------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="Button">Button</a></th></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">btn-001</span><br>
+	        <input id="btn-001" type="button" value="btn-001" class="btn-001 selectImage" onClick="location.href='#';return false;"></div></td>
+	    <td class="directionBox">
+			Normal button.<br><br>
+			通常画面用ボタン。幅は文字数に依存します。</td>
+		<td>
+		<div class="selectorCss">
+			<span class="cssName">color</span><span class="cssValue">: white;</span><br>
+			<span class="cssName">font-weight</span><span class="cssValue">: normal;</span><br>
+			<span class="cssName">font-size</span><span class="cssValue">: 16px;</span><br>
+			<span class="cssName">font-family</span><span class="cssValue">: "ＭＳ ゴシック", FixedSys;</span><br>
+			<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+			<span class="cssName">background-color</span><span class="cssValue">: #fc8800;</span><br>
+			<span class="cssName">padding-top</span><span class="cssValue">: 1px;</span><br>
+			<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+			<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+			<span class="cssName">border-color</span><span class="cssValue">: #fdb561 #884700 #884700 #fdb561;</span><br>
+			<span class="cssName">margin-top</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">margin-bottom</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">height</span><span class="cssValue">: 26px;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">btn-listcell-001</span><br>
+				<div id="btn-listcell-001" class="selectImage" style="width:50px;background:#413a8a;height:25px;" onClick="location.href='#'; return false;"></div>
+	        	<div id="btn-listcell-001" style="width:50px;background:#fff;height:25px;" class="listcell-detail-button selectImage" onClick="location.href='#'; return false;">
+	        		<input id="btn-listcell-001" type="button" class="btn-listcell-001 selectImage" onClick="location.href='#'; return false;">
+	        	</div><br>
+	        </div></td>
+	    <td class="directionBox">
+			For button which display ListCell's No.<br><br>
+			セル全体に収まるボタンです。このボタンを使う際は、リストセルのdetailCssClassでlistcell-detail-button系を使用して下さい。</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">font-weight</span><span class="cssValue">: normal;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 16px;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: "ＭＳ ゴシック", FixedSys;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: #fc8800;</span><br>
+				<span class="cssName">padding-top</span><span class="cssValue">: 1px;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #fdb561 #884700 #884700 #fdb561;</span><br>
+				<span class="cssName">width</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">line-height</span><span class="cssValue">: 100%;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">position</span><span class="cssValue">: relative;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">btn-lc01</span><br>
+				<table id="btn-lc01" border="0" cellspacing="0" cellpadding="0" class="selectImage" style="border-top:1px solid #413a8a;border-right:1px solid #413a8a;border-bottom:1px solid #413a8a;border-left:1px solid #413a8a; width:120px;" onClick="location.href='#';return false;">
+				<tr id="btn-lc01"><td id="btn-lc01" style="white-space:nowrap; width:120px; height:25px;" class="listcell-header"><span id="btn-lc01" class="headerSpan" style="height:25px;line-height:25px; width:120px;">test</span></td><td></td></tr>
+				<tr id="btn-lc01" bgcolor="white" ><td style="white-space:nowrap; width:120px; height:25px;" class="listcell-detail-center"><span id="btn-lc01" style="width:120px;" class="cellSpan" ><input id="btn-lc01" value="btn-lc01" type="button" class="btn-lc01 selectImage" onClick="location.href='#';return false;"></span></td></tr></table></div></td>
+	    <td class="directionBox">
+			For button which display ListCell's No.<br><br>
+			リストセル用通常ボタンです。このボタンを使う際は、リストセルのdetailCssClassでラベル等と同様のもの(listcell-detail-button系以外)を使用して下さい。</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: white;</span><br>
+				<span class="cssName">font-weight</span><span class="cssValue">: normal;</span><br>
+				<span class="cssName">font-size</span><span class="cssValue">: 16px;</span><br>
+				<span class="cssName">font-family</span><span class="cssValue">: "ＭＳ ゴシック", FixedSys;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">background-color</span><span class="cssValue">: #fc8800;</span><br>
+				<span class="cssName">padding-top</span><span class="cssValue">: 1px;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #fdb561 #884700 #884700 #fdb561;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ CheckBox --------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="CheckBox">Check Box</a></th></tr>
+	<tr>
+	    <td class="imgTd">
+	        <span class="className">chk-001</span><br>
+	        <div class="imgBox">
+	        <input id="chk-001"  type="checkbox" class="chk-001 selectImage" onClick="location.href='#';return false;">
+	        <label for="chk-001" class="lbl-black-001 selectImage">chk-001</label></div></td>
+		<td class="directionBox">
+			For CheckBox.<br><br>
+			通常画面用チェックボックス</td>
+		<td>
+			<div class="selectorCss">
+			<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+			<span class="cssName">margin-top</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">margin-bottom</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+			<span class="cssName">line-height</span><span class="cssValue">: 1.75em;</span><br>
+			<span class="cssName">vertical-align</span><span class="cssValue">: middle;</span><br>
+			<span class="cssName">margin-left</span><span class="cssValue">: 7px;</span><br></div></td></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">chk-lc01</span><br>
+       		<table id="chk-lc01" class="selectImage" style="padding:0;margin:0;width:50px;border:1px solid #413a8a;" cellspacing="0" border="0" onClick="location.href='#';return false;">
+	       		<tr>
+					<td id="chk-lc01"  style="padding:0;margin:0;width:50px; height:25px;" class="listcell-header selectImage">
+					<span id="chk-lc01"  style="padding:0;margin:0;width:50px; height:25px;border: 0px" class="headerSpan selectImage">001</span></td></tr>
+	       		<tr id="chk-lc01"  >
+					<td id="chk-lc01"  style="width:50px; height:25px;" class="listcell-detail-center selectImage">
+					<span id="chk-lc01"  style="width:50px;" class="cellSpan selectImage">
+					<input id="chk-lc01"  type="checkbox" class="chk-lc01 selectImage" onClick="location.href='#';return false;"></span></td></tr></table>
+			</div></td>
+	    <td class="directionBox">
+			For CheckBox in ListCell.<br><br>
+			リストセル用チェックボックス</td>
+			<td>
+				<div class="selectorCss">
+				<span class="cssName">margin-top</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">margin-bottom</span><span class="cssValue">: 0px;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ RadioButton ------------>
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="RadioButton">Radio Button</a></th></tr>
+	<tr>
+	    <td class="imgTd">
+	        <span class="className">rdo-001</span><br>
+	        <div class="imgBox">
+	        <input id="rdo-001"  type="radio" class="rdo-001 selectImage" onClick="location.href='#';return false;">
+	        <label id="rdo-001" for="rdo-001" class="lbl-black-001" >rdo-001</label>
+	       	</div></td><td class="directionBox">
+			For RadioButton.<br><br>
+			通常画面用ラジオボタン</td>
+		<td><div class="selectorCss">
+			<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+			<span class="cssName">margin-top</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">margin-bottom</span><span class="cssValue">: 4px;</span><br>
+			<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+			<span class="cssName">line-height</span><span class="cssValue">: 1.75em;</span><br>
+			<span class="cssName">vertical-align</span><span class="cssValue">: middle;</span><br>
+			<span class="cssName">margin-left</span><span class="cssValue">: 7px;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ Pulldown --------------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+	<tr><th colspan="3"><a class="selectorName" name="Pulldown">Pulldown</a></th></tr>
+	<tr>
+	    <td class="imgTd"><div class="imgBox">
+	        <span class="className">pul-001</span><br>
+	        <select id="pul-001" class="pul-001 selectImage" onClick="location.href='#'; return false;"><option id="pul-lc01">pul-001</option><option></option></select></div></td>
+		<td class="directionBox">
+			For PullDown.<br><br>
+			通常のプルダウン</td>
+	    <td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 4px 0;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: bold 115% monospace;</span><br></div></td></tr>
+	<tr>
+    	<td class="imgTd"><div class="imgBox">
+        	<span class="className">pul-lc01</span><br>
+			<table id="pul-lc01" border="0" cellspacing="0" cellpadding="0" id="" class="selectImage" style="border-top:1px solid #413a8a;border-right:1px solid #413a8a;border-bottom:1px solid #413a8a;border-left:1px solid #413a8a; width:150px;" onClick="location.href='#'; return false;">
+			<tr id="pul-lc01"><td id="pul-lc01" style="white-space:nowrap; width:150px; height:25px;" class="listcell-header"><span class="headerSpan" style="height:25px;line-height:25px; width:100px;">test</span></td><td></td></tr>
+			<tr id="pul-lc01" bgcolor="white" ><td id="pul-lc01" style="white-space:nowrap; width:150px; height:25px;" class="listcell-detail-center"><span id="pul-lc01" style="width:150px;" class="cellSpan" >
+				<select id="pul-lc01" class="pul-lc01 selectImage" onClick="location.href='#'; return false;"><option id="pul-lc01">pul-lc01</option><option></option></select></span></td></tr></table></div></td>
+		<td class="directionBox">
+			For PullDown in ListCell.<br><br>
+			リストセル用プルダウン</td>
+		<td>
+			<div class="selectorCss">
+				<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+				<span class="cssName">height</span><span class="cssValue">: 26px;</span><br>
+				<span class="cssName">margin</span><span class="cssValue">: 0;</span><br>
+				<span class="cssName">padding</span><span class="cssValue">: 0;</span><br>
+				<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+				<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+				<span class="cssName">border-color</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+				<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+				<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+				<span class="cssName">font</span><span class="cssValue">: bold 100% monospace;</span><br></div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ FileBrows -------------->
+<!------------------------------------------->
+<div class ="controls">
+	<table>
+		<tr><th colspan="3"><a class="selectorName" name="FileBrows">FileBrows</a></th></tr>
+		<tr>
+		    <td class="imgTd"><div class="imgBox">
+				<span class="className">flb-001</span><br>
+				<input id="flb-001" type="file" size="6" class="flb-001 selectImage" onClick="location.href='#';return false;">
+		    	</div></td>
+		    <td class="directionBox">
+				For FileBrows.<br><br>
+				通常のファイルブラウズ</td>
+			<td>
+		    	<div class="selectorCss">
+					<span class="cssName">font-weight</span><span class="cssValue">: bold;</span><br>
+					<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+					<span class="cssName">line-height</span><span class="cssValue">: 120%;</span><br>
+					<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+					<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+					<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+					<span class="cssName">height</span><span class="cssValue">: 1.75em;</span><br>
+					<span class="cssName">margin-top</span><span class="cssValue">: 4px;</span><br>
+					<span class="cssName">margin-bottom</span><span class="cssValue">: 4px;</span><br></div></td></tr>
+	</table>
+		<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ ListBox   -------------->
+<!------------------------------------------->
+<div class ="controls">
+	<table>
+		<tr><th colspan="3"><a class="selectorName" name="ListBox">ListBox</a></th></tr>
+		<tr>
+		    <td class="imgTd"><div class="imgBox" >
+				<span class="className">lsb-001</span><br>
+				<select id="lsb-001" size="2" class="lsb-001 selectImage" onClick="location.href='#'; return false;">
+					<option id="lsb-001" value="item1">lsb-001</option>
+					<option id="lsb-001" value="item2">lsb-001</option>
+				</select>
+		    	</div></td>
+		    <td class="directionBox">
+				For ListBox.<br><br>
+				通常のリストボックス</td>
+			<td>
+		    	<div class="selectorCss">
+					<span class="cssName">color</span><span class="cssValue">: black;</span><br>
+					<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+					<span class="cssName">border-style</span><span class="cssValue">: solid;</span><br>
+					<span class="cssName">border-width</span><span class="cssValue">: 2px;</span><br>
+					<span class="cssName">border-colorv</span><span class="cssValue">: #6a628b #d6d1ea #d6d1ea #6a628b;</span><br>
+					<span class="cssName">box-sizing	</span><span class="cssValue">: border-box;</span><br>
+					<span class="cssName">display</span><span class="cssValue">: inline-block;</span><br>
+					<span class="cssName">font</span><span class="cssValue">: bold 115% monospace;</span><br></div></td></tr>
+	</table>
+		<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ ListcellHeader --------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+<tr><th colspan="3"><a class="selectorName" name="ListcellHeader">Listcell Header</a></th></tr>
+<tr><td colspan="3" class="ListCellDetails">Normal Header</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-header</span><br>
+        	<span id="listcell-header" style="width:75px;height:25px;" class="listcell-header selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-header" style="width:75px;height:25px;" class="listcell-header selectImage" onClick="location.href='#'; return false;"></span><br>
+	        <span id="listcell-header" style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span>
+	        <span id="listcell-header" style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span><br><br>
+		<span class="className">listcell-header-nodelim</span><br>
+	        <span id="listcell-header-nodelim" style="width:75px;height:25px;" class="listcell-header-nodelim selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-header-nodelim"  style="width:75px;height:25px;" class="listcell-header-nodelim selectImage" onClick="location.href='#'; return false;"></span><br>
+	        <span id="listcell-header-nodelim"  style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span>
+	        <span id="listcell-header-nodelim"  style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span><br></div></td>
+    <td class="directionBox">
+		For ListCell's header.<br><br>
+		通常のリストセルヘッダ</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">background-color</span><span class="cssValue">: #413a8a;</span><br>
+		<span class="cssName">color</span><span class="cssValue">: white;</span><br>
+		<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br><br>
+		<span class="className">listcell-header</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #ffffff;</span><br>
+		<span class="cssName">padding-bottom</span><span class="cssValue">: 1px;</span><br>
+		<span class="className">listcell-header-nodelim</span><br>
+		<span class="cssName">padding-bottom</span><span class="cssValue">: 1px;</span><br>
+		<span class="cssName">padding-left</span><span class="cssValue">: 1px;</span><br>
+	</div></td></tr>
+<tr><td colspan="3" class="ListCellDetails">Rows Header</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-rowheader</span><br>
+        	<span id="listcell-rowheader" style="width:75px;height:25px;" class="listcell-rowheader selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-rowheader" style="width:75px;height:25px;" class="listcell-rowheader selectImage" onClick="location.href='#'; return false;"></span><br>
+        	<span id="listcell-rowheader" style="width:75px;height:25px;" class="listcell-header selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-rowheader"style="width:75px;height:25px;" class="listcell-header selectImage" onClick="location.href='#'; return false;"></span><br>
+	        <span id="listcell-rowheader" style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span>
+	        <span id="listcell-rowheader" style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span><br><br>
+		<span class="className">listcell-rowheader-nodelim</span><br>
+	        <span id="listcell-rowheader-nodelim" style="width:75px;height:25px;" class="listcell-rowheader-nodelim selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-rowheader-nodelim"  style="width:75px;height:25px;" class="listcell-rowheader-nodelim selectImage" onClick="location.href='#'; return false;"></span><br>
+	        <span id="listcell-rowheader-nodelim" style="width:75px;height:25px;" class="listcell-header-nodelim selectImage" onClick="location.href='#'; return false;"></span>
+        	<span id="listcell-rowheader-nodelim"  style="width:75px;height:25px;" class="listcell-header-nodelim selectImage" onClick="location.href='#'; return false;"></span><br>
+	        <span id="listcell-rowheader-nodelim"  style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span>
+	        <span id="listcell-rowheader-nodelim"  style="width:75px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;"></span><br></div></td>
+    <td class="directionBox">
+		For Rows ListCell's header.<br><br>
+		複数行１明細用リストセルヘッダ</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">background-color</span><span class="cssValue">: #413a8a;</span><br>
+		<span class="cssName">color</span><span class="cssValue">: white;</span><br>
+		<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+		<span class="className">listcell-rowheader</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #ffffff;</span><br>
+		<span class="cssName">border-bottom</span><span class="cssValue">: 1px solid #ffffff;</span><br>
+		<span class="className">listcell-rowheader-nodelim</span><br>
+		<span class="cssName">border-bottom</span><span class="cssValue">: 1px solid #ffffff;</span><br>
+		<span class="cssName">padding-left</span><span class="cssValue">: 1px;</span><br>
+	</div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ ListcellDetail --------->
+<!------------------------------------------->
+<div class ="controls">
+<table>
+<tr><th colspan="3"><a class="selectorName" name="ListcellDetail">Listcell Detail</a></th></tr>
+
+<tr><td colspan="3" class="ListCellDetails">Add LeftBorder</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-detail-center</span><br>
+        	<div id="listcell-detail-center" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-center" style="width:150px;background:#fff;height:25px;" class="listcell-detail-center selectImage" onClick="location.href='#'; return false;">center</div><br>
+		<span class="className">listcell-detail-left</span><br>
+	        <div id="listcell-detail-left" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-left" style="width:150px;background:#fff;height:25px;" class="listcell-detail-left selectImage" onClick="location.href='#'; return false;">left</div><br>
+		<span class="className">listcell-detail-right</span><br>
+	        <div id="listcell-detail-right" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-right" style="width:150px;background:#fff;height:25px;" class="listcell-detail-right selectImage" onClick="location.href='#'; return false;">right</div><br></div>
+    <td class="directionBox">
+		For ListCell detail data. <br>
+		Delimitation line in the left.<br><br>
+		リストセルの明細用<br>左に枠線あり</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">vertical-align</span><span class="cssValue">: middel;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #413a8a;</span><br>
+		<span class="cssName">padding-bottom</span><span class="cssValue">: 1px;</span><br><br>
+		<span class="className">listcell-detail-center</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="className">listcell-detail-left</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: left;</span><br>
+		<span class="className">listcell-detail-right</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: right;</span><br>
+	</div></td></tr>
+
+<tr><td colspan="3" class="ListCellDetails">No Border</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-detail-center<br>-nodelim</span><br>
+        	<div id="listcell-detail-center-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-center-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-center-nodelim selectImage" onClick="location.href='#'; return false;">center</div><br>
+		<span class="className">listcell-detail-left<br>-nodelim</span><br>
+	        <div id="listcell-detail-left-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-left-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-left-nodelim selectImage" onClick="location.href='#'; return false;">left</div><br>
+		<span class="className">listcell-detail-right<br>-nodelim</span><br>
+	        <div id="listcell-detail-right-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-right-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-right-nodelim selectImage" onClick="location.href='#'; return false;">right</div><br></div></td>
+    <td class="directionBox">
+		For ListCell detail data. <br>
+		No Delimitation line.<br><br>
+		リストセルの明細用<br>枠線なし</td>
+    <td>
+	<div class="selectorCss">
+<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">vertical-align</span><span class="cssValue">: middel;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+		<span class="cssName">padding-left</span><span class="cssValue">: 1px;</span><br>
+		<span class="cssName">padding-bottom</span><span class="cssValue">: 1px;</span><br><br>
+		<span class="className">listcell-detail-center-nodelim</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="className">listcell-detail-left-nodelim</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: left;</span><br>
+		<span class="className">listcell-detail-right-nodelim</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: right;</span><br>
+	</div></td></tr>
+
+
+<tr><td colspan="3" class="ListCellDetails">Add LeftBorder, BottomBorder</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-detail-center<br>-rowdetail</span><br>
+        	<div id="listcell-detail-center-rowdetail" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-center-rowdetail" style="width:150px;background:#fff;height:25px;" class="listcell-detail-center-rowdetail selectImage" onClick="location.href='#'; return false;">center</div><br>
+		<span class="className">listcell-detail-left<br>-rowdetail</span><br>
+	        <div id="listcell-detail-left-rowdetail" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-left-rowdetail" style="width:150px;background:#fff;height:25px;" class="listcell-detail-left-rowdetail selectImage" onClick="location.href='#'; return false;">left</div><br>
+		<span class="className">listcell-detail-right<br>-rowdetail</span><br>
+	        <div id="listcell-detail-right-rowdetail" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-right-rowdetail" style="width:150px;background:#fff;height:25px;" class="listcell-detail-right-rowdetail selectImage" onClick="location.href='#'; return false;">right</div><br></div></td>
+    <td class="directionBox">
+		For ListCell detail data. <br>
+		Delimitation line in the left and buttom.<br><br>
+        リストセルの明細用<br>左と下に枠線あり</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">vertical-align</span><span class="cssValue">: middel;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #413a8a;</span><br>
+		<span class="cssName">border-bottom</span><span class="cssValue">: 1px solid #b0add3;</span><br><br>
+		<span class="className">listcell-detail-center-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="className">listcell-detail-left-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: left;</span><br>
+		<span class="className">listcell-detail-right-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: right;</span><br>
+	</div></td></tr>
+<tr><td colspan="3" class="ListCellDetails">Add BottomBorder</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-detail-center<br>-rowdetail-nodelim</span><br>
+        	<div id="listcell-detail-center-rowdetail-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-center-rowdetail-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-center-rowdetail-nodelim selectImage" onClick="location.href='#'; return false;">center</div><br>
+		<span class="className">listcell-detail-left<br>-rowdetail-nodelim</span><br>
+	        <div id="listcell-detail-left-rowdetail-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-left-rowdetail-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-left-rowdetail-nodelim selectImage" onClick="location.href='#'; return false;">left</div><br>
+		<span class="className">listcell-detail-right<br>-rowdetail-nodelim</span><br>
+	        <div id="listcell-detail-right-rowdetail-nodelim" style="width:150px;background:#413a8a;height:25px;" class="selectImage" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-right-rowdetail-nodelim" style="width:150px;background:#fff;height:25px;" class="listcell-detail-right-rowdetail-nodelim selectImage" onClick="location.href='#'; return false;">right</div><br></div></td>
+    <td class="directionBox">
+		For ListCell detail data. <br>
+		Delimitation line in the left and buttom.<br><br>
+        リストセルの明細用<br>左と下に枠線あり</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">font-size</span><span class="cssValue">: 100%;</span><br>
+		<span class="cssName">font-family</span><span class="cssValue">: monospace;</span><br>
+		<span class="cssName">text-decoration</span><span class="cssValue">: none;</span><br>
+		<span class="cssName">vertical-align</span><span class="cssValue">: middel;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #413a8a;</span><br>
+		<span class="cssName">border-bottom</span><span class="cssValue">: 1px solid #b0add3;</span><br><br>
+		<span class="className">listcell-detail-center-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: center;</span><br>
+		<span class="className">listcell-detail-left-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: left;</span><br>
+		<span class="className">listcell-detail-right-rowdetail</span><br>
+		<span class="cssName">text-align</span><span class="cssValue">: right;</span><br>
+	</div></td></tr>
+<tr><td colspan="3" class="ListCellDetails">For FullButtonColumn</td></tr>
+<tr>
+    <td class="imgTd"><div class="imgBox">
+        <span class="className">listcell-detail-button</span><br>
+        	<div id="listcell-detail-button" class="selectImage" style="width:50px;background:#413a8a;height:25px;" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-button" style="width:50px;background:#fff;height:25px;" class="listcell-detail-button selectImage" onClick="location.href='#'; return false;">
+	        	<input id="listcell-detail-button" type="button" class="btn-listcell-001 selectImage" onClick="location.href='#'; return false;">
+	        </div><br>
+		<span class="className">listcell-detail-button<br>-nodelim</span><br>
+	        <div id="listcell-detail-button-nodelim" class="selectImage" style="width:50px;background:#413a8a;height:25px;" onClick="location.href='#'; return false;"></div>
+	        <div id="listcell-detail-button-nodelim" style="width:50px;background:#fff;height:25px;" class="listcell-detail-button-nodelim selectImage" onClick="location.href='#'; return false;">
+	        	<input id="listcell-detail-button-nodelim" type="button" class="btn-listcell-001 selectImage" onClick="location.href='#'; return false;">
+	        </div><br></div></td>
+    <td class="directionBox">
+		For Button Control. <br><br>
+		リストセルボタン用<br>
+		セルに合わせてサイズを変えるリストセルボタン(btn-listcell系)用のスタイルです。<br>
+		通常のボタンを使用の際は、通常の明細スタイルを使用して下さい。</td>
+    <td>
+	<div class="selectorCss">
+		<span class="cssName">position</span><span class="cssValue">: relative;</span><br>
+		<span class="cssName">padding</span><span class="cssValue">: 0px;</span><br>
+		<span class="cssName">vertical-align</span><span class="cssValue">: text-top;</span><br>
+		<span class="cssName">overflow</span><span class="cssValue">: hidden;</span><br>
+		<span class="cssName">box-sizing</span><span class="cssValue">: border-box;</span><br><br>
+		<span class="className">listcell-detail-button</span><br>
+		<span class="cssName">border-left</span><span class="cssValue">: 1px solid #413a8a;</span><br>
+	</div></td></tr>
+</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+<!------------------------------------------->
+<!------------------ ListcellTable ---------->
+<!------------------------------------------->
+<div class ="controls">
+	<table>
+		<tr><th colspan="3"><a class="selectorName" name="ListcellTable">Listcell Table</a></th></tr>
+		<tr>
+		    <td class="imgTd"><div class="imgBox">
+		        <span class="className">listcell-table-combination</span><br>
+		        <a href="#" id="listcell-table-combination"><img src="../toolimg/listcell-table-combination.gif" border=0></a></div></td>
+		    <td class="directionBox">
+				For ListCell.<br>
+				(Only in the case of SpanLevel).<br><br>
+				リストセルのスタイル（結合レベルがあるときのみ適用）</td>
+		    <td>
+				<div class="selectorCss">
+				<span class="cssName">height</span><span class="cssValue">: 0%;</span><br></div></td></tr>
+	</table>
+	<span class="contentsLabel">[<a class="cssList" href=#NoStyle>Other Control Css</a>]</span>
+</div>
+
+
+</form>
+</body>
+</html>

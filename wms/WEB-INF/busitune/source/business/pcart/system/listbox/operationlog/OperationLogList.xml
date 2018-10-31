@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.listbox.operationlog.OperationLogListBusiness" abstractClassName="jp.co.daifuku.pcart.system.listbox.operationlog.OperationLogList" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.pcart.system.dasch.OperationLogListDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.pcart.system.listbox.operationlog.OperationLogListParams" />
+    <ref name="2" type="Control" typeName="LST_ITEM_DATA_1" />
+    <ref name="3" type="Control" typeName="HIDDEN_ITEM_DATA_2" />
+    <ref name="4" type="Control" typeName="HIDDEN_ITEM_DATA_3" />
+    <ref name="5" type="Control" typeName="HIDDEN_ITEM_DATA_4" />
+    <ref name="6" type="Control" typeName="HIDDEN_ITEM_DATA_5" />
+    <ref name="7" type="Control" typeName="HIDDEN_ITEM_DATA_6" />
+    <ref name="8" type="Control" typeName="HIDDEN_ITEM_DATA_7" />
+    <ref name="9" type="Control" typeName="HIDDEN_ITEM_DATA_8" />
+    <ref name="10" type="Control" typeName="HIDDEN_ITEM_DATA_9" />
+    <ref name="11" type="Control" typeName="HIDDEN_ITEM_DATA_10" />
+    <ref name="12" type="Control" typeName="HIDDEN_ITEM_DATA_11" />
+    <ref name="13" type="Control" typeName="HIDDEN_ITEM_DATA_12" />
+    <ref name="14" type="Control" typeName="HIDDEN_ITEM_DATA_13" />
+    <ref name="15" type="Control" typeName="HIDDEN_ITEM_DATA_14" />
+    <ref name="16" type="Control" typeName="HIDDEN_ITEM_DATA_15" />
+    <ref name="17" type="Control" typeName="HIDDEN_ITEM_DATA_16" />
+    <ref name="18" type="Control" typeName="HIDDEN_ITEM_DATA_17" />
+    <ref name="19" type="Control" typeName="HIDDEN_ITEM_DATA_18" />
+    <ref name="20" type="Control" typeName="HIDDEN_ITEM_DATA_19" />
+    <ref name="21" type="Control" typeName="HIDDEN_ITEM_DATA_20" />
+    <ref name="22" type="Control" typeName="HIDDEN_ITEM_DATA_21" />
+    <ref name="23" type="Control" typeName="HIDDEN_ITEM_DATA_22" />
+    <ref name="24" type="Control" typeName="HIDDEN_ITEM_DATA_23" />
+    <ref name="25" type="Control" typeName="HIDDEN_ITEM_DATA_24" />
+    <ref name="26" type="Control" typeName="HIDDEN_ITEM_DATA_25" />
+    <ref name="27" type="Control" typeName="HIDDEN_ITEM_DATA_26" />
+    <ref name="28" type="Control" typeName="HIDDEN_ITEM_DATA_27" />
+    <ref name="29" type="Control" typeName="HIDDEN_ITEM_DATA_28" />
+    <ref name="30" type="Control" typeName="HIDDEN_ITEM_DATA_29" />
+    <ref name="31" type="Control" typeName="HIDDEN_ITEM_DATA_30" />
+    <ref name="32" type="Control" typeName="HIDDEN_ITEM_DATA_31" />
+    <ref name="33" type="Control" typeName="HIDDEN_ITEM_DATA_32" />
+    <ref name="34" type="Control" typeName="HIDDEN_ITEM_DATA_33" />
+    <ref name="35" type="Control" typeName="HIDDEN_ITEM_DATA_34" />
+    <ref name="36" type="Control" typeName="HIDDEN_ITEM_DATA_35" />
+    <ref name="37" type="Control" typeName="HIDDEN_ITEM_DATA_36" />
+    <ref name="38" type="Control" typeName="HIDDEN_ITEM_DATA_37" />
+    <ref name="39" type="Control" typeName="HIDDEN_ITEM_DATA_38" />
+    <ref name="40" type="Control" typeName="HIDDEN_ITEM_DATA_39" />
+    <ref name="41" type="Control" typeName="HIDDEN_ITEM_DATA_40" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_CONDITIONS_1" orgIndex="1" resourceKey="LBL-T0144" dataType="String" />
+      <listcellColumn name="LST_CONDITIONS_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_CONDITIONS_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_CONDITIONS_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_ScreenControlLogDetails">
+      <listcellColumn name="HIDDEN_ITEM_DATA_2" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_3" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_4" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_5" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_6" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_7" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_8" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_9" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_10" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_11" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_12" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_13" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_14" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_15" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_16" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_17" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_18" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_19" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_20" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_21" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_22" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_23" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_24" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_25" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_26" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_27" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_28" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_29" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_30" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_31" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_32" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_33" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_34" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_35" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_36" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_37" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_38" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_39" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITEM_DATA_40" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" />
+      <listcellColumn name="LST_ITEM_DATA_1" orgIndex="2" resourceKey="LBL-W0148" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" />
+      <input1>
+        <map getRef="1" getValue="LOG_DAY" setRef="0" setValue="LOG_DAY" />
+        <map getRef="1" getValue="LOG_TIME" setRef="0" setValue="LOG_TIME" />
+        <map getRef="1" getValue="OPERATION_TYPE" setRef="0" setValue="OPERATION_TYPE" />
+        <map getRef="1" getValue="USER_ID" setRef="0" setValue="USER_ID" />
+        <map getRef="1" getValue="USER_NAME" setRef="0" setValue="USER_NAME" />
+        <map getRef="1" getValue="IP_ADDRESS" setRef="0" setValue="IP_ADDRESS" />
+        <map getRef="1" getValue="TERMINAL_NAME" setRef="0" setValue="TERMINAL_NAME" />
+        <map getRef="1" getValue="DS_NO" setRef="0" setValue="DS_NO" />
+        <map getRef="1" getValue="SCREEN_NAME" setRef="0" setValue="SCREEN_NAME" />
+        <map getRef="1" getValue="PAGENAME_RESOURCE_KEY" setRef="0" setValue="PAGENAME_RESOURCE_KEY" />
+        <map getRef="1" getValue="HIDDEN_OPERATION_TYPE" setRef="0" setValue="HIDDEN_OPERATION_TYPE" />
+        <map getRef="1" getValue="HIDDEN_LOG_DAY" setRef="0" setValue="HIDDEN_LOG_DAY" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="ITEM_DATA_1" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_2" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_3" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_4" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_5" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_6" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_7" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_8" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_9" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_10" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_11" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_12" setRef="13" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_13" setRef="14" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_14" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_15" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_16" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_17" setRef="18" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_18" setRef="19" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_19" setRef="20" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_20" setRef="21" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_21" setRef="22" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_22" setRef="23" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_23" setRef="24" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_24" setRef="25" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_25" setRef="26" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_26" setRef="27" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_27" setRef="28" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_28" setRef="29" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_29" setRef="30" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_30" setRef="31" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_31" setRef="32" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_32" setRef="33" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_33" setRef="34" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_34" setRef="35" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_35" setRef="36" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_36" setRef="37" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_37" setRef="38" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_38" setRef="39" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_39" setRef="40" setValue="Value" />
+        <map getRef="0" getValue="ITEM_DATA_40" setRef="41" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

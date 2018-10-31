@@ -1,0 +1,59 @@
+<html>
+  <head>
+  <title>ProgressBar</title>
+  <style type="text/css">
+  <!--
+body {
+	background-image: url(img/bk_wns2.gif);
+	background-position: center; 
+}
+-->
+  </style>
+  <script language="javascript" src="../jscript/control.js" >
+  </script>
+    <script type="text/javascript">
+      window.document.onkeydown = doOnkeydown;
+      document.onhelp=_onhelp;
+
+      function _onhelp()
+      {
+        event.returnValue=false;
+      }
+
+      function doOnkeydown()
+      {
+        // click Function key
+        //Ignore Function key and shortcut key event
+        if( ignoreKeyEvent() == false )
+        {
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+
+  <body bgcolor="#DAD9EE"
+   oncontextmenu="return false;"
+   ondrag="return false;"
+   ondragover="return false;"
+   onload="progressInit(this); createBar(300,15,'#E5E4E7',1,'green','orange',85,7,'progress' );"
+   >
+    <form name="f1" >
+      <div align="center">
+        <table width="95%" height="70" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+          <tr>
+	     <td align = "center">
+               <p id="msg"></p> 
+	     </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div id = "progress" ></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </body>
+</html>

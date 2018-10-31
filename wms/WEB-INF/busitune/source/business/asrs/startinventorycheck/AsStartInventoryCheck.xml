@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.startinventorycheck.AsStartInventoryCheckBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.startinventorycheck.AsStartInventoryCheck" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_StartLocation" />
+    <ref name="1" type="Control" typeName="pul_Area" />
+    <ref name="2" type="Control" typeName="pul_WorkPlace" />
+    <ref name="3" type="Control" typeName="pul_Station" />
+    <ref name="4" type="Control" typeName="txt_EndLocation" />
+    <ref name="5" type="Control" typeName="txt_StartItemCode" />
+    <ref name="6" type="Control" typeName="txt_EndItemCode" />
+    <ref name="7" type="Control" typeName="chk_CommonUse" />
+    <ref name="8" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsStartInventoryCheckSCH" />
+    <ref name="9" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.startinventorycheck.ViewStateKeys" />
+    <ref name="10" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="11" type="Boolean" typeName="Boolean" />
+    <ref name="12" type="String" typeName="String" />
+    <ref name="13" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="14" type="Constants" typeName="Constants" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsInventoryCheck" />
+    <pulldown name="pul_WorkPlace" dataType="WmsworkspaceInventoryCheck" parent="pul_Area" />
+    <pulldown name="pul_Station" dataType="WmsStationInventoryCheckAuto" parent="pul_WorkPlace" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Setting" name="Click" pattern="Regist">
+      <sch2Display schRef="8" />
+      <validate>
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+        <validate controlRef="0" />
+        <validate controlRef="4" />
+        <validate controlRef="1" required="true" />
+        <validate controlRef="3" required="true" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="8" setValue="AREA" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="STATION" />
+        <map getRef="0" getValue="Value" setRef="8" setValue="START_LOCATION" />
+        <map getRef="4" getValue="Value" setRef="8" setValue="END_LOCATION" />
+        <map getRef="5" getValue="Value" setRef="8" setValue="START_ITEM_CODE" />
+        <map getRef="6" getValue="Value" setRef="8" setValue="END_ITEM_CODE" />
+        <map getRef="7" getValue="Value" setRef="8" setValue="COMMON_USE" />
+        <map getRef="9" getValue="M_FUNCTIONID_KEY" setRef="8" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="10" operation="SETTING">
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+        <out out1Ref="6" out1Value="Value" />
+        <block type="If" tag="1" desc="作業リスト発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="7" leftValue="Value" rightRef="11" rightValue="True" />
+        </block>
+        <out out1Ref="12" out1Value="1" />
+        <block type="Else" tag="1" desc="作業リスト発行が選択されている場合" />
+        <out out1Ref="12" out1Value="0" />
+      </part11>
+    </event>
+    <event control="btn_SearchFromItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="13" />
+      <input1>
+        <map getRef="5" getValue="Value" setRef="13" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="5" setValue="Value" />
+      </output1>
+      <focus controlRef="5" />
+    </event>
+    <event control="btn_SearchToItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="13" />
+      <input1>
+        <map getRef="6" getValue="Value" setRef="13" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="6" setValue="Value" />
+      </output1>
+      <focus controlRef="6" />
+    </event>
+  </events>
+</business>

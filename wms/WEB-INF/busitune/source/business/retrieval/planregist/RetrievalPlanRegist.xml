@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.planregist.RetrievalPlanRegistBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.planregist.RetrievalPlanRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_RetrievalPlanDate" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.retrieval.display.planregist.ViewStateKeys" />
+    <ref name="2" type="Control" typeName="txt_TicketNo" />
+    <ref name="3" type="BusinessParameter" typeName="jp.co.daifuku.wms.retrieval.listbox.plan.LstRetrievalPlanMntParams" />
+    <ref name="4" type="Constants" typeName="Constants" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Next" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/retrieval/planregist/RetrievalPlanRegist2" viewStateRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" required="true" />
+      </validate>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="PLAN_DAY" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="SHIP_TICKET_NO" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="1" getValue="MASTER" setRef="1" setValue="MASTER" />
+        <map getRef="1" getValue="STOCKPACK" setRef="1" setValue="STOCKPACK" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="0" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_SearchRetrievalPlan" name="Click" pattern="Popup">
+      <popup2Display uri="/retrieval/listbox/plan/LstRetrievalPlanMnt" businessParameterRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="PLAN_DAY" />
+        <map getRef="2" getValue="Value" setRef="3" setValue="SHIP_TICKET_NO" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="3" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="3" getValue="PLAN_DAY" setRef="0" setValue="Value" />
+        <map getRef="3" getValue="SHIP_TICKET_NO" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

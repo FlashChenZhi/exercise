@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="2" typeName="String" type="String" />
+  </refs>
+  <events>
+    <event name="Return_Click" order="5">
+      <method methodName="return_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Back_Click" order="1">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input />
+      <pager pagerType="None" select="0" />
+    </event>
+    <event name="Password_Enter" order="4">
+      <method methodName="password_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="Password" setterTypeRef="1" setterValue="PASSWORD" />
+      </input>
+    </event>
+    <event name="UserId_Enter" order="2">
+      <method methodName="userId_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="UserId" setterTypeRef="1" setterValue="USER_ID" />
+        <map getterTypeRef="2" setterTypeRef="1" setterValue="USER_NAME" />
+      </input>
+    </event>
+    <event name="UserId_Scan" order="3">
+      <method methodName="userId_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="UserId" setterTypeRef="1" setterValue="USER_ID" />
+        <map getterTypeRef="2" setterTypeRef="1" setterValue="USER_NAME" />
+      </input>
+    </event>
+  </events>
+</pageMapping>

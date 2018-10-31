@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* SGのCSS選択画面のCSSスタイル定義 */
+body {
+   	margin			: 0;
+	padding			: 0;
+	background		: #8a929c;
+	overflow		: hidden;
+}
+form {
+	margin			: 0px;
+	padding			: 0px;
+}
+.controls {
+	width			: 717px;
+	height			: 420px;
+	overflow		: scroll;
+	margin			: 0px 0px 20px;
+	padding-bottom	: 20px;
+	text-align		: center;
+	display			: block;
+}
+table {
+		width			: 700px;
+		border			: 2px solid #6b696b;
+		border-collapse	: collapse;
+		background		: white;
+}
+th {
+	background		: #6b696b;
+	text-align		: left;
+	padding-left	: 5px;
+}
+.selectorName {
+	color			: white;
+	font			: bold 110%;
+	display			: inline-block;
+	height			: 25px;
+	line-height		: 25px;
+}
+td {
+	border			: 1px solid #6b696b;
+	vertical-align	: top;
+	margin			: 0px;
+	padding 		: 0px;
+}
+td div, .selectorCss {
+   	display			: block;
+   	padding 		: 4px;
+   	overflow		: hidden;
+   	-ms-box-sizing	: border-box;
+   	word-break		: break-all;
+   }
+.imgBox {
+	width			: 180px;
+	background		: #dad9ee;
+	display			: inline-block;
+}
+.directionBox {
+	font-size		: 14px;
+	width			: 180px;
+	word-break		: normal;
+	word-wrap		: break-word;
+	padding 		: 4px;
+}
+.selectorCss {
+	width			: 320px;
+	font			: 13px ;
+	line-height		: 1.35em;
+}
+
+.className {
+       color 		: #f50f0a;
+       font			: bold 100%;
+}
+.contentsLabel {
+	font			: bold 16px ;
+	margin			: 15px 10px;
+	display			: block;
+	text-align		: right;
+}
+.cssList {
+	font			: bold 120% ;
+	padding			: 10px;
+	margin			: 0;
+	color			: white;
+	text-decoration	: none;
+}
+.csslabel {
+	font			: bold 150% ;
+	padding			: 0px;
+	margin			: 0px;
+	color			: #fc3;
+	text-decoration	: none;
+}
+.cssList:hover {
+	color			: yellow;
+	text-decoration	: underline;
+}
+.cssName {
+	width			: 110px;
+}
+.selectImage
+{
+	cursor			: pointer;
+}
+.imgTd {
+	background		: #dad9ee;
+}
+
+.controlItems {
+	margin			: 20px 20px 0px;
+	width			: 300px;
+	float			: left;
+	display			: block;
+	list-style		: none;
+	text-align		: left;
+}
+.ListCellDetails {
+	background		: #b0add3;
+	font-weight		: bold;
+}

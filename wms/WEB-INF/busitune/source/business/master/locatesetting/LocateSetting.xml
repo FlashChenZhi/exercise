@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.locatesetting.LocateSettingBusiness" abstractClassName="jp.co.daifuku.wms.master.display.locatesetting.LocateSetting" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_Regist" />
+    <ref name="1" type="Control" typeName="pul_Area" />
+    <ref name="2" type="Control" typeName="txt_StLocate" />
+    <ref name="3" type="Control" typeName="txt_EdLocate" />
+    <ref name="4" type="Control" typeName="txt_AisleNo" />
+    <ref name="5" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.LocateSettingSCH" />
+    <ref name="6" type="Control" typeName="rdo_group_LocationSetting" />
+    <ref name="7" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="8" type="Boolean" typeName="Boolean" />
+    <ref name="9" type="Constants" typeName="Constants" />
+    <ref name="10" type="Control" typeName="rdo_Delete" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorLocateAll" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Setting" name="Click" pattern="Regist">
+      <sch2Display schRef="5" />
+      <validate>
+        <validate controlRef="2" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="1" required="true" />
+      </validate>
+      <input1>
+        <map getRef="6" getValue="Value" setRef="5" setValue="GROUP_LOCATION_SETTING" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="AREA" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="ST_LOCATE" />
+        <map getRef="3" getValue="Value" setRef="5" setValue="ED_LOCATE" />
+        <map getRef="4" getValue="Value" setRef="5" setValue="AISLE_NO" />
+      </input1>
+      <part11 operationRef="7" operation="SETTING">
+        <block type="If" tag="0" desc="登録が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="0" leftValue="Checked" rightRef="8" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="PROCESS_FLAG_REGIST" />
+        <block type="If" tag="1" desc="削除が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Checked" rightRef="8" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="PROCESS_FLAG_DELETE" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+      </part11>
+    </event>
+    <event control="rdo_Regist" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="ReadWrite" />
+      </clear1>
+    </event>
+    <event control="rdo_Delete" name="Click" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="ReadOnly" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

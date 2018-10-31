@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.farestoringplanmodify.FaAsReStoringPlanModifyBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.farestoringplanmodify.FaAsReStoringPlanModify" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Station" />
+    <ref name="1" type="Control" typeName="txt_WorkNo" />
+    <ref name="2" type="Control" typeName="lst_FaAsReStoringPlanModify" />
+    <ref name="3" type="Control" typeName="pager" />
+    <ref name="4" type="Control" typeName="btn_Set" />
+    <ref name="5" type="Control" typeName="btn_AllClear" />
+    <ref name="6" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.FaAsReStoringPlanModifyDASCH" />
+    <ref name="7" type="Control" typeName="HIDDEN_PLAN_UKEY" />
+    <ref name="8" type="Control" typeName="HIDDEN_LAST_UPDATE_DATE" />
+    <ref name="9" type="Control" typeName="LST_STATION_NO" />
+    <ref name="10" type="Control" typeName="LST_WORK_NO" />
+    <ref name="11" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="12" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="13" type="Control" typeName="LST_LOT_NO" />
+    <ref name="14" type="Control" typeName="LST_PLAN_QTY" />
+    <ref name="15" type="Control" typeName="LST_STORAGE_DAY" />
+    <ref name="16" type="Control" typeName="LST_STORAGE_TIME" />
+    <ref name="17" type="Control" typeName="LST_REMOVE_DATE" />
+    <ref name="18" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.farestoringplanmodify.ViewStateKeys" />
+    <ref name="19" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.FaAsReStoringPlanModifySCH" />
+    <ref name="20" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="21" type="Control" typeName="LST_MODIFY" />
+    <ref name="22" type="Boolean" typeName="Boolean" />
+    <ref name="23" type="Control" typeName="LST_DELETE" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Station" dataType="WmsStationReStoringMntAll" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaAsReStoringPlanModify">
+      <listcellColumn name="HIDDEN_PLAN_UKEY" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_LAST_UPDATE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeMillSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W8046" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_DELETE" orgIndex="2" resourceKey="LBL-W8047" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="3" resourceKey="LBL-W0022" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_NO" orgIndex="4" resourceKey="LBL-W0074" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="5" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="6" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="7" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_QTY" orgIndex="8" resourceKey="LBL-W0607" dataType="Number" format="0" modifyCheck="true" />
+      <listcellColumn name="LST_STORAGE_DAY" orgIndex="9" resourceKey="LBL-W0160" dataType="Date" format="DateLong" modifyCheck="true" />
+      <listcellColumn name="LST_STORAGE_TIME" orgIndex="10" resourceKey="LBL-W1391" dataType="Date" format="TimeSec" modifyCheck="true" />
+      <listcellColumn name="LST_REMOVE_DATE" orgIndex="11" resourceKey="LBL-W0606" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="2" type="Clear" />
+        <clear controlRef="3" type="Clear" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="6" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="6" setValue="WORK_NO" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="PLAN_UKEY" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="LAST_UPDATE_DATE" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="STATION_NO" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="WORK_NO" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="ITEM_CODE" setRef="11" setValue="Value" />
+        <map getRef="6" getValue="ITEM_NAME" setRef="12" setValue="Value" />
+        <map getRef="6" getValue="LOT_NO" setRef="13" setValue="Value" />
+        <map getRef="6" getValue="PLAN_QTY" setRef="14" setValue="Value" />
+        <map getRef="6" getValue="STORAGE_DAY" setRef="15" setValue="Value" />
+        <map getRef="6" getValue="STORAGE_TIME" setRef="16" setValue="Value" />
+        <map getRef="6" getValue="REMOVE_DATE" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="18" setValue="VS_STATION_NO" />
+        <map getRef="1" getValue="Value" setRef="18" setValue="VS_WORK_NO" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEditDasch">
+      <sch4Dasch schRef="19" daschRef="6" />
+      <validate>
+        <validate controlRef="2" required="true" />
+        <validate controlRef="15" />
+        <validate controlRef="16" />
+        <validate controlRef="14" />
+      </validate>
+      <input1>
+        <map getRef="7" getValue="Value" setRef="19" setValue="PLAN_UKEY" />
+        <map getRef="8" getValue="Value" setRef="19" setValue="LAST_UPDATE_DATE" />
+        <map getRef="14" getValue="Value" setRef="19" setValue="PLAN_QTY" />
+        <map getRef="15" getValue="Value" setRef="19" setValue="STORAGE_DAY" />
+        <map getRef="16" getValue="Value" setRef="19" setValue="STORAGE_TIME" />
+      </input1>
+      <part11 operationRef="20" operation="MODIFY">
+        <block type="If" tag="0" desc="修正の場合">
+          <expr type="And" operator="Equal" leftRef="21" leftValue="Value" rightRef="22" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" default="0" />
+        <out out1Ref="15" out1Value="Value" out2Ref="16" out2Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" default="0" />
+        <out out1Ref="15" out1Value="Value" out2Ref="16" out2Value="Value" />
+        <block type="If" tag="1" desc="削除の場合">
+          <expr type="And" operator="Equal" leftRef="23" leftValue="Value" rightRef="22" rightValue="True" />
+        </block>
+        <out out1Ref="9" out1Value="Value" />
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="13" out1Value="Value" />
+        <out out1Ref="14" out1Value="Value" default="0" />
+        <out out1Ref="15" out1Value="Value" out2Ref="16" out2Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="18" getValue="VS_STATION_NO" setRef="6" setValue="STATION_NO" />
+        <map getRef="18" getValue="VS_WORK_NO" setRef="6" setValue="WORK_NO" />
+      </input2>
+      <output1>
+        <map getRef="6" getValue="PLAN_UKEY" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="LAST_UPDATE_DATE" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="STATION_NO" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="WORK_NO" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="ITEM_CODE" setRef="11" setValue="Value" />
+        <map getRef="6" getValue="ITEM_NAME" setRef="12" setValue="Value" />
+        <map getRef="6" getValue="LOT_NO" setRef="13" setValue="Value" />
+        <map getRef="6" getValue="PLAN_QTY" setRef="14" setValue="Value" />
+        <map getRef="6" getValue="STORAGE_DAY" setRef="15" setValue="Value" />
+        <map getRef="6" getValue="STORAGE_TIME" setRef="16" setValue="Value" />
+        <map getRef="6" getValue="REMOVE_DATE" setRef="17" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

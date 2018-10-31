@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctretplanworkinquiry.PCTRetPlanWorkInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctretplanworkinquiry.PCTRetPlanWorkInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Control" typeName="txt_ConsignorName" />
+    <ref name="2" type="Control" typeName="txt_PlanDay" />
+    <ref name="3" type="Control" typeName="txt_BatchNo" />
+    <ref name="4" type="Control" typeName="txt_BatchSeqNo" />
+    <ref name="5" type="Control" typeName="pul_AreaNo" />
+    <ref name="6" type="Control" typeName="txt_RegularCustomerCode" />
+    <ref name="7" type="Control" typeName="txt_RegularCustomerName" />
+    <ref name="8" type="Control" typeName="txt_CustomerCode" />
+    <ref name="9" type="Control" typeName="txt_CustomerName" />
+    <ref name="10" type="Control" typeName="txt_OrderNo" />
+    <ref name="11" type="Control" typeName="pul_WorkStatus" />
+    <ref name="12" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTRetPlanWorkInquirySCH" />
+    <ref name="13" type="Control" typeName="txt_UserId" />
+    <ref name="14" type="Control" typeName="txt_UserName" />
+    <ref name="15" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.regularCustomer.LstRegularCustomerParams" />
+    <ref name="16" type="Constants" typeName="Constants" />
+    <ref name="17" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.customer.LstCustomerParams" />
+    <ref name="18" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.pctretplanworkinquiry.LstPCTRetPlanWorkInquiryParams" />
+    <ref name="19" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.PCTRetPlanWorkInquiryDASCH" />
+    <ref name="20" type="ExportParameter" typeName="jp.co.daifuku.pcart.retrieval.exporter.PctRetPlanWorkInqListParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_AreaNo" dataType="WmsAreaFloorAllTrue" />
+    <pulldown name="pul_WorkStatus" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="12" />
+      <output1>
+        <map getRef="12" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="12" getValue="CONSIGNOR_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="7" type="ReadOnly" />
+        <clear controlRef="9" type="ReadOnly" />
+        <clear controlRef="14" type="ReadOnly" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_P_Search_RegularCustomerCd" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/regularCustomer/LstRegularCustomer" businessParameterRef="15" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="15" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="15" setValue="PLAN_DAY" />
+        <map getRef="3" getValue="Value" setRef="15" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="15" setValue="BATCH_SEQ_NO" />
+        <map getRef="5" getValue="Value" setRef="15" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="15" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="16" getValue="SEARCH_TABLE_PLAN" setRef="15" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="REGULAR_CUSTOMER_CODE" setRef="6" setValue="Value" />
+        <map getRef="15" getValue="REGULAR_CUSTOMER_NAME" setRef="7" setValue="Value" />
+      </output1>
+      <focus controlRef="6" />
+    </event>
+    <event control="btn_P_Search_CustomerCode" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/customer/LstCustomer" businessParameterRef="17" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="17" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="17" setValue="PLAN_DAY" />
+        <map getRef="3" getValue="Value" setRef="17" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="17" setValue="BATCH_SEQ_NO" />
+        <map getRef="5" getValue="Value" setRef="17" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="17" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="8" getValue="Value" setRef="17" setValue="CUSTOMER_CODE" />
+        <map getRef="16" getValue="SEARCH_TABLE_PLAN" setRef="17" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="17" getValue="CUSTOMER_CODE" setRef="8" setValue="Value" />
+        <map getRef="17" getValue="CUSTOMER_NAME" setRef="9" setValue="Value" />
+      </output1>
+      <focus controlRef="8" />
+    </event>
+    <event control="btn_P_Display" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/retrieval/listbox/pctretplanworkinquiry/LstPCTRetPlanWorkInquiry" businessParameterRef="18" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="18" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="18" setValue="PLAN_DAY" />
+        <map getRef="3" getValue="Value" setRef="18" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="18" setValue="BATCH_SEQ_NO" />
+        <map getRef="5" getValue="Value" setRef="18" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="18" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="8" getValue="Value" setRef="18" setValue="CUSTOMER_CODE" />
+        <map getRef="10" getValue="Value" setRef="18" setValue="ORDER_NO" />
+        <map getRef="11" getValue="Value" setRef="18" setValue="JOB_STATUS" />
+      </input1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="19" exportParameterRef="20" exportName="PctRetPlanWorkInqList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="6" />
+        <validate controlRef="8" />
+        <validate controlRef="10" />
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="19" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="19" setValue="PLAN_DAY" />
+        <map getRef="3" getValue="Value" setRef="19" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="19" setValue="BATCH_SEQ_NO" />
+        <map getRef="5" getValue="Value" setRef="19" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="19" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="8" getValue="Value" setRef="19" setValue="CUSTOMER_CODE" />
+        <map getRef="10" getValue="Value" setRef="19" setValue="ORDER_NO" />
+        <map getRef="11" getValue="Value" setRef="19" setValue="JOB_STATUS" />
+      </input1>
+      <output1>
+        <map getRef="19" getValue="CONSIGNOR_CODE" setRef="20" setValue="CONSIGNOR_CODE" />
+        <map getRef="19" getValue="CONSIGNOR_NAME" setRef="20" setValue="CONSIGNOR_NAME" />
+        <map getRef="19" getValue="PLAN_DAY" setRef="20" setValue="PLAN_DAY" />
+        <map getRef="19" getValue="BATCH_NO" setRef="20" setValue="BATCH_NO" />
+        <map getRef="19" getValue="BATCH_SEQ_NO" setRef="20" setValue="BATCH_SEQ_NO" />
+        <map getRef="19" getValue="REGULAR_CUSTOMER_CODE" setRef="20" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="19" getValue="REGULAR_CUSTOMER_NAME" setRef="20" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="19" getValue="CUSTOMER_CODE" setRef="20" setValue="CUSTOMER_CODE" />
+        <map getRef="19" getValue="CUSTOMER_NAME" setRef="20" setValue="CUSTOMER_NAME" />
+        <map getRef="19" getValue="ORDER_NO" setRef="20" setValue="ORDER_NO" />
+        <map getRef="19" getValue="SYS_DAY" setRef="20" setValue="SYS_DAY" />
+        <map getRef="19" getValue="SYS_TIME" setRef="20" setValue="SYS_TIME" />
+        <map getRef="19" getValue="ITEM_CODE" setRef="20" setValue="ITEM_CODE" />
+        <map getRef="19" getValue="ITEM_NAME" setRef="20" setValue="ITEM_NAME" />
+        <map getRef="19" getValue="JAN" setRef="20" setValue="JAN_CODE" />
+        <map getRef="19" getValue="ITF" setRef="20" setValue="ITF" />
+        <map getRef="19" getValue="BUNDLE_ITF" setRef="20" setValue="BUNDLE_ITF" />
+        <map getRef="19" getValue="LOT_QTY" setRef="20" setValue="LOT_QTY" />
+        <map getRef="19" getValue="PLAN_QTY" setRef="20" setValue="PLAN_QTY" />
+        <map getRef="19" getValue="JOB_STATUS" setRef="20" setValue="STATUS" />
+        <map getRef="19" getValue="AREA_NO" setRef="20" setValue="PLAN_AREA_NO" />
+        <map getRef="19" getValue="ZONE_NO" setRef="20" setValue="PLAN_ZONE_NO" />
+        <map getRef="19" getValue="LOCATION_NO" setRef="20" setValue="PLAN_LOCATION_NO" />
+        <map getRef="19" getValue="TERMINAL_NO" setRef="20" setValue="TERMINAL_NO" />
+        <map getRef="19" getValue="USER_NAME" setRef="20" setValue="USER_NAME" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="19" exportParameterRef="20" exportName="PctRetPlanWorkInqList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="6" />
+        <validate controlRef="8" />
+        <validate controlRef="10" />
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="19" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="19" setValue="PLAN_DAY" />
+        <map getRef="3" getValue="Value" setRef="19" setValue="BATCH_NO" />
+        <map getRef="4" getValue="Value" setRef="19" setValue="BATCH_SEQ_NO" />
+        <map getRef="5" getValue="Value" setRef="19" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="19" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="8" getValue="Value" setRef="19" setValue="CUSTOMER_CODE" />
+        <map getRef="10" getValue="Value" setRef="19" setValue="ORDER_NO" />
+        <map getRef="11" getValue="Value" setRef="19" setValue="JOB_STATUS" />
+      </input1>
+      <output1>
+        <map getRef="19" getValue="CONSIGNOR_CODE" setRef="20" setValue="CONSIGNOR_CODE" />
+        <map getRef="19" getValue="CONSIGNOR_NAME" setRef="20" setValue="CONSIGNOR_NAME" />
+        <map getRef="19" getValue="PLAN_DAY" setRef="20" setValue="PLAN_DAY" />
+        <map getRef="19" getValue="BATCH_NO" setRef="20" setValue="BATCH_NO" />
+        <map getRef="19" getValue="BATCH_SEQ_NO" setRef="20" setValue="BATCH_SEQ_NO" />
+        <map getRef="19" getValue="REGULAR_CUSTOMER_CODE" setRef="20" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="19" getValue="REGULAR_CUSTOMER_NAME" setRef="20" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="19" getValue="CUSTOMER_CODE" setRef="20" setValue="CUSTOMER_CODE" />
+        <map getRef="19" getValue="CUSTOMER_NAME" setRef="20" setValue="CUSTOMER_NAME" />
+        <map getRef="19" getValue="ORDER_NO" setRef="20" setValue="ORDER_NO" />
+        <map getRef="19" getValue="ITEM_CODE" setRef="20" setValue="ITEM_CODE" />
+        <map getRef="19" getValue="ITEM_NAME" setRef="20" setValue="ITEM_NAME" />
+        <map getRef="19" getValue="JAN_CODE" setRef="20" setValue="JAN_CODE" />
+        <map getRef="19" getValue="ITF" setRef="20" setValue="ITF" />
+        <map getRef="19" getValue="BUNDLE_ITF" setRef="20" setValue="BUNDLE_ITF" />
+        <map getRef="19" getValue="LOT_QTY" setRef="20" setValue="LOT_QTY" />
+        <map getRef="19" getValue="PLAN_QTY" setRef="20" setValue="PLAN_QTY" />
+        <map getRef="19" getValue="STATUS" setRef="20" setValue="STATUS" />
+        <map getRef="19" getValue="PLAN_AREA_NO" setRef="20" setValue="PLAN_AREA_NO" />
+        <map getRef="19" getValue="PLAN_ZONE_NO" setRef="20" setValue="PLAN_ZONE_NO" />
+        <map getRef="19" getValue="PLAN_LOCATION_NO" setRef="20" setValue="PLAN_LOCATION_NO" />
+        <map getRef="19" getValue="TERMINAL_NO" setRef="20" setValue="TERMINAL_NO" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

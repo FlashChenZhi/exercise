@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template key="W_NewPrinter" keyword="" description="New Printer" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_StorageArea" keyword="" description="Storage Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_F_WorkStatus" keyword="" description="Work Status" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0005" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="CMB-W0007" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_AllocatedPattern" keyword="" description="Allocated Pattern" lastupdate="2009/11/13 18:58:54" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_RetrievalArea" keyword="" description="Retrieval Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_F_StartStatus" keyword="" description="Start Status" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0008" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0009" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Area" keyword="" description="Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_FromMoveArea" keyword="" description="Movement Source Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_F_WorkContents" keyword="" description="Work Content" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_WorkPlace" keyword="" description="Work Place" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_WorkPlace_Change" keyword="" description="" lastupdate="2009/06/26 20:48:19" username="">
+    <property name="async" value="true" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_Station" keyword="" description="Station" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_F_StorageWorkKind" keyword="" description="Work Type for Storage" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="02" />
+        <property name="resourceKey" value="CMB-W0010" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="22" />
+        <property name="resourceKey" value="CMB-W0018" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_F_RetrievalWorkKind" keyword="" description="Work Type for Retrieval" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="03" />
+        <property name="resourceKey" value="CMB-W0011" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="23" />
+        <property name="resourceKey" value="CMB-W0019" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_F_WorkFlag3" keyword="" description="Work Flag 3" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="AST_StoreAs" keyword="" description="Storage Flag" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_AGCNo" keyword="" description="AGC No." lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_ZoneId" keyword="" description="Zone ID" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_ConveyanceOriginStationNo" keyword="" description="Transport Origin Station No." lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_MachineTypeCode" keyword="" description="Machine Type Code" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_StationNumber" keyword="" description="Station No." lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_AreaType" keyword="" description="Area Type" lastupdate="2008/05/16 11:28:55" username="">
+    <property name="async" value="true" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0041" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="7" />
+        <property name="resourceKey" value="CMB-W0052" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="9" />
+        <property name="resourceKey" value="CMB-W0042" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_TemporaryArea" keyword="" description="Temporary Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_VacantSearchType" keyword="" description="VacantSearchType" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="01" />
+        <property name="resourceKey" value="CMB-W0046" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="02" />
+        <property name="resourceKey" value="CMB-W0047" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="03" />
+        <property name="resourceKey" value="CMB-W0048" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="04" />
+        <property name="resourceKey" value="CMB-W0049" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="T_Role" keyword="eManager" description="ロール" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="T_MainMenu" keyword="eManager" description="メインメニュー" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="T_LogClass" keyword="eManager" description="Log class" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="T_TerminalNumber" keyword="eManager" description="Workstation No." lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="T_Master" keyword="eManager" description="マスタ" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="T_Area" keyword="" description="Area" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6403077" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_ToReplenishmentArea" keyword="" description="Replenishment Area" lastupdate="2010/03/04 19:36:16" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_TermYearMonth" keyword="" description="Year and Month" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023194" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_SearchCond" keyword="" description="Search Condition" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023194" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-W1276" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-W1280" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="3" />
+        <property name="resourceKey" value="LBL-W1281" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="LBL-W1282" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ReceivingArea" keyword="" description="入荷エリア" lastupdate="" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_Why" keyword="" description="" lastupdate="2008/10/07 17:20:18" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_RftAssort" keyword="" description="RFT Assortment" lastupdate="2009/01/14 15:21:29" username="">
+    <property name="async" value="true" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_Model" keyword="" description="Model" lastupdate="2009/01/20 11:25:45" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="bt910" />
+        <property name="resourceKey" value="CMB-W0055" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="dtx7" />
+        <property name="resourceKey" value="CMB-W0056" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="mc3000" />
+        <property name="resourceKey" value="CMB-W0057" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_RFTNo" keyword="" description="" lastupdate="2009/10/05 14:17:03" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_Folder" keyword="" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_WorkStatusPCT" keyword="PCT" description="" lastupdate="2009/03/24 14:39:53" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0005" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="CMB-P0002" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="CMB-W0007" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="7" />
+        <property name="resourceKey" value="CMB-P0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="5" />
+        <property name="resourceKey" value="CMB-P0001" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkStatusPCT2" keyword="PCT" description="" lastupdate="2009/03/26 18:44:01" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="CMB-W0007" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="7" />
+        <property name="resourceKey" value="CMB-P0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="5" />
+        <property name="resourceKey" value="CMB-P0001" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkStatusPCT3" keyword="PCT" description="" lastupdate="2009/02/20 17:48:26" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="CMB-W0005" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="CMB-W0007" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="7" />
+        <property name="resourceKey" value="CMB-P0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Level" keyword="PCT" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="PUL-T0012" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="LBL-P0211" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-P0212" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-P0213" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Level2" keyword="PCT" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="LBL-P0211" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-P0212" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-P0213" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_Area2" keyword="PCT" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_WorkPriority" keyword="PCT" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-P0217" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-P0218" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="3" />
+        <property name="resourceKey" value="LBL-P0219" />
+        <property name="text" value="" />
+        <property name="selected" value="" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_DataFile" keyword="PCT" description="" lastupdate="2009/02/02 16:08:29" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_ItemImageSet" keyword="PCT" description="" lastupdate="2009/04/23 11:33:24" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="LBL-W1276" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-P0206" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-P0207" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_WorkStatusPCT4" keyword="PCT" description="" lastupdate="2009/02/20 18:11:51" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="4" />
+        <property name="resourceKey" value="CMB-W0007" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="7" />
+        <property name="resourceKey" value="CMB-P0006" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_TerminalName" keyword="" description="" lastupdate="2009/10/05 10:51:47" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="AST_Width" keyword="" description="" lastupdate="2009/02/08 22:35:56" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_SoftZone" keyword="" description="" lastupdate="2009/06/19 16:41:47" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_PriorityFlag" keyword="" description="" lastupdate="2009/10/28 14:08:38" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="CMB-W0070" />
+        <property name="text" value="" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="CMB-W0071" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_RMNo" keyword="" description="" lastupdate="2009/10/05 10:51:47" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_Area_Event" keyword="" description="" lastupdate="2009/10/05 10:51:47" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_WorkMode" keyword="" description="" lastupdate="2009/11/09 11:07:14" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="0" />
+        <property name="resourceKey" value="" />
+        <property name="text" value=" " />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="1" />
+        <property name="resourceKey" value="LBL-W0367" />
+        <property name="text" value="入庫" />
+        <property name="selected" value="true" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="2" />
+        <property name="resourceKey" value="LBL-W0368" />
+        <property name="text" value="出庫" />
+        <property name="selected" value="true" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_ListName" keyword="" description="" lastupdate="2009/10/05 10:51:47" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+  <template key="W_F_FaStorageWorkKind" keyword="" description="" lastupdate="2010/03/02 17:26:37" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="01" />
+        <property name="resourceKey" value="CMB-W0058" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="02" />
+        <property name="resourceKey" value="CMB-W0059" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="03" />
+        <property name="resourceKey" value="CMB-W0073" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_F_FaRetrievalWorkKind" keyword="" description="" lastupdate="2009/10/19 16:36:20" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems">
+      <list-item type="PullDownItem">
+        <property name="value" value="99" />
+        <property name="resourceKey" value="CMB-W0004" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="01" />
+        <property name="resourceKey" value="CMB-W0060" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="02" />
+        <property name="resourceKey" value="CMB-W0061" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+      <list-item type="PullDownItem">
+        <property name="value" value="03" />
+        <property name="resourceKey" value="CMB-W0062" />
+        <property name="text" value="" />
+        <property name="selected" value="false" />
+      </list-item>
+    </list-items>
+  </template>
+  <template key="W_CommunicationData" keyword="" description="" lastupdate="2009/11/06 09:49:46" username="">
+    <property name="async" value="false" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="changeEvent" value="false" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="pul-001" />
+    <property name="accessKey" value="" />
+    <property name="errRequired" value="6023001" />
+    <property name="onblur" value="" />
+    <property name="onchange" value="" />
+    <property name="onclick" value="" />
+    <property name="onfocus" value="" />
+    <list-items type="PullDownItems" />
+  </template>
+</templates>

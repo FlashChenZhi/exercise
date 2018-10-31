@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.printermodify.PrinterModifyBusiness" abstractClassName="jp.co.daifuku.wms.system.display.printermodify.PrinterModify">
+  <refs>
+    <ref name="0" type="Control" typeName="lst_PrinterModify" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.PrinterModifySCH" />
+    <ref name="2" type="Control" typeName="LST_TERMINAL" />
+    <ref name="3" type="Control" typeName="LST_TERMINAL_NAME" />
+    <ref name="4" type="Control" typeName="LST_HDN_UPDATA_DATE" />
+    <ref name="5" type="Control" typeName="LST_PRINTER_NAME" />
+    <ref name="6" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_PrinterModify">
+      <listcellColumn name="LST_HDN_UPDATA_DATE" orgIndex="0" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_TERMINAL" orgIndex="1" resourceKey="LBL-W0142" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_NAME" orgIndex="2" resourceKey="LBL-W9904" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_PRINTER_NAME" orgIndex="3" resourceKey="LBL-W0030" dataType="String" modifyCheck="true" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="TERMINAL" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="HDN_UPDATA_DATE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="TERMINAL" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="HDN_UPDATA_DATE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Set2" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="5" required="true" />
+      </validate>
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="TERMINAL" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="TERMINAL_NAME" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="HDN_UPDATA_DATE" />
+      </input1>
+      <part11 operationRef="6" operation="SETTING">
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="5" out1Value="Value" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="TERMINAL" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_NAME" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="PRINTER_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="HDN_UPDATA_DATE" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

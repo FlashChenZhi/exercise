@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.display.pctuserworkinquiry.PCTUserWorkInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.display.pctuserworkinquiry.PCTUserWorkInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.pcart.retrieval.schedule.PCTUserWorkInquirySCH" />
+    <ref name="1" type="Control" typeName="LST_LINE_NO" />
+    <ref name="2" type="Control" typeName="LST_USER_ID" />
+    <ref name="3" type="Control" typeName="LST_USER_NAME" />
+    <ref name="4" type="Control" typeName="LST_PRODUCTION_RATE" />
+    <ref name="5" type="Control" typeName="LST_LOT_COUNT" />
+    <ref name="6" type="Control" typeName="LST_ORDER_QTY" />
+    <ref name="7" type="Control" typeName="LST_LINE_COUNT" />
+    <ref name="8" type="Control" typeName="REAL_TIME" />
+    <ref name="9" type="Control" typeName="btn_PrevPage" />
+    <ref name="10" type="Control" typeName="btn_NextPage" />
+  </refs>
+  <listcells>
+    <listcell name="lst_UserWorkInquiry">
+      <listcellColumn name="LST_LINE_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="Number" format="0" />
+      <listcellColumn name="LST_USER_ID" orgIndex="2" resourceKey="LBL-P0081" dataType="String" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="3" resourceKey="LBL-W0033" dataType="String" />
+      <listcellColumn name="LST_PRODUCTION_RATE" orgIndex="4" resourceKey="LBL-P0066" dataType="Number" format="0" />
+      <listcellColumn name="LST_LOT_COUNT" orgIndex="5" resourceKey="LBL-P0148" dataType="Number" format="0" />
+      <listcellColumn name="LST_ORDER_QTY" orgIndex="6" resourceKey="LBL-P0046" dataType="Number" format="0" />
+      <listcellColumn name="LST_LINE_COUNT" orgIndex="7" resourceKey="LBL-P0047" dataType="Number" format="0" />
+      <listcellColumn name="REAL_TIME" orgIndex="8" resourceKey="LBL-P0145" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="LINE_NO" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PRODUCTION_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="ORDER_QTY" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="REAL_TIME" setRef="8" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="0" />
+      <output1>
+        <map getRef="0" getValue="LINE_NO" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="PRODUCTION_RATE" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="LOT_COUNT" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="ORDER_QTY" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="LINE_COUNT" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="REAL_TIME" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_PrevPage" name="Click" pattern="NoneGenerate" />
+    <event control="btn_NextPage" name="Click" pattern="NoneGenerate" />
+  </events>
+</business>

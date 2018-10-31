@@ -1,0 +1,339 @@
+@charset "UTF-8";
+/* BlueDOG Designerでユーザに指定を認めているコントロール用CSSを定めています */
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+/**
+ * UTF8で保存する必要があるのですが、UTF8で保存するとブラウザによって
+ * ボタンのVALUEが右にずれ、文字が中心にこない現象が出ます。
+ * 現状原因が分かりません。もしその現象が発生したら澤まで連絡ください。
+ *                                                      2002/09/21 sawa
+ * @version $Revision: 8001 $, $Date: 2011-08-12 17:46:37 +0900 (金, 12 8 2011) $
+ * @author  $Author: nagao $
+ */
+
+body{margin: 0;}
+
+/*------------------------------------------*/
+/* 表示文字項目（ラベル）					*/
+/*------------------------------------------*/
+.lbl-black-001,		/* 通常黒文字・未設定時(text-caption1-normal)*/
+.lbl-link-001,		/* サブミットラベル */
+.lbl-blk-ap01		/* ラジオボタン・チェックボックス用 */
+{
+	font				: 100% monospace;
+	position			: relative;
+	display				: inline-block;
+}
+.lbl-blk-lc01, /* リストセル用のラベル*/
+.lbl-blk-lc02, /* リストセル用のラベル(折り返し可能)*/
+.lbl-link-lc01 /* リストセル用のサブミットラベル */
+{
+	font-size			: 100%;
+	padding-top			: 2px;
+	display				: block;
+}
+
+.lbl-black-001,.lbl-blk-lc01,.lbl-blk-lc02,.lbl-blk-ap01 {
+	color				: black;
+	text-decoration		: none;
+}
+.lbl-black-001 {
+	margin-left			: 7px;
+	height				: 1.75em;
+	line-height			: 1.75em;
+	text-align			: center;
+	vertical-align		: middle;
+}
+
+.lbl-blk-lc02 {
+	word-break			: breke-all;
+	line-height			: 20px;
+}
+.lbl-blk-ap01 {
+	margin-left			: 2px;
+	height				: 26px;
+	line-height			: 1.75em;
+	text-align			: left;
+	box-sizing			: border-box;
+}
+.lbl-link-001 {
+	margin-left			: 7px;
+	height				: 1.75em;
+	line-height			: 1.75em;
+	text-align			: center;
+	vertical-align		: middle;
+}
+.lbl-link-lc01 {
+	padding-bottom		: 2px;
+}
+/*------------------------------------------*/
+/* 表示文字項目（メッセージ）				*/
+/*------------------------------------------*/
+.message-001 {		/* メッセージエリアの文字スタイル*/
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	color				: black;
+	line-height			: 23px;
+	display				: inline-block;
+	box-sizing			: border-box;
+}
+/*------------------------------------------*/
+/* 入力項目									*/
+/*------------------------------------------*/
+/* 画面上の同行に設置するコントロールは高さとmarginを共通にします*/
+.txt-001,	/* 通常文字項目 太字					*/
+.txt-003,	/* 数値、日付テキストボックス（IME Mode Off）*/
+.txt-004,	/* フラットなテキストボックス				*/
+.flb-001,	/* ファイルブラウズ項目					*/
+.chk-001,	/* チェックボックス項目					*/
+.rdo-001,	/* ラジオボタン項目					*/
+.pul-001	/* プルダウン項目 					*/
+{
+	height				: 26px;
+	margin				: 4px 0;
+}
+
+/* 入力系コントロールのデザインを共通にします */
+.txt-001,
+.txt-002,	/* ログイン画面テキストボックス（IME Mode Off）*/
+.txt-003,
+.txt-lc01,	/* 通常文字項目 リストセル用				*/
+.txt-lc02,	/* 数値、日付テキストボックス リストセル用		*/
+.txa-001,	/* テキストエリア項目					*/
+.pul-001,
+.pul-lc01	/* プルダウン項目リストセル用 				*/
+{
+	color				: black;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	box-sizing			: border-box;
+	display				: inline-block;
+}
+
+.txt-001, .txt-002, .txt-003, .txt-lc01, .txt-lc02, .flb-001 {
+	font				: bold 16px/20px monospace;
+}
+.txt-002 {
+	height				: 26px;
+	ime-mode			: disabled;
+	width				: 250px;
+}
+
+.txt-lc02, .txt-003 {
+	ime-mode			: disabled;
+}
+.txt-lc03	/* フラットなテキストボックス リストセル用		*/
+{
+	color				: black;
+	font				: normal 16px/20px monospace;
+	text-decoration		: none;
+	padding				: 0 1px;
+	background-color	: white;
+	border-style		: none;
+	box-sizing			: border-box;
+}
+
+.txt-004 {
+	color				: black;
+	font				: normal 100%/1.75em monospace;
+	text-decoration		: none;
+	padding				: 0 1px;
+	background-color	: white;
+	border-style		: none;
+	box-sizing			: border-box;
+}
+
+.txa-001 {
+	font				: normal 100%/120% monospace;
+	word-break			: break-all;
+	overflow-y			: auto;
+}
+
+.flb-001 {
+	border-width		: 2px;
+}
+
+.chk-001, .rdo-001 {
+	line-height			: 1.75em;
+	margin-left			: 7px;
+	display				: inline-block;
+	vertical-align		: middle;
+}
+.pul-001 {
+	font				: bold 115% monospace;
+}
+
+.pul-lc01 {
+	font				: bold 80% monospace;
+}
+
+/* リストセル用 チェックボックス*/
+.chk-002, .chk-lc01 {
+	margin				: 0;
+	padding				: 0;
+}
+.lsb-001 {
+	color				: black;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+	box-sizing			: border-box;
+	display				: inline-block;
+	font				: bold 115% monospace;
+}
+/*------------------------------------------*/
+/*	BUTTON									*/
+/*------------------------------------------*/
+/* 通常ボタン									*/
+.btn-001,			/* 通常ボタン				*/
+.btn-listcell-001,	/* リストセルのボタン (セルのサイズに合わせてサイズ可変)*/
+.btn-lc01			/* リストセルの通常ボタン */
+{
+	color				: white;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+}
+.btn-001 {
+	font				: normal 16px/120% "MS Gothic", FixedSys, sans-serif;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	height				: 26px;
+}
+.btn-listcell-001 {
+	font				: normal 16px/120% "MS Gothic", monospace;
+	width				: 100%;
+	margin				: 0px;
+	height				: 99%;
+	line-height			: 100%;
+	padding				: 1% 0 0;
+	position			: relative;
+}
+.btn-lc01 {
+	font				: normal 16px/120% "MS Gothic", FixedSys, sans-serif;
+	padding				: 0px;
+	margin				: 0px;
+	height				: 26px;
+}
+
+/* ------- 	以下、BlueDOG Designerの選択画面に表示していないCSS 	------- 	*/
+/*------------------------------------------*/
+/* 表示文字項目（ラベル）					*/
+/*------------------------------------------*/
+.lbl-black-002 {		/* 上下にラベルが並ぶパスワード変更画面等・*/
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	color				: black;
+	padding-top			: 8px;
+	margin-left			: 4px;
+	vertical-align		: text-bottom;
+}
+
+/*------------------------------------------*/
+/* 表示文字項目（メッセージ）				*/
+/*------------------------------------------*/
+.message-normal, 	/* 通常 	(青色)*/
+.message-error, 	/* エラー 	(赤色)*/
+.message-warning 	/* 警告 	(黄色)*/
+{
+	font-family			: monospace;
+	font-size			: 10pt;
+}
+.message-normal {color	: #6666ff;}
+.message-error	{color	: red;}
+.message-warning{color	: #ffcc00;}
+
+/*------------------------------------------*/
+/*	BUTTON									*/
+/*------------------------------------------*/
+/* btn-listcell-001を利用して下さい */
+.btn-listcell-002,
+.btn-listcell-003,
+.btn-listcell-004,
+.btn-ScrollListcell-001{
+	font				: normal 16px/120% "MS Gothic", monospace;
+	width				: 100%;
+	margin				: 0px;
+	height				: 100%;
+	line-height			: 100%;
+	padding				: 0px;
+	position			: relative;
+	color				: white;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+}
+
+/* btn-001を利用して下さい */
+.btn-002 {
+	color				: white;
+	font				: normal 16px/120% "MS Gothic", FixedSys, sans-serif;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	padding-top			: 1px;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+	height				: 26px;
+}
+
+/* IE8対応メッセージログ用のスタイル */
+.lbl-blk-lc-scroll,.lbl-blk-scroll-odd {
+	word-break			: break-all;
+	word-wrap			: break-word;
+	line-height			: 16px;
+	color				: black;
+	text-decoration		: none;
+	font-size			: 12px;
+	display				: block;
+	/*ここにはリストセルの行の高さを入力してください。
+	２行でスクロール表示したい場合は、heightには実際の行の高さを、
+	line-heightには、height/2を指定して下さい。
+	この例では、３行表示なので、height/3 が line-height になっています。 */
+	height				: 50px;
+	line-height			: 16px;
+	overflow-x			: hidden;
+	overflow-y			: auto;
+	/* リストセルの列widthに合わせてこのwidthの値を変更する必要があります。
+	実際のwidth - 4(padding)を指定して下さい。*/
+	width				: 100%;
+}
+
+.lbl-blk-lc-scroll {
+	scrollbar-arrow-color		:#ffffff;
+	scrollbar-darkshadow-color	:#dad9ee;
+	scrollbar-3dlight-color		:#dad9ee;
+	scrollbar-face-color		:#dad9ee;
+	scrollbar-highlight-color	:#dad9ee;
+	scrollbar-track-color		:#ffffff;
+	scrollbar-shadow-color		:#dad9ee;
+}
+
+.lbl-blk-scroll-odd {
+	scrollbar-arrow-color		:#b0add3;
+	scrollbar-darkshadow-color	:#ffffff;
+	scrollbar-3dlight-color		:#ffffff;
+	scrollbar-face-color		:#ffffff;
+	scrollbar-highlight-color	:#ffffff;
+	scrollbar-track-color		:#dad9ee;
+	scrollbar-shadow-color		:#ffffff;
+}

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0808" downloadName="ErrorLogList" reportName="LBL-W6034">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_search_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_search_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_search_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_search_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="no" type="string" header="LBL-W0004" printEnabled="true" xlsEnabled="true"/>
+    <field name="date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W1421" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+    <field name="message_no" type="string" header="LBL-W1423" printEnabled="true" xlsEnabled="true"/>
+    <field name="level" type="string" header="LBL-W1326" printEnabled="true" xlsEnabled="true"/>
+    <field name="class_name" type="string" header="LBL-W1422" printEnabled="true" xlsEnabled="true"/>
+    <field name="message" type="string" header="LBL-W0032" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

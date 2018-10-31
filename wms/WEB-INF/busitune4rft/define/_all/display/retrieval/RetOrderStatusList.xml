@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.retrieval.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.retrieval.rft.schedule.RetOrderStatusListSCH" type="Sch" />
+    <ref name="1" typeName="RetrievalInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="RetrievalOutDataSheet" type="DataSheet" />
+    <ref name="3" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="ent_Click" pattern="None" order="1" />
+    <method name="page_Load" pattern="Query" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="1" getterValue="AREA_NO" setterTypeRef="0" setterValue="AREA_NO" />
+        <map getterTypeRef="1" getterValue="ORDER_NO1" setterTypeRef="0" setterValue="ORDER_NO1" />
+        <map getterTypeRef="1" getterValue="ORDER_NO2" setterTypeRef="0" setterValue="ORDER_NO2" />
+        <map getterTypeRef="1" getterValue="ORDER_NO3" setterTypeRef="0" setterValue="ORDER_NO3" />
+        <map getterTypeRef="1" getterValue="ORDER_NO4" setterTypeRef="0" setterValue="ORDER_NO4" />
+        <map getterTypeRef="1" getterValue="IS_LOCK" setterTypeRef="0" setterValue="IS_LOCK" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="ORDER_NO1_STATUS" setterTypeRef="2" setterValue="ORDER_NO1_STATUS" />
+        <map getterTypeRef="0" getterValue="ORDER_NO2_STATUS" setterTypeRef="2" setterValue="ORDER_NO2_STATUS" />
+        <map getterTypeRef="0" getterValue="ORDER_NO3_STATUS" setterTypeRef="2" setterValue="ORDER_NO3_STATUS" />
+        <map getterTypeRef="0" getterValue="ORDER_NO4_STATUS" setterTypeRef="2" setterValue="ORDER_NO4_STATUS" />
+        <map getterTypeRef="0" getterValue="ORDER_NO1" setterTypeRef="2" setterValue="ORDER_NO1" />
+        <map getterTypeRef="0" getterValue="ORDER_NO2" setterTypeRef="2" setterValue="ORDER_NO2" />
+        <map getterTypeRef="0" getterValue="ORDER_NO3" setterTypeRef="2" setterValue="ORDER_NO3" />
+        <map getterTypeRef="0" getterValue="ORDER_NO4" setterTypeRef="2" setterValue="ORDER_NO4" />
+      </output>
+    </method>
+  </methods>
+</business>

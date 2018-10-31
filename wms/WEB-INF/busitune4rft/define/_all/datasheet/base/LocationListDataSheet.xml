@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="棚選択データシート" />
+  <comment lang="en" value="Location Selection Data Sheet" />
+  <comment lang="zh" value="货架选择数据表" />
+  <fields>
+    <field name="AREA_LOCATION" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="エリア棚" />
+      <comment lang="en" value="Area Location" />
+      <comment lang="zh" value="区域货架" />
+    </field>
+    <field name="AREA_NO" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="エリアNo." />
+      <comment lang="en" value="Area #" />
+      <comment lang="zh" value="区域No." />
+    </field>
+    <field name="DISP_LOCATION" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="表示棚" />
+      <comment lang="en" value="Displayed Location" />
+      <comment lang="zh" value="显示货架" />
+    </field>
+    <field name="LOCATION_NO" type="String" separateSize="0" isArray="true">
+      <comment lang="ja" value="ロケーションNo." />
+      <comment lang="en" value="Location #" />
+      <comment lang="zh" value="货架No." />
+    </field>
+    <field name="TITLE" type="String" separateSize="0">
+      <comment lang="ja" value="画面タイトル" />
+      <comment lang="en" value="Screen Title " />
+      <comment lang="zh" value="画面标题" />
+    </field>
+  </fields>
+</datasheet>

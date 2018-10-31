@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.display.fastockmnt.FaStockMntBusiness" abstractClassName="jp.co.daifuku.wms.stock.display.fastockmnt.FaStockMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="txt_Location" />
+    <ref name="2" type="Control" typeName="txt_ItemCode" />
+    <ref name="3" type="Control" typeName="txt_ItemName" />
+    <ref name="4" type="Control" typeName="lbl_In_LocationStyle" />
+    <ref name="5" type="Control" typeName="lst_ShelfMnt" />
+    <ref name="6" type="Control" typeName="pager" />
+    <ref name="7" type="Control" typeName="btn_Set" />
+    <ref name="8" type="Control" typeName="btn_AllClear" />
+    <ref name="9" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="10" type="Constants" typeName="Constants" />
+    <ref name="11" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="12" type="Dasch" typeName="jp.co.daifuku.wms.stock.dasch.FaStockMntDASCH" />
+    <ref name="13" type="Control" typeName="HIDDEN_LAST_UPDATE_DATE" />
+    <ref name="14" type="Control" typeName="HIDDEN_STOCK_ID" />
+    <ref name="15" type="Control" typeName="LST_AREA_NO" />
+    <ref name="16" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="17" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="18" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="19" type="Control" typeName="LST_LOT_NO" />
+    <ref name="20" type="Control" typeName="LST_STOCK_QTY" />
+    <ref name="21" type="Control" typeName="LST_ALLOCATION_QTY" />
+    <ref name="22" type="Control" typeName="LST_MODIFIED_QTY" />
+    <ref name="23" type="Control" typeName="LST_LAST_RETRIEVAL_DATE" />
+    <ref name="24" type="Control" typeName="LST_STORAGE_DATE" />
+    <ref name="25" type="Control" typeName="LST_STORAGE_TIME" />
+    <ref name="26" type="Control" typeName="LST_SOFTZONE_NAME" />
+    <ref name="27" type="ViewState" typeName="jp.co.daifuku.wms.stock.display.fastockmnt.ViewStateKeys" />
+    <ref name="28" type="Control" typeName="LST_MODIFY" />
+    <ref name="29" type="Control" typeName="LST_DELETE" />
+    <ref name="30" type="Sch" typeName="jp.co.daifuku.wms.stock.schedule.FaStockMntSCH" />
+    <ref name="31" type="Control" typeName="LST_LAST_PICKING_DATE" />
+    <ref name="32" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="33" type="Control" typeName="HIDDEN_SOFZONE_ID" />
+    <ref name="34" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAeraNotMovingAll" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_ShelfMnt">
+      <listcellColumn name="HIDDEN_STOCK_ID" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_LAST_UPDATE_DATE" orgIndex="0" dataType="Date" format="DateLongTimeMillSec" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_SOFZONE_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W8046" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_DELETE" orgIndex="2" resourceKey="LBL-W8047" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="3" resourceKey="LBL-W8008" dataType="Area" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="4" resourceKey="LBL-W0138" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="5" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="6" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="7" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="8" resourceKey="LBL-W0073" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_ALLOCATION_QTY" orgIndex="9" resourceKey="LBL-W0603" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_MODIFIED_QTY" orgIndex="10" resourceKey="LBL-W1390" dataType="Number" format="0" modifyCheck="true" />
+      <listcellColumn name="LST_LAST_PICKING_DATE" orgIndex="11" resourceKey="LBL-W0070" dataType="Date" format="DateLong" modifyCheck="true" />
+      <listcellColumn name="LST_STORAGE_DATE" orgIndex="12" resourceKey="LBL-W0160" dataType="Date" format="DateLong" modifyCheck="true" />
+      <listcellColumn name="LST_STORAGE_TIME" orgIndex="13" resourceKey="LBL-W1391" dataType="Date" format="TimeSec" modifyCheck="true" />
+      <listcellColumn name="LST_SOFTZONE_NAME" orgIndex="14" resourceKey="LBL-W0597" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="5" type="Clear" />
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="5" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_SearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="9" />
+      <input1>
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="ITEM_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="ITEM_CODE" setRef="2" setValue="Value" />
+        <map getRef="9" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_SearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="11" />
+      <input1>
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="11" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="11" getValue="ITEM_CODE" setRef="2" setValue="Value" />
+        <map getRef="11" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="3" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="12" isSession="true" />
+      <input1>
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="12" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="LOCATION_NO" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="13" setValue="Value" />
+        <map getRef="12" getValue="STOCK_ID" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="AREA_NO" setRef="15" setValue="Value" />
+        <map getRef="12" getValue="LOCATION_NO" setRef="16" setValue="Value" />
+        <map getRef="12" getValue="ITEM_CODE" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="18" setValue="Value" />
+        <map getRef="12" getValue="LOT_NO" setRef="19" setValue="Value" />
+        <map getRef="12" getValue="STOCK_QTY" setRef="20" setValue="Value" />
+        <map getRef="12" getValue="ALLOCATION_QTY" setRef="21" setValue="Value" />
+        <map getRef="12" getValue="MODIFIED_QTY" setRef="22" setValue="Value" />
+        <map getRef="12" getValue="LAST_RETRIEVAL_DATE" setRef="23" setValue="Value" />
+        <map getRef="12" getValue="STORAGE_DATE" setRef="24" setValue="Value" />
+        <map getRef="12" getValue="STORAGE_TIME" setRef="25" setValue="Value" />
+        <map getRef="12" getValue="SOFTZONE_NAME" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="ASRS_FLAG" setRef="26" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="27" setValue="VS_DISP_AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="27" setValue="VS_DISP_LOCATION_NO" />
+        <map getRef="2" getValue="Value" setRef="27" setValue="VS_DISP_ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="27" setValue="VS_DISP_ITEM_NAME" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="23" type="ReadOnly" />
+        <clear controlRef="28" type="UnChecked" />
+        <clear controlRef="29" type="UnChecked" />
+        <clear controlRef="24" type="ReadOnly" />
+        <clear controlRef="25" type="ReadOnly" />
+        <clear controlRef="22" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Add" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/stock/fastockmnt/FaStockMnt2" viewStateRef="27" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" required="true" />
+      </validate>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="27" setValue="VS_AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="27" setValue="VS_LOCATION_NO" />
+      </output1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEditDasch">
+      <sch4Dasch schRef="30" daschRef="12" />
+      <validate>
+        <validate controlRef="5" required="true" />
+        <validate controlRef="22" />
+        <validate controlRef="31" />
+        <validate controlRef="24" />
+        <validate controlRef="25" />
+      </validate>
+      <input1>
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="30" setValue="CONSIGNOR_CODE" />
+        <map getRef="15" getValue="Value" setRef="30" setValue="AREA_NO" />
+        <map getRef="16" getValue="Value" setRef="30" setValue="LOCATION_NO" />
+        <map getRef="17" getValue="Value" setRef="30" setValue="ITEM_CODE" />
+        <map getRef="18" getValue="Value" setRef="30" setValue="ITEM_NAME" />
+        <map getRef="19" getValue="Value" setRef="30" setValue="LOT_NO" />
+        <map getRef="20" getValue="Value" setRef="30" setValue="STOCK_QTY" />
+        <map getRef="21" getValue="Value" setRef="30" setValue="ALLOCATION_QTY" />
+        <map getRef="22" getValue="Value" setRef="30" setValue="MODIFIED_QTY" />
+        <map getRef="31" getValue="Value" setRef="30" setValue="LAST_RETRIEVAL_DATE" />
+        <map getRef="24" getValue="Value" setRef="30" setValue="STORAGE_DATE" />
+        <map getRef="25" getValue="Value" setRef="30" setValue="STORAGE_TIME" />
+        <map getRef="26" getValue="Value" setRef="30" setValue="SOFTZONE_NAME" />
+        <map getRef="14" getValue="Value" setRef="30" setValue="STOCK_ID" />
+        <map getRef="13" getValue="Value" setRef="30" setValue="LAST_UPDATE_DATE" />
+      </input1>
+      <part11 operationRef="32" operation="MODIFY">
+        <out out1Ref="15" out1Value="Value" />
+        <out out1Ref="16" out1Value="Value" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="20" out1Value="Value" />
+        <out out1Ref="21" out1Value="Value" />
+        <out out1Ref="22" out1Value="Value" />
+        <out out1Ref="31" out1Value="Value" />
+        <out out1Ref="24" out1Value="Value" out2Ref="25" out2Value="Value" />
+        <out out1Ref="33" out1Value="Value" />
+        <block type="If" tag="1" desc="修正チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="28" leftValue="Value" rightRef="34" rightValue="True" />
+        </block>
+        <out out1Ref="22" out1Value="Value" />
+        <out out1Ref="31" out1Value="Value" />
+        <out out1Ref="24" out1Value="Value" out2Ref="25" out2Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="27" getValue="VS_DISP_AREA_NO" setRef="12" setValue="AREA_NO" />
+        <map getRef="27" getValue="VS_DISP_ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="27" getValue="VS_DISP_ITEM_NAME" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="27" getValue="VS_DISP_LOCATION_NO" setRef="12" setValue="LOCATION_NO" />
+      </input2>
+      <output1>
+        <map getRef="12" getValue="STOCK_ID" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="LAST_UPDATE_DATE" setRef="13" setValue="Value" />
+        <map getRef="12" getValue="AREA_NO" setRef="15" setValue="Value" />
+        <map getRef="12" getValue="LOCATION_NO" setRef="16" setValue="Value" />
+        <map getRef="12" getValue="ITEM_CODE" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="18" setValue="Value" />
+        <map getRef="12" getValue="LOT_NO" setRef="19" setValue="Value" />
+        <map getRef="12" getValue="STOCK_QTY" setRef="20" setValue="Value" />
+        <map getRef="12" getValue="ALLOCATION_QTY" setRef="21" setValue="Value" />
+        <map getRef="12" getValue="MODIFIED_QTY" setRef="22" setValue="Value" />
+        <map getRef="12" getValue="LAST_RETRIEVAL_DATE" setRef="31" setValue="Value" />
+        <map getRef="12" getValue="STORAGE_DATE" setRef="24" setValue="Value" />
+        <map getRef="12" getValue="STORAGE_TIME" setRef="25" setValue="Value" />
+        <map getRef="12" getValue="SOFTZONE_NAME" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="ASRS_FLAG" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="SOFTZONE_ID" setRef="33" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="28" type="UnChecked" />
+        <clear controlRef="29" type="UnChecked" />
+        <clear controlRef="22" type="ReadOnly" />
+        <clear controlRef="31" type="Empty" />
+        <clear controlRef="24" type="ReadOnly" />
+        <clear controlRef="25" type="ReadOnly" />
+      </clear1>
+    </event>
+  </events>
+</business>

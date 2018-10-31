@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* ScreenGeneratorでユーザに指定を認めているListCell用CSSを定めています */
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+/**
+ * UTF8で保存する必要があるのですが、UTF8で保存するとブラウザによって
+ * ボタンのVALUEが右にずれ、文字が中心にこない現象が出ます。
+ * 現状原因が分かりません。もしその現象が発生したら澤まで連絡ください。
+ *                                                      2002/09/21 sawa
+ * @version $Revision: 7996 $, $Date: 2011-07-06 09:52:24 +0900 (水, 06 7 2011) $
+ * @author  $Author: kitamaki $
+ */
+/*------------------------------------------*/
+/*	Table 									*/
+/*------------------------------------------*/
+/* 結合レベルありのListBoxではこのスタイルをListCellに定義する
+   add 2004/08/02 N.Sawa                */
+.listcell-table-combination {
+	height				: 0%;
+}
+
+/* ListBoxにスクロールバーを表示する場合、このスタイルを定義
+   <div class="listcell-scroll"></div>をJSPに追記する
+   例 <div class="listcell-scroll"><h:listcell id="lst_XXX" templatekey="XXX"/></div>
+   add 2004/09/07 N.Sawa                */
+.listcell-scroll {
+	overflow-x			: scroll;
+	width				: 970px;
+	height				: 100px;
+}
+/*------------------------------------------*/
+/*	Listcell Header							*/
+/*------------------------------------------*/
+.listcell-header,					/* リストセルのヘッダ 左に区切り線			*/
+.listcell-header-nodelim,			/* リストセルのヘッダ 区切り線無し			*/
+.listcell-rowheader,				/* リストセルの行ヘッダ	区切り線左あり下あり*/
+.listcell-rowheader-nodelim,		/* リストセルの行ヘッダ 区切り線左無し下あり*/
+.scroll-listcell-header,			/* 非推奨 */
+.scroll-listcell-header-nodelim,	/* 非推奨 */
+.scroll-listcell-header-button,		/* 非推奨 */
+.listcell-rowheader-left			/* 非推奨 */
+{
+	background-color	: #413a8a;
+	color				: white;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	box-sizing			: border-box;
+}
+.listcell-header,.scroll-listcell-header{
+	border-left     	: 1px solid #fff;
+	padding-bottom		: 1px;
+}
+.listcell-header-nodelim, .scroll-listcell-header-nodelim {
+	padding-bottom		: 1px;
+}
+.listcell-rowheader	{
+	border-left     	: 1px solid #fff;
+	border-bottom     	: 1px solid #fff;
+}
+.listcell-rowheader-nodelim, .listcell-rowheader-left {
+	border-bottom     	: 1px solid #fff;
+}
+/* headerのリンク文字は白文字にします。*/
+.headerSpan a:link, .headerSpan a:visited {color:#ffffff;}
+
+/*------------------------------------------*/
+/*	Listcell Detail							*/
+/*------------------------------------------*/
+.listcell-detail-center,					/* 中央表示 左に区切り線 					*/
+.listcell-detail-center-nodelim,			/* 中央表示 区切り線無し					*/
+.listcell-detail-center-rowdetail,
+.listcell-detail-center-rowdetail-nodelim,
+.listcell-detail-right,						/* 右揃表示									*/
+.listcell-detail-right-nodelim,				/* 右揃表示 区切り線無し					*/
+.listcell-detail-right-rowdetail,
+.listcell-detail-right-rowdetail-nodelim,
+.listcell-detail-left,						/* 左揃表示									*/
+.listcell-detail-left-nodelim,				/* 左揃表示 区切り線無し					*/
+.listcell-detail-left-rowdetail,
+.listcell-detail-left-rowdetail-nodelim,
+.scroll-listcell-detail-center,				/* 中央表示 左に区切り線(非推奨)			*/
+.scroll-listcell-detail-left,				/* 左揃表示(非推奨)							*/
+.scroll-listcell-detail-center-nodelim,		/* 中央表示 区切り線無し(非推奨)			*/
+.scroll-listcell-detail-right,				/* 右揃表示	(非推奨)						*/
+.scroll-listcell-detail-right-nodelim,		/* 右揃表示 区切り線無し(非推奨)			*/
+.scroll-listcell-detail-left-nodelim		/* 左揃表示 区切り線無し(非推奨)			*/
+{
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	vertical-align		: middle;
+	box-sizing			: border-box;
+}
+/* 左に線あり */
+.listcell-detail-left-rowdetail,
+.listcell-detail-center-rowdetail,
+.listcell-detail-right-rowdetail,
+.listcell-detail-center,
+.scroll-listcell-detail-center,
+.listcell-detail-right,
+.scroll-listcell-detail-right,
+.listcell-detail-left,
+.scroll-listcell-detail-left
+{
+	border-left     	: 1px solid #413a8a;
+}
+/* 左に線なし */
+.listcell-detail-left-rowdetail-nodelim,
+.listcell-detail-center-rowdetail-nodelim,
+.listcell-detail-right-rowdetail-nodelim,
+.listcell-detail-center-nodelim,
+.scroll-listcell-detail-center-nodelim,
+.listcell-detail-right-nodelim,
+.scroll-listcell-detail-right-nodelim,
+.listcell-detail-left-nodelim,
+.scroll-listcell-detail-left-nodelim
+{
+	padding-left     	: 1px;
+}
+
+/* 下に線あり */
+.listcell-detail-left-rowdetail,
+.listcell-detail-left-rowdetail-nodelim,
+.listcell-detail-center-rowdetail,
+.listcell-detail-center-rowdetail-nodelim,
+.listcell-detail-right-rowdetail,
+.listcell-detail-right-rowdetail-nodelim
+{
+	border-bottom     	: 1px solid #b0add3;
+}
+/* 下に線無し*/
+.listcell-detail-center, .scroll-listcell-detail-center,
+.listcell-detail-center-nodelim, .scroll-listcell-detail-center-nodelim,
+.listcell-detail-right, .scroll-listcell-detail-right,
+.listcell-detail-right-nodelim, .scroll-listcell-detail-right-nodelim,
+.listcell-detail-left, .scroll-listcell-detail-left,
+.listcell-detail-left-nodelim, .scroll-listcell-detail-left-nodelim
+{
+	padding-bottom		: 1px;
+}
+
+/* 中央表示 */
+.listcell-detail-center, .scroll-listcell-detail-center,
+.listcell-detail-center-nodelim, .scroll-listcell-detail-center-nodelim,
+.listcell-detail-center-rowdetail,
+.listcell-detail-center-rowdetail-nodelim {
+	text-align			: center;
+}
+
+/* 右揃え */
+.listcell-detail-right, .scroll-listcell-detail-right,
+.listcell-detail-right-nodelim, .scroll-listcell-detail-right-nodelim,
+.listcell-detail-right-rowdetail,
+.listcell-detail-right-rowdetail-nodelim {
+	text-align			: right;
+}
+
+/* 左揃え */
+.listcell-detail-left, .scroll-listcell-detail-left,
+.listcell-detail-left-nodelim, .scroll-listcell-detail-left-nodelim,
+.listcell-detail-left-rowdetail,
+.listcell-detail-left-rowdetail-nodelim {
+	text-align			: left;
+}
+
+/* フルボタン列 */
+.listcell-detail-button,			/* リスト一覧のボタン列 左枠線あり		*/
+.listcell-detail-button-nodelim,	/* リスト一覧のボタン列 枠線なし		*/
+.listcell-detail-button-delim,			/* 非推奨*/
+.scroll-listcell-detail-button			/* 非推奨*/
+{
+	position			: relative;
+	padding				: 0px;
+	vertical-align		: text-top;
+	overflow			: hidden;
+	box-sizing			: border-box;
+}
+.listcell-detail-button, .listcell-detail-button-delim, .scroll-listcell-detail-button  {
+	border-left     	: 1px solid #413a8a;
+}
+.listcell-detail-button-delim {
+	border-bottom     	: 1px solid #b0add3;
+}
+/*------------------------------------------*/
+/*	Search Condition Listcell				*/
+/*------------------------------------------*/
+.listcell-searchcondition-header,				/* search condition listcell header			*/
+.listcell-searchcondition-leftdetail-nodelim,	/* search condition listcell left detail */
+.listcell-searchcondition-leftdetail,			/* search condition listcell left detail */
+.listcell-searchcondition-rightdetail			/* search condition listcell right detail */
+{
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: left;
+}
+.listcell-searchcondition-header {
+	background-color	: #b8b7d7;
+	color				: #413a8a;
+	font-weight			: bold;
+}
+.listcell-searchcondition-leftdetail-nodelim, .listcell-searchcondition-leftdetail {
+	background-color	: #b8b7d7;
+	color				: black;
+	border-top			: 1px solid #413a8a;
+}
+.listcell-searchcondition-leftdetail {
+	border-left			: 1px solid #413a8a;
+}
+.listcell-searchcondition-rightdetail {
+	background-color	: #ffffff;
+	color				: black;
+	border-left			: 1px solid #413a8a;
+	border-top			: 1px solid #413a8a;
+}
+
+
+/* ------- 	以下、Screengeneratorでの選択画面に表示していないCSS 	------- 	*/
+.listcell-detail-center-right,
+.listcell-detail-center-left,
+.listcell-detail-center-delim
+{
+	text-align			: center;
+	border-bottom     	: 1px solid #b0add3;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	vertical-align		: middle;
+}
+.listcell-detail-center-right,.listcell-detail-center-delim
+{border-left: 1px solid #413a8a;}
+.listcell-detail-center-delim
+{border-right: 1px solid #413a8a;}
+.listcell-header-left,
+.listcell-header-right,
+.listcell-rowheader-right,
+.listcell-rowheader-bottom,
+.scroll-listcell-header-button {
+	text-align			: center;
+	background-color	: #413a8a;
+	color				: white;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+}
+.listcell-rowheader-right,.listcell-rowheader-bottom
+{border-bottom:1px solid #fff;}
+.listcell-rowheader-bottom, .listcell-rowheader-left-bottom,.listcell-rowheader-right-bottom
+{border-bottom:1px solid #b0add3;}
+.scroll-listcell-header-button{padding: 0px;}
+.listcell-detail-left-wordbreak {
+	text-align			: left;
+	border-left     	: 1px solid #413a8a;
+	word-break 			: break-all;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	vertical-align		: middle;
+}

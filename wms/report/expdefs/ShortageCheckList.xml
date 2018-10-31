@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0306" downloadName="ShortageCheckList" reportName="LBL-W1298">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="plan_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="start_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="start_time" type="date" format="$TIME_FORMAT.HMS" printEnabled="true" xlsEnabled="false"/>
+    <field name="plan_lot_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="allocate_no" type="string" header="LBL-W0046" printEnabled="true" xlsEnabled="true"/>
+    <field name="batch_no" type="string" header="LBL-W0028" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_no" type="string" header="LBL-W0014" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_code" type="string" header="LBL-W0114" printEnabled="true" xlsEnabled="true"/>
+    <field name="customer_name" type="string" header="LBL-W0115" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="entering_qty" type="number" format="##,##0" header="LBL-W0019" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_case_qty" type="number" format="###,##0" header="LBL-W0183" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="plan_piece_qty" type="number" format="###,##0" header="LBL-W0184" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="rep_case_qty" type="number" format="###,##0" header="LBL-W0170" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="rep_piece_qty" type="number" format="###,##0" header="LBL-W0171" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="shortage_case_qty" type="number" format="###,##0" header="LBL-W0063" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="shortage_piece_qty" type="number" format="###,##0" header="LBL-W0064" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="allocation" type="string" header="LBL-W0409" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

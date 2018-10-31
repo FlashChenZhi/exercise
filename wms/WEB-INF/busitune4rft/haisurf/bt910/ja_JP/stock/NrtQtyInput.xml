@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--予定外出庫数量入力画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <input name="numericinput" type="numeric" count-max="4" />
+  <input name="inputLotNo" type="non" count-max="16" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2" focus="%CommonDataSheet.FocusField%">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>数量入力　　　　　　　　　　</caption>
+    </label>
+    <label name="lblItemCode" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblItemName1" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>
+      </w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_NAME0%</caption>
+    </label>
+    <label name="lblItemName2" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>14</w>
+      <caption>%NoPlanRetrievalOutDataSheet.ITEM_NAME1%</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>40</y>
+      <w>3</w>
+      <caption>%NoPlanRetrievalOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblEditCaseQty" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ数 :[     ](    ) </caption>
+    </label>
+    <label name="lblCaseQty" font-id="" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>53</y>
+      <w>4</w>
+      <caption>%NoPlanRetrievalOutDataSheet.STOCK_CASE_QTY%</caption>
+    </label>
+    <label name="lblEditPieceQty" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>67</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ数:[     ](    )</caption>
+    </label>
+    <label name="lblEditLotNo" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>80</y>
+      <w>19</w>
+      <caption>[                 ]</caption>
+    </label>
+    <label name="lblResultLotNo" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>(                )</caption>
+    </label>
+    <label name="lblPieceQty" font-id="" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>67</y>
+      <w>4</w>
+      <caption>%NoPlanRetrievalOutDataSheet.STOCK_PIECE_QTY%</caption>
+    </label>
+    <label name="lblLotNo" font-id="" visible="true">
+      <align>left</align>
+      <x>6</x>
+      <y>92</y>
+      <w>16</w>
+      <caption>%NoPlanRetrievalOutDataSheet.LOT_NO%</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る　　　　</caption>
+      <event>NrtQtyI_Back</event>
+      <key>KL</key>
+    </button>
+    <label name="lblEnt" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>72</x>
+      <y>105</y>
+      <w></w>
+      <caption>ENT:確定　　</caption>
+    </label>
+    <label name="lblMsg" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>数量を入力して下さい</caption>
+    </label>
+    <edit name="CaseQty" enabled="%CommonDataSheet.CASE_INPUT_ENABLED%" font-id="" input-id="numericinput" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-alarm="non" keyence-ng-vibration="false" keyence-ng-led="orange" keyence-align="">
+      <x>49</x>
+      <y>53</y>
+      <w>5</w>
+      <text>%NoPlanRetrievalOutDataSheet.RESULT_CASE_QTY%</text>
+      <event>NrtQtyI_Ent</event>
+    </edit>
+    <edit name="PieceQty" enabled="true" font-id="" input-id="numericinput" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-alarm="non" keyence-ng-vibration="false" keyence-ng-led="orange">
+      <x>49</x>
+      <y>67</y>
+      <w>5</w>
+      <text>%NoPlanRetrievalOutDataSheet.RESULT_PIECE_QTY%</text>
+      <event>NrtQtyI_Ent</event>
+    </edit>
+    <edit name="LotNo" enabled="true" font-id="" input-id="inputLotNo" visible="true" password="false" scan="true" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-alarm="non" keyence-ng-vibration="false" keyence-ng-led="orange">
+      <x>6</x>
+      <y>80</y>
+      <w>17</w>
+      <text>%NoPlanRetrievalOutDataSheet.RESULT_LOT_NO%</text>
+      <event>NrtQtyI_Ent</event>
+    </edit>
+    <button name="Return" font-id="" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtQtyI_Return</event>
+      <key>KR</key>
+    </button>
+    <label name="lblEntering" font-id="font12" visible="true">
+      <align>left</align>
+      <x>108</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>入</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--UserInput-->
+  <font name="fontTitleBar" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" focus="%CommonDataSheet.FocusField%" wave="%CommonDataSheet.BeepWav%" vibration="true" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitleBar" font-id="fontTitleBar" visible="true" forecolor="FFFFFF" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>4</y>
+      <w>324</w>
+      <h>16</h>
+      <caption>%CommonDataSheet.TITLE%</caption>
+    </label>
+    <label name="titleBar" visible="true" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>324</w>
+      <h>23</h>
+    </label>
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>26</y>
+      <w>130</w>
+      <h>26</h>
+      <caption>User Input</caption>
+    </label>
+    <label name="lblWorkerCode" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>56</y>
+      <w>124</w>
+      <h>20</h>
+      <caption>User Code:</caption>
+    </label>
+    <edit name="UserId" autoselect="true" enabled="true" font-id="fontBold" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="8" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>128</x>
+      <y>52</y>
+      <w>180</w>
+      <h>25</h>
+      <text>%CommonDataSheet.USER_ID%</text>
+      <event>WorkerI_UserEnt</event>
+    </edit>
+    <label name="lblPassword" font-id="fontStandard" visible="%TermInfoDataSheet.PASSWORD_INPUT_MODE%">
+      <align>left</align>
+      <x>4</x>
+      <y>84</y>
+      <w>124</w>
+      <h>20</h>
+      <caption>Password:</caption>
+    </label>
+    <edit name="Password" autoselect="true" enabled="%TermInfoDataSheet.PASSWORD_INPUT_MODE%" font-id="fontBold" inputchecked="false" visible="%TermInfoDataSheet.PASSWORD_INPUT_MODE%" password="true" maxlength="8" scan="false" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>128</x>
+      <y>82</y>
+      <w>180</w>
+      <h>25</h>
+      <text>%CommonDataSheet.PASSWORD%</text>
+      <event>WorkerI_PasswordEnt</event>
+    </edit>
+    <label name="lblUser" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>120</y>
+      <w>100</w>
+      <h>14</h>
+      <caption>User:</caption>
+    </label>
+    <label name="lblUserId" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>138</y>
+      <w>203</w>
+      <h>18</h>
+      <caption>%CommonDataSheet.USER_ID%</caption>
+    </label>
+    <label name="lblUserName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>156</y>
+      <w>203</w>
+      <h>18</h>
+      <caption>%CommonDataSheet.USER_NAME%</caption>
+    </label>
+    <label name="lblConsignor" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>188</y>
+      <w>100</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Submit</caption>
+      <event>WorkerI_Commit</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>162</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>WorkerI_Back</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>110</y>
+      <w>324</w>
+      <h>200</h>
+    </label>
+  </form>
+</HaiSurf.Page>

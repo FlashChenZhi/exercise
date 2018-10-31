@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator>
+
+  <!-- 変数 -->
+  <valiable name="superClass">jp.co.daifuku.foundation.common.ScheduleParams</valiable>
+  <valiable name="fieldClass">jp.co.daifuku.foundation.common.ParamKey</valiable>
+  <valiable name="imports" type="HashSet"/>
+  <valiable name="fields" type="List"/>
+
+  <!-- 初期インポート -->
+  <set name="imports" select="$superClass"/>
+
+  <!-- フィールド -->
+  <foreach select="fields/field">
+    <set name="imports" select="$fieldClass"/>
+    <set name="fields" xml:space="preserve">
+      /** <valueof select="@name"/> */<br/>
+      public static final <valueof select="class-name($fieldClass)"/> <valueof select="@name"/> = new <valueof select="class-name($fieldClass)"/>("<valueof select="@name"/>");<br/>
+      <br/>
+    </set>
+  </foreach>
+
+  <!-- 最終出力 -->
+  <template enableLineBreak="true">
+    // $Id$
+    package <valueof select="package-name(@class)"/>;
+
+    /*
+     * Copyright(c) 2000-2010 DAIFUKU Co.,Ltd. All Rights Reserved.
+     *
+     * This software is the proprietary information of DAIFUKU Co.,Ltd.
+     * Use is subject to license terms.
+     */
+    import jp.co.daifuku.authentication.DfkUserInfo;
+
+    <foreach select="$imports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import <valueof />;<br/>
+    </foreach>
+
+    /**
+     * Transfer Object class is used for transfering the data between Business and Scheduler classes
+     *
+     * @version $Revision$, $Date$
+     * @author  BusiTune.
+     * @author  Last commit: $Author$
+     */
+    public class <valueof select="class-name(@class)"/>
+            extends <valueof select="class-name($superClass)"/>
+    {
+        //------------------------------------------------------------
+        // fields (upper case only)
+        //------------------------------------------------------------
+        <foreach select="$fields"/>
+
+        //------------------------------------------------------------
+        // class variables (prefix '$')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // instance variables (prefix '_')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // constructors
+        //------------------------------------------------------------
+        /**
+         * Constructor to create Transfer Object
+         */
+        public <valueof select="class-name(@class)"/>()
+        {
+            super();
+        }
+
+        //------------------------------------------------------------
+        // public methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // accessor methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // package methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // protected methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // private methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // utility methods
+        //------------------------------------------------------------
+        /**
+         * Returns current repository info for this class
+         * @return version
+         */
+        public static String getVersion()
+        {
+            return "$Id$";
+        }
+    }
+    //end of class
+  </template>
+
+</generator>

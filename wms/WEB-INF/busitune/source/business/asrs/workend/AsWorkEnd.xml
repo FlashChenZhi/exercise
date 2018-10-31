@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.workend.AsWorkEndBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.workend.AsWorkEnd" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_WorkingEndUsual" />
+    <ref name="1" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsWorkEndSCH" />
+    <ref name="3" type="Control" typeName="LST_AGC" />
+    <ref name="4" type="Control" typeName="LST_AGC_STATUS" />
+    <ref name="5" type="Control" typeName="LST_PENDING" />
+    <ref name="6" type="Control" typeName="HIDDEN_SYSTEM_STATUS" />
+    <ref name="7" type="Control" typeName="lst_AsrsWorkEnd" />
+    <ref name="8" type="String" typeName="String" />
+    <ref name="9" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="10" type="Boolean" typeName="Boolean" />
+    <ref name="11" type="Constants" typeName="Constants" />
+    <ref name="12" type="Control" typeName="rdo_WorkingEnd_Date" />
+    <ref name="13" type="Control" typeName="rdo_WorkingSeparate" />
+    <ref name="14" type="Control" typeName="ASRSMode" />
+    <ref name="15" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.workend.ViewStateKeys" />
+    <ref name="16" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.carrynobtn.LstAsCarryNoBtnParams" />
+  </refs>
+  <listcells>
+    <listcell name="lst_AsrsWorkEnd">
+      <listcellColumn name="HIDDEN_SYSTEM_STATUS" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_AGC" orgIndex="2" resourceKey="LBL-W0001" dataType="String" />
+      <listcellColumn name="LST_AGC_STATUS" orgIndex="3" resourceKey="LBL-W0020" dataType="String" />
+      <listcellColumn name="LST_PENDING" orgIndex="4" resourceKey="LBL-W0097" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="1" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="2" />
+      <output1>
+        <map getRef="2" getValue="CONTROLLER_NO" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="STATUS_FLAG" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="WORK_COUNT" setRef="5" setValue="Value" />
+        <map getRef="2" getValue="SYSTEM_STATUS" setRef="6" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Set2" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="2" />
+      <validate>
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="3" getValue="Value" setRef="2" setValue="CONTROLLER_NO" />
+        <map getRef="8" getValue="0" setRef="2" setValue="PROCESS_TYPE" />
+      </input1>
+      <part11 operationRef="9" operation="SETTING">
+        <out out1Ref="3" out1Value="Value" />
+        <block type="If" tag="1" desc="通常が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="0" leftValue="Checked" rightRef="10" rightValue="True" />
+        </block>
+        <out out1Ref="11" out1Value="PROCESS_TYPE_WORK_END" />
+        <block type="If" tag="2" desc="強制が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="12" leftValue="Checked" rightRef="10" rightValue="True" />
+        </block>
+        <out out1Ref="11" out1Value="PROCESS_TYPE_WORK_END_DATAKEEP" />
+        <block type="If" tag="3" desc="単独が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="13" leftValue="Checked" rightRef="10" rightValue="True" />
+        </block>
+        <out out1Ref="11" out1Value="PROCESS_TYPE_WORK_ONLYEND" />
+      </part11>
+      <output1>
+        <map getRef="2" getValue="CONTROLLER_NO" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="STATUS_FLAG" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="WORK_COUNT" setRef="5" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_ReDisplayFunc" name="Click" pattern="Query">
+      <sch2Display schRef="2" />
+      <output1>
+        <map getRef="2" getValue="CONTROLLER_NO" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="STATUS_FLAG" setRef="4" setValue="Value" />
+        <map getRef="2" getValue="WORK_COUNT" setRef="5" setValue="Value" />
+        <map getRef="14" getValue="Value" setRef="15" setValue="ASRS_MODE" />
+        <map getRef="2" getValue="SYSTEM_STATUS" setRef="6" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_RemainWork" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/carrynobtn/LstAsCarryNoBtn" businessParameterRef="16" />
+    </event>
+  </events>
+</business>

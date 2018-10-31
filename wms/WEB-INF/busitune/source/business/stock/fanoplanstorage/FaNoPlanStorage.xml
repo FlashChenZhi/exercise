@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.display.fanoplanstorage.FaNoPlanStorageBusiness" abstractClassName="jp.co.daifuku.wms.stock.display.fanoplanstorage.FaNoPlanStorage" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="txt_ItemName" />
+    <ref name="2" type="Control" typeName="txt_LotNo" />
+    <ref name="3" type="Control" typeName="txt_Location" />
+    <ref name="4" type="Control" typeName="txt_StorageQty" />
+    <ref name="5" type="Control" typeName="txt_StockQty" />
+    <ref name="6" type="Control" typeName="lst_FaNoPlanStorage" />
+    <ref name="7" type="Control" typeName="btn_Set" />
+    <ref name="8" type="Control" typeName="btn_AllClear" />
+    <ref name="9" type="Control" typeName="pul_Area" />
+    <ref name="10" type="Control" typeName="chk_WorkListPrint" />
+    <ref name="11" type="Control" typeName="btn_WorkListPrint" />
+    <ref name="12" type="Sch" typeName="jp.co.daifuku.wms.stock.schedule.FaNoPlanStorageSCH" />
+    <ref name="13" type="Constants" typeName="Constants" />
+    <ref name="14" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="15" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="16" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="17" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="18" type="Control" typeName="LST_LOT_NO" />
+    <ref name="19" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="20" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="21" type="Control" typeName="LST_STORAGE_QTY" />
+    <ref name="22" type="Control" typeName="HIDDEN_AREA_NO" />
+    <ref name="23" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="24" type="Boolean" typeName="Boolean" />
+    <ref name="25" type="String" typeName="String" />
+    <ref name="26" type="BusinessParameter" typeName="jp.co.daifuku.wms.stock.listbox.add.FaLstAddLocationParams" />
+    <ref name="27" type="Dasch" typeName="jp.co.daifuku.wms.storage.dasch.FaStorageListDASCH" />
+    <ref name="28" type="ExportParameter" typeName="jp.co.daifuku.wms.stock.exporter.StorageWorkListParams" />
+    <ref name="29" type="ViewState" typeName="jp.co.daifuku.wms.stock.display.fanoplanstorage.ViewStateKeys" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorTempReceiveALL" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_FaNoPlanStorage">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_AREA_NO" orgIndex="0" dataType="Area" />
+      <listcellColumn name="LST_MODIFY" orgIndex="1" resourceKey="LBL-W0108" dataType="String" />
+      <listcellColumn name="LST_CANCEL" orgIndex="2" resourceKey="LBL-W0107" dataType="String" />
+      <listcellColumn name="LST_NO" orgIndex="3" resourceKey="LBL-W0004" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="4" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="5" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="6" resourceKey="LBL-W0035" dataType="String" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="7" resourceKey="LBL-W0138" dataType="Location" />
+      <listcellColumn name="LST_STORAGE_QTY" orgIndex="8" resourceKey="LBL-W0150" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="5" type="ReadOnly" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="txt_ItemCode" name="EnterKey" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_SearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="14" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="14" setValue="ITEM_CODE" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="14" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="14" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_SearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="15" />
+      <input1>
+        <map getRef="1" getValue="Value" setRef="15" setValue="ITEM_NAME" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="15" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="15" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="15" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_StockDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="9" required="true" />
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" required="true" />
+      </validate>
+      <input1>
+        <map getRef="9" getValue="Value" setRef="12" setValue="AREA_NO" />
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="LOT_NO" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="LOCATION_NO" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="STOCK_QTY" setRef="5" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Input" name="Click" pattern="ListCellInput">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="9" required="true" />
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="9" getValue="Value" setRef="12" setValue="AREA_NO" />
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="LOT_NO" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="LOCATION_NO" />
+        <map getRef="4" getValue="Value" setRef="12" setValue="STORAGE_QTY" />
+      </input1>
+      <input2>
+        <map getRef="16" getValue="Value" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="17" getValue="Value" setRef="12" setValue="LST_ITEM_CODE" />
+        <map getRef="18" getValue="Value" setRef="12" setValue="LST_LOT_NO" />
+        <map getRef="19" getValue="Value" setRef="12" setValue="LST_LOCATION_NO" />
+      </input2>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="20" setValue="Value" />
+        <map getRef="2" getValue="Value" setRef="18" setValue="Value" />
+        <map getRef="3" getValue="Value" setRef="19" setValue="Value" />
+        <map getRef="4" getValue="Value" setRef="21" setValue="Value" />
+        <map getRef="9" getValue="Value" setRef="22" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="12" />
+      <input1>
+        <map getRef="22" getValue="Value" setRef="12" setValue="AREA_NO" />
+        <map getRef="16" getValue="Value" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="17" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="20" getValue="Value" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="18" getValue="Value" setRef="12" setValue="LOT_NO" />
+        <map getRef="19" getValue="Value" setRef="12" setValue="LOCATION_NO" />
+        <map getRef="21" getValue="Value" setRef="12" setValue="STORAGE_QTY" />
+      </input1>
+      <part11 operationRef="23" operation="SETTING">
+        <out out1Ref="9" out1Value="Value" />
+        <block type="If" tag="1" desc="作業リストが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="24" rightValue="True" />
+        </block>
+        <out out1Ref="25" out1Value="1" />
+        <block type="Else" tag="1" desc="作業リストが選択されている場合" />
+        <out out1Ref="25" out1Value="0" />
+        <block type="None" tag="2" desc="標準出力" />
+        <out out1Ref="17" out1Value="Value" />
+        <out out1Ref="18" out1Value="Value" />
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="21" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="LST_MODIFY" name="Click" pattern="ListCellRowEdit">
+      <output1>
+        <map getRef="17" getValue="Value" setRef="0" setValue="Value" />
+        <map getRef="20" getValue="Value" setRef="1" setValue="Value" />
+        <map getRef="18" getValue="Value" setRef="2" setValue="Value" />
+        <map getRef="19" getValue="Value" setRef="3" setValue="Value" />
+        <map getRef="21" getValue="Value" setRef="4" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="5" type="Empty" />
+      </clear1>
+    </event>
+    <event control="LST_CANCEL" name="Click" pattern="ListCellRowReset" />
+    <event control="btn_AddLocation" name="Click" pattern="Popup">
+      <popup2Display uri="/stock/listbox/add/FaLstAddLocation" businessParameterRef="26" />
+      <input1>
+        <map getRef="9" getValue="Value" setRef="26" setValue="AREA_NO" />
+        <map getRef="0" getValue="Value" setRef="26" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="26" setValue="LOT_NO" />
+        <map getRef="3" getValue="Value" setRef="26" setValue="LOCATION_NO" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="26" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="26" getValue="AREA_NO" setRef="9" setValue="Value" />
+        <map getRef="26" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="26" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="26" getValue="LOT_NO" setRef="2" setValue="Value" />
+        <map getRef="26" getValue="LOCATION_NO" setRef="3" setValue="Value" />
+        <map getRef="26" getValue="STOCK_QTY" setRef="5" setValue="Value" />
+      </output1>
+      <focus controlRef="3" />
+    </event>
+    <event control="btn_WorkListPrint" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="27" exportParameterRef="28" exportName="StorageWorkList" exporter="Print" />
+      <input1>
+        <map getRef="29" getValue="VS_SETTING_UNIT_KEY" setRef="27" setValue="SETTING_UNIT_KEY" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="27" setValue="WORK_TYPE" />
+      </input1>
+      <output1>
+        <map getRef="27" getValue="DFK_DS_NO" setRef="28" setValue="DFK_DS_NO" />
+        <map getRef="27" getValue="DFK_USER_ID" setRef="28" setValue="DFK_USER_ID" />
+        <map getRef="27" getValue="DFK_USER_NAME" setRef="28" setValue="DFK_USER_NAME" />
+        <map getRef="27" getValue="SYS_DAY" setRef="28" setValue="SYS_DAY" />
+        <map getRef="27" getValue="SYS_TIME" setRef="28" setValue="SYS_TIME" />
+        <map getRef="27" getValue="LIST_NO" setRef="28" setValue="LIST_NO" />
+        <map getRef="27" getValue="FROM_SEARCH_DAY" setRef="28" setValue="FROM_SEARCH_DAY" />
+        <map getRef="27" getValue="FROM_SEARCH_TIME" setRef="28" setValue="FROM_SEARCH_TIME" />
+        <map getRef="27" getValue="TO_SEARCH_DAY" setRef="28" setValue="TO_SEARCH_DAY" />
+        <map getRef="27" getValue="TO_SEARCH_TIME" setRef="28" setValue="TO_SEARCH_TIME" />
+        <map getRef="27" getValue="AREA_NO" setRef="28" setValue="AREA_NO" />
+        <map getRef="27" getValue="LOCATION_NO" setRef="28" setValue="LOCATION_NO" />
+        <map getRef="27" getValue="ITEM_CODE" setRef="28" setValue="ITEM_CODE" />
+        <map getRef="27" getValue="ITEM_NAME" setRef="28" setValue="ITEM_NAME" />
+        <map getRef="27" getValue="LOT_NO" setRef="28" setValue="LOT_NO" />
+        <map getRef="27" getValue="WORK_QTY" setRef="28" setValue="WORK_QTY" />
+      </output1>
+      <part11 operationRef="23" operation="PRINT">
+        <out out1Ref="25" />
+      </part11>
+    </event>
+  </events>
+</business>

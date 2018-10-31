@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.base.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.MainMenuSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="MainMenuDataSheet" type="DataSheet" />
+    <ref name="3" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="4" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="exit_Click" pattern="None" order="1" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="MENU_NAME" setterTypeRef="2" setterValue="MENU_NAME" />
+        <map getterTypeRef="0" getterValue="MENU_CODE" setterTypeRef="2" setterValue="MENU_CODE" />
+        <map getterTypeRef="0" getterValue="JOB_TYPE" setterTypeRef="2" setterValue="JOB_TYPE" />
+        <map getterTypeRef="0" getterValue="JOB_DETAILS" setterTypeRef="2" setterValue="JOB_DETAILS" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Commit" order="3">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="2" getterValue="MENU_CODE" setterTypeRef="0" setterValue="MENU_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="2" getterValue="JOB_TYPE" setterTypeRef="3" setterValue="JOB_TYPE" />
+        <map getterTypeRef="2" getterValue="JOB_DETAILS" setterTypeRef="3" setterValue="JOB_DETAILS" />
+        <map getterTypeRef="2" getterValue="MENU_NAME" setterTypeRef="3" setterValue="TITLE" />
+      </output>
+    </method>
+    <method name="menuNo_Enter" pattern="Commit" order="2">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="2" getterValue="MENU_CODE" setterTypeRef="0" setterValue="MENU_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="2" getterValue="JOB_TYPE" setterTypeRef="3" setterValue="JOB_TYPE" />
+        <map getterTypeRef="2" getterValue="JOB_DETAILS" setterTypeRef="3" setterValue="JOB_DETAILS" />
+      </output>
+    </method>
+  </methods>
+</business>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+    </method>
+    <method name="itemCode_Scan" pattern="NoSch" order="1">
+      <validate />
+      <output />
+    </method>
+    <method name="cancel_Click" pattern="None" order="2" />
+    <method name="cp_Click" pattern="NoSch" order="3">
+      <validate />
+      <output />
+    </method>
+    <method name="input1_Click" pattern="None" order="4" />
+    <method name="input2_Click" pattern="None" order="5" />
+    <method name="input3_Click" pattern="None" order="6" />
+    <method name="ent_Click" pattern="NoSch" order="7">
+      <validate />
+      <output />
+    </method>
+  </methods>
+</business>

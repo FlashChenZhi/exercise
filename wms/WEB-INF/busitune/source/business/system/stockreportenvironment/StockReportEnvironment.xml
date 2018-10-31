@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.stockreportenvironment.StockReportEnvironmentBusiness" abstractClassName="jp.co.daifuku.wms.system.display.stockreportenvironment.StockReportEnvironment" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_StockDataFolder" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.StockReportEnvironmentSCH" />
+    <ref name="2" type="Control" typeName="txt_StockDataPrefix" />
+    <ref name="3" type="ViewState" typeName="jp.co.daifuku.wms.system.display.stockreportenvironment.ViewStateKeys" />
+    <ref name="4" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="5" type="String" typeName="String" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_PREFIX" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="3" setValue="VS_DATA_FOLDER" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="ReadOnly" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_PREFIX" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="3" setValue="VS_DATA_FOLDER" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="ReadOnly" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="STOCK_DATA_FOLDER" />
+        <map getRef="2" getValue="Value" setRef="1" setValue="STOCK_DATA_PREFIX" />
+      </input1>
+      <part11 operationRef="4" operation="SETTING">
+        <out out1Ref="5" out1Value="21" />
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="3" out1Value="VS_DATA_FOLDER" />
+      </part11>
+      <output1>
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="0" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_PREFIX" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="STOCK_DATA_FOLDER" setRef="3" setValue="VS_DATA_FOLDER" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="ReadOnly" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tool-config [
+<!ELEMENT tool-config (help,languages?)>
+<!ELEMENT languages (language+)>
+
+<!ATTLIST help file CDATA #REQUIRED>
+<!ATTLIST language display-name CDATA #REQUIRED
+                           lang NMTOKEN #REQUIRED
+                           country NMTOKEN #REQUIRED>
+]>
+
+<tool-config>
+<help file="/bluedog.html" />
+<languages>
+</languages>
+</tool-config>

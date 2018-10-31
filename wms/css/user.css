@@ -1,0 +1,478 @@
+﻿@charset "UTF-8";
+<!-- $Id: user.css 7996 2011-07-06 00:52:24Z kitamaki $ -->
+/*
+ * Copyright 2000-2001 DAIFUKU Co.,Ltd. All Rights Reserved.
+ * 
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+ */
+
+/**
+ * UTF8で保存する必要があるのですが、UTF8で保存するとブラウザによって
+ * ボタンのVALUEが右にずれ、文字が中心にこない現象が出ます。
+ * 現状原因が分かりません。もしその現象が発生したら澤まで連絡ください。
+ *                                                      2002/09/21 sawa
+ * @version $Revision: 7996 $, $Date: 2011-07-06 09:52:24 +0900 (水, 06 7 2011) $
+ * @author  $Author: kitamaki $
+ */
+
+/*--------------------------------------*/
+/* 表示文字項目（ラベル）               */
+/*--------------------------------------*/
+/* 通常黒文字                           */
+/* コロンの左側に配置する場合に使用する */
+.lbl-black-005 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	height				: 26px;
+	padding-top			: 5px;
+	margin-left			: 7px;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* 通常黒文字                             */
+/* リストボックスに配置する場合に使用する */
+.lbl-black-006 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	height				: 26px;
+	padding-top			: 4px;
+	margin-left			: 7px;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+} 
+
+/* 通常黒文字                                                           */
+/* コロンの右側、ラジオボタン、チェックボックスに配置する場合に使用する */
+.lbl-black-007 {
+	color				: black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	height				: 26px;
+	padding-top			: 4px;
+	margin-left			: 7px;
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+} 
+
+/* 通常黒字													*/
+/* リストセル内のラベルに使用する							*/
+.lbl-black-008{
+	color				:black;
+	font-size			:100%;
+}
+
+/* 大きい黒文字・太文字            */
+.lbl-black-large-001 {
+	color				: black;
+	font-weight			: bold;
+	font-size			: 200%;
+	font-family			: monospace;
+	text-decoration		: none;
+	height				: 38px;
+	padding-top			: 12px;
+	margin-left			: 7px;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* 必須入力を表すアスタリク(*)                              */
+/* 必須入力の入力コントロールの右側に配置する場合に使用する */
+.lbl-red-001 {
+	color				: red;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	position			: relative;
+	height				: 38px;
+	padding-top			: 12px;
+	margin-left			: 7px;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/*------------------------------------------*/
+/* 表示文字項目（リストセル明細行）         */
+/*------------------------------------------*/
+/* リストセルの明細行 中央表示 左に区切り線 */
+.listcell-detail2-center
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* リストセルの明細行 中央表示 左/右/最下行に区切り線 */
+.listcell-detail2-center-delim
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+	border-right     	: 1px solid #413a8a;
+	border-bottom     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* リストセルの明細行 中央表示 区切り線無し */
+.listcell-detail2-center-nodelim
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+}
+
+/* リストセルの明細行 中央表示 右端 */
+.listcell-detail2-center-right
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+	border-bottom     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* リストセルの明細行 中央表示 左端 */
+.listcell-detail2-center-left
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-bottom     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+
+/* リストセルの明細行 右揃表示 */
+.listcell-detail2-right
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: right;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* リストセルの明細行 右揃表示 区切り線無し*/
+.listcell-detail2-right-nodelim
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: right;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+}
+
+/* リストセルの明細行 左揃表示 */
+.listcell-detail2-left
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: left;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+
+/* リストセルの明細行 左揃表示 改行あり*/
+.listcell-detail2-left-wordbreak
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: left;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+	word-break : break-all;
+}
+
+
+/* リストセルの明細行 左揃表示 */
+.listcell-detail2-left-nodelim
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: left;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+}
+
+
+/* テキストの高さを一番上に表示する */
+/* リストセルの明細行 中央表示 左に区切り線 */
+.listcell-detail3-center
+{
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	vertical-align		: text-top;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+
+/* テキストの高さを一番上に表示する */
+/* リストセルの明細行 中央表示 左に区切り線 */
+.listcell-detail4-left
+{
+	font-size			: 15px;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: left;
+	vertical-align		: text-top;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	position			: relative;
+	border-left     	: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* 2009/06/09 H.Okayama Add Start */
+/* テキストを中央に表示する(PCT実績集計用) */
+/* 平均値リストセルの明細行 中央表示 左に区切り線 */
+.listcell-searchcondition-center
+{
+	background-color	: #b8b7d7;
+	color				: Black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+	border-left			: 1px solid #413a8a;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+}
+
+/* テキストを中央に表示する(PCT実績集計用) */
+/* 平均値リストセルの明細行 中央表示 区切り線無し */
+.listcell-searchcondition-center-nodelim
+{
+	background-color	: #b8b7d7;
+	color				: Black;
+	font-size			: 100%;
+	font-family			: monospace;
+	text-decoration		: none;
+	text-align			: center;
+	padding-top			: 4px;
+	padding-right		: 4px;
+	padding-left		: 4px;
+}
+/* 2009/06/09 H.Okayama Add End */
+
+/*--------------------------------------*/
+/*	BUTTON								*/
+/*--------------------------------------*/
+/* 「メニューへ(F12)」	2005/03/16 add nic:kato   */
+/*-- Ver5.2  DEL ST ----> 
+.btn-tomenu-fkey {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	line-height			: 19px;
+	font-family			: "MS Gothic",FixedSys;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 150px;
+	height				: 24px;
+	margin-right		: 7px;
+	vertical-align		: 2px;
+}
+-- Ver5.2 DEL ED <----*/
+
+/*--------------------------------------*/
+/* 入力項目                             */
+/*--------------------------------------*/
+/* リストセル用の数値、日付テキストボックス（IME Mode Off） */
+.txt-003-list {
+	ime-mode			: disabled;
+	font-weight			: bold; 
+	font-size			: 100%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+	height				: 1.5em; 
+/*	height				: 1.35em; */
+	margin-top			: 0px;
+	margin-bottom		: 0px;
+}
+
+/*リストボックスのボタン（英語対応:幅･高さ可変）
+	add 2008/08/09 N.Arai */
+.btn-listcell-004 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: "ＭＳ ゴシック", FixedSys;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+	width 				: 100%;
+	height				: 100%;
+}
+
+/* 大きい文字項目 太字                    */
+/* 未設定時(string1)                    */
+.txt-large-001 {
+/*	ime-mode			: active; */
+	font-weight			: bold; 
+	font-size			: 200%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+	height				: 1.5em; 
+/*	height				: 1.35em; */
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+/* 大きい 数値、日付テキストボックス（IME Mode Off） */
+.txt-large-003 {
+	ime-mode			: disabled;
+	font-weight			: bold; 
+	font-size			: 200%;
+	line-height			: 120%;
+	font-family			: monospace;
+	text-decoration		: none;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #6a628b #d6d1ea #d6d1ea #6a628b;
+/*-- Ver5.2 ADD ST -->*/
+	box-sizing			: border-box;
+/*-- Ver5.2 ADD ED <--*/
+	height				: 1.5em; 
+/*	height				: 1.35em; */
+	margin-top			: 4px;
+	margin-bottom		: 4px;
+}
+
+
+/* スクロールリストセルのボタン定義 */
+/* ボタン以外に他コントロールが存在する場合のみ */
+/*-- Ver5.2 DEL ST ---->
+.btn-ScrollListcell-001 {
+	color				: white;
+	font-style			: normal;
+	font-weight			: normal;
+	font-size			: 16px;
+	font-family			: "ＭＳ ゴシック", FixedSys;
+	text-decoration		: none;
+	background-color	: #fc8800;
+	border-style		: solid;
+	border-width		: 2px;
+	border-color		: #fdb561 #884700 #884700 #fdb561;
+	width				: 100%;
+	height				: 30px;
+}
+-- Ver5.2 DEL ED ---->*/

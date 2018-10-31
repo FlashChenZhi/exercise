@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--OrderPickingOrderNoInput-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontBtn2" fontname="Tahoma" bold="true" italic="false" size="12" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" modeonline="true" focus="%CommonDataSheet.FocusField%" wave="%CommonDataSheet.BeepWav%" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>200</w>
+      <h>26</h>
+      <caption>Order # Input</caption>
+    </label>
+    <label name="lblMsg" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>50</y>
+      <w>320</w>
+      <h>20</h>
+      <caption>Enter Order #</caption>
+    </label>
+    <edit name="OrderNo1" autoselect="true" enabled="%OrderDataSheet.ORDER_NO1_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-time="1" bht-ng-count="1" bht-ng-alarm="Low" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>5</x>
+      <y>70</y>
+      <w>255</w>
+      <h>25</h>
+      <text>%OrderDataSheet.ORDER_NO1%</text>
+      <next>OrderNo2</next>
+      <event>RetOrderI_Ent</event>
+    </edit>
+    <edit name="OrderNo2" autoselect="true" enabled="%OrderDataSheet.ORDER_NO2_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>5</x>
+      <y>95</y>
+      <w>255</w>
+      <h>25</h>
+      <text>%OrderDataSheet.ORDER_NO2%</text>
+      <next>OrderNo3</next>
+      <event>RetOrderI_Ent</event>
+    </edit>
+    <edit name="OrderNo3" autoselect="true" enabled="%OrderDataSheet.ORDER_NO3_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>5</x>
+      <y>120</y>
+      <w>255</w>
+      <h>25</h>
+      <text>%OrderDataSheet.ORDER_NO3%</text>
+      <next>OrderNo4</next>
+      <event>RetOrderI_Ent</event>
+    </edit>
+    <edit name="OrderNo4" autoselect="true" enabled="%OrderDataSheet.ORDER_NO4_INPUT_ENABLED%" font-id="fontBold" inputchecked="false" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non" modeonline="true" voiceenabled="" voicedigit="true" voiceunit="">
+      <x>5</x>
+      <y>145</y>
+      <w>255</w>
+      <h>25</h>
+      <text>%OrderDataSheet.ORDER_NO4%</text>
+      <event>RetOrderI_Ent</event>
+    </edit>
+    <label name="lblConsignor" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>185</y>
+      <w>300</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>203</y>
+      <w>215</w>
+      <h>18</h>
+      <caption>%ConsignorDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>221</y>
+      <w>243</w>
+      <h>18</h>
+      <caption>%ConsignorDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>0</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>Start Picking</caption>
+      <event>RetOrderI_Commit</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>160</x>
+      <y>275</y>
+      <w>160</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RetOrderI_Back</event>
+    </button>
+    <button name="Clear" font-id="fontBtn2" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>260</x>
+      <y>110</y>
+      <w>60</w>
+      <h>60</h>
+      <caption>Clear</caption>
+      <event>RetOrderI_Clear</event>
+    </button>
+    <button name="List" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>216</x>
+      <y>0</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>List</caption>
+      <event>RetOrderI_List</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>175</y>
+      <w>324</w>
+      <h>97</h>
+    </label>
+  </form>
+</HaiSurf.Page>

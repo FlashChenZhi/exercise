@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imagetemplates>
+  <imagetemplate key="lst_Dafault_01">
+    <imagefilename value="DefaultScrollListCell_1_Image.gif"/>
+  </imagetemplate>
+  <imagetemplate key="lst_Dafault_02">
+    <imagefilename value="DefaultScrollListCell_2_Image.gif"/>
+  </imagetemplate>
+  <imagetemplate key="lst_Dafault_03">
+    <imagefilename value="DefaultScrollListCell_3_Image.gif"/>
+  </imagetemplate>
+</imagetemplates>

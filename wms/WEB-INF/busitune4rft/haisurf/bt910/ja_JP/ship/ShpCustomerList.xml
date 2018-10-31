@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--出荷検品出荷先一覧画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>出荷先一覧　　　　　　</caption>
+    </label>
+    <label name="lblPagetitle" font-id="" visible="true">
+      <align>left</align>
+      <x>90</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>%CustomerListDataSheet.$PAGE%/%CustomerListDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <label name="CustomerCode1" font-id="%CustomerListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_CODE[0]%                    </caption>
+    </label>
+    <label name="CustomerName1" font-id="%CustomerListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>26</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_NAME[0]%　　　　　　　　　　</caption>
+    </label>
+    <label name="CustomerCode2" font-id="%CustomerListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_CODE[1]%                    </caption>
+    </label>
+    <label name="CustomerName2" font-id="%CustomerListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>52</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_NAME[1]%　　　　　　　　　　</caption>
+    </label>
+    <label name="CustomerCode3" font-id="%CustomerListDataSheet.@FONT[2]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>67</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_CODE[2]%                    </caption>
+    </label>
+    <label name="CustomerName3" font-id="%CustomerListDataSheet.@FONT[2]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>20</w>
+      <caption>%CustomerListDataSheet.@CUSTOMER_NAME[2]%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblMsg" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>出荷先を選択</caption>
+    </label>
+    <button name="Prev" font-id="" visible="false" enabled="%CustomerListDataSheet.$PREV_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpCustL_Prev</event>
+      <key>LT</key>
+    </button>
+    <button name="Next" font-id="" visible="false" enabled="%CustomerListDataSheet.$NEXT_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpCustL_Next</event>
+      <key>RT</key>
+    </button>
+    <button name="Up" font-id="" visible="false" enabled="%CustomerListDataSheet.$UP_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpCustL_Up</event>
+      <key>UP</key>
+    </button>
+    <button name="Down" font-id="" visible="false" enabled="%CustomerListDataSheet.$DOWN_ENABLED%" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>ShpCustL_Down</event>
+      <key>DW</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="false">
+      <x>66</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption> ENT:選択</caption>
+      <event>ShpCustL_Ent</event>
+      <key>ET</key>
+    </button>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る     </caption>
+      <event>ShpCustL_Back</event>
+      <key>KL</key>
+    </button>
+  </form>
+</HaiSurf.Page>

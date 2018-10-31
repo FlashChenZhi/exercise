@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.rftworkingmodesetting.RFTWorkingModeSettingBusiness" abstractClassName="jp.co.daifuku.wms.system.display.rftworkingmodesetting.RFTWorkingModeSetting" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_RFTNo" />
+    <ref name="1" type="Control" typeName="chk_WorkKind_Receiving" />
+    <ref name="2" type="Control" typeName="chk_WorkKind_Storage" />
+    <ref name="3" type="Control" typeName="chk_WorkKind_Retrieval" />
+    <ref name="4" type="Control" typeName="chk_WorkKind_Sort" />
+    <ref name="5" type="Control" typeName="chk_WorkKind_Shipping" />
+    <ref name="6" type="Control" typeName="chk_WorkKind_NoPlanRetrieval" />
+    <ref name="7" type="Control" typeName="chk_WorkKind_NoPlanStorage" />
+    <ref name="8" type="Control" typeName="chk_WorkKind_Inventry" />
+    <ref name="9" type="Control" typeName="chk_WorkKind_RelocatinoRetriev" />
+    <ref name="10" type="Control" typeName="chk_WorkKind_RelocatinoStorage" />
+    <ref name="11" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.RFTWorkingModeSettingSCH" />
+    <ref name="12" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="13" type="Control" typeName="ITFtoJAN" />
+    <ref name="14" type="Control" typeName="CasePieseMode" />
+    <ref name="15" type="Control" typeName="InspectionMode" />
+    <ref name="16" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="17" type="Boolean" typeName="Boolean" />
+    <ref name="18" type="String" typeName="String" />
+    <ref name="19" type="Control" typeName="rdo_ITFtoJAN_ON" />
+    <ref name="20" type="Control" typeName="rdo_ITFtoJAN_OFF" />
+    <ref name="21" type="Control" typeName="rdo_CasePieseMode_Case" />
+    <ref name="22" type="Control" typeName="rdo_CasePieseMode_Piese" />
+    <ref name="23" type="Control" typeName="rdo_InspectionMode_ON" />
+    <ref name="24" type="Control" typeName="rdo_InspectionMode_OFF" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_RFTNo" dataType="WmsRftNo" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Checked" />
+        <clear controlRef="2" type="Checked" />
+        <clear controlRef="3" type="Checked" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Checked" />
+        <clear controlRef="6" type="Checked" />
+        <clear controlRef="7" type="Checked" />
+        <clear controlRef="8" type="Checked" />
+        <clear controlRef="9" type="Checked" />
+        <clear controlRef="10" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="UnChecked" />
+        <clear controlRef="2" type="UnChecked" />
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="UnChecked" />
+        <clear controlRef="7" type="UnChecked" />
+        <clear controlRef="8" type="UnChecked" />
+        <clear controlRef="9" type="UnChecked" />
+        <clear controlRef="10" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_Set2" name="Click" pattern="Regist">
+      <sch2Display schRef="11" />
+      <validate>
+        <validate controlRef="12" />
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="11" setValue="RFT_NO" />
+        <map getRef="1" getValue="Value" setRef="11" setValue="WORK_KIND_RECEIVING" />
+        <map getRef="2" getValue="Value" setRef="11" setValue="WORK_KIND_STORAGE" />
+        <map getRef="3" getValue="Value" setRef="11" setValue="WORK_KIND_RETRIEVAL" />
+        <map getRef="4" getValue="Value" setRef="11" setValue="WORK_KIND_SORT" />
+        <map getRef="5" getValue="Value" setRef="11" setValue="WORK_KIND_SHIPPING" />
+        <map getRef="10" getValue="Value" setRef="11" setValue="WORK_KIND_RELOCATINO_STORAGE" />
+        <map getRef="9" getValue="Value" setRef="11" setValue="WORK_KIND_RELOCATINO_RETRIEV" />
+        <map getRef="8" getValue="Value" setRef="11" setValue="WORK_KIND_INVENTRY" />
+        <map getRef="7" getValue="Value" setRef="11" setValue="WORK_KIND_NO_PLAN_STORAGE" />
+        <map getRef="6" getValue="Value" setRef="11" setValue="WORK_KIND_NO_PLAN_RETRIEVAL" />
+        <map getRef="12" getValue="Value" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="13" getValue="Value" setRef="11" setValue="ITF_TO_JAN" />
+        <map getRef="14" getValue="Value" setRef="11" setValue="CASE_PIESE_MODE" />
+        <map getRef="15" getValue="Value" setRef="11" setValue="INSPECTION_MODE" />
+      </input1>
+      <part11 operationRef="16" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <block type="If" tag="1" desc="入荷がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="1" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="1" desc="入荷がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="2" desc="入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="2" desc="入庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="3" desc="出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="3" desc="出庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="4" desc="仕分がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="4" desc="仕分がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="5" desc="出荷がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="5" desc="出荷がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="6" desc="移動出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="9" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="6" desc="移動出庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="7" desc="移動入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="10" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="7" desc="移動入庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="8" desc="棚卸がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="8" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="8" desc="棚卸がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="9" desc="予定外入庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="7" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="9" desc="予定外入庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="10" desc="予定外出庫がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="6" leftValue="Value" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="Else" tag="10" desc="予定外出庫がチェックされている場合" />
+        <out out1Ref="18" out1Value="0" />
+        <out out1Ref="12" out1Value="Value" />
+        <block type="If" tag="11" desc="ITFtoJANの有効がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="19" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="If" tag="12" desc="ITFtoJANの無効がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="20" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="0" />
+        <block type="If" tag="13" desc="ケースがチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="21" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="If" tag="14" desc="ピースがチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="22" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="2" />
+        <block type="If" tag="15" desc="検品モードの有効がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="23" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="1" />
+        <block type="If" tag="16" desc="検品モードの無効がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="24" leftValue="Checked" rightRef="17" rightValue="True" />
+        </block>
+        <out out1Ref="18" out1Value="0" />
+      </part11>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="20" type="Checked" />
+        <clear controlRef="22" type="Checked" />
+        <clear controlRef="24" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

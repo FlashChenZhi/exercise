@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_2.dtd">
+<!-- $Id: bluedog-html.tld 45 2010-03-29 08:31:05Z dfk_sumiyama $ -->
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>1.2</jsp-version>
+<short-name>h</short-name>
+
+<!-- HtmlTag -->
+<tag>
+  <name>html</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.HtmlTag</tag-class>
+  <body-content>JSP</body-content>
+</tag>
+
+<!-- HeadTag -->
+<tag>
+  <name>head</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.HeadTag</tag-class>
+  <body-content>JSP</body-content>
+</tag>
+
+<!-- PageTag -->
+<tag>
+  <name>page</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.PageTag</tag-class>
+  <body-content>JSP</body-content>
+</tag>
+
+<!--LabelTag-->
+<tag>
+  <name>label</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.LabelTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--MessageTag-->
+<tag>
+  <name>message</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.MessageTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--FreeTextBoxTag-->
+<tag>
+  <name>freetextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.FreeTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--NumberTextBoxTag-->
+<tag>
+  <name>numbertextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.NumberTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--FormatTextBoxTag-->
+<tag>
+  <name>formattextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.FormatTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--DateTextBoxTag-->
+<tag>
+  <name>datetextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.DateTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--TimeTextBoxTag-->
+<tag>
+  <name>timetextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.TimeTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--BarCodeTextBoxTag-->
+<tag>
+  <name>barcodetextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.BarCodeTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--PasswordTextBoxTag-->
+<tag>
+  <name>passwordtextbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.PasswordTextBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--TextAreaTag-->
+<tag>
+  <name>textarea</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.TextAreaTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--PullDownTag-->
+<tag>
+  <name>pulldown</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.PullDownTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--LinkedPullDownTag-->
+<tag>
+  <name>linkedpulldown</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.LinkedPullDownTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--ListBoxTag-->
+<tag>
+  <name>listbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.ListBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--RadioButtonTag-->
+<tag>
+  <name>radiobutton</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.RadioButtonTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--CheckBoxTag-->
+<tag>
+  <name>checkbox</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.CheckBoxTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--FileBrowsTag-->
+<tag>
+  <name>filebrows</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.FileBrowsTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--SubmitButtonTag-->
+<tag>
+  <name>submitbutton</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.SubmitButtonTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--SubmitLabelTag-->
+<tag>
+  <name>submitlabel</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.SubmitLabelTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--LinkButtonTag-->
+<tag>
+  <name>linkbutton</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.LinkButtonTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--LinkLabelTag-->
+<tag>
+  <name>linklabel</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.LinkLabelTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--ImageButtonTag-->
+<tag>
+  <name>imagebutton</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.ImageButtonTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--ImageLinkTag-->
+<tag>
+  <name>imagelink</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.ImageLinkTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--TabTag-->
+<tag>
+  <name>tab</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.TabTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--PagerTag-->
+<tag>
+  <name>pager</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.PagerTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--ListCellTag-->
+<tag>
+  <name>listcell</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.ListCellTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--FixedListCellTag-->
+<tag>
+  <name>fixedlistcell</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.FixedListCellTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--ScrollListCellTag-->
+<tag>
+  <name>scrolllistcell</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.ScrollListCellTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+
+<!-- for version 4.0 -->
+
+<tag>
+  <name>horizontalbarchart</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.HorizontalBarChartTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+
+<tag>
+  <name>verticalbarlinechart</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.VerticalBarLineChartTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+ </attribute>
+</tag>
+
+<tag>
+  <name>ganttchart</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.GanttChartTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+
+<tag>
+  <name>piechart</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.PieChartTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+
+<tag>
+  <name>generalchart</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.GeneralChartTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!--MultiroleListCellTag-->
+<!-- Add Start 2010/02/26 T.Sumiyama for5.2 -->
+<tag>
+  <name>multirolelistcell</name>
+  <tag-class>jp.co.daifuku.bluedog.ui.taglib.MultiroleListCellTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+    <name>id</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+    <name>templateKey</name>
+    <required>false</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+<!-- Add End 2010/02/26 Sumiyama for5.2 -->
+</taglib>
+
+

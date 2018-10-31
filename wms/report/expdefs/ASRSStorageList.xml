@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0701" downloadName="ASRSStorageList" reportName="LBL-W1308">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="area_no" type="area" header="LBL-W0228" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_name" type="string" header="LBL-W0229" printEnabled="true" xlsEnabled="true"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="station_no" type="string" header="LBL-W0303" printEnabled="true" xlsEnabled="true"/>
+    <field name="station_name" type="string" header="LBL-W0304" printEnabled="true" xlsEnabled="true"/>
+    <field name="job_no" type="string" header="LBL-W0074" printEnabled="true" xlsEnabled="true"/>
+    <field name="storage_location_no" type="location" header="LBL-W0158" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="lot_no" type="string" header="LBL-W0035" printEnabled="true" xlsEnabled="true"/>
+    <field name="storage_plan_day" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0161" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="entering_qty" type="number" format="#,##0" header="LBL-W0019" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="storage_case_qty" type="number" format="#,##0" header="LBL-W0152" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="storage_piece_qty" type="number" format="#,##0" header="LBL-W0153" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="jan" type="string" header="LBL-W0002" printEnabled="true" xlsEnabled="true"/>
+    <field name="itf" type="string" header="LBL-W0017" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

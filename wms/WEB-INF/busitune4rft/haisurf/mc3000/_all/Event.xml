@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Event>
+
+  <initial>
+    <!--Describe here the initial processing of the application.-->
+    <append ds="BusinessControlDataSheet.NORMAL_FONT" value="font12" />
+    <append ds="BusinessControlDataSheet.SELECTED_FONT" value="font12r" />
+    <append ds="BusinessControlDataSheet.SCREEN_WIDTH" value="20" />
+    <append ds="BusinessControlDataSheet.SCREEN_HEIGHT" value="10" />
+  </initial>
+
+  <session-error>
+    <!--Describe here the process of error session.-->
+    <append ds="BusinessControlDataSheet.NORMAL_FONT" value="font12" />
+    <append ds="BusinessControlDataSheet.SELECTED_FONT" value="font12r" />
+    <append ds="BusinessControlDataSheet.SCREEN_WIDTH" value="20" />
+    <append ds="BusinessControlDataSheet.SCREEN_HEIGHT" value="10" />
+  </session-error>
+
+</HaiSurf.Event>

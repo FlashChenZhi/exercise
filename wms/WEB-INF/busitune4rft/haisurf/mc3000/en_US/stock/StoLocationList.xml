@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--LocationList-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>200</w>
+      <h>24</h>
+      <caption>%LocationListDataSheet.TITLE%</caption>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>202</x>
+      <y>6</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>(Page:%LocationListDataSheet.$PAGE%/%LocationListDataSheet.$NUM_PAGES%)</caption>
+    </label>
+    <button name="Ent1" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.@ENABLED[0]%" inputchecked="false">
+      <x>0</x>
+      <y>54</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%LocationListDataSheet.@DISP_LOCATION[0]%</caption>
+      <event>LocationL_Ent1</event>
+    </button>
+    <button name="Ent2" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.@ENABLED[1]%" inputchecked="false">
+      <x>0</x>
+      <y>108</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%LocationListDataSheet.@DISP_LOCATION[1]%</caption>
+      <event>LocationL_Ent2</event>
+    </button>
+    <button name="Ent3" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.@ENABLED[2]%" inputchecked="false">
+      <x>0</x>
+      <y>162</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%LocationListDataSheet.@DISP_LOCATION[2]%</caption>
+      <event>LocationL_Ent3</event>
+    </button>
+    <button name="Ent4" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.@ENABLED[3]%" inputchecked="false">
+      <x>0</x>
+      <y>216</y>
+      <w>324</w>
+      <h>54</h>
+      <caption>%LocationListDataSheet.@DISP_LOCATION[3]%</caption>
+      <event>LocationL_Ent4</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.$PREV_ENABLED%" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>LocationL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%LocationListDataSheet.$NEXT_ENABLED%" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>LocationL_Next</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Retrun</caption>
+      <event>LocationL_Back</event>
+    </button>
+  </form>
+</HaiSurf.Page>

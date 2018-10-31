@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.receiving.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="ReceivingOutDataSheet" type="DataSheet" />
+    <ref name="1" typeName="jp.co.daifuku.wms.receiving.rft.schedule.RecCompleteSCH" type="Sch" />
+    <ref name="2" typeName="Constants" type="Constants" />
+    <ref name="3" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="4" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="5" typeName="ReceivingInDataSheet" type="DataSheet" />
+    <ref name="6" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+      <focus fieldTypeRef="6" field="ItemCode" />
+    </method>
+    <method name="input2_Click" pattern="NoSch" order="7">
+      <validate />
+      <output />
+    </method>
+    <method name="itemCode_Scan" pattern="NoSch" order="6">
+      <validate />
+      <output />
+    </method>
+    <method name="cancel_Click" pattern="None" order="5" />
+    <method name="cp_Click" pattern="NoSch" order="2">
+      <validate />
+      <output />
+      <focus fieldTypeRef="6" field="ItemCode" />
+    </method>
+    <method name="detail_Click" pattern="None" order="8" />
+    <method name="all_Click" pattern="NoSch" order="1">
+      <validate />
+      <output>
+        <map getterTypeRef="0" getterValue="PLAN_QTY" setterTypeRef="0" setterValue="RESULT_QTY" />
+        <map getterTypeRef="0" getterValue="PLAN_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="PLAN_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+      </output>
+      <focus fieldTypeRef="6" field="ItemCode" />
+    </method>
+    <method name="input1_Click" pattern="None" order="3" />
+    <method name="ent_Click" pattern="Commit" order="4">
+      <validate />
+      <schBase schRef="1" />
+      <schInput>
+        <map getterTypeRef="2" getterValue="COMPLETION_FLAG_DECISION" setterTypeRef="1" setterValue="COMPLETION_FLAG" />
+        <map getterTypeRef="3" getterValue="TERMINAL_NO" setterTypeRef="1" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="4" getterValue="USER_ID" setterTypeRef="1" setterValue="USER_ID" />
+        <map getterTypeRef="0" getterValue="SETTING_UNIT_KEY" setterTypeRef="1" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="0" getterValue="PLAN_DATE" setterTypeRef="1" setterValue="PLAN_DATE" />
+        <map getterTypeRef="0" getterValue="CONSIGNOR_CODE" setterTypeRef="1" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="0" getterValue="SUPPLIER_CODE" setterTypeRef="1" setterValue="SUPPLIER_CODE" />
+        <map getterTypeRef="0" getterValue="COLLECT_JOB_NO" setterTypeRef="1" setterValue="COLLECT_JOB_NO" />
+        <map getterTypeRef="0" getterValue="TICKET_NO" setterTypeRef="1" setterValue="TICKET_NO" />
+        <map getterTypeRef="0" getterValue="TICKET_LINE_NO" setterTypeRef="1" setterValue="TICKET_LINE_NO" />
+        <map getterTypeRef="0" getterValue="ITEM_CODE" setterTypeRef="1" setterValue="ITEM_CODE" />
+        <map getterTypeRef="0" getterValue="JAN" setterTypeRef="1" setterValue="JAN" />
+        <map getterTypeRef="0" getterValue="ITF" setterTypeRef="1" setterValue="ITF" />
+        <map getterTypeRef="0" getterValue="ENTERING_QTY" setterTypeRef="1" setterValue="ENTERING_QTY" />
+        <map getterTypeRef="0" getterValue="PLAN_LOT_NO" setterTypeRef="1" setterValue="PLAN_LOT_NO" />
+        <map getterTypeRef="0" getterValue="RESULT_LOT_NO" setterTypeRef="1" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="RESULT_QTY" setterTypeRef="1" setterValue="RESULT_QTY" />
+        <map getterTypeRef="4" getterValue="START_DATE_TIME" setterTypeRef="1" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="4" getterValue="MISS_SCAN_COUNT" setterTypeRef="1" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="5" getterValue="FORCE_STRAGE_FLAG" setterTypeRef="1" setterValue="FORCE_STRAGE_FLAG" />
+      </schInput>
+      <output />
+    </method>
+  </methods>
+</business>

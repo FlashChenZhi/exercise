@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.listbox.userid.LstUserIdBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.listbox.userid.LstUserId" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_USER_ID" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.userid.LstUserIdParams" />
+    <ref name="3" type="Control" typeName="LST_USER_NAME" />
+    <ref name="4" type="Control" typeName="LST_ROLE_ID" />
+    <ref name="5" type="Control" typeName="LST_ROLE" />
+    <ref name="6" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstUserIdDASCH" />
+    <ref name="7" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_PCTUserIdList">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_USER_ID" orgIndex="2" resourceKey="LBL-P0081" dataType="String" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="3" resourceKey="LBL-P0158" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="USER_ID" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="USER_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="ROLE_ID" />
+        <map getRef="5" getValue="Value" setRef="2" setValue="ROLE_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="6" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="USER_ID" setRef="6" setValue="USER_ID" />
+        <map getRef="2" getValue="SEARCHTABLE" setRef="6" setValue="SEARCHTABLE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="WORK_DAY" setRef="6" setValue="WORK_DAY" />
+        <map getRef="2" getValue="BATCH_NO" setRef="6" setValue="BATCH_NO" />
+        <map getRef="2" getValue="BATCH_SEQ_NO" setRef="6" setValue="BATCH_SEQ_NO" />
+        <map getRef="2" getValue="AREA_NO" setRef="6" setValue="AREA_NO" />
+        <map getRef="2" getValue="PLAN_DAY" setRef="6" setValue="PLAN_DAY" />
+        <map getRef="2" getValue="REGULAR_CUSTOMER_CODE" setRef="6" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="2" getValue="CUSTOMER_CODE" setRef="6" setValue="CUSTOMER_CODE" />
+        <map getRef="2" getValue="ORDER_NO" setRef="6" setValue="ORDER_NO" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="JOB_STATUS" setRef="6" setValue="JOB_STATUS" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="SELECT" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="USER_ID" setRef="1" setValue="Value" />
+        <map getRef="6" getValue="USER_NAME" setRef="3" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="USER_ID" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="USER_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

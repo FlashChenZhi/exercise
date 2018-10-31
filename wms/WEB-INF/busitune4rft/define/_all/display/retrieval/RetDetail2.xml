@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.retrieval.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="back_Click" pattern="None" order="1" />
+  </methods>
+</business>

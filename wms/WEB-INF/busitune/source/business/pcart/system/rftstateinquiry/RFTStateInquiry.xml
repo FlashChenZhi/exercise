@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.system.display.rftstateinquiry.RFTStateInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.system.display.rftstateinquiry.RFTStateInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_DisplayOder_Area" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.system.schedule.RFTStateInquirySCH" />
+    <ref name="2" type="Control" typeName="rdo_CollectCondition" />
+    <ref name="3" type="Control" typeName="LST_RFT_NO" />
+    <ref name="4" type="Control" typeName="LST_TERMINAL_FLAG" />
+    <ref name="5" type="Control" typeName="LST_STATUS" />
+    <ref name="6" type="Control" typeName="LST_USER_NAME" />
+    <ref name="7" type="Control" typeName="LST_AREA_NO" />
+    <ref name="8" type="ViewState" typeName="jp.co.daifuku.pcart.system.display.rftstateinquiry.ViewStateKeys" />
+    <ref name="9" type="Control" typeName="rdo_DisplayOder_RFTNo" />
+  </refs>
+  <listcells>
+    <listcell name="lst_RFTState">
+      <listcellColumn name="LST_DETAILS" orgIndex="1" resourceKey="LBL-T0085" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_RFT_NO" orgIndex="2" resourceKey="LBL-W9031" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_FLAG" orgIndex="3" resourceKey="LBL-W0143" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATUS" orgIndex="4" resourceKey="LBL-W0132" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="5" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="6" resourceKey="LBL-P0043" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="COLLECT_CONDITION" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_FLAG" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="LST_DETAILS" name="Click" pattern="ParentRedirect" />
+    <event control="btn_ReDisplay" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="2" />
+      </validate>
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="COLLECT_CONDITION" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_FLAG" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="7" setValue="Value" />
+        <map getRef="2" getValue="Value" setRef="8" setValue="VS_COLLECT_CONDITION" />
+      </output1>
+    </event>
+    <event control="rdo_DisplayOder_Area" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="COLLECT_CONDITION" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_FLAG" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="rdo_DisplayOder_RFTNo" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="1" setValue="COLLECT_CONDITION" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="RFT_NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="TERMINAL_FLAG" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="STATUS" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="AREA_NO" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="9" type="Checked" />
+      </clear1>
+    </event>
+  </events>
+</business>

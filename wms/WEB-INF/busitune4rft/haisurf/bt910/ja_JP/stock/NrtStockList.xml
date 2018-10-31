@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--予定外出庫在庫一覧画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2">
+    <label name="titleback" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>在庫一覧　　　 %NoPlanRetrievalStockListDataSheet.$PAGE%/%NoPlanRetrievalStockListDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <label name="lblItemCode1" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@ITEM_CODE[0]%                    </caption>
+    </label>
+    <label name="lblItemName1" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>26</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@ITEM_NAME[0]%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblLot1" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[0]%" visible="%NoPlanRetrievalStockListDataSheet.@ENABLED[0]%">
+      <align>left</align>
+      <x>0</x>
+      <y>38</y>
+      <w>8</w>
+      <caption>ﾛｯﾄ:</caption>
+    </label>
+    <label name="lblLotNo1" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>22</x>
+      <y>38</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@LOT_NO[0]%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblItemCode2" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@ITEM_CODE[1]%                    </caption>
+    </label>
+    <label name="lblItemName2" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>65</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@ITEM_NAME[1]%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblLot2" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[1]%" visible="%NoPlanRetrievalStockListDataSheet.@ENABLED[1]%">
+      <align>left</align>
+      <x>0</x>
+      <y>77</y>
+      <w>8</w>
+      <caption>ﾛｯﾄ:</caption>
+    </label>
+    <label name="lblLotNo2" font-id="%NoPlanRetrievalStockListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>22</x>
+      <y>77</y>
+      <w>20</w>
+      <caption>%NoPlanRetrievalStockListDataSheet.@LOT_NO[1]%　　　　　　　　　　</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る　　　　</caption>
+      <event>NrtStockL_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:選択　　</caption>
+      <event>NrtStockL_Ent</event>
+      <key>ET</key>
+    </button>
+    <label name="lblMsg" font-id="" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>出庫する商品を選択</caption>
+    </label>
+    <button name="Up" font-id="" visible="true" enabled="%NoPlanRetrievalStockListDataSheet.$UP_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtStockL_Up</event>
+      <key>UP</key>
+    </button>
+    <button name="Down" font-id="" visible="true" enabled="%NoPlanRetrievalStockListDataSheet.$DOWN_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtStockL_Down</event>
+      <key>DW</key>
+    </button>
+    <button name="Prev" font-id="" visible="true" enabled="%NoPlanRetrievalStockListDataSheet.$PREV_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtStockL_Prev</event>
+      <key>LT</key>
+    </button>
+    <button name="Next" font-id="" visible="true" enabled="%NoPlanRetrievalStockListDataSheet.$NEXT_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>NrtStockL_Next</event>
+      <key>RT</key>
+    </button>
+  </form>
+</HaiSurf.Page>

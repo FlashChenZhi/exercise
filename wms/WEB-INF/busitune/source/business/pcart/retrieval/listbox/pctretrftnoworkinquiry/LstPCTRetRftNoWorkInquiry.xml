@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.retrieval.listbox.pctretrftnoworkinquiry.LstPCTRetRftNoWorkInquiryBusiness" abstractClassName="jp.co.daifuku.pcart.retrieval.listbox.pctretrftnoworkinquiry.LstPCTRetRftNoWorkInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.pcart.retrieval.dasch.LstPCTRetRftNoWorkInquiryDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.pcart.retrieval.listbox.pctretrftnoworkinquiry.LstPCTRetRftNoWorkInquiryParams" />
+    <ref name="2" type="Control" typeName="txt_UserName" />
+    <ref name="3" type="Control" typeName="txt_AreaNo" />
+    <ref name="4" type="Control" typeName="txt_AreaName" />
+    <ref name="5" type="Control" typeName="LST_ZONE_NO" />
+    <ref name="6" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="7" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="8" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="9" type="Control" typeName="LST_LOT_QTY" />
+    <ref name="10" type="Control" typeName="LST_PLAN_QTY" />
+    <ref name="11" type="Control" typeName="LST_RESULT_QTY" />
+    <ref name="12" type="Control" typeName="LST_ORDER_NO" />
+    <ref name="13" type="Control" typeName="HIDDEN_REGULAR_CUSTOMER_CODE" />
+    <ref name="14" type="Control" typeName="HIDDEN_CUSTOMER_CODE" />
+    <ref name="15" type="Control" typeName="HIDDEN_JAN" />
+    <ref name="16" type="Control" typeName="HIDDEN_ITF" />
+    <ref name="17" type="Control" typeName="HIDDEN_BUNDLE_ITF" />
+    <ref name="18" type="Control" typeName="HIDDEN_CUSTOMER_NAME" />
+    <ref name="19" type="Control" typeName="HIDDEN_REGULAR_CUSTOMER_NAME" />
+    <ref name="20" type="Control" typeName="HIDDEN_PCART_RFT_NO" />
+    <ref name="21" type="Control" typeName="HIDDEN_USER_ID" />
+    <ref name="22" type="Control" typeName="HIDDEN_AREA_NO" />
+    <ref name="23" type="ExportParameter" typeName="jp.co.daifuku.pcart.retrieval.exporter.PctRetRftNoWorkInqListParams" />
+    <ref name="24" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_PCART_RFT_NO" orgIndex="2" dataType="String" />
+    </listcell>
+    <listcell name="lst_PCTRetRftNoWorkInquiry2">
+      <listcellColumn name="LST_REGULAR_CUSTOMER_CODE" orgIndex="1" resourceKey="LBL-P0059" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_REGULAR_CUSTOMER_NAME" orgIndex="2" resourceKey="LBL-P0051" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="3" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="4" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+    <listcell name="lst_PCTRetRftNoWorkInquiry">
+      <listcellColumn name="HIDDEN_REGULAR_CUSTOMER_CODE" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_CUSTOMER_CODE" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_JAN" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_ITF" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_BUNDLE_ITF" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_CUSTOMER_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_REGULAR_CUSTOMER_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_PCART_RFT_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_USER_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_AREA_NO" orgIndex="0" dataType="Area" />
+      <listcellColumn name="LST_ZONE_NO" orgIndex="1" resourceKey="LBL-P0044" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="2" resourceKey="LBL-P0094" dataType="Location" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="3" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="4" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_QTY" orgIndex="5" resourceKey="LBL-P0053" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_QTY" orgIndex="6" resourceKey="LBL-W0328" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_RESULT_QTY" orgIndex="7" resourceKey="LBL-P0054" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER_NO" orgIndex="8" resourceKey="LBL-W0014" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus" />
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" />
+      <input1>
+        <map getRef="1" getValue="PCART_RFT_NO" setRef="0" setValue="PCART_RFT_NO" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="USER_NAME" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="AREA_NAME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="PLAN_ZONE_NO" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="PLAN_LOCATION" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="ITEM_CODE" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="ITEM_NAME" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="LOT_QTY" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="PLAN_QTY" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="RESULT_QTY" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="ORDER_NO" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="REGULAR_CUSTOMER_CODE" setRef="13" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_CODE" setRef="14" setValue="Value" />
+        <map getRef="0" getValue="JAN" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="ITF" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="BUNDLE_ITF" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="CUSTOMER_NAME" setRef="18" setValue="Value" />
+        <map getRef="0" getValue="REGULAR_CUSTOMER_NAME" setRef="19" setValue="Value" />
+        <map getRef="0" getValue="PCART_RFT_NO" setRef="20" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="21" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="22" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="ReadOnly" />
+        <clear controlRef="4" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="23" exportName="PctRetRftNoWorkInqList" exporter="Preview" />
+      <output1>
+        <map getRef="20" getValue="Value" setRef="23" setValue="RFT_NO" />
+        <map getRef="21" getValue="Value" setRef="23" setValue="USER_ID" />
+        <map getRef="2" getValue="Value" setRef="23" setValue="USER_NAME" />
+        <map getRef="3" getValue="Value" setRef="23" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="23" setValue="AREA_NAME" />
+        <map getRef="13" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="19" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="14" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="18" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="24" setRef="23" setValue="SYS_DAY" />
+        <map getRef="24" setRef="23" setValue="SYS_TIME" />
+        <map getRef="5" getValue="Value" setRef="23" setValue="PLAN_ZONE_NO" />
+        <map getRef="6" getValue="Value" setRef="23" setValue="PLAN_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="9" getValue="Value" setRef="23" setValue="LOT_QTY" />
+        <map getRef="10" getValue="Value" setRef="23" setValue="PLAN_QTY" />
+        <map getRef="11" getValue="Value" setRef="23" setValue="RESULT_QTY" />
+        <map getRef="15" getValue="Value" setRef="23" setValue="JAN_CODE" />
+        <map getRef="16" getValue="Value" setRef="23" setValue="ITF" />
+        <map getRef="17" getValue="Value" setRef="23" setValue="BUNDLE_ITF" />
+        <map getRef="12" getValue="Value" setRef="23" setValue="ORDER_NO" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="23" exportName="PctRetRftNoWorkInqList" exporter="Print" />
+      <output1>
+        <map getRef="20" getValue="Value" setRef="23" setValue="RFT_NO" />
+        <map getRef="21" getValue="Value" setRef="23" setValue="USER_ID" />
+        <map getRef="2" getValue="Value" setRef="23" setValue="USER_NAME" />
+        <map getRef="3" getValue="Value" setRef="23" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="23" setValue="AREA_NAME" />
+        <map getRef="13" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="19" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="14" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="18" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="24" setRef="23" setValue="SYS_DAY" />
+        <map getRef="24" setRef="23" setValue="SYS_TIME" />
+        <map getRef="5" getValue="Value" setRef="23" setValue="PLAN_ZONE_NO" />
+        <map getRef="6" getValue="Value" setRef="23" setValue="PLAN_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="9" getValue="Value" setRef="23" setValue="LOT_QTY" />
+        <map getRef="10" getValue="Value" setRef="23" setValue="PLAN_QTY" />
+        <map getRef="11" getValue="Value" setRef="23" setValue="RESULT_QTY" />
+        <map getRef="15" getValue="Value" setRef="23" setValue="JAN_CODE" />
+        <map getRef="16" getValue="Value" setRef="23" setValue="ITF" />
+        <map getRef="17" getValue="Value" setRef="23" setValue="BUNDLE_ITF" />
+        <map getRef="12" getValue="Value" setRef="23" setValue="ORDER_NO" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="23" exportName="PctRetRftNoWorkInqList" exporter="Excel" />
+      <output1>
+        <map getRef="20" getValue="Value" setRef="23" setValue="RFT_NO" />
+        <map getRef="2" getValue="Value" setRef="23" setValue="USER_NAME" />
+        <map getRef="3" getValue="Value" setRef="23" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="23" setValue="AREA_NAME" />
+        <map getRef="13" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_CODE" />
+        <map getRef="19" getValue="Value" setRef="23" setValue="REGULAR_CUSTOMER_NAME" />
+        <map getRef="14" getValue="Value" setRef="23" setValue="CUSTOMER_CODE" />
+        <map getRef="18" getValue="Value" setRef="23" setValue="CUSTOMER_NAME" />
+        <map getRef="24" setRef="23" setValue="SYS_DAY" />
+        <map getRef="24" setRef="23" setValue="SYS_TIME" />
+        <map getRef="5" getValue="Value" setRef="23" setValue="PLAN_ZONE_NO" />
+        <map getRef="6" getValue="Value" setRef="23" setValue="PLAN_LOCATION_NO" />
+        <map getRef="7" getValue="Value" setRef="23" setValue="ITEM_CODE" />
+        <map getRef="8" getValue="Value" setRef="23" setValue="ITEM_NAME" />
+        <map getRef="9" getValue="Value" setRef="23" setValue="LOT_QTY" />
+        <map getRef="10" getValue="Value" setRef="23" setValue="PLAN_QTY" />
+        <map getRef="11" getValue="Value" setRef="23" setValue="RESULT_QTY" />
+        <map getRef="12" getValue="Value" setRef="23" setValue="ORDER_NO" />
+      </output1>
+    </event>
+  </events>
+</business>

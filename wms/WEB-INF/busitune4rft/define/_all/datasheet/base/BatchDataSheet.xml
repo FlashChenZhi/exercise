@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="バッチNo.入力データシート" />
+  <comment lang="en" value="Batch # Input Data Sheet" />
+  <comment lang="zh" value="处理批号选择数据表" />
+  <fields>
+    <field name="BATCH_NO" type="String" separateSize="0">
+      <comment lang="ja" value="バッチNo." />
+      <comment lang="en" value="Batch #" />
+      <comment lang="zh" value="处理批号" />
+    </field>
+  </fields>
+</datasheet>

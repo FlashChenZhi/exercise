@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ReceivingQtyInput-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontQty" fontname="Courier New" bold="true" italic="false" size="24" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" focus="%CommonDataSheet.FocusField%" wave="%CommonDataSheet.BeepWav%" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>200</w>
+      <h>26</h>
+      <caption>Qty/Lot # Input</caption>
+    </label>
+    <label name="lblItemCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>50</y>
+      <w>308</w>
+      <h>20</h>
+      <caption>%ReceivingOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblItemName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>73</y>
+      <w>303</w>
+      <h>36</h>
+      <caption>%ReceivingOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <edit name="CaseQty" autoselect="true" enabled="%CommonDataSheet.CASE_INPUT_ENABLED%" font-id="fontQty" inputchecked="false" visible="true" password="false" maxlength="4" scan="false" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>35</x>
+      <y>118</y>
+      <w>85</w>
+      <h>38</h>
+      <text>%ReceivingOutDataSheet.RESULT_CASE_QTY%</text>
+      <event>RecQtyI_CaseEnt</event>
+    </edit>
+    <edit name="PieceQty" autoselect="true" enabled="true" font-id="fontQty" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="4" scan="false" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>175</x>
+      <y>118</y>
+      <w>85</w>
+      <h>38</h>
+      <text>%ReceivingOutDataSheet.RESULT_PIECE_QTY%</text>
+      <event>RecQtyI_PieceEnt</event>
+    </edit>
+    <label name="lblResultCase" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>120</x>
+      <y>142</y>
+      <w>36</w>
+      <h>16</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblResultPiece" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>260</x>
+      <y>142</y>
+      <w>43</w>
+      <h>16</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblPlan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>170</y>
+      <w>38</w>
+      <h>16</h>
+      <caption>Plan:</caption>
+    </label>
+    <label name="lblPlanCaseQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>76</x>
+      <y>166</y>
+      <w>44</w>
+      <h>16</h>
+      <caption>%ReceivingOutDataSheet.PLAN_CASE_QTY%</caption>
+    </label>
+    <label name="lblPlanPieceQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>216</x>
+      <y>166</y>
+      <w>44</w>
+      <h>16</h>
+      <caption>%ReceivingOutDataSheet.PLAN_PIECE_QTY%</caption>
+    </label>
+    <label name="lblPlanCase" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>120</x>
+      <y>170</y>
+      <w>36</w>
+      <h>12</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblPlanPiece" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>260</x>
+      <y>170</y>
+      <w>43</w>
+      <h>12</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblEntering" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>200</y>
+      <w>72</w>
+      <h>20</h>
+      <caption>Case pack:</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>80</x>
+      <y>200</y>
+      <w>44</w>
+      <h>20</h>
+      <caption>%ReceivingOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblLot" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>248</y>
+      <w>50</w>
+      <h>20</h>
+      <caption>Lot #:</caption>
+    </label>
+    <edit name="LotNo" autoselect="true" enabled="true" font-id="fontBold" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-alarm="non" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>56</x>
+      <y>243</y>
+      <w>240</w>
+      <h>25</h>
+      <text>%ReceivingOutDataSheet.RESULT_LOT_NO%</text>
+      <event>RecQtyI_LotNoEnt</event>
+    </edit>
+    <button name="All" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>215</x>
+      <y>188</y>
+      <w>110</w>
+      <h>40</h>
+      <caption>All</caption>
+      <event>RecQtyI_All</event>
+    </button>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Submit</caption>
+      <event>RecQtyI_Commit</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>162</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RecQtyI_Back</event>
+    </button>
+    <label name="panel1" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>324</w>
+      <h>72</h>
+    </label>
+    <label name="panel2" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>116</y>
+      <w>324</w>
+      <h>116</h>
+    </label>
+    <label name="panel3" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>236</y>
+      <w>324</w>
+      <h>36</h>
+    </label>
+  </form>
+</HaiSurf.Page>

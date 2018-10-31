@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.faitemmnt.FaItemMasterMntBusiness" abstractClassName="jp.co.daifuku.wms.master.display.faitemmnt.FaItemMasterMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode_U" />
+    <ref name="1" type="Control" typeName="txt_ItemCode_D" />
+    <ref name="2" type="Control" typeName="txt_ItemName" />
+    <ref name="3" type="Control" typeName="pul_SoftZone" />
+    <ref name="4" type="Control" typeName="rdo_UsageType_generally" />
+    <ref name="5" type="Control" typeName="rdo_UsageType_temporarily" />
+    <ref name="6" type="Control" typeName="btn_Set2" />
+    <ref name="7" type="Control" typeName="btn_Clear" />
+    <ref name="8" type="Control" typeName="btn_Set" />
+    <ref name="9" type="Control" typeName="btn_Modify" />
+    <ref name="10" type="Control" typeName="btn_Delet" />
+    <ref name="11" type="Control" typeName="btn_P_SearchItemCode" />
+    <ref name="12" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.FaItemMasterMntSCH" />
+    <ref name="13" type="Control" typeName="UsageType" />
+    <ref name="14" type="Constants" typeName="Constants" />
+    <ref name="15" type="ViewState" typeName="jp.co.daifuku.wms.master.display.faitemmnt.ViewStateKeys" />
+    <ref name="16" type="Boolean" typeName="Boolean" />
+    <ref name="17" type="String" typeName="String" />
+    <ref name="18" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_SoftZone" dataType="WmsSoftZoneMaster" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="0" type="ReadWrite" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="0" type="ReadWrite" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Set2" name="Click" pattern="Regist">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="1" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="13" />
+      </validate>
+      <input1>
+        <map getRef="1" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="ITEM_NAME" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="SOFT_ZONE" />
+        <map getRef="13" getValue="Value" setRef="12" setValue="TEMPORARY_TYPE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="15" getValue="VS_PROCESS_KEY" setRef="12" setValue="VS_PROCESS_KEY" />
+      </input1>
+      <part11 operationRef="15" operation="VS_PROCESS_KEY">
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <block type="If" tag="1" desc="通常使用する商品コードが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Checked" rightRef="16" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="0" />
+        <block type="If" tag="2" desc="一時的に使用する商品コードが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="5" leftValue="Checked" rightRef="16" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="1" />
+        <block type="None" tag="3" desc="修正の場合" />
+        <out out1Ref="15" out1Value="VS_ITEM_NAME" />
+        <out out1Ref="15" out1Value="VS_SOFT_ZONE" />
+        <out out1Ref="15" out1Value="VS_TEMPORARY_TYPE" />
+      </part11>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="0" type="ReadWrite" />
+        <clear controlRef="11" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="UnChecked" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_P_SearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="18" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="18" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="18" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="18" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="14" getValue="PROCESS_FLAG_REGIST" setRef="12" setValue="VS_PROCESS_KEY" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="ITEM_CODE" setRef="1" setValue="Value" />
+        <map getRef="14" getValue="PROCESS_FLAG_REGIST" setRef="15" setValue="VS_PROCESS_KEY" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadWrite" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Checked" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+      </clear1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_Modify" name="Click" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="14" getValue="PROCESS_FLAG_MODIFY" setRef="12" setValue="VS_PROCESS_KEY" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="ITEM_CODE" setRef="1" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="2" setValue="Value" />
+        <map getRef="12" getValue="SOFT_ZONE" setRef="3" setValue="Value" />
+        <map getRef="12" getValue="TEMPORARY_TYPE" setRef="13" setValue="Value" />
+        <map getRef="14" getValue="PROCESS_FLAG_MODIFY" setRef="15" setValue="VS_PROCESS_KEY" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="15" setValue="VS_ITEM_NAME" />
+        <map getRef="12" getValue="SOFT_ZONE" setRef="15" setValue="VS_SOFT_ZONE" />
+        <map getRef="12" getValue="TEMPORARY_TYPE" setRef="15" setValue="VS_TEMPORARY_TYPE" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="11" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadWrite" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+      </clear1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_Delet" name="Click" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+        <map getRef="14" getValue="PROCESS_FLAG_DELETE" setRef="12" setValue="VS_PROCESS_KEY" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="ITEM_CODE" setRef="1" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="2" setValue="Value" />
+        <map getRef="12" getValue="SOFT_ZONE" setRef="3" setValue="Value" />
+        <map getRef="14" getValue="PROCESS_FLAG_DELETE" setRef="15" setValue="VS_PROCESS_KEY" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="ReadOnly" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="1" type="ReadOnly" />
+        <clear controlRef="2" type="ReadOnly" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="11" type="Disabled" />
+      </clear1>
+      <focus controlRef="6" />
+    </event>
+  </events>
+</business>

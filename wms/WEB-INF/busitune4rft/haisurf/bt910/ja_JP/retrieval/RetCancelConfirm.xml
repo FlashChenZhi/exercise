@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--オーダー出庫キャンセル確認画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>キャンセル確認　　　</caption>
+    </label>
+    <label name="lblOrderNo1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>(1)%RetrievalOutDataSheet.ORDER_NO1%</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>
+      </w>
+      <caption>(2)%RetrievalOutDataSheet.ORDER_NO2%</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>(3)%RetrievalOutDataSheet.ORDER_NO3%</caption>
+    </label>
+    <label name="lblOrderNo4" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>(4)%RetrievalOutDataSheet.ORDER_NO4%</caption>
+    </label>
+    <label name="lblMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>現在の作業を</caption>
+    </label>
+    <label name="lblMsg2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>キャンセルしますか？</caption>
+    </label>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:はい　　　　</caption>
+      <event>RetOrderC_Ent</event>
+      <key>KL</key>
+    </button>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="false">
+      <x>72</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>R:いいえ 　　</caption>
+      <event>RetOrderC_Back</event>
+      <key>KR</key>
+    </button>
+  </form>
+</HaiSurf.Page>

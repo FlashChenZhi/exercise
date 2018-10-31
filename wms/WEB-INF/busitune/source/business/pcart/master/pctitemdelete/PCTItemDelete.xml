@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDeleteBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDelete">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_SearchDate" />
+    <ref name="1" type="Control" typeName="btn_Delete" />
+    <ref name="2" type="Control" typeName="btn_ListClear" />
+    <ref name="3" type="Control" typeName="btn_AllCheck" />
+    <ref name="4" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="5" type="Control" typeName="lst_PCTItemMasterDelete" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctitem.PCTLstItemParams" />
+    <ref name="7" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="8" type="Control" typeName="txt_FromItemCode" />
+    <ref name="9" type="Constants" typeName="Constants" />
+    <ref name="10" type="Control" typeName="txt_ToItemCode" />
+    <ref name="11" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemDeleteSCH" />
+    <ref name="12" type="Control" typeName="LST_CONSIGNOR_CODE" />
+    <ref name="13" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="14" type="Control" typeName="LST_LOT_QTY" />
+    <ref name="15" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="16" type="Control" typeName="LST_LAST_UPDATE_DATE" />
+    <ref name="17" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctitemdelete.ViewStateKeys" />
+    <ref name="18" type="Control" typeName="LST_SELECT" />
+  </refs>
+  <listcells>
+    <listcell name="lst_PCTItemMasterDelete">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="CHK-W0014" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_CONSIGNOR_CODE" orgIndex="2" resourceKey="LBL-P0042" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="3" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_LOT_QTY" orgIndex="4" resourceKey="LBL-P0053" dataType="Number" format="0" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="5" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_LAST_UPDATE_DATE" orgIndex="6" resourceKey="LBL-P0049" dataType="Date" format="DateLongTimeSec" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_SearchFromItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/item/LstItem" businessParameterRef="6" />
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="CONSIGNOR_CODE" />
+        <map getRef="8" getValue="Value" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="SEARCH_TABLE_ITEM" setRef="6" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="ITEM_CODE" setRef="8" setValue="Value" />
+      </output1>
+      <focus controlRef="8" />
+    </event>
+    <event control="btn_SearchToItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/item/LstItem" businessParameterRef="6" />
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="CONSIGNOR_CODE" />
+        <map getRef="10" getValue="Value" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="9" getValue="SEARCH_TABLE_ITEM" setRef="6" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="ITEM_CODE" setRef="10" setValue="Value" />
+      </output1>
+      <focus controlRef="10" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="11" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+        <validate controlRef="10" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="11" setValue="LAST_UPDATE_DATE" />
+        <map getRef="7" getValue="Value" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="8" getValue="Value" setRef="11" setValue="FROM_ITEM_CODE" />
+        <map getRef="10" getValue="Value" setRef="11" setValue="TO_ITEM_CODE" />
+      </input1>
+      <output1>
+        <map getRef="11" getValue="CONSIGNOR_CODE" setRef="12" setValue="Value" />
+        <map getRef="11" getValue="ITEM_CODE" setRef="13" setValue="Value" />
+        <map getRef="11" getValue="LOT_QTY" setRef="14" setValue="Value" />
+        <map getRef="11" getValue="ITEM_NAME" setRef="15" setValue="Value" />
+        <map getRef="11" getValue="LAST_UPDATE_DATE" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="17" setValue="VS_LAST_UPDATE_DATE_DATE" />
+        <map getRef="7" getValue="Value" setRef="17" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="8" getValue="Value" setRef="17" setValue="VS_FROM_ITEM_CODE" />
+        <map getRef="10" getValue="Value" setRef="17" setValue="VS_TO_ITEM_CODE" />
+      </output1>
+      <clear1>
+        <clear controlRef="1" type="Enabled" />
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Save" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctitemdelete/PCTItemDelete3" viewStateRef="17" />
+    </event>
+    <event control="btn_Load" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctitemdelete/PCTItemDelete2" viewStateRef="17" />
+    </event>
+    <event control="btn_Delete" name="Click" pattern="ListCellDelete">
+      <sch2Display schRef="11" />
+      <input1>
+        <map getRef="18" getValue="Value" setRef="11" setValue="SELECT" />
+        <map getRef="12" getValue="Value" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="13" getValue="Value" setRef="11" setValue="ITEM_CODE" />
+        <map getRef="14" getValue="Value" setRef="11" setValue="LOT_QTY" />
+        <map getRef="15" getValue="Value" setRef="11" setValue="ITEM_NAME" />
+        <map getRef="16" getValue="Value" setRef="11" setValue="LAST_UPDATE_DATE" />
+      </input1>
+      <clear1>
+        <clear controlRef="5" type="Clear" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="5" type="Clear" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="18" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="18" type="UnChecked" />
+      </clear1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.receiving.display.tcshortagemnt.TcReceivingShortageMntBusiness" abstractClassName="jp.co.daifuku.wms.receiving.display.tcshortagemnt.TcReceivingShortageMnt" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ReceivingPlanDate" />
+    <ref name="1" type="Control" typeName="txt_SupplierCode" />
+    <ref name="2" type="Control" typeName="txt_SlipNumber" />
+    <ref name="3" type="Control" typeName="txt_ItemCode" />
+    <ref name="4" type="Control" typeName="txt_LotNo" />
+    <ref name="5" type="Control" typeName="LST_SELECT" />
+    <ref name="6" type="Control" typeName="lst_ReceivingShortageMnt" />
+    <ref name="7" type="Control" typeName="btn_ShortageDecision" />
+    <ref name="8" type="Control" typeName="btn_ShortageCancel" />
+    <ref name="9" type="Control" typeName="btn_AllCheck" />
+    <ref name="10" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="11" type="Control" typeName="btn_ListClear" />
+    <ref name="12" type="Sch" typeName="jp.co.daifuku.wms.receiving.schedule.TcReceivingShortageMntSCH" />
+    <ref name="13" type="Constants" typeName="Constants" />
+    <ref name="14" type="Control" typeName="LST_HIDDEN_JOB_NO" />
+    <ref name="15" type="Control" typeName="LST_HIDDEN_SETTING_UKEY" />
+    <ref name="16" type="Control" typeName="LST_HIDDEN_CROSS_DOCK_UKEY" />
+    <ref name="17" type="Control" typeName="LST_HIDDEN_PLAN_UKEY" />
+    <ref name="18" type="Control" typeName="LST_HIDDEN_LAST_UPDATEDATE_KEY" />
+    <ref name="19" type="Control" typeName="LST_PLAN_DAY" />
+    <ref name="20" type="Control" typeName="LST_SUPPLIER_CODE" />
+    <ref name="21" type="Control" typeName="LST_SUPPLIER_NAME" />
+    <ref name="22" type="Control" typeName="LST_RECEIVE_TICKET_NO" />
+    <ref name="23" type="Control" typeName="LST_RECEIVE_LINE_NO" />
+    <ref name="24" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="25" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="26" type="Control" typeName="LST_LOT_NO" />
+    <ref name="27" type="Control" typeName="LST_ENTERING_QTY" />
+    <ref name="28" type="Control" typeName="LST_PLAN_CASE_QTY" />
+    <ref name="29" type="Control" typeName="LST_PLAN_PIECE_QTY" />
+    <ref name="30" type="Control" typeName="LST_RESULT_CASE_QTY" />
+    <ref name="31" type="Control" typeName="LST_RESULT_PIECE_QTY" />
+    <ref name="32" type="Control" typeName="LST_SHORTAGE_CASE_QTY" />
+    <ref name="33" type="Control" typeName="LST_SHORTAGE_PIECE_QTY" />
+    <ref name="34" type="ViewState" typeName="jp.co.daifuku.wms.receiving.display.tcshortagemnt.ViewStateKeys" />
+    <ref name="35" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ReceivingShortageMnt">
+      <listcellColumn name="LST_HIDDEN_JOB_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_HIDDEN_SETTING_UKEY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_HIDDEN_CROSS_DOCK_UKEY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_HIDDEN_PLAN_UKEY" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_HIDDEN_LAST_UPDATEDATE_KEY" orgIndex="0" dataType="Date" format="DateLongTimeSec" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="CHK-W0014" dataType="CheckBox" modifyCheck="true" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_DAY" orgIndex="2" resourceKey="LBL-W0185" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_SUPPLIER_CODE" orgIndex="3" resourceKey="LBL-W0098" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SUPPLIER_NAME" orgIndex="11" resourceKey="LBL-W0099" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_RECEIVE_TICKET_NO" orgIndex="4" resourceKey="LBL-W0145" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_RECEIVE_LINE_NO" orgIndex="12" resourceKey="LBL-W0066" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="5" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="13" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="6" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ENTERING_QTY" orgIndex="7" resourceKey="LBL-W0019" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_CASE_QTY" orgIndex="8" resourceKey="LBL-W0183" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_PLAN_PIECE_QTY" orgIndex="14" resourceKey="LBL-W0184" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_RESULT_CASE_QTY" orgIndex="9" resourceKey="LBL-W0537" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_RESULT_PIECE_QTY" orgIndex="15" resourceKey="LBL-W0538" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_SHORTAGE_CASE_QTY" orgIndex="10" resourceKey="LBL-W0063" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_SHORTAGE_PIECE_QTY" orgIndex="16" resourceKey="LBL-W0064" dataType="Number" format="0" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="5" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="5" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_ListClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="6" type="Clear" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+        <clear controlRef="9" type="Disabled" />
+        <clear controlRef="10" type="Disabled" />
+        <clear controlRef="11" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="12" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="Value" setRef="12" setValue="SUPPLIER_CODE" />
+        <map getRef="2" getValue="Value" setRef="12" setValue="TICKET_NO" />
+        <map getRef="3" getValue="Value" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="12" setValue="LOT_NO" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="12" getValue="HIDDEN_JOB_NO" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_SETTING_UKEY" setRef="15" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_CROSS_DOCK_UKEY" setRef="16" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_PLAN_UKEY" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_LAST_UPDATEDATE_KEY" setRef="18" setValue="Value" />
+        <map getRef="12" getValue="PLAN_DAY" setRef="19" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_CODE" setRef="20" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_NAME" setRef="21" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_TICKET_NO" setRef="22" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_LINE_NO" setRef="23" setValue="Value" />
+        <map getRef="12" getValue="ITEM_CODE" setRef="24" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="25" setValue="Value" />
+        <map getRef="12" getValue="LOT_NO" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="ENTERING_QTY" setRef="27" setValue="Value" />
+        <map getRef="12" getValue="PLAN_CASE_QTY" setRef="28" setValue="Value" />
+        <map getRef="12" getValue="PLAN_PIECE_QTY" setRef="29" setValue="Value" />
+        <map getRef="12" getValue="RESULT_CASE_QTY" setRef="30" setValue="Value" />
+        <map getRef="12" getValue="RESULT_PIECE_QTY" setRef="31" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_CASE_QTY" setRef="32" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_PIECE_QTY" setRef="33" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="34" setValue="PLAN_DAY" />
+        <map getRef="1" getValue="Value" setRef="34" setValue="SUPPLIER_CODE" />
+        <map getRef="2" getValue="Value" setRef="34" setValue="TICKET_NO" />
+        <map getRef="3" getValue="Value" setRef="34" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="34" setValue="LOT_NO" />
+      </output1>
+      <clear1>
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+        <clear controlRef="9" type="Enabled" />
+        <clear controlRef="10" type="Enabled" />
+        <clear controlRef="11" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_ShortageDecision" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="6" required="true" />
+      </validate>
+      <input1>
+        <map getRef="14" getValue="Value" setRef="12" setValue="HIDDEN_JOB_NO" />
+        <map getRef="15" getValue="Value" setRef="12" setValue="HIDDEN_SETTING_UKEY" />
+        <map getRef="16" getValue="Value" setRef="12" setValue="HIDDEN_CROSS_DOCK_UKEY" />
+        <map getRef="17" getValue="Value" setRef="12" setValue="HIDDEN_PLAN_UKEY" />
+        <map getRef="18" getValue="Value" setRef="12" setValue="HIDDEN_LAST_UPDATEDATE_KEY" />
+        <map getRef="13" getValue="PROCESS_FLAG_SHORTAGE_DECISION" setRef="12" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="35" operation="SETTING">
+        <out out1Ref="13" out1Value="PROCESS_FLAG_SHORTAGE_DECISION" />
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="20" out1Value="Value" />
+        <out out1Ref="22" out1Value="Value" />
+        <out out1Ref="23" out1Value="Value" />
+        <out out1Ref="24" out1Value="Value" />
+        <out out1Ref="26" out1Value="Value" />
+        <out out1Ref="27" out1Value="Value" />
+        <out out1Ref="28" out1Value="Value" />
+        <out out1Ref="29" out1Value="Value" />
+        <out out1Ref="30" out1Value="Value" />
+        <out out1Ref="31" out1Value="Value" />
+        <out out1Ref="32" out1Value="Value" />
+        <out out1Ref="33" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="34" getValue="ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="34" getValue="LOT_NO" setRef="12" setValue="LOT_NO" />
+        <map getRef="34" getValue="PLAN_DAY" setRef="12" setValue="PLAN_DAY" />
+        <map getRef="34" getValue="TICKET_NO" setRef="12" setValue="TICKET_NO" />
+        <map getRef="34" getValue="SUPPLIER_CODE" setRef="12" setValue="SUPPLIER_CODE" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+      </input2>
+      <output1>
+        <map getRef="12" getValue="HIDDEN_JOB_NO" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_SETTING_UKEY" setRef="15" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_CROSS_DOCK_UKEY" setRef="16" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_PLAN_UKEY" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_LAST_UPDATEDATE_KEY" setRef="18" setValue="Value" />
+        <map getRef="12" getValue="PLAN_DAY" setRef="19" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_CODE" setRef="20" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_NAME" setRef="21" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_TICKET_NO" setRef="22" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_LINE_NO" setRef="23" setValue="Value" />
+        <map getRef="12" getValue="ITEM_CODE" setRef="24" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="25" setValue="Value" />
+        <map getRef="12" getValue="LOT_NO" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="ENTERING_QTY" setRef="27" setValue="Value" />
+        <map getRef="12" getValue="PLAN_CASE_QTY" setRef="28" setValue="Value" />
+        <map getRef="12" getValue="PLAN_PIECE_QTY" setRef="29" setValue="Value" />
+        <map getRef="12" getValue="RESULT_CASE_QTY" setRef="30" setValue="Value" />
+        <map getRef="12" getValue="RESULT_PIECE_QTY" setRef="31" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_CASE_QTY" setRef="32" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_PIECE_QTY" setRef="33" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_ShortageCancel" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="12" />
+      <validate>
+        <validate controlRef="6" required="true" />
+      </validate>
+      <input1>
+        <map getRef="14" getValue="Value" setRef="12" setValue="HIDDEN_JOB_NO" />
+        <map getRef="15" getValue="Value" setRef="12" setValue="HIDDEN_SETTING_UKEY" />
+        <map getRef="16" getValue="Value" setRef="12" setValue="HIDDEN_CROSS_DOCK_UKEY" />
+        <map getRef="17" getValue="Value" setRef="12" setValue="HIDDEN_PLAN_UKEY" />
+        <map getRef="18" getValue="Value" setRef="12" setValue="HIDDEN_LAST_UPDATEDATE_KEY" />
+        <map getRef="13" getValue="PROCESS_FLAG_SHORTAGE_CANCEL" setRef="12" setValue="PROCESS_FLAG" />
+      </input1>
+      <part11 operationRef="35" operation="SETTING">
+        <out out1Ref="13" out1Value="PROCESS_FLAG_SHORTAGE_CANCEL" />
+        <out out1Ref="19" out1Value="Value" />
+        <out out1Ref="20" out1Value="Value" />
+        <out out1Ref="22" out1Value="Value" />
+        <out out1Ref="23" out1Value="Value" />
+        <out out1Ref="24" out1Value="Value" />
+        <out out1Ref="26" out1Value="Value" />
+        <out out1Ref="27" out1Value="Value" />
+        <out out1Ref="28" out1Value="Value" />
+        <out out1Ref="29" out1Value="Value" />
+        <out out1Ref="30" out1Value="Value" />
+        <out out1Ref="31" out1Value="Value" />
+        <out out1Ref="32" out1Value="Value" />
+        <out out1Ref="33" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="34" getValue="ITEM_CODE" setRef="12" setValue="ITEM_CODE" />
+        <map getRef="34" getValue="LOT_NO" setRef="12" setValue="LOT_NO" />
+        <map getRef="34" getValue="PLAN_DAY" setRef="12" setValue="PLAN_DAY" />
+        <map getRef="34" getValue="TICKET_NO" setRef="12" setValue="TICKET_NO" />
+        <map getRef="34" getValue="SUPPLIER_CODE" setRef="12" setValue="SUPPLIER_CODE" />
+        <map getRef="13" getValue="DEFAULT_CONSIGNOR_CODE" setRef="12" setValue="CONSIGNOR_CODE" />
+      </input2>
+      <output1>
+        <map getRef="12" getValue="HIDDEN_JOB_NO" setRef="14" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_SETTING_UKEY" setRef="15" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_CROSS_DOCK_UKEY" setRef="16" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_PLAN_UKEY" setRef="17" setValue="Value" />
+        <map getRef="12" getValue="HIDDEN_LAST_UPDATEDATE_KEY" setRef="18" setValue="Value" />
+        <map getRef="12" getValue="PLAN_DAY" setRef="19" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_CODE" setRef="20" setValue="Value" />
+        <map getRef="12" getValue="SUPPLIER_NAME" setRef="21" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_TICKET_NO" setRef="22" setValue="Value" />
+        <map getRef="12" getValue="RECEIVE_LINE_NO" setRef="23" setValue="Value" />
+        <map getRef="12" getValue="ITEM_CODE" setRef="24" setValue="Value" />
+        <map getRef="12" getValue="ITEM_NAME" setRef="25" setValue="Value" />
+        <map getRef="12" getValue="LOT_NO" setRef="26" setValue="Value" />
+        <map getRef="12" getValue="ENTERING_QTY" setRef="27" setValue="Value" />
+        <map getRef="12" getValue="PLAN_CASE_QTY" setRef="28" setValue="Value" />
+        <map getRef="12" getValue="PLAN_PIECE_QTY" setRef="29" setValue="Value" />
+        <map getRef="12" getValue="RESULT_CASE_QTY" setRef="30" setValue="Value" />
+        <map getRef="12" getValue="RESULT_PIECE_QTY" setRef="31" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_CASE_QTY" setRef="32" setValue="Value" />
+        <map getRef="12" getValue="SHORTAGE_PIECE_QTY" setRef="33" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

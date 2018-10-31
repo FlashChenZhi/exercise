@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <events>
+    <event name="page_Load" order="0">
+      <pager pagerType="None" select="0" />
+      <method methodName="page_Load" />
+    </event>
+    <event name="No_Click" order="2">
+      <method methodName="no_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="Yes_Click" order="1">
+      <method methodName="yes_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+  </events>
+</pageMapping>

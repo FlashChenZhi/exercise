@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ReceivingItemInput-->
+  <font name="fontTitleBar" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <scan type="focus" />
+  <form color="E6E6FA" wave="%CommonDataSheet.BeepWav%" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitleBar" font-id="fontTitleBar" visible="true" forecolor="FFFFFF" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>4</y>
+      <w>324</w>
+      <h>16</h>
+      <caption>%CommonDataSheet.TITLE%</caption>
+    </label>
+    <label name="titleBar" visible="true" backcolor="0000C0">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>324</w>
+      <h>23</h>
+    </label>
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>26</y>
+      <w>200</w>
+      <h>26</h>
+      <caption>Item Input</caption>
+    </label>
+    <label name="lblMsg" font-id="fontStandard" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>62</y>
+      <w>320</w>
+      <h>20</h>
+      <caption>Enter item code</caption>
+    </label>
+    <edit name="ItemCode" autoselect="true" enabled="true" font-id="fontBold" inputchecked="false" keystyle="none" visible="true" password="false" maxlength="16" scan="true" bht-ok-alarm="non" bht-ok-vibration="false" bht-ok-led="non" bht-ng-time="1" bht-ng-count="1" bht-ng-alarm="low" bht-ng-vibration="false" bht-ng-led="non" ce-ok-alarm="non" ce-ok-vibration="false" ce-ok-led="non" ce-ng-alarm="non" ce-ng-vibration="false" ce-ng-led="non">
+      <x>18</x>
+      <y>82</y>
+      <w>280</w>
+      <h>25</h>
+      <text>%ItemDataSheet.ITEM_CODE%</text>
+      <event>RecItemI_Ent</event>
+    </edit>
+    <label name="lblUser" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>120</y>
+      <w>300</w>
+      <h>14</h>
+      <caption>User:</caption>
+    </label>
+    <label name="lblUserId" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>138</y>
+      <w>203</w>
+      <h>18</h>
+      <caption>%CommonDataSheet.USER_ID%</caption>
+    </label>
+    <label name="lblUserName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>156</y>
+      <w>203</w>
+      <h>18</h>
+      <caption>%CommonDataSheet.USER_NAME%</caption>
+    </label>
+    <label name="lblConsignor" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>188</y>
+      <w>300</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>206</y>
+      <w>215</w>
+      <h>18</h>
+      <caption>%ConsignorDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>20</x>
+      <y>224</y>
+      <w>243</w>
+      <h>18</h>
+      <caption>%ConsignorDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <button name="Ent" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Submit</caption>
+      <event>RecItemI_Ent</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>RecItemI_Back</event>
+    </button>
+    <button name="CP" font-id="fontBtn" visible="true" backcolor="%CommonDataSheet.CASE_PIECE_COLOR%" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>%CommonDataSheet.CASE_PIECE_LABEL%</caption>
+      <event>RecItemI_CP</event>
+    </button>
+    <label name="panel" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>110</y>
+      <w>324</w>
+      <h>200</h>
+    </label>
+  </form>
+</HaiSurf.Page>

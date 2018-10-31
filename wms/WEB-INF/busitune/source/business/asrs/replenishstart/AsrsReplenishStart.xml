@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.replenishstart.AsrsReplenishStartBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.replenishstart.AsrsReplenishStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ListWorkNo" />
+    <ref name="1" type="Control" typeName="pul_Area" />
+    <ref name="2" type="Control" typeName="LST_COLUMN_1" />
+    <ref name="3" type="Control" typeName="btn_Start" />
+    <ref name="4" type="Control" typeName="btn_AllCheck" />
+    <ref name="5" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="6" type="Control" typeName="btn_AllClear" />
+    <ref name="7" type="Control" typeName="lst_ReplenishmentStart" />
+    <ref name="8" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsrsReplenishStartSCH" />
+    <ref name="9" type="Constants" typeName="Constants" />
+    <ref name="10" type="Control" typeName="LST_LIST" />
+    <ref name="11" type="Control" typeName="LST_FROM_AREA" />
+    <ref name="12" type="Control" typeName="LST_NOOF_RECORDS" />
+    <ref name="13" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.replenishstart.ViewStateKeys" />
+    <ref name="14" type="String" typeName="String" />
+    <ref name="15" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsRetrieval" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_ReplenishmentStart">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_LIST" orgIndex="2" resourceKey="LBL-W0034" dataType="String" />
+      <listcellColumn name="LST_FROM_AREA" orgIndex="3" resourceKey="LBL-W0172" dataType="Area" />
+      <listcellColumn name="LST_NOOF_RECORDS" orgIndex="4" resourceKey="LBL-W0180" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="2" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="2" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="8" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="8" setValue="SETTING_UKEY" />
+        <map getRef="1" getValue="Value" setRef="8" setValue="AREA_NO" />
+        <map getRef="9" getValue="DEFAULT_CONSIGNOR_CODE" setRef="8" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="8" getValue="LST_SETTING_UKEY" setRef="10" setValue="Value" />
+        <map getRef="8" getValue="FROM_AREA" setRef="11" setValue="Value" />
+        <map getRef="8" getValue="SUMMARY" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="Value" setRef="13" setValue="SETTING_UKEY" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="AREA_NO" />
+        <map getRef="9" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="7" type="Clear" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="ListCellEdit">
+      <sch2Display schRef="8" />
+      <input1>
+        <map getRef="10" getValue="Value" setRef="8" setValue="LST_SETTING_UKEY" />
+        <map getRef="14" getValue="ErrorAllocCarry" setRef="8" setValue="ERROR_ALLOC_CARRY" />
+      </input1>
+      <part11 operationRef="15" operation="SETTING">
+        <out out1Ref="10" out1Value="Value" />
+        <out out1Ref="11" out1Value="Value" />
+      </part11>
+      <input2>
+        <map getRef="13" getValue="AREA_NO" setRef="8" setValue="AREA_NO" />
+        <map getRef="13" getValue="CONSIGNOR_CODE" setRef="8" setValue="CONSIGNOR_CODE" />
+        <map getRef="13" getValue="SETTING_UKEY" setRef="8" setValue="SETTING_UKEY" />
+      </input2>
+      <output1>
+        <map getRef="8" getValue="LST_SETTING_UKEY" setRef="10" setValue="Value" />
+        <map getRef="8" getValue="FROM_AREA" setRef="11" setValue="Value" />
+        <map getRef="8" getValue="SUMMARY" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

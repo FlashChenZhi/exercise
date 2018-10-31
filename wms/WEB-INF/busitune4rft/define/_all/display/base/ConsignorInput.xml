@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.base.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.ReportWorkEndSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="String" type="String" />
+    <ref name="4" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="5" typeName="Control" type="Control" />
+    <ref name="6" typeName="jp.co.daifuku.wms.base.rft.schedule.ConsignorInputSCH" type="Sch" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+    </method>
+    <method name="list_Click" pattern="None" order="3" />
+    <method name="back_Click" pattern="Commit" order="2">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+      </schInput>
+      <output />
+    </method>
+    <method name="toMenu_Click" pattern="Commit" order="4">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+      </schInput>
+      <output>
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="USER_ID" />
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="USER_NAME" />
+        <map getterTypeRef="3" setterTypeRef="2" setterValue="PASSWORD" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Query" order="1">
+      <validate>
+        <item fieldTypeRef="4" field="CONSIGNOR_CODE" required="true" focusTypeRef="5" focus="ConsignorCode" />
+      </validate>
+      <schBase schRef="6" />
+      <schInput>
+        <map getterTypeRef="4" getterValue="CONSIGNOR_CODE" setterTypeRef="6" setterValue="CONSIGNOR_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="6" getterValue="CONSIGNOR_NAME" setterTypeRef="4" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="6" getterValue="HAS_MASTER_PACK" setterTypeRef="2" setterValue="HAS_MASTER_PACK" />
+      </output>
+    </method>
+  </methods>
+</business>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.base.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.TopPageSCH" type="Sch" />
+    <ref name="1" typeName="String" type="String" />
+    <ref name="2" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="3" typeName="Constants" type="Constants" />
+    <ref name="4" typeName="Boolean" type="Boolean" />
+    <ref name="5" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="Query" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" setterTypeRef="0" setterValue="IP_ADDRESS" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="TERMINAL_NO" setterTypeRef="2" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="0" getterValue="TERMINAL_TYPE" setterTypeRef="2" setterValue="TERMINAL_TYPE" />
+        <map getterTypeRef="0" getterValue="PASSWORD_INPUT_MODE" setterTypeRef="2" setterValue="PASSWORD_INPUT_MODE" />
+        <map getterTypeRef="0" getterValue="RECEIVING_CONSIGNOR" setterTypeRef="2" setterValue="RECEIVING_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="RECEIVING_CP_MODE" setterTypeRef="2" setterValue="RECEIVING_CP_MODE" />
+        <map getterTypeRef="0" getterValue="RECEIVING_ITF_TO_JAN" setterTypeRef="2" setterValue="RECEIVING_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="STORAGE_CONSIGNOR" setterTypeRef="2" setterValue="STORAGE_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="STORAGE_CP_MODE" setterTypeRef="2" setterValue="STORAGE_CP_MODE" />
+        <map getterTypeRef="0" getterValue="STORAGE_INSPECTION_MODE" setterTypeRef="2" setterValue="STORAGE_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="STORAGE_ITF_TO_JAN" setterTypeRef="2" setterValue="STORAGE_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="RETRIEVAL_CONSIGNOR" setterTypeRef="2" setterValue="RETRIEVAL_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="RETRIEVAL_CP_MODE" setterTypeRef="2" setterValue="RETRIEVAL_CP_MODE" />
+        <map getterTypeRef="0" getterValue="RETRIEVAL_INSPECTION_MODE" setterTypeRef="2" setterValue="RETRIEVAL_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="RETRIEVAL_ITF_TO_JAN" setterTypeRef="2" setterValue="RETRIEVAL_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="SORTING_CONSIGNOR" setterTypeRef="2" setterValue="SORTING_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="SORTING_CP_MODE" setterTypeRef="2" setterValue="SORTING_CP_MODE" />
+        <map getterTypeRef="0" getterValue="SORTING_INSPECTION_MODE" setterTypeRef="2" setterValue="SORTING_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="SORTING_ITF_TO_JAN" setterTypeRef="2" setterValue="SORTING_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="SHIPPING_CONSIGNOR" setterTypeRef="2" setterValue="SHIPPING_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="SHIPPING_CP_MODE" setterTypeRef="2" setterValue="SHIPPING_CP_MODE" />
+        <map getterTypeRef="0" getterValue="SHIPPING_ITF_TO_JAN" setterTypeRef="2" setterValue="SHIPPING_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="MOVE_RETRIEVAL_CONSIGNOR" setterTypeRef="2" setterValue="MOVE_RETRIEVAL_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="MOVE_RETRIEVAL_CP_MODE" setterTypeRef="2" setterValue="MOVE_RETRIEVAL_CP_MODE" />
+        <map getterTypeRef="0" getterValue="MOVE_RETRIEVAL_INSPECTION_MODE" setterTypeRef="2" setterValue="MOVE_RETRIEVAL_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="MOVE_RETRIEVAL_ITF_TO_JAN" setterTypeRef="2" setterValue="MOVE_RETRIEVAL_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="MOVE_STORAGE_CONSIGNOR" setterTypeRef="2" setterValue="MOVE_STORAGE_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="MOVE_STORAGE_CP_MODE" setterTypeRef="2" setterValue="MOVE_STORAGE_CP_MODE" />
+        <map getterTypeRef="0" getterValue="MOVE_STORAGE_INSPECTION_MODE" setterTypeRef="2" setterValue="MOVE_STORAGE_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="MOVE_STORAGE_ITF_TO_JAN" setterTypeRef="2" setterValue="MOVE_STORAGE_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="INVENTORY_CONSIGNOR" setterTypeRef="2" setterValue="INVENTORY_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="INVENTORY_CP_MODE" setterTypeRef="2" setterValue="INVENTORY_CP_MODE" />
+        <map getterTypeRef="0" getterValue="INVENTORY_INSPECTION_MODE" setterTypeRef="2" setterValue="INVENTORY_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="INVENTORY_ITF_TO_JAN" setterTypeRef="2" setterValue="INVENTORY_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_STORAGE_CONSIGNOR" setterTypeRef="2" setterValue="NO_PLAN_STORAGE_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_STORAGE_CP_MODE" setterTypeRef="2" setterValue="NO_PLAN_STORAGE_CP_MODE" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_STORAGE_INSPECTION_MODE" setterTypeRef="2" setterValue="NO_PLAN_STORAGE_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_STORAGE_ITF_TO_JAN" setterTypeRef="2" setterValue="NO_PLAN_STORAGE_ITF_TO_JAN" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_RETRIEVAL_CONSIGNOR" setterTypeRef="2" setterValue="NO_PLAN_RETRIEVAL_CONSIGNOR" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_RETRIEVAL_CP_MODE" setterTypeRef="2" setterValue="NO_PLAN_RETRIEVAL_CP_MODE" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_RETRIEVAL_INSPECTION_MODE" setterTypeRef="2" setterValue="NO_PLAN_RETRIEVAL_INSPECTION_MODE" />
+        <map getterTypeRef="0" getterValue="NO_PLAN_RETRIEVAL_ITF_TO_JAN" setterTypeRef="2" setterValue="NO_PLAN_RETRIEVAL_ITF_TO_JAN" />
+      </output>
+    </method>
+    <method name="start_Click" pattern="Commit" order="1">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="2" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="3" getterValue="RFT_STATUS_FLAG_START" setterTypeRef="0" setterValue="STATUS_FLAG" />
+        <map getterTypeRef="4" getterValue="False" setterTypeRef="0" setterValue="TO_REST" />
+        <map getterTypeRef="4" getterValue="False" setterTypeRef="0" setterValue="TO_RESTART" />
+        <map getterTypeRef="3" getterValue="TERMINAL_TYPE_HT" setterTypeRef="0" setterValue="TERMINAL_TYPE" />
+        <map getterTypeRef="2" getterValue="IP_ADDRESS" setterTypeRef="0" setterValue="IP_ADDRESS" />
+      </schInput>
+      <output />
+    </method>
+    <method name="exit_Click" pattern="None" order="2" />
+  </methods>
+</business>

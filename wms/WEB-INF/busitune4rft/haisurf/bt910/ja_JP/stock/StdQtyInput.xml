@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--DC入庫数量入力画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <input name="inputCaseQty" type="numeric" count-max="4" />
+  <input name="inputPieceQty" type="numeric" count-max="4" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0" focus="%CommonDataSheet.FocusField%">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>数量入力                    </caption>
+    </label>
+    <label name="lblItemCode" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>%ReceivingStorageOutDataSheet.ITEM_CODE%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblItemName1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%ReceivingStorageOutDataSheet.ITEM_NAME0%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblItemName2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>14</w>
+      <caption>%ReceivingStorageOutDataSheet.ITEM_NAME1%　　　　　　　　　　</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>90</x>
+      <y>40</y>
+      <w>3</w>
+      <caption>%ReceivingStorageOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblStorage" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>入庫数</caption>
+    </label>
+    <label name="lblEditCase" font-id="font12" visible="true">
+      <align>left</align>
+      <x>10</x>
+      <y>66</y>
+      <w>
+      </w>
+      <caption>ｹｰｽ :[     ](    )</caption>
+    </label>
+    <label name="lblEditPiece" font-id="font12" visible="true">
+      <align>left</align>
+      <x>10</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>ﾋﾟｰｽ:[     ](    )</caption>
+    </label>
+    <label name="lblLotNo" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>ﾛｯﾄ:%ReceivingStorageOutDataSheet.LOT_NO%</caption>
+    </label>
+    <label name="lblMsg" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>数量を入力して下さい</caption>
+    </label>
+    <button name="Return" font-id="" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>StdQtyI_Return</event>
+      <key>KR</key>
+    </button>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る      </caption>
+      <event>StdQtyI_Back</event>
+      <key>KL</key>
+    </button>
+    <edit name="CaseQty" enabled="%CommonDataSheet.CASE_INPUT_ENABLED%" font-id="font12" input-id="inputCaseQty" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-alarm="non" keyence-ng-vibration="false" keyence-ng-led="non" keyence-align="right">
+      <x>46</x>
+      <y>66</y>
+      <w>5</w>
+      <text>%ReceivingStorageOutDataSheet.RESULT_CASE_QTY%</text>
+      <event>StdQtyI_Ent</event>
+    </edit>
+    <edit name="PieceQty" enabled="true" font-id="font12" input-id="inputPieceQty" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-alarm="non" keyence-ng-vibration="false" keyence-ng-led="non" keyence-align="right">
+      <x>46</x>
+      <y>79</y>
+      <w>5</w>
+      <text>%ReceivingStorageOutDataSheet.RESULT_PIECE_QTY%</text>
+      <event>StdQtyI_Ent</event>
+    </edit>
+    <label name="lblStockCaseQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>88</x>
+      <y>66</y>
+      <w>4</w>
+      <caption>%ReceivingStorageOutDataSheet.STOCK_CASE_QTY%</caption>
+    </label>
+    <label name="lblStockPieceQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>88</x>
+      <y>79</y>
+      <w>4</w>
+      <caption>%ReceivingStorageOutDataSheet.STOCK_PIECE_QTY%</caption>
+    </label>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:確定</caption>
+      <event>StdQtyI_Ent</event>
+      <key>ET</key>
+    </button>
+    <label name="lblEntering" font-id="font12" visible="true">
+      <align>left</align>
+      <x>108</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>入</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

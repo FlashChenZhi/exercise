@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.noplanaddstorage.AsNoPlanAddStorageBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.noplanaddstorage.AsNoPlanAddStorage" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsNoPlanAddStorageSCH" />
+    <ref name="2" type="ViewState" typeName="jp.co.daifuku.wms.asrs.display.noplanaddstorage.ViewStateKeys" />
+    <ref name="3" type="Control" typeName="pul_Area" />
+    <ref name="4" type="Control" typeName="txt_Location" />
+    <ref name="5" type="String" typeName="String" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.locationstock.LstAsLocationStockParams" />
+    <ref name="7" type="Constants" typeName="Constants" />
+    <ref name="8" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.stockdetailnbtn.LstAsStockDetailNoBtnParams" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAddStorage" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Next" name="Click" pattern="Forward">
+      <sch2Forward schRef="1" uri="/asrs/noplanaddstorage/AsNoPlanAddStorage2" viewStateRef="2" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="LOCATION_NO" />
+        <map getRef="5" setRef="1" setValue="AREA_NAME" />
+        <map getRef="5" setRef="1" setValue="PALLET_ID" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="LOCATION_NO" />
+        <map getRef="5" setRef="2" setValue="AREA_NAME" />
+        <map getRef="5" setRef="2" setValue="PALLET_ID" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_LocationSearch" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/locationstock/LstAsLocationStock" businessParameterRef="6" />
+      <input1>
+        <map getRef="7" getValue="DEFAULT_CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="6" setValue="AREA_NO" />
+        <map getRef="4" getValue="Value" setRef="6" setValue="LOCATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+      </output1>
+      <focus controlRef="4" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="2" getValue="LOCATION_NO" setRef="4" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_LocationDetail" name="Click" pattern="Popup">
+      <popup2Display uri="/asrs/listbox/stockdetailnbtn/LstAsStockDetailNoBtn" businessParameterRef="8" />
+      <input1>
+        <map getRef="4" getValue="Value" setRef="8" setValue="LOCATION_NO" />
+        <map getRef="3" getValue="Value" setRef="8" setValue="AREA_NO" />
+      </input1>
+      <focus controlRef="4" />
+    </event>
+  </events>
+</business>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--DC入荷欠品分納選択画面-->
+  <font name="font12" keyence_mag="1" size="12" />
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0">
+    <label name="line1" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>20</w>
+      <caption>欠品分納選択        </caption>
+    </label>
+    <label name="lblItemCode" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%ReceivingOutDataSheet.ITEM_CODE%</caption>
+    </label>
+    <label name="lblItemName1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>20</w>
+      <caption>%ReceivingOutDataSheet.ITEM_NAME0%</caption>
+    </label>
+    <label name="lblItemName2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%ReceivingOutDataSheet.ITEM_NAME1%</caption>
+    </label>
+    <label name="lblMsg1" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>67</y>
+      <w>20</w>
+      <caption>数量が不足しています</caption>
+    </label>
+    <label name="lblMsg2" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>選択して下さい</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る              </caption>
+      <event>RecSP_Back</event>
+      <key>KL</key>
+    </button>
+    <label name="line2" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>54</y>
+      <w>20</w>
+    </label>
+    <button name="Shortage" font-id="font12" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>          F1:欠品</caption>
+      <event>RecSP_Shortage</event>
+      <key>F1</key>
+    </button>
+    <button name="Pending" font-id="" visible="true" enabled="true" modeonline="true" inputchecked="true">
+      <x>0</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>          F2:分納</caption>
+      <event>RecSP_Pending</event>
+      <key>F2</key>
+    </button>
+    <label name="lblLack" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>不足:    ｹｰｽ    ﾋﾟｰｽ</caption>
+    </label>
+    <label name="lblCaseQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>30</x>
+      <y>53</y>
+      <w>4</w>
+      <caption>%ReceivingOutDataSheet.SHORTAGE_CASE_QTY%</caption>
+    </label>
+    <label name="lblPieceQty" font-id="font12" visible="true">
+      <align>right</align>
+      <x>70</x>
+      <y>53</y>
+      <w>4</w>
+      <caption>%ReceivingOutDataSheet.SHORTAGE_PIECE_QTY%</caption>
+    </label>
+  </form>
+</HaiSurf.Page>

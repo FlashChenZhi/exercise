@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.listbox.pctweightdistinctionlist.LstPCTWeightDistinctionListBusiness" abstractClassName="jp.co.daifuku.pcart.master.listbox.pctweightdistinctionlist.LstPCTWeightDistinctionList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.LstPCTWeightDistinctionListDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctweightdistinctionlist.LstPCTWeightDistinctionListParams" />
+    <ref name="3" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="4" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="5" type="Control" typeName="LST_QTY" />
+    <ref name="6" type="Control" typeName="LST_SINGLE_WEIGHT" />
+    <ref name="7" type="Control" typeName="LST_WEIGHT" />
+    <ref name="8" type="Control" typeName="LST_AMOUNT" />
+    <ref name="9" type="Control" typeName="LST_CORRECT_QTY" />
+    <ref name="10" type="Control" typeName="LST_CORRECT_WEIGHT" />
+    <ref name="11" type="Control" typeName="LST_DIFFERENCE" />
+    <ref name="12" type="Control" typeName="LST_OCCUR_DAY" />
+    <ref name="13" type="Control" typeName="LST_OCCUR_TIME" />
+    <ref name="14" type="Control" typeName="LST_RFT_NO" />
+    <ref name="15" type="Control" typeName="LST_FRONTAGE" />
+    <ref name="16" type="Control" typeName="LST_USER_NAME" />
+    <ref name="17" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="18" type="Control" typeName="HIDDEN_CONSIGNOR_NAME" />
+    <ref name="19" type="Control" typeName="HIDDEN_USER_ID" />
+    <ref name="20" type="Control" typeName="HIDDEN_OCCUR_DAY" />
+    <ref name="21" type="Control" typeName="HIDDEN_OCCUR_TIME" />
+    <ref name="22" type="ExportParameter" typeName="jp.co.daifuku.pcart.master.exporter.PCTWeightDistinctionListParams" />
+    <ref name="23" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_S_L_CONDITION_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_S_D_CONDITION_1" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_S_L_CONDITION_2" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_S_D_CONDITION_2" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_PCTWeightDistinctionList">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CONSIGNOR_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_USER_ID" orgIndex="0" dataType="String" tooltipContent="true" />
+      <listcellColumn name="HIDDEN_OCCUR_DAY" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_OCCUR_TIME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="1" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="13" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_QTY" orgIndex="2" resourceKey="LBL-P0053" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_SINGLE_WEIGHT" orgIndex="3" resourceKey="LBL-P0127" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_WEIGHT" orgIndex="4" resourceKey="LBL-P0128" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_AMOUNT" orgIndex="5" resourceKey="LBL-P0139" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_CORRECT_QTY" orgIndex="6" resourceKey="LBL-P0129" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_CORRECT_WEIGHT" orgIndex="7" resourceKey="LBL-P0130" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_DIFFERENCE" orgIndex="8" resourceKey="LBL-P0131" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_OCCUR_DAY" orgIndex="9" resourceKey="LBL-W0164" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_OCCUR_TIME" orgIndex="14" resourceKey="LBL-P0133" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_RFT_NO" orgIndex="10" resourceKey="LBL-W9031" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_FRONTAGE" orgIndex="11" resourceKey="LBL-P0132" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="12" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" />
+      <input1>
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="ITEM_CODE" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="FROM_OCCUR_DAY" setRef="1" setValue="FROM_OCCUR_DAY" />
+        <map getRef="2" getValue="FROM_OCCUR_TIME" setRef="1" setValue="FROM_OCCUR_TIME" />
+        <map getRef="2" getValue="TO_OCCUR_DAY" setRef="1" setValue="TO_OCCUR_DAY" />
+        <map getRef="2" getValue="TO_OCCUR_TIME" setRef="1" setValue="TO_OCCUR_TIME" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="ITEM_CODE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="SINGLE_WEIGHT" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="WEIGHT" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="AMOUNT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="CORRECT_QTY" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="CORRECT_WEIGHT" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="DIFFERENCE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="OCCUR_DAY" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="OCCUR_TIME" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="RFT_NO" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="FRONTAGE" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="USER_NAME" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="17" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="18" setValue="Value" />
+        <map getRef="1" getValue="USER_ID" setRef="19" setValue="Value" />
+        <map getRef="1" getValue="OCCUR_DAY" setRef="20" setValue="Value" />
+        <map getRef="1" getValue="OCCUR_TIME" setRef="21" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Preview" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="22" exportName="PctWeightDistinctionList" exporter="Preview" />
+      <output1>
+        <map getRef="17" getValue="Value" setRef="22" setValue="CONSIGNOR_CODE" />
+        <map getRef="18" getValue="Value" setRef="22" setValue="CONSIGNOR_NAME" />
+        <map getRef="23" setRef="22" setValue="SYS_DAY" />
+        <map getRef="23" setRef="22" setValue="SYS_TIME" />
+        <map getRef="3" getValue="Value" setRef="22" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="22" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="22" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="22" setValue="SINGLE_WEIGHT" />
+        <map getRef="7" getValue="Value" setRef="22" setValue="INSPECT_WEIGHT" />
+        <map getRef="8" getValue="Value" setRef="22" setValue="INSPECT_QTY" />
+        <map getRef="9" getValue="Value" setRef="22" setValue="CORRECT_QTY" />
+        <map getRef="10" getValue="Value" setRef="22" setValue="CORRECT_WEIGHT" />
+        <map getRef="11" getValue="Value" setRef="22" setValue="DIFFERENCE_WEIGHT" />
+        <map getRef="20" getValue="Value" setRef="22" setValue="DATE" />
+        <map getRef="21" getValue="Value" setRef="22" setValue="TIME" />
+        <map getRef="14" getValue="Value" setRef="22" setValue="TERMINAL_NO" />
+        <map getRef="15" getValue="Value" setRef="22" setValue="LOCATION_NO" />
+        <map getRef="19" getValue="Value" setRef="22" setValue="USER_ID" />
+        <map getRef="16" getValue="Value" setRef="22" setValue="USER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="22" exportName="PctWeightDistinctionList" exporter="Print" />
+      <output1>
+        <map getRef="17" getValue="Value" setRef="22" setValue="CONSIGNOR_CODE" />
+        <map getRef="18" getValue="Value" setRef="22" setValue="CONSIGNOR_NAME" />
+        <map getRef="23" setRef="22" setValue="SYS_DAY" />
+        <map getRef="23" setRef="22" setValue="SYS_TIME" />
+        <map getRef="3" getValue="Value" setRef="22" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="22" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="22" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="22" setValue="SINGLE_WEIGHT" />
+        <map getRef="7" getValue="Value" setRef="22" setValue="INSPECT_WEIGHT" />
+        <map getRef="8" getValue="Value" setRef="22" setValue="INSPECT_QTY" />
+        <map getRef="9" getValue="Value" setRef="22" setValue="CORRECT_QTY" />
+        <map getRef="10" getValue="Value" setRef="22" setValue="CORRECT_WEIGHT" />
+        <map getRef="11" getValue="Value" setRef="22" setValue="DIFFERENCE_WEIGHT" />
+        <map getRef="20" getValue="Value" setRef="22" setValue="DATE" />
+        <map getRef="21" getValue="Value" setRef="22" setValue="TIME" />
+        <map getRef="14" getValue="Value" setRef="22" setValue="TERMINAL_NO" />
+        <map getRef="15" getValue="Value" setRef="22" setValue="LOCATION_NO" />
+        <map getRef="19" getValue="Value" setRef="22" setValue="USER_ID" />
+        <map getRef="16" getValue="Value" setRef="22" setValue="USER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="22" exportName="PctWeightDistinctionList" exporter="Excel" />
+      <output1>
+        <map getRef="17" getValue="Value" setRef="22" setValue="CONSIGNOR_CODE" />
+        <map getRef="18" getValue="Value" setRef="22" setValue="CONSIGNOR_NAME" />
+        <map getRef="23" setRef="22" setValue="SYS_DAY" />
+        <map getRef="23" setRef="22" setValue="SYS_TIME" />
+        <map getRef="3" getValue="Value" setRef="22" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="22" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="22" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="22" setValue="SINGLE_WEIGHT" />
+        <map getRef="7" getValue="Value" setRef="22" setValue="INSPECT_WEIGHT" />
+        <map getRef="8" getValue="Value" setRef="22" setValue="INSPECT_QTY" />
+        <map getRef="9" getValue="Value" setRef="22" setValue="CORRECT_QTY" />
+        <map getRef="10" getValue="Value" setRef="22" setValue="CORRECT_WEIGHT" />
+        <map getRef="11" getValue="Value" setRef="22" setValue="DIFFERENCE_WEIGHT" />
+        <map getRef="20" getValue="Value" setRef="22" setValue="DATE" />
+        <map getRef="21" getValue="Value" setRef="22" setValue="TIME" />
+        <map getRef="14" getValue="Value" setRef="22" setValue="TERMINAL_NO" />
+        <map getRef="15" getValue="Value" setRef="22" setValue="LOCATION_NO" />
+        <map getRef="19" getValue="Value" setRef="22" setValue="USER_ID" />
+        <map getRef="16" getValue="Value" setRef="22" setValue="USER_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

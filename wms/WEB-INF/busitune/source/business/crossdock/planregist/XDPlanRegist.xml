@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.crossdock.display.planregist.XDPlanRegistBusiness" abstractClassName="jp.co.daifuku.wms.crossdock.display.planregist.XDPlanRegist" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_PlanDate" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.wms.crossdock.display.planregist.ViewStateKeys" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.supp.LstSupplierParams" />
+    <ref name="3" type="Control" typeName="txt_SupplierCode" />
+    <ref name="4" type="Constants" typeName="Constants" />
+    <ref name="5" type="Control" typeName="txt_SupplierName" />
+    <ref name="6" type="BusinessParameter" typeName="jp.co.daifuku.wms.crossdock.listbox.plan.LstXDPlanMntParams" />
+    <ref name="7" type="Control" typeName="txt_BatchNo" />
+    <ref name="8" type="Control" typeName="txt_ReceivingSlipNumber" />
+    <ref name="9" type="Control" typeName="txt_LineNo" />
+    <ref name="10" type="Control" typeName="txt_ItemCode" />
+    <ref name="11" type="Control" typeName="txt_ItemName" />
+    <ref name="12" type="Control" typeName="txt_CasePack" />
+    <ref name="13" type="Control" typeName="txt_JanCode" />
+    <ref name="14" type="Control" typeName="txt_CaseITF" />
+    <ref name="15" type="Control" typeName="txt_LotNo" />
+    <ref name="16" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="1" getValue="MASTER" setRef="1" setValue="MASTER" />
+      </output1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_SearchSupplier" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/supp/LstSupplier" businessParameterRef="2" />
+      <input1>
+        <map getRef="3" getValue="Value" setRef="2" setValue="SUPPLIER_CODE" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="2" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="2" getValue="SUPPLIER_CODE" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="SUPPLIER_NAME" setRef="5" setValue="Value" />
+      </output1>
+      <focus controlRef="3" />
+    </event>
+    <event control="btn_PSearchPlan" name="Click" pattern="Popup">
+      <popup2Display uri="/crossdock/listbox/plan/LstXDPlanMnt" businessParameterRef="6" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="PLAN_DATE" />
+        <map getRef="7" getValue="Value" setRef="6" setValue="BATCH" />
+        <map getRef="3" getValue="Value" setRef="6" setValue="SUPPLIER_CODE" />
+        <map getRef="5" getValue="Value" setRef="6" setValue="SUPPLIER_NAME" />
+        <map getRef="8" getValue="Value" setRef="6" setValue="RECEIVING_SLIP_NUMBER" />
+        <map getRef="9" getValue="Value" setRef="6" setValue="LINE_NO" />
+        <map getRef="10" getValue="Value" setRef="6" setValue="ITEM_CODE" />
+        <map getRef="11" getValue="Value" setRef="6" setValue="ITEM_NAME" />
+        <map getRef="12" getValue="Value" setRef="6" setValue="CASE_PACK" />
+        <map getRef="13" getValue="Value" setRef="6" setValue="JAN_CODE" />
+        <map getRef="14" getValue="Value" setRef="6" setValue="CASE_ITF" />
+        <map getRef="15" getValue="Value" setRef="6" setValue="LOT" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="PLAN_DATE" setRef="0" setValue="Value" />
+        <map getRef="6" getValue="BATCH" setRef="7" setValue="Value" />
+        <map getRef="6" getValue="SUPPLIER_CODE" setRef="3" setValue="Value" />
+        <map getRef="6" getValue="SUPPLIER_NAME" setRef="5" setValue="Value" />
+        <map getRef="6" getValue="RECEIVING_TICKET" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="RECEIVING_TICKET_LINE" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="ITEM_CODE" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="ITEM_NAME" setRef="11" setValue="Value" />
+        <map getRef="6" getValue="CASE_PACK" setRef="12" setValue="Value" />
+        <map getRef="6" getValue="JAN_CODE" setRef="13" setValue="Value" />
+        <map getRef="6" getValue="CASE_ITF" setRef="14" setValue="Value" />
+        <map getRef="6" getValue="LOT" setRef="15" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_SearchItem" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="16" />
+      <input1>
+        <map getRef="10" getValue="Value" setRef="16" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="DEFAULT_CONSIGNOR_CODE" setRef="16" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="16" getValue="ITEM_CODE" setRef="10" setValue="Value" />
+        <map getRef="16" getValue="ITEM_NAME" setRef="11" setValue="Value" />
+        <map getRef="16" getValue="ENTERING_QTY" setRef="12" setValue="Value" />
+        <map getRef="16" getValue="JAN" setRef="13" setValue="Value" />
+        <map getRef="16" getValue="ITF" setRef="14" setValue="Value" />
+      </output1>
+      <focus controlRef="10" />
+    </event>
+    <event control="btn_Next" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/crossdock/planregist/XDPlanRegist2" viewStateRef="1" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="7" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="5" />
+        <validate controlRef="8" required="true" />
+        <validate controlRef="9" />
+        <validate controlRef="10" required="true" />
+        <validate controlRef="11" />
+        <validate controlRef="12" />
+        <validate controlRef="13" />
+        <validate controlRef="14" />
+        <validate controlRef="15" />
+      </validate>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="PLAN_DATE" />
+        <map getRef="7" getValue="Value" setRef="1" setValue="BATCH_NO" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="SUPPLIER_CODE" />
+        <map getRef="5" getValue="Value" setRef="1" setValue="SUPPLIER_NAME" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="RECEIVING_SLIP_NUMBER" />
+        <map getRef="10" getValue="Value" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="11" getValue="Value" setRef="1" setValue="ITEM_NAME" />
+        <map getRef="12" getValue="Value" setRef="1" setValue="CASE_PACK" />
+        <map getRef="13" getValue="Value" setRef="1" setValue="JAN_CODE" />
+        <map getRef="14" getValue="Value" setRef="1" setValue="CASE_ITF" />
+        <map getRef="15" getValue="Value" setRef="1" setValue="LOT_NO" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="7" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="8" type="Empty" />
+        <clear controlRef="9" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="11" type="Empty" />
+        <clear controlRef="12" type="Empty" />
+        <clear controlRef="13" type="Empty" />
+        <clear controlRef="14" type="Empty" />
+        <clear controlRef="15" type="Empty" />
+      </clear1>
+    </event>
+  </events>
+</business>

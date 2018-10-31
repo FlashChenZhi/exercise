@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.faliststart.FaRetrievalListStartBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.faliststart.FaRetrievalListStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_FromBatchNo" />
+    <ref name="1" type="Control" typeName="txt_ToBatchNo" />
+    <ref name="2" type="Control" typeName="LST_SELECT" />
+    <ref name="3" type="Control" typeName="lst_FaRetListstart" />
+    <ref name="4" type="Control" typeName="btn_Start" />
+    <ref name="5" type="Control" typeName="btn_AllCheck" />
+    <ref name="6" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="7" type="Control" typeName="btn_AllClear" />
+    <ref name="8" type="Control" typeName="chk_WorkListPrint" />
+    <ref name="9" type="Sch" typeName="jp.co.daifuku.wms.retrieval.schedule.FaRetrievalListStartSCH" />
+    <ref name="10" type="Constants" typeName="Constants" />
+    <ref name="11" type="Control" typeName="LST_BATCH_NO" />
+    <ref name="12" type="Control" typeName="LST_AREA_NO" />
+    <ref name="13" type="Control" typeName="LST_AREA_NAME" />
+    <ref name="14" type="Control" typeName="LST_NO_OF_RECORDS" />
+    <ref name="15" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="16" type="Boolean" typeName="Boolean" />
+    <ref name="17" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_FaRetListstart">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_BATCH_NO" orgIndex="2" resourceKey="LBL-W0028" dataType="String" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="3" resourceKey="LBL-W0011" dataType="Area" />
+      <listcellColumn name="LST_AREA_NAME" orgIndex="4" resourceKey="LBL-W0013" dataType="String" />
+      <listcellColumn name="LST_NO_OF_RECORDS" orgIndex="5" resourceKey="LBL-W0180" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="2" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="2" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="btn_AllClear" name="Click" pattern="ListCellClear">
+      <clear1>
+        <clear controlRef="3" type="Clear" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="9" />
+      <validate>
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="FROM_BATCH_NO" />
+        <map getRef="1" getValue="Value" setRef="9" setValue="TO_BATCH_NO" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="9" getValue="BATCH_NO" setRef="11" setValue="Value" />
+        <map getRef="9" getValue="AREA_NO" setRef="12" setValue="Value" />
+        <map getRef="9" getValue="AREA_NAME" setRef="13" setValue="Value" />
+        <map getRef="9" getValue="NO_OF_RECORDS" setRef="14" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+        <clear controlRef="6" type="Enabled" />
+        <clear controlRef="7" type="Enabled" />
+        <clear controlRef="8" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Start" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="9" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="9" setValue="SELECT" />
+        <map getRef="11" getValue="Value" setRef="9" setValue="BATCH_NO" />
+        <map getRef="12" getValue="Value" setRef="9" setValue="AREA_NO" />
+        <map getRef="13" getValue="Value" setRef="9" setValue="AREA_NAME" />
+        <map getRef="14" getValue="Value" setRef="9" setValue="NO_OF_RECORDS" />
+        <map getRef="10" getValue="DEFAULT_CONSIGNOR_CODE" setRef="9" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="15" operation="SETTING">
+        <block type="If" tag="0" desc="作業リスト発行が選択されている場合">
+          <expr type="And" operator="Equal" leftRef="8" leftValue="Value" rightRef="16" rightValue="True" />
+        </block>
+        <out out1Ref="17" out1Value="1" />
+        <block type="Else" tag="0" desc="作業リスト発行が選択されている場合" />
+        <out out1Ref="17" out1Value="0" />
+        <block type="If" tag="1" desc="選択チェックが選択されている場合">
+          <expr type="And" operator="Equal" leftRef="2" leftValue="Value" rightRef="16" rightValue="True" />
+        </block>
+        <out out1Ref="11" out1Value="Value" />
+        <out out1Ref="12" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="3" type="Clear" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+        <clear controlRef="6" type="Disabled" />
+        <clear controlRef="7" type="Disabled" />
+        <clear controlRef="8" type="Disabled" />
+      </clear1>
+    </event>
+  </events>
+</business>

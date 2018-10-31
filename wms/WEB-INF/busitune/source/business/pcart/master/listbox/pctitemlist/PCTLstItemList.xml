@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.listbox.pctitemlist.PCTLstItemListBusiness" abstractClassName="jp.co.daifuku.pcart.master.listbox.pctitemlist.PCTLstItemList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pgr_U" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.PCTLstItemListDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctitemlist.PCTLstItemListParams" />
+    <ref name="3" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="4" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="5" type="Control" typeName="LST_LOT_QTY" />
+    <ref name="6" type="Control" typeName="LST_JAN" />
+    <ref name="7" type="Control" typeName="LST_ITF" />
+    <ref name="8" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="9" type="Control" typeName="LST_WEIGHT_DISTINCT_RATE" />
+    <ref name="10" type="Control" typeName="LST_SINGLE_WEIGHT" />
+    <ref name="11" type="Control" typeName="LST_MAX_INSPECTION_QTY" />
+    <ref name="12" type="Control" typeName="LST_LAST_USED_DATE" />
+    <ref name="13" type="Control" typeName="LST_LAST_UPDATE_DATE" />
+    <ref name="14" type="Control" typeName="LST_ITEM_PICTURE_REGIST" />
+    <ref name="15" type="Control" typeName="LST_MESSAGE" />
+    <ref name="16" type="Control" typeName="HIDDEN_CONSIGNOR_CODE" />
+    <ref name="17" type="Control" typeName="HIDDEN_CONSIGNOR_NAME" />
+    <ref name="18" type="ExportParameter" typeName="jp.co.daifuku.pcart.master.exporter.PCTItemMasterListParams" />
+    <ref name="19" type="String" typeName="String" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_SEARCH_CONDITION_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_SEARCH_CONDITION_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_PCTItemMasterList">
+      <listcellColumn name="HIDDEN_CONSIGNOR_CODE" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_CONSIGNOR_NAME" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="1" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="10" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_QTY" orgIndex="2" resourceKey="LBL-P0053" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_JAN" orgIndex="3" resourceKey="LBL-W0002" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITF" orgIndex="11" resourceKey="LBL-W0017" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="4" resourceKey="LBL-P0241" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SINGLE_WEIGHT" orgIndex="5" resourceKey="LBL-P0165" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WEIGHT_DISTINCT_RATE" orgIndex="12" resourceKey="LBL-P0166" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_MAX_INSPECTION_QTY" orgIndex="6" resourceKey="LBL-P0168" dataType="Number" format="0" tooltipEnabled="true" />
+      <listcellColumn name="LST_LAST_UPDATE_DATE" orgIndex="7" resourceKey="LBL-W0068" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_LAST_USED_DATE" orgIndex="13" resourceKey="LBL-W0069" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_PICTURE_REGIST" orgIndex="8" resourceKey="LBL-P0209" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_MESSAGE" orgIndex="9" resourceKey="LBL-W0032" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close_U" name="Click" pattern="ParentRedirect" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="FROM_ITEM_CODE" setRef="1" setValue="FROM_ITEM_CODE" />
+        <map getRef="2" getValue="TO_ITEM_CODE" setRef="1" setValue="TO_ITEM_CODE" />
+        <map getRef="2" getValue="LOT_QTY" setRef="1" setValue="LOT_QTY" />
+        <map getRef="2" getValue="JAN" setRef="1" setValue="JAN" />
+        <map getRef="2" getValue="ITF" setRef="1" setValue="ITF" />
+        <map getRef="2" getValue="FROM_SINGLE_WEIGHT" setRef="1" setValue="FROM_SINGLE_WEIGHT" />
+        <map getRef="2" getValue="TO_SINGLE_WEIGHT" setRef="1" setValue="TO_SINGLE_WEIGHT" />
+        <map getRef="2" getValue="ITEM_PICTURE_REGIST" setRef="1" setValue="ITEM_PICTURE_REGIST" />
+        <map getRef="2" getValue="FROM_LOCATION_NO" setRef="1" setValue="FROM_LOCATION_NO" />
+        <map getRef="2" getValue="TO_LOCATION_NO" setRef="1" setValue="TO_LOCATION_NO" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="ITEM_CODE" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="LOT_QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="JAN" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="ITF" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="SINGLE_WEIGHT" setRef="8" setValue="Value" />
+        <map getRef="1" getValue="WEIGHT_DISTINCT_RATE" setRef="9" setValue="Value" />
+        <map getRef="1" getValue="MAX_INSPECTION_QTY" setRef="10" setValue="Value" />
+        <map getRef="1" getValue="LAST_UPDATE_DATE" setRef="11" setValue="Value" />
+        <map getRef="1" getValue="LAST_USED_DATE" setRef="12" setValue="Value" />
+        <map getRef="1" getValue="ITEM_PICTURE_REGIST" setRef="13" setValue="Value" />
+        <map getRef="1" getValue="MESSAGE" setRef="14" setValue="Value" />
+        <map getRef="1" getValue="LOCATION_NO" setRef="15" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="16" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_NAME" setRef="17" setValue="Value" />
+      </output1>
+    </event>
+    <event control="btn_Preview" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="18" exportName="PctItemMasterList" exporter="Preview" />
+      <output1>
+        <map getRef="16" getValue="Value" setRef="18" setValue="CONSIGNOR_CODE" />
+        <map getRef="17" getValue="Value" setRef="18" setValue="CONSIGNOR_NAME" />
+        <map getRef="19" getValue="SYS_DAY" setRef="18" setValue="SYS_DAY" />
+        <map getRef="19" getValue="SYS_TIME" setRef="18" setValue="SYS_TIME" />
+        <map getRef="3" getValue="Value" setRef="18" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="18" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="18" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="18" setValue="JAN" />
+        <map getRef="7" getValue="Value" setRef="18" setValue="ITF" />
+        <map getRef="8" getValue="Value" setRef="18" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="Value" setRef="18" setValue="SINGLE_WEIGHT" />
+        <map getRef="9" getValue="Value" setRef="18" setValue="WEGHT_DISTINCT_RATE" />
+        <map getRef="11" getValue="Value" setRef="18" setValue="MAX_INSPECTION_UNIT_QTY" />
+        <map getRef="13" getValue="Value" setRef="18" setValue="LAST_UPDATE" />
+        <map getRef="12" getValue="Value" setRef="18" setValue="WORK_DAY" />
+        <map getRef="14" getValue="Value" setRef="18" setValue="ITEM_PICTURE_FLAG" />
+        <map getRef="15" getValue="Value" setRef="18" setValue="MESSAGE1" />
+      </output1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="18" exportName="PctItemMasterList" exporter="Print" />
+      <output1>
+        <map getRef="16" getValue="Value" setRef="18" setValue="CONSIGNOR_CODE" />
+        <map getRef="17" getValue="Value" setRef="18" setValue="CONSIGNOR_NAME" />
+        <map getRef="19" getValue="SYS_DAY" setRef="18" setValue="SYS_DAY" />
+        <map getRef="19" getValue="SYS_TIME" setRef="18" setValue="SYS_TIME" />
+        <map getRef="3" getValue="Value" setRef="18" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="18" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="18" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="18" setValue="JAN" />
+        <map getRef="7" getValue="Value" setRef="18" setValue="ITF" />
+        <map getRef="8" getValue="Value" setRef="18" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="Value" setRef="18" setValue="SINGLE_WEIGHT" />
+        <map getRef="9" getValue="Value" setRef="18" setValue="WEGHT_DISTINCT_RATE" />
+        <map getRef="11" getValue="Value" setRef="18" setValue="MAX_INSPECTION_UNIT_QTY" />
+        <map getRef="13" getValue="Value" setRef="18" setValue="LAST_UPDATE" />
+        <map getRef="12" getValue="Value" setRef="18" setValue="WORK_DAY" />
+        <map getRef="14" getValue="Value" setRef="18" setValue="ITEM_PICTURE_FLAG" />
+        <map getRef="15" getValue="Value" setRef="18" setValue="MESSAGE1" />
+      </output1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="ListCellExport">
+      <display2Exporter exportParameterRef="18" exportName="PctItemMasterList" exporter="Excel" />
+      <output1>
+        <map getRef="3" getValue="Value" setRef="18" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="18" setValue="ITEM_NAME" />
+        <map getRef="5" getValue="Value" setRef="18" setValue="LOT_ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="18" setValue="JAN" />
+        <map getRef="7" getValue="Value" setRef="18" setValue="ITF" />
+        <map getRef="8" getValue="Value" setRef="18" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="Value" setRef="18" setValue="SINGLE_WEIGHT" />
+        <map getRef="9" getValue="Value" setRef="18" setValue="WEGHT_DISTINCT_RATE" />
+        <map getRef="11" getValue="Value" setRef="18" setValue="MAX_INSPECTION_UNIT_QTY" />
+        <map getRef="13" getValue="Value" setRef="18" setValue="LAST_UPDATE" />
+        <map getRef="12" getValue="Value" setRef="18" setValue="WORK_DAY" />
+        <map getRef="14" getValue="Value" setRef="18" setValue="ITEM_PICTURE_FLAG" />
+        <map getRef="15" getValue="Value" setRef="18" setValue="MESSAGE1" />
+      </output1>
+    </event>
+  </events>
+</business>

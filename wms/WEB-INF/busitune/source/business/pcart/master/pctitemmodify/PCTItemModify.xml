@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctitemmodify.PCTItemModifyBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctitemmodify.PCTItemModify" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemModifySCH" />
+    <ref name="2" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctitemmodify.ViewStateKeys" />
+    <ref name="3" type="Control" typeName="txt_ItemCode" />
+    <ref name="4" type="Control" typeName="txt_LotEnteringQty" />
+    <ref name="5" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctitem.PCTLstItemParams" />
+    <ref name="6" type="Constants" typeName="Constants" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Next" name="Click" pattern="Forward">
+      <sch2Forward schRef="1" uri="/pcart/master/pctitemmodify/PCTItemModify2" viewStateRef="2" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="3" required="true" />
+        <validate controlRef="4" required="true" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="1" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="1" setValue="ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="1" setValue="LOT_QTY" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="Value" setRef="2" setValue="VS_CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="VS_ITEM_CODE" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="VS_LOT_QTY" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="2" getValue="VS_CONSIGNOR_CODE" setRef="0" setValue="Value" />
+        <map getRef="2" getValue="VS_ITEM_CODE" setRef="3" setValue="Value" />
+        <map getRef="2" getValue="VS_LOT_QTY" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_SearchItem" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/item/LstItem" businessParameterRef="5" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="CONSIGNOR_CODE" />
+        <map getRef="3" getValue="Value" setRef="5" setValue="ITEM_CODE" />
+        <map getRef="6" getValue="SEARCH_TABLE_MASTER" setRef="5" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="5" getValue="ITEM_CODE" setRef="3" setValue="Value" />
+        <map getRef="5" getValue="LOT_QTY" setRef="4" setValue="Value" />
+      </output1>
+      <focus controlRef="3" />
+    </event>
+  </events>
+</business>

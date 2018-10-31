@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.part11.listbox.locatehistorylist.LstLocateHistoryBusiness" abstractClassName="jp.co.daifuku.wms.part11.listbox.locatehistorylist.LstLocateHistory" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.wms.part11.dasch.LstLocateHistoryDASCH" />
+    <ref name="1" type="BusinessParameter" typeName="jp.co.daifuku.wms.part11.listbox.locatehistorylist.LstLocateHistoryParams" />
+    <ref name="2" type="Control" typeName="LST_NO" />
+    <ref name="3" type="Control" typeName="LST_LOGDATE_DAY" />
+    <ref name="4" type="Control" typeName="LST_LOGDATE_TIME" />
+    <ref name="5" type="Control" typeName="LST_UPDATE_KIND" />
+    <ref name="6" type="Control" typeName="LST_USER_ID" />
+    <ref name="7" type="Control" typeName="LST_USER_NAME" />
+    <ref name="8" type="Control" typeName="LST_IP_ADDRESS" />
+    <ref name="9" type="Control" typeName="LST_TERMINAL_NAME" />
+    <ref name="10" type="Control" typeName="LST_AREA_NO" />
+    <ref name="11" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="12" type="Control" typeName="LST_AISLE_NO" />
+    <ref name="13" type="Control" typeName="LST_UPDATE_AISLE_NO" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_COLUMN_1" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_LocateHistoryList">
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_DAY" orgIndex="2" resourceKey="LBL-W8004" dataType="Date" format="DateLong" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOGDATE_TIME" orgIndex="9" resourceKey="LBL-W8005" dataType="Date" format="TimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_UPDATE_KIND" orgIndex="3" resourceKey="LBL-W8016" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_ID" orgIndex="4" resourceKey="LBL-T0220" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_USER_NAME" orgIndex="10" resourceKey="LBL-W0033" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_IP_ADDRESS" orgIndex="5" resourceKey="LBL-T0222" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_TERMINAL_NAME" orgIndex="11" resourceKey="LBL-W8006" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_AREA_NO" orgIndex="6" resourceKey="LBL-W8008" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="7" resourceKey="LBL-W8009" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_AISLE_NO" orgIndex="8" resourceKey="LBL-W8039" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_UPDATE_AISLE_NO" orgIndex="12" resourceKey="LBL-W8040" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="1" getValue="TABLE_NAME" setRef="0" setValue="TABLE_NAME" />
+        <map getRef="1" getValue="DISPFROMDAY_KEY" setRef="0" setValue="DISPFROMDAY_KEY" />
+        <map getRef="1" getValue="DISPFROMTIME_KEY" setRef="0" setValue="DISPFROMTIME_KEY" />
+        <map getRef="1" getValue="DISPTODAY_KEY" setRef="0" setValue="DISPTODAY_KEY" />
+        <map getRef="1" getValue="DISPTOTIME_KEY" setRef="0" setValue="DISPTOTIME_KEY" />
+        <map getRef="1" getValue="USERID_KEY" setRef="0" setValue="USERID_KEY" />
+        <map getRef="1" getValue="DSNUMBER_KEY" setRef="0" setValue="DSNUMBER_KEY" />
+        <map getRef="1" getValue="PAGENAMERESOURCEKEY" setRef="0" setValue="PAGENAMERESOURCEKEY" />
+      </input1>
+      <output1>
+        <map getRef="0" getValue="NO" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="LOGDATE_DAY" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="LOGDATE_TIME" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_KIND" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="USER_ID" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="USER_NAME" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="IP_ADDRESS" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="TERMINAL_NAME" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="LOCATION_NO" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="AISLE_NO" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="UPDATE_AISLE_NO" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

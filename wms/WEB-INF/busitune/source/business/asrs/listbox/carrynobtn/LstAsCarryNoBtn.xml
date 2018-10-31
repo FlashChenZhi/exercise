@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.listbox.carrynobtn.LstAsCarryNoBtnBusiness" abstractClassName="jp.co.daifuku.wms.asrs.listbox.carrynobtn.LstAsCarryNoBtn" completed="true">
+  <refs>
+    <ref name="0" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.LstAsCarryNoBtnDASCH" />
+    <ref name="1" type="Control" typeName="LST_NO" />
+    <ref name="2" type="Control" typeName="LST_PRIORITY" />
+    <ref name="3" type="Control" typeName="LST_CARRY_KEY" />
+    <ref name="4" type="Control" typeName="LST_STATION_NO" />
+    <ref name="5" type="Control" typeName="LST_LOCATION_NO" />
+    <ref name="6" type="Control" typeName="LST_SOURCE_DEST" />
+    <ref name="7" type="Control" typeName="LST_CARRY_FLAG" />
+    <ref name="8" type="Control" typeName="LST_CMD_STATUS" />
+    <ref name="9" type="Control" typeName="LST_WORK_NO" />
+    <ref name="10" type="Control" typeName="HDN_SOURCE_STATION_NAME" />
+    <ref name="11" type="Control" typeName="HDN_DEST_STATION_NAME" />
+    <ref name="12" type="Control" typeName="HDN_WORK_TYPE" />
+    <ref name="13" type="Control" typeName="HDN_RETRIEVAL_DETAIL" />
+    <ref name="14" type="Control" typeName="HDN_SOURCE_STATION_NO" />
+    <ref name="15" type="Control" typeName="HDN_DEST_STATION_NO" />
+    <ref name="16" type="Control" typeName="HDN_AREA_NO" />
+    <ref name="17" type="Control" typeName="HIDDEN_SCHEDULE_NO" />
+    <ref name="18" type="Control" typeName="HIDDEN_LOCATION_NO" />
+    <ref name="19" type="Control" typeName="HIDDEN_TO_LOCATION_NO" />
+  </refs>
+  <listcells>
+    <listcell name="lst_RestWorkNoButtonList">
+      <listcellColumn name="HDN_SOURCE_STATION_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HDN_DEST_STATION_NAME" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HDN_WORK_TYPE" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HDN_RETRIEVAL_DETAIL" orgIndex="0" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="HDN_SOURCE_STATION_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HDN_DEST_STATION_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HDN_AREA_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_SCHEDULE_NO" orgIndex="0" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="HIDDEN_LOCATION_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_TO_LOCATION_NO" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_PRIORITY" orgIndex="2" resourceKey="LBL-W0181" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CARRY_KEY" orgIndex="3" resourceKey="LBL-W0165" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STATION_NO" orgIndex="4" resourceKey="LBL-W0021" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOCATION_NO" orgIndex="5" resourceKey="LBL-W0138" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_SOURCE_DEST" orgIndex="6" resourceKey="LBL-W0167" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CARRY_FLAG" orgIndex="7" resourceKey="LBL-W0166" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CMD_STATUS" orgIndex="8" resourceKey="LBL-W0168" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_WORK_NO" orgIndex="9" resourceKey="LBL-W0074" dataType="String" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="btn_Close_D" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="0" isSession="true" isPopup="true" />
+      <output1>
+        <map getRef="0" getValue="NO" setRef="1" setValue="Value" />
+        <map getRef="0" getValue="PRIORITY_NAME" setRef="2" setValue="Value" />
+        <map getRef="0" getValue="CARRY_KEY" setRef="3" setValue="Value" />
+        <map getRef="0" getValue="STATION_NO" setRef="4" setValue="Value" />
+        <map getRef="0" getValue="LOCATION_NO" setRef="5" setValue="Value" />
+        <map getRef="0" getValue="SOURCE_DEST" setRef="6" setValue="Value" />
+        <map getRef="0" getValue="CARRY_FLAG_NAME" setRef="7" setValue="Value" />
+        <map getRef="0" getValue="CMD_STATUS_NAME" setRef="8" setValue="Value" />
+        <map getRef="0" getValue="WORK_NO" setRef="9" setValue="Value" />
+        <map getRef="0" getValue="SOURCE_STATION_NAME" setRef="10" setValue="Value" />
+        <map getRef="0" getValue="DEST_STATION_NAME" setRef="11" setValue="Value" />
+        <map getRef="0" getValue="WORK_TYPE_NAME" setRef="12" setValue="Value" />
+        <map getRef="0" getValue="RETRIEVAL_DETAIL_NAME" setRef="13" setValue="Value" />
+        <map getRef="0" getValue="SOURCE_STATION_NO" setRef="14" setValue="Value" />
+        <map getRef="0" getValue="DEST_STATION_NO" setRef="15" setValue="Value" />
+        <map getRef="0" getValue="AREA_NO" setRef="16" setValue="Value" />
+        <map getRef="0" getValue="SCHEDULE_NO" setRef="17" setValue="Value" />
+        <map getRef="0" getValue="LOCATION_NO" setRef="18" setValue="Value" />
+        <map getRef="0" getValue="TO_LOCATION_NO" setRef="19" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

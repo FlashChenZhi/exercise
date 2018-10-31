@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.base.listbox.item.LstItemBusiness" abstractClassName="jp.co.daifuku.wms.base.listbox.item.LstItem" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="3" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="4" type="Dasch" typeName="jp.co.daifuku.wms.base.dasch.LstItemDASCH" />
+    <ref name="5" type="Control" typeName="HIDDEN_ENTERING_QTY" />
+    <ref name="6" type="Control" typeName="HIDDEN_JAN" />
+    <ref name="7" type="Control" typeName="HIDDEN_ITF" />
+    <ref name="8" type="Control" typeName="HIDDEN_UPPER_QTY" />
+    <ref name="9" type="Control" typeName="HIDDEN_LOWER_QTY" />
+    <ref name="10" type="Control" typeName="LST_SELECT" />
+    <ref name="11" type="Control" typeName="HIDDEN_SOFT_ZONE_ID" />
+    <ref name="12" type="Control" typeName="LST_SOFTZONE_NAME" />
+    <ref name="13" type="Control" typeName="LST_ITEM_TYPE" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchCondition">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+    </listcell>
+    <listcell name="lst_Item">
+      <listcellColumn name="HIDDEN_ENTERING_QTY" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="HIDDEN_JAN" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_ITF" orgIndex="0" dataType="String" />
+      <listcellColumn name="HIDDEN_UPPER_QTY" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="HIDDEN_LOWER_QTY" orgIndex="0" dataType="Number" format="0" />
+      <listcellColumn name="HIDDEN_SOFT_ZONE_ID" orgIndex="0" dataType="String" />
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="String" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" />
+      <listcellColumn name="LST_SOFTZONE_NAME" orgIndex="4" resourceKey="LBL-W0597" dataType="String" />
+      <listcellColumn name="LST_ITEM_TYPE" orgIndex="5" resourceKey="LBL-W9039" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="LST_COLUMN_1" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="1" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="4" isSession="true" />
+      <input1>
+        <map getRef="2" getValue="ITEM_CODE" setRef="4" setValue="ITEM_CODE" />
+        <map getRef="2" getValue="CONSIGNOR_CODE" setRef="4" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="FROM_TO_FLAG" setRef="4" setValue="FROM_TO_FLAG" />
+        <map getRef="2" getValue="TO_ITEM_CODE" setRef="4" setValue="TO_ITEM_CODE" />
+      </input1>
+      <output1>
+        <map getRef="4" getValue="ENTERING_QTY" setRef="5" setValue="Value" />
+        <map getRef="4" getValue="JAN" setRef="6" setValue="Value" />
+        <map getRef="4" getValue="ITF" setRef="7" setValue="Value" />
+        <map getRef="4" getValue="UPPER_QTY" setRef="8" setValue="Value" />
+        <map getRef="4" getValue="LOWER_QTY" setRef="9" setValue="Value" />
+        <map getRef="4" getValue="SELECT" setRef="10" setValue="Value" />
+        <map getRef="4" getValue="ITEM_CODE" setRef="1" setValue="Value" />
+        <map getRef="4" getValue="ITEM_NAME" setRef="3" setValue="Value" />
+        <map getRef="4" getValue="SOFT_ZONE_ID" setRef="11" setValue="Value" />
+        <map getRef="4" getValue="SOFT_ZONE_NAME" setRef="12" setValue="Value" />
+        <map getRef="4" getValue="ITEM_TYPE" setRef="13" setValue="Value" />
+      </output1>
+    </event>
+    <event control="LST_SELECT" name="Click" pattern="ParentRedirect">
+      <output1>
+        <map getRef="5" getValue="Value" setRef="2" setValue="ENTERING_QTY" />
+        <map getRef="6" getValue="Value" setRef="2" setValue="JAN" />
+        <map getRef="7" getValue="Value" setRef="2" setValue="ITF" />
+        <map getRef="8" getValue="Value" setRef="2" setValue="UPPER_QTY" />
+        <map getRef="9" getValue="Value" setRef="2" setValue="LOWER_QTY" />
+        <map getRef="1" getValue="Value" setRef="2" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="2" setValue="ITEM_NAME" />
+        <map getRef="11" getValue="Value" setRef="2" setValue="SOFT_ZONE_ID" />
+        <map getRef="12" getValue="Value" setRef="2" setValue="SOFT_ZONE_NAME" />
+        <map getRef="13" getValue="Value" setRef="2" setValue="ITEM_TYPE" />
+      </output1>
+    </event>
+  </events>
+</business>

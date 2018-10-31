@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--BatchNoList-->
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="12" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="12" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>180</w>
+      <h>26</h>
+      <caption>Batch # List</caption>
+    </label>
+    <label name="lblPage" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>192</x>
+      <y>6</y>
+      <w>120</w>
+      <h>14</h>
+      <caption>(Page:%BatchListDataSheet.$PAGE%/%BatchListDataSheet.$NUM_PAGES%)</caption>
+    </label>
+    <button name="Ent1" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[0]%" inputchecked="false">
+      <x>0</x>
+      <y>54</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[0]%</caption>
+      <event>BatchL_Ent1</event>
+    </button>
+    <button name="Ent2" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[1]%" inputchecked="false">
+      <x>162</x>
+      <y>54</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[1]%</caption>
+      <event>BatchL_Ent2</event>
+    </button>
+    <button name="Ent3" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[2]%" inputchecked="false">
+      <x>0</x>
+      <y>108</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[2]%</caption>
+      <event>BatchL_Ent3</event>
+    </button>
+    <button name="Ent4" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[3]%" inputchecked="false">
+      <x>162</x>
+      <y>108</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[3]%</caption>
+      <event>BatchL_Ent4</event>
+    </button>
+    <button name="Ent5" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[4]%" inputchecked="false">
+      <x>0</x>
+      <y>162</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[4]%</caption>
+      <event>BatchL_Ent5</event>
+    </button>
+    <button name="Ent6" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[5]%" inputchecked="false">
+      <x>162</x>
+      <y>162</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[5]%</caption>
+      <event>BatchL_Ent6</event>
+    </button>
+    <button name="Ent7" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[6]%" inputchecked="false">
+      <x>0</x>
+      <y>216</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[6]%</caption>
+      <event>BatchL_Ent7</event>
+    </button>
+    <button name="Ent8" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.@ENABLED[7]%" inputchecked="false">
+      <x>162</x>
+      <y>216</y>
+      <w>162</w>
+      <h>54</h>
+      <caption>%BatchListDataSheet.@BATCH_NO[7]%</caption>
+      <event>BatchL_Ent8</event>
+    </button>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.$PREV_ENABLED%" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>BatchL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%BatchListDataSheet.$NEXT_ENABLED%" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>BatchL_Next</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>216</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Retrun</caption>
+      <event>BatchL_Back</event>
+    </button>
+  </form>
+</HaiSurf.Page>

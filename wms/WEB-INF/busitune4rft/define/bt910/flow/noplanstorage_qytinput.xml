@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="urn:busitune4rft:flow:2.0">
+  <refs>
+    <ref name="0" typeName="NstQtyInput" type="Page" />
+    <ref name="1" typeName="noplanstorage_inspection" type="Flow" />
+    <ref name="2" typeName="NoPlanStorageOutDataSheet" type="DataSheet" />
+    <ref name="3" typeName="WRN_1" type="MessagePage" />
+    <ref name="4" typeName="NstEntQtyInput" type="Page" />
+    <ref name="5" typeName="String" type="String" />
+    <ref name="6" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="7" typeName="Result" type="Result" />
+  </refs>
+  <nodes>
+    <node typeRef="0">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="return_Click" order="1">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="7" name="MOVE_FOCUS" />
+              </conditions>
+            </forward>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="NstInspection">
+              <conditions>
+                <condition typeRef="7" name="NORMAL" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="NstInspection" />
+          </forwards>
+        </action>
+        <action name="input_Click" order="3">
+          <forwards>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="7" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+            <forward forwardType="Node" nodeName="NstEntQtyInput">
+              <params>
+                <map getterTypeRef="2" getterValue="ENTERING_QTY" setterTypeRef="2" setterValue="TEMP_ENTERING_QTY" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+        <action name="caseQty_Enter" order="4">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="pieceQty_Enter" order="5">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="lotNo_Enter" order="6">
+          <forwards>
+            <forward forwardType="Flow" flowTypeRef="1" nodeName="NstInspection">
+              <conditions>
+                <condition typeRef="7" name="NORMAL" />
+              </conditions>
+            </forward>
+            <forward forwardType="Child" message1="6043026">
+              <conditions>
+                <condition typeRef="7" name="INSP_ZERO" />
+              </conditions>
+              <nodes>
+                <node typeRef="3">
+                  <actions>
+                    <action name="#1" order="0">
+                      <forwards>
+                        <forward forwardType="None" />
+                      </forwards>
+                    </action>
+                  </actions>
+                </node>
+              </nodes>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+    <node typeRef="4">
+      <actions>
+        <action name="page_Load" order="0">
+          <forwards>
+            <forward forwardType="None" />
+          </forwards>
+        </action>
+        <action name="enteringQty_Enter" order="1">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstQtyInput">
+              <conditions>
+                <condition typeRef="7" name="NORMAL" />
+              </conditions>
+              <params>
+                <map getterTypeRef="5" getterValue="1" setterTypeRef="6" setterValue="INPUT_TYPE" />
+              </params>
+            </forward>
+            <forward forwardType="None">
+              <conditions>
+                <condition typeRef="7" name="VALIDATE_ERROR" />
+              </conditions>
+            </forward>
+          </forwards>
+        </action>
+        <action name="back_Click" order="2">
+          <forwards>
+            <forward forwardType="Node" nodeName="NstQtyInput">
+              <params>
+                <map getterTypeRef="5" getterValue="1" setterTypeRef="6" setterValue="INPUT_TYPE" />
+              </params>
+            </forward>
+          </forwards>
+        </action>
+      </actions>
+    </node>
+  </nodes>
+</flow>

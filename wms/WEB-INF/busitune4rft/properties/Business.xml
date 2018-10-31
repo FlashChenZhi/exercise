@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator>
+
+  <!-- 変数 -->
+  <valiable name="superClass">jp.co.daifuku.busitune.rft.haisurf.AbstractHSBusiness</valiable>
+  <valiable name="resultClass" select="@result"/>
+  <valiable name="imports" type="HashSet"/>
+  <valiable name="publicMethods" type="List"/>
+
+  <!-- 初期インポート -->
+  <set name="imports" select="$superClass"/>
+
+  <!-- メソッド作成 -->
+  <foreach select="methods/method">
+    <call name="methodStatement"/>
+  </foreach>
+
+  <!-- 入出力パターン（1件問い合わせ） -->
+  <template name="methodStatement" match="method[@pattern='Query']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">java.sql.Connection</set>
+    <set name="imports">java.util.ArrayList</set>
+    <set name="imports">java.util.List</set>
+    <set name="imports">jp.co.daifuku.foundation.common.DBUtil</set>
+    <set name="imports">jp.co.daifuku.foundation.common.Params</set>
+    <set name="imports">jp.co.daifuku.bluedog.sql.ConnectionManager</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WMSConstants</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="imports" select="@sch"/>
+    <set name="imports" select="@schParams"/>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            <call name="dataSheetStatement"/>
+            <call name="validateStatement"/>
+            Connection conn = null;<br/>
+            <valueof select="class-name(@sch)"/> sch = null;<br/>
+            try<br/>
+            {<br/>
+                // open connection.<br/>
+                conn = ConnectionManager.getConnection(WMSConstants.DATASOURCE_RFT_NAME);<br/>
+                sch = new <valueof select="class-name(@sch)"/>(conn, this.getClass(), locale);<br/>
+                <br/>
+                // set input parameters.<br/>
+                <valueof select="class-name(@schParams)"/> inparam = new <valueof select="class-name(@schParams)"/>();<br/>
+                <if test="schInput">
+                  <call name="mappingStatement" select="schInput">
+                    <convert select="@schParams">inparam</convert>
+                  </call>
+                </if>
+                <br/>
+                // SCH call.<br/>
+                List&lt;Params&gt; outparams = sch.query(inparam);<br/>
+                <br/>
+                <if test="output">
+                  // set output parameters.<br/>
+                  <if test="output/map/*[@type='SchParams']">
+                    for (Params outparam : outparams)<br/>
+                    {<br/>
+                        <call name="mappingStatement" select="output">
+                          <valiable name="filter">SchParams</valiable>
+                          <convert select="@schParams">outparam</convert>
+                        </call>
+                        break;<br/>
+                    }<br/>
+                    <br/>
+                  </if>
+                  <if test="output/map/*[not(@type='SchParams')]">
+                    <call name="mappingStatement" select="output">
+                      <valiable name="filter">NotSchParams</valiable>
+                    </call>
+                    <br/>
+                  </if>
+                </if>
+                <call name="focusStatement"/>
+                // set result code.<br/>
+                return new HSResult(ResultConst.NORMAL);<br/>
+            }<br/>
+            catch (Exception ex)<br/>
+            {<br/>
+                ex.printStackTrace();<br/>
+                return HaiSurfExceptionHandler.getResult(ex, this.getClass(), dsf, locale);<br/>
+            }<br/>
+            finally<br/>
+            {<br/>
+                DBUtil.close(conn);<br/>
+            }<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- 入出力パターン（複数件問い合わせ） -->
+  <template name="methodStatement" match="method[@pattern='QueryList']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">java.sql.Connection</set>
+    <set name="imports">java.util.ArrayList</set>
+    <set name="imports">java.util.List</set>
+    <set name="imports">jp.co.daifuku.foundation.common.DBUtil</set>
+    <set name="imports">jp.co.daifuku.foundation.common.Params</set>
+    <set name="imports">jp.co.daifuku.bluedog.sql.ConnectionManager</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WMSConstants</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="imports" select="@sch"/>
+    <set name="imports" select="@schParams"/>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            <call name="dataSheetStatement"/>
+            <call name="validateStatement"/>
+            Connection conn = null;<br/>
+            <valueof select="class-name(@sch)"/> sch = null;<br/>
+            try<br/>
+            {<br/>
+                // open connection.<br/>
+                conn = ConnectionManager.getConnection(WMSConstants.DATASOURCE_RFT_NAME);<br/>
+                sch = new <valueof select="class-name(@sch)"/>(conn, this.getClass(), locale);<br/>
+                <br/>
+                // set input parameters.<br/>
+                <valueof select="class-name(@schParams)"/> inparam = new <valueof select="class-name(@schParams)"/>();<br/>
+                <if test="schInput">
+                  <call name="mappingStatement" select="schInput">
+                    <convert select="@schParams">inparam</convert>
+                  </call>
+                </if>
+                <br/>
+                // SCH call.<br/>
+                List&lt;Params&gt; outparams = sch.query(inparam);<br/>
+                <br/>
+                <if test="output">
+                  // set output parameters.<br/>
+                  <if test="output/map/*[@type='SchParams']">
+                    <valiable name="dataSheet"><valueof select="output/map/*[@type='DataSheet']/@typeName"/></valiable>
+                    <if test="$dataSheet">
+                      <valueof select="lower-first(class-name($dataSheet))"/>.setValue(DataSheetModel.SIZE, outparams.size());<br/>
+                    </if>
+                    for (int i = 0; i &lt; outparams.size(); i++)<br/>
+                    {<br/>
+                        Params outparam = outparams.get(i);<br/>
+                        <call name="mappingStatement" select="output">
+                          <valiable name="filter">SchParams</valiable>
+                          <valiable name="setterIndex">i</valiable>
+                          <convert select="@schParams">outparam</convert>
+                        </call>
+                    }<br/>
+                    <br/>
+                    <if test="$dataSheet">
+                      // initialize DataSheet view.<br/>
+                      <valueof select="lower-first(class-name($dataSheet))"/>.initView();<br/>
+                      <br/>
+                    </if>
+                  </if>
+                  <if test="output/map/*[not(@type='SchParams')]">
+                    <call name="mappingStatement" select="output">
+                      <valiable name="filter">NotSchParams</valiable>
+                    </call>
+                    <br/>
+                  </if>
+                </if>
+                <call name="focusStatement"/>
+                // set result code.<br/>
+                return new HSResult(ResultConst.NORMAL);<br/>
+            }<br/>
+            catch (Exception ex)<br/>
+            {<br/>
+                ex.printStackTrace();<br/>
+                return HaiSurfExceptionHandler.getResult(ex, this.getClass(), dsf, locale);<br/>
+            }<br/>
+            finally<br/>
+            {<br/>
+                DBUtil.close(conn);<br/>
+            }<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- 入出力パターン（1件更新） -->
+  <template name="methodStatement" match="method[@pattern='Commit']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">java.sql.Connection</set>
+    <set name="imports">java.util.ArrayList</set>
+    <set name="imports">java.util.List</set>
+    <set name="imports">jp.co.daifuku.foundation.common.DBUtil</set>
+    <set name="imports">jp.co.daifuku.foundation.common.Params</set>
+    <set name="imports">jp.co.daifuku.bluedog.sql.ConnectionManager</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WMSConstants</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams.ProcessFlag</set>
+    <set name="imports" select="@sch"/>
+    <set name="imports" select="@schParams"/>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            <call name="dataSheetStatement"/>
+            <call name="validateStatement"/>
+            Connection conn = null;<br/>
+            <valueof select="class-name(@sch)"/> sch = null;<br/>
+            try<br/>
+            {<br/>
+                // open connection.<br/>
+                conn = ConnectionManager.getConnection(WMSConstants.DATASOURCE_RFT_NAME);<br/>
+                sch = new <valueof select="class-name(@sch)"/>(conn, this.getClass(), locale);<br/>
+                <br/>
+                // set input parameters.<br/>
+                <valueof select="class-name(@schParams)"/> inparam = new <valueof select="class-name(@schParams)"/>();<br/>
+                inparam.setProcessFlag(ProcessFlag.REGIST);<br/>
+                <if test="schInput">
+                  <call name="mappingStatement" select="schInput">
+                    <convert select="@schParams">inparam</convert>
+                  </call>
+                </if>
+                <br/>
+                // SCH call.<br/>
+                sch.startSCH(inparam);<br/>
+                <br/>
+                // commit.<br/>
+                conn.commit();<br/>
+                <br/>
+                <if test="output">
+                  // set output parameters.<br/>
+                  <call name="mappingStatement" select="output"/>
+                  <br/>
+                </if>
+                <call name="focusStatement"/>
+                // set result code.<br/>
+                return new HSResult(ResultConst.NORMAL);<br/>
+            }<br/>
+            catch (Exception ex)<br/>
+            {<br/>
+                ex.printStackTrace();<br/>
+                DBUtil.rollback(conn);<br/>
+                return HaiSurfExceptionHandler.getResult(ex, this.getClass(), dsf, locale);<br/>
+            }<br/>
+            finally<br/>
+            {<br/>
+                DBUtil.close(conn);<br/>
+            }<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- 入出力パターン（複数件更新） -->
+  <template name="methodStatement" match="method[@pattern='CommitList']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">java.sql.Connection</set>
+    <set name="imports">java.util.ArrayList</set>
+    <set name="imports">java.util.List</set>
+    <set name="imports">jp.co.daifuku.foundation.common.DBUtil</set>
+    <set name="imports">jp.co.daifuku.foundation.common.Params</set>
+    <set name="imports">jp.co.daifuku.bluedog.sql.ConnectionManager</set>
+    <set name="imports">jp.co.daifuku.wms.base.common.WMSConstants</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams.ProcessFlag</set>
+    <set name="imports">jp.co.daifuku.foundation.common.ScheduleParams</set>
+    <set name="imports" select="@sch"/>
+    <set name="imports" select="@schParams"/>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            <call name="dataSheetStatement"/>
+            <call name="validateStatement"/>
+            Connection conn = null;<br/>
+            <valueof select="class-name(@sch)"/> sch = null;<br/>
+            try<br/>
+            {<br/>
+                // open connection.<br/>
+                conn = ConnectionManager.getConnection(WMSConstants.DATASOURCE_RFT_NAME);<br/>
+                sch = new <valueof select="class-name(@sch)"/>(conn, this.getClass(), locale);<br/>
+                <br/>
+                // set input parameters.<br/>
+                List&lt;ScheduleParams&gt; inparamList = new ArrayList&lt;ScheduleParams&gt;();<br/>
+                <if test="schInput">
+                    <valiable name="dataSheet"><valueof select="schInput/map/*[@type='DataSheet']/@typeName"/></valiable>
+                    <choose>
+                      <when test="$dataSheet">
+                        <!--DataSheetが存在する場合-->
+                        for (int i = 0; i &lt; <valueof select="lower-first(class-name($dataSheet))"/>.size(); i++)<br/>
+                        {<br/>
+                            <valueof select="class-name(@schParams)"/> inparam = new <valueof select="class-name(@schParams)"/>();<br/>
+                            inparam.setProcessFlag(ProcessFlag.REGIST);<br/>
+                            inparam.setRowIndex(i);<br/>
+                            <call name="mappingStatement" select="schInput">
+                              <valiable name="getterIndex">i</valiable>
+                              <convert select="@schParams">inparam</convert>
+                            </call>
+                            inparamList.add(inparam);<br/>
+                        }<br/>
+                      </when>
+                      <!--それ以外-->
+                      <otherwise>
+                        <valueof select="class-name(@schParams)"/> inparam = new <valueof select="class-name(@schParams)"/>();<br/>
+                        inparam.setProcessFlag(ProcessFlag.REGIST);<br/>
+                        inparam.setRowIndex(0);<br/>
+                        <call name="mappingStatement" select="schInput">
+                          <convert select="@schParams">inparam</convert>
+                        </call>
+                        inparamList.add(inparam);<br/>
+                      </otherwise>
+                    </choose>
+                </if>
+                <br/>
+                ScheduleParams[] inparams = new ScheduleParams[inparamList.size()];<br/>
+                inparamList.toArray(inparams);<br/>
+                <br/>
+                // SCH call.<br/>
+                sch.startSCH(inparam);<br/>
+                <br/>
+                // commit.<br/>
+                conn.commit();<br/>
+                <br/>
+                <if test="output">
+                  // set output parameters.<br/>
+                  <call name="mappingStatement" select="output"/>
+                  <br/>
+                </if>
+                <call name="focusStatement"/>
+                // set result code.<br/>
+                return new HSResult(ResultConst.NORMAL);<br/>
+            }<br/>
+            catch (Exception ex)<br/>
+            {<br/>
+                ex.printStackTrace();<br/>
+                DBUtil.rollback(conn);<br/>
+                return HaiSurfExceptionHandler.getResult(ex, this.getClass(), dsf, locale);<br/>
+            }<br/>
+            finally<br/>
+            {<br/>
+                DBUtil.close(conn);<br/>
+            }<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- 入出力パターン（SCHなし） -->
+  <template name="methodStatement" match="method[@pattern='NoSch']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            <call name="dataSheetStatement"/>
+            <call name="validateStatement"/>
+            <if test="output">
+              // set output parameters.<br/>
+              <call name="mappingStatement" select="output"/>
+              <br/>
+            </if>
+            <call name="focusStatement"/>
+            // set result code.<br/>
+            return new HSResult(ResultConst.NORMAL);<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- 入出力パターン（入出力なし） -->
+  <template name="methodStatement" match="method[@pattern='None']">
+    <set name="imports" select="$resultClass"/>
+    <set name="imports">java.util.Locale</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.sharedsys.basis.helper.DataSheetFactory</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DataSheetModel</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.HaiSurfExceptionHandler</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="publicMethods">
+        /**<br/>
+         * callback at screen event.<br/>
+         *<br/>
+         * @param dsf data sheet<br/>
+         * @param locale Terminal locale<br/>
+         * @return executed result<br/>
+         */<br/>
+        public HSResult <valueof select="@name"/>(DataSheetFactory dsf, Locale locale)<br/>
+        {<br/>
+            // set result code.<br/>
+            return new HSResult(ResultConst.NORMAL);<br/>
+        }<br/>
+        <br/>
+    </set>
+  </template>
+
+  <!-- DataSheet設定 -->
+  <template name="dataSheetStatement" test="dataSheets">
+    // initialize DataSheets.<br/>
+    <foreach select="dataSheets/dataSheet" xml:space="preserve">
+      <set name="imports" select="@class"/>
+      <valueof select="class-name(@class)"/> <valueof select="lower-first(class-name(@class))"/> = new <valueof select="class-name(@class)"/>(dsf, locale);<br/>
+    </foreach>
+    <br/>
+  </template>
+
+  <!-- 入力チェック設定 -->
+  <template name="validateStatement" test="validate">
+    // input validation.<br/>
+    <foreach select="validate/validate">
+      <call name="validateItemStatement"/>
+    </foreach>
+    <br/>
+  </template>
+
+  <!-- 入力チェック設定（項目単位） -->
+  <template name="validateItemStatement">
+    <set name="imports" select="@dataSheet"/>
+    <set name="imports">jp.co.daifuku.wms.base.rft.RftConst</set>
+    <set name="imports">jp.co.daifuku.busitune.rft.haisurf.HSResult</set>
+    <set name="imports">jp.co.daifuku.wms.base.rft.ResultConst</set>
+    <set name="imports">jp.co.daifuku.common.text.StringUtil</set>
+    <valiable name="dataSheetValiable" select="lower-first(class-name(@dataSheet))"/>
+    <choose>
+      <!-- 数値 -->
+      <when test="@fieldType='Number'">
+        <set name="imports">jp.co.daifuku.busitune.rft.haisurf.DSNumberField</set>
+        <choose>
+          <when test="@required='true'">
+            if (StringUtil.isBlank(<valueof select="$dataSheetValiable"/>.getText(<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>))<br/>
+                || !StringUtil.isNumberFormat(<valueof select="$dataSheetValiable"/>.getText(<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>)<br/>
+                    , ((DSNumberField)<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>.getField()).getScale()))<br/>
+          </when>
+          <otherwise>
+             if (!StringUtil.isNumberFormat(<valueof select="$dataSheetValiable"/>.getText(<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>)<br/>
+                    , ((DSNumberField)<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>.getField()).getScale()))<br/>
+          </otherwise>
+        </choose>
+      </when>
+      <!-- それ以外 -->
+      <otherwise>
+          if (StringUtil.isBlank(<valueof select="$dataSheetValiable"/>.getText(<valueof select="class-name(@dataSheet)"/>.<valueof select="@field"/>)))<br/>
+      </otherwise>
+    </choose>
+    {<br/>
+        setBeep(RftConst.BEEP);<br/>
+        setFocus("<valueof select="@focus"/>");<br/>
+        return new HSResult(ResultConst.VALIDATE_ERROR);<br/>
+    }<br/>
+  </template>
+
+  <!-- 入出力設定 -->
+  <template name="mappingStatement">
+    <choose>
+      <!-- Schが含まれる項目のみ -->
+      <when test="$filter='SchParams'">
+        <foreach select="map">
+          <if test="*[@type='SchParams']">
+            <call name="setterStatement" select="set">
+              <valiable name="get"><call name="getterStatement" select="get"/></valiable>
+            </call>;<br/>
+          </if>
+        </foreach>
+      </when>
+      <!-- Schが含まれない項目のみ -->
+      <when test="$filter='NotSchParams'">
+        <foreach select="map">
+          <if test="count(*[@type='SchParams'])=0">
+            <call name="setterStatement" select="set">
+              <valiable name="get"><call name="getterStatement" select="get"/></valiable>
+            </call>;<br/>
+          </if>
+        </foreach>
+      </when>
+      <!-- すべての項目 -->
+      <otherwise>
+        <foreach select="map">
+          <call name="setterStatement" select="set">
+            <valiable name="get"><call name="getterStatement" select="get"/></valiable>
+          </call>;<br/>
+        </foreach>
+      </otherwise>
+    </choose>
+  </template>
+
+  <!-- 値取得 -->
+  <template name="getterStatement" trim="true">
+    <choose>
+      <!-- DataSheet -->
+      <when test="@type='DataSheet'">
+        <valueof select="lower-first(class-name(@typeName))"/>.getValue(<valueof select="class-name(@typeName)"/>.<valueof select="@value"/><if test="$getterIndex and @isArray='true'">, <valueof select="$getterIndex"/></if>)
+      </when>
+      <!-- SchParams -->
+      <when test="@type='SchParams'">
+        <valueof select="@typeName" convert="true"/>.get(<valueof select="class-name(@typeName)"/>.<valueof select="@value"/>)
+      </when>
+      <!-- Constants -->
+      <when test="@type='Constants'">
+        <foreach select="imports/import">
+          <set name="imports" select="."/>
+        </foreach>
+        <valueof select="@value"/>
+      </when>
+      <!-- String -->
+      <when test="@type='String'">
+        "<valueof select="@value"/>"
+      </when>
+      <!-- Boolean -->
+      <when test="@type='Boolean'">
+        <valueof select="lower(@value)"/>
+      </when>
+      <!-- その他 -->
+      <otherwise>
+        <valueof select="@value"/>
+      </otherwise>
+    </choose>
+  </template>
+
+  <!-- 値設定 -->
+  <template name="setterStatement" trim="true">
+    <choose>
+      <!-- DataSheet -->
+      <when test="@type='DataSheet'">
+        <valueof select="lower-first(class-name(@typeName))"/>.setValue(<valueof select="class-name(@typeName)"/>.<valueof select="@value"/>, <valueof select="$get"/><if test="$setterIndex and @isArray='true'">, <valueof select="$setterIndex"/></if>)
+      </when>
+      <!-- SchParams -->
+      <when test="@type='SchParams'">
+        <valueof select="@typeName" convert="true"/>.set(<valueof select="class-name(@typeName)"/>.<valueof select="@value"/>, <valueof select="$get"/>)
+      </when>
+    </choose>
+  </template>
+
+  <!-- フォーカス設定 -->
+  <template name="focusStatement" test="focus">
+    // set focus.<br/>
+    <foreach select="focus/focus">
+      <choose>
+        <!-- DataSheet -->
+        <when test="@type='DataSheet'">
+          setFocus(<valueof select="lower-first(class-name(@typeName))"/>.getString(<valueof select="class-name(@typeName)"/>.<valueof select="@value"/>));<br/>
+        </when>
+        <when test="@type='Control'">
+          setFocus("<valueof select="@value"/>");<br/>
+        </when>
+      </choose>
+    </foreach>
+    <br/>
+  </template>
+
+  <!-- 最終出力 -->
+  <template enableLineBreak="true">
+    // $Id$
+    package <valueof select="package-name(@class)"/>;
+
+    /*
+     * Copyright(c) 2000-2011 DAIFUKU Co.,Ltd. All Rights Reserved.
+     *
+     * This software is the proprietary information of DAIFUKU Co.,Ltd.
+     * Use is subject to license terms.
+     */
+    <foreach select="$imports">
+      <sort select="." order="ascending" dataType="Text"/>
+      import <valueof />;<br/>
+    </foreach>
+
+    /**
+     *
+     * @version $Revision$, $Date$
+     * @author  HighTune.
+     * @author  Last commit: $Author$
+     */
+    public class <valueof select="class-name(@class)"/>
+            extends <valueof select="class-name($superClass)"/>
+    {
+        //------------------------------------------------------------
+        // fields (upper case only)
+        //------------------------------------------------------------
+        /** SCREEN_NAME */
+        private static final String SCREEN_NAME = "<valueof select="class-name(@name)"/>";
+
+        //------------------------------------------------------------
+        // class variables (prefix '$')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // instance variables (prefix '_')
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // constructors
+        //------------------------------------------------------------
+        /**
+         * Default constructor
+         */
+        public <valueof select="class-name(@class)"/>()
+        {
+            super();
+        }
+
+        //------------------------------------------------------------
+        // public methods
+        //------------------------------------------------------------
+        <foreach select="$publicMethods"/>
+
+        //------------------------------------------------------------
+        // accessor methods
+        //------------------------------------------------------------
+        /**
+         * returns screen name for business class.
+         *
+         * @return screen name of HaiSurf.
+         */
+        public String getScreenName()
+        {
+            return SCREEN_NAME;
+        }
+
+        //------------------------------------------------------------
+        // package methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // protected methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // private methods
+        //------------------------------------------------------------
+
+        //------------------------------------------------------------
+        // utility methods
+        //------------------------------------------------------------
+        /**
+         * Returns current repository info for this class
+         *
+         * @return version
+         */
+        public static String getVersion()
+        {
+            return "$Id$";
+        }
+    }
+    //end of class
+  </template>
+
+</generator>

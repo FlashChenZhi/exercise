@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+  <appender name="LOGFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-bluedog-framework.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="APIFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-bluedog-api.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+  <appender name="SQLFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-sql.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss}\t%m%n"/>
+    </layout>
+  </appender>
+  <appender name="AUTHFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-authentication.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss}\t%m%n"/>
+    </layout>
+  </appender>
+  <appender name="APPFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-app-msg.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy MM dd HH mm ss SSS Z}\t%m%n"/>
+    </layout>
+  </appender>
+  <appender name="OPELOG" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-operation.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss}\t%m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+<!--
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+-->
+      <param name="ConversionPattern" value="%d{HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="CONNECTIONLOGFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-connectionlog.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+
+   <!-- EManager SQL Log -->
+   <appender name="EMSQLFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-EmSql.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+  
+   <!-- EManager Maintenance Log -->
+   <appender name="EMMAINTENANCEFILE" class="org.apache.log4j.RollingFileAppender">
+	<param name="File"   value=" ${catalina.base}/logs/tk-EmMaintenance.log" />
+    <param name="Append" value="true" />
+    <param name="MaxFileSize" value="5MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss} %t %-5p %c{1} %m%n"/>
+    </layout>
+  </appender>
+  <!-- BlueDOG FrameWork Connection log Category -->
+  <category name="connectionlog">
+  	<priority value="INFO"/>
+  	<appender-ref ref="CONNECTIONLOGFILE"/>
+	<!--<appender-ref ref="STDOUT"/>-->
+  </category>
+  
+  <!-- BlueDOG FrameWork Api Category -->
+  <category name="api">
+  	<priority value="ERROR"/>
+  	<appender-ref ref="APIFILE"/>
+  	<appender-ref ref="STDOUT"/>
+  </category>
+
+  
+
+    <!-- BlueDOG FrameWork  Category -->
+  <category name="framework">
+  	<priority value="WARN"/>
+  	<appender-ref ref="LOGFILE"/>
+  	<appender-ref ref="STDOUT"/>
+  </category>
+    
+
+  <!-- SQL Category -->
+  <category name="sql">
+  	<priority value="ERROR"/>
+  	<appender-ref ref="SQLFILE"/>
+  	<appender-ref ref="STDOUT"/>
+  </category>
+  
+  <!-- Applicattion Category -->
+  <category name="application">
+  	<priority value="ERROR"/>
+  	<appender-ref ref="APPFILE"/>
+  	<appender-ref ref="STDOUT"/>
+  </category>
+  <!-- BlueDOG FrameWork operation log Category-->
+  <category name="operation">
+  	<priority value="INFO"/>
+  	<appender-ref ref="OPELOG"/>
+  	<!-- <appender-ref ref="STDOUT"/>-->
+  </category>
+
+  <!-- EManager SQL log Category-->
+  <category name="EmSql">
+  	<priority value="DEBUG"/>
+  	<appender-ref ref="EMSQLFILE"/>
+	<!--<appender-ref ref="STDOUT"/>-->
+  </category>
+  <!-- EManager Maintenance log Category-->
+  <category name="EmMaintenance">
+  	<priority value="DEBUG"/>
+  	<appender-ref ref="EMMAINTENANCEFILE"/>
+	<!--<appender-ref ref="STDOUT"/>-->
+  </category>
+  <!-- EManager Authentication log Category -->
+  <category name="authentication">
+  	<priority value="DEBUG"/>
+  	<appender-ref ref="AUTHFILE"/>
+	<!--<appender-ref ref="STDOUT"/>-->
+  </category>
+  
+  <root>
+    <priority value="DEBUG" />
+  </root>
+
+</log4j:configuration>

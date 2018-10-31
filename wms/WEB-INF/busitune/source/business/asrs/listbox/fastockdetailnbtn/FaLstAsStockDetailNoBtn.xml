@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.listbox.fastockdetailnbtn.FaLstAsStockDetailNoBtnBusiness" abstractClassName="jp.co.daifuku.wms.asrs.listbox.fastockdetailnbtn.FaLstAsStockDetailNoBtn" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pager" />
+    <ref name="1" type="Dasch" typeName="jp.co.daifuku.wms.asrs.dasch.LstAsStockDetailNoBtnDASCH" />
+    <ref name="2" type="BusinessParameter" typeName="jp.co.daifuku.wms.asrs.listbox.fastockdetailnbtn.FaLstAsStockDetailNoBtnParams" />
+    <ref name="3" type="Control" typeName="LST_NO" />
+    <ref name="4" type="Control" typeName="LST_ITEM_CODE" />
+    <ref name="5" type="Control" typeName="LST_ITEM_NAME" />
+    <ref name="6" type="Control" typeName="LST_LOT_NO" />
+    <ref name="7" type="Control" typeName="LST_STORAGE_DATETIME" />
+    <ref name="8" type="Control" typeName="LST_STOCK_QTY" />
+  </refs>
+  <listcells>
+    <listcell name="lst_SearchConditionTwoColumn">
+      <listcellColumn name="LST_SEARCH_CONDITION" orgIndex="1" resourceKey="LBL-W0187" dataType="String" />
+      <listcellColumn name="LST_COLUMN_2" orgIndex="2" dataType="String" />
+      <listcellColumn name="LST_COLUMN_3" orgIndex="3" dataType="String" />
+      <listcellColumn name="LST_COLUMN_4" orgIndex="4" dataType="String" />
+    </listcell>
+    <listcell name="lst_LocationInquiryList">
+      <listcellColumn name="LST_NO" orgIndex="1" resourceKey="LBL-W0004" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_CODE" orgIndex="2" resourceKey="LBL-W0128" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ITEM_NAME" orgIndex="3" resourceKey="LBL-W0130" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+      <listcellColumn name="LST_LOT_NO" orgIndex="4" resourceKey="LBL-W0035" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_STORAGE_DATETIME" orgIndex="5" resourceKey="LBL-W0487" dataType="Date" format="DateLongTimeSec" tooltipEnabled="true" />
+      <listcellColumn name="LST_STOCK_QTY" orgIndex="6" resourceKey="LBL-W0073" dataType="Number" format="0" tooltipEnabled="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Close" name="Click" pattern="ParentRedirect" />
+    <event control="page" name="Load" pattern="PagerList">
+      <dasch2Display daschRef="1" isSession="true" isPopup="true" />
+      <input1>
+        <map getRef="2" getValue="AREA_NO" setRef="1" setValue="AREA_NO" />
+        <map getRef="2" getValue="LOCATION_NO" setRef="1" setValue="LOCATION_NO" />
+        <map getRef="2" getValue="PALLET_ID" setRef="1" setValue="PALLET_ID" />
+        <map getRef="2" getValue="SHELF_STATUS" setRef="1" setValue="SHELF_STATUS" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="NO" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="ITEM_CODE" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="ITEM_NAME" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="LOT_NO" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="STORAGE_DATETIME" setRef="7" setValue="Value" />
+        <map getRef="1" getValue="STOCK_QTY" setRef="8" setValue="Value" />
+      </output1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.inventorychk.display.start.InventoryStartBusiness" abstractClassName="jp.co.daifuku.wms.inventorychk.display.start.InventoryStart" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="txt_LocationFrom" />
+    <ref name="2" type="Control" typeName="txt_LocationTo" />
+    <ref name="3" type="Control" typeName="chk_InventoryIssue" />
+    <ref name="4" type="Control" typeName="chk_InventoryStockReport" />
+    <ref name="5" type="Sch" typeName="jp.co.daifuku.wms.inventorychk.schedule.InventoryStartSCH" />
+    <ref name="6" type="Constants" typeName="Constants" />
+    <ref name="7" type="String" typeName="String" />
+    <ref name="8" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="9" type="Boolean" typeName="Boolean" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaFloorTempReceiveALL" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="UnChecked" />
+        <clear controlRef="4" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="3" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="5" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="5" setValue="AREA" />
+        <map getRef="1" getValue="Value" setRef="5" setValue="LOCATION_FROM" />
+        <map getRef="2" getValue="Value" setRef="5" setValue="LOCATION_TO" />
+        <map getRef="3" getValue="Value" setRef="5" setValue="INVENTORY_ISSUE" />
+        <map getRef="4" getValue="Value" setRef="5" setValue="INVENTORY_STOCK_REPORT" />
+        <map getRef="6" getValue="DEFAULT_CONSIGNOR_CODE" setRef="5" setValue="CONSIGNOR_CODE" />
+        <map getRef="7" getValue="M_FUNCTIONID" setRef="5" setValue="FUNCTION_ID" />
+      </input1>
+      <part11 operationRef="8" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <block type="If" tag="1" desc="帳票発行がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="3" leftValue="Value" rightRef="9" rightValue="True" />
+        </block>
+        <out out1Ref="7" out1Value="1" />
+        <block type="Else" tag="1" desc="帳票発行がチェックされている場合" />
+        <out out1Ref="7" out1Value="0" />
+        <block type="If" tag="2" desc="棚卸作業リストの在庫数印字がチェックされている場合">
+          <expr type="And" operator="Equal" leftRef="4" leftValue="Value" rightRef="9" rightValue="True" />
+        </block>
+        <out out1Ref="7" out1Value="1" />
+        <block type="Else" tag="2" desc="棚卸作業リストの在庫数印字がチェックされている場合" />
+        <out out1Ref="7" out1Value="0" />
+      </part11>
+    </event>
+  </events>
+</business>

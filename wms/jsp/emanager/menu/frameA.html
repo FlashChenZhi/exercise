@@ -1,0 +1,39 @@
+<!-- $Id: frameA.html 87 2008-10-04 03:07:38Z admin $ -->
+
+<!--
+ * Copyright 2000-2004 DAIFUKU Co.,Ltd. All Rights Reserved.
+ *
+ * This software is the proprietary information of DAIFUKU Co.,Ltd.
+ * Use is subject to license terms.
+-->
+
+<!--
+ * for the small menu icon
+ * @version $Revision: 87 $, $Date: 2008-10-04 12:07:38 +0900 (土, 04 10 2008) $
+ * @author  $Author: admin $
+-->
+<script language="javascript" src="../jscript/control.js"></script>
+<script language="javascript" src="../jscript/user.js"></script>
+<script>
+try
+{
+	windowResize();
+}
+catch(e)
+{
+}
+</script>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<frameset rows="60,*,0,0" frameborder=0 framespacing=0 frameborder="no">
+    <frame src="../menu/MainMenuA.do" name="frame1" noresize frameborder="0" scrolling="no" >
+    <frame src="../login/LoginSuccess.do" name="frame2" noresize frameborder="0" scrolling="yes">
+    <frame src="about:blank" name="zeroFrame1" noresize frameborder="0" scrolling="no">
+    <frame src="about:blank" name="zeroFrame2" noresize frameborder="0" scrolling="no">
+</frameset>
+<noframe>
+    This browser does not support frames!
+</noframe>
+</html>

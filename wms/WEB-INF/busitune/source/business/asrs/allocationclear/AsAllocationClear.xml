@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.asrs.display.allocationclear.AsAllocationClearBusiness" abstractClassName="jp.co.daifuku.wms.asrs.display.allocationclear.AsAllocationClear" completed="true">
+  <refs>
+    <ref name="0" type="Sch" typeName="jp.co.daifuku.wms.asrs.schedule.AsAllocationClearSCH" />
+    <ref name="1" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="2" type="String" typeName="String" />
+  </refs>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="btn_Start" name="Click" pattern="Regist">
+      <sch2Display schRef="0" />
+      <part11 operationRef="1" operation="SETTING">
+        <out out1Ref="2" />
+      </part11>
+    </event>
+  </events>
+</business>

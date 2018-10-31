@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.receiving.display.progress.ReceivingProgressBusiness" abstractClassName="jp.co.daifuku.wms.receiving.display.progress.ReceivingProgress" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="rdo_ProgressDisplayAuto" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.wms.receiving.schedule.ReceivingProgressSCH" />
+    <ref name="2" type="Control" typeName="LST_PLAN_DAY" />
+    <ref name="3" type="Control" typeName="LST_DETAIL_COUNT" />
+    <ref name="4" type="Control" typeName="LST_RECEIVE_COUNT" />
+    <ref name="5" type="Control" typeName="LST_CASE_QTY" />
+    <ref name="6" type="Control" typeName="LST_PIECE_QTY" />
+    <ref name="7" type="Control" typeName="LST_SHORTAGE_QTY" />
+    <ref name="8" type="Control" typeName="txt_ProgressRate_up" />
+    <ref name="9" type="Control" typeName="txt_ProgressRate_down" />
+    <ref name="10" type="Control" typeName="ProgressDisplay" />
+    <ref name="11" type="String" typeName="String" />
+    <ref name="12" type="ViewState" typeName="jp.co.daifuku.wms.receiving.display.progress.ViewStateKeys" />
+  </refs>
+  <listcells>
+    <listcell name="lst_ReceivingProgress_up">
+      <listcellColumn name="LST_PLAN_DAY" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_DETAIL_COUNT" orgIndex="2" resourceKey="LBL-W0180" dataType="String" />
+      <listcellColumn name="LST_RECEIVE_COUNT" orgIndex="5" resourceKey="LBL-W1105" dataType="String" />
+      <listcellColumn name="LST_CASE_QTY" orgIndex="3" resourceKey="LBL-W0018" dataType="String" />
+      <listcellColumn name="LST_PIECE_QTY" orgIndex="6" resourceKey="LBL-W0029" dataType="String" />
+      <listcellColumn name="LST_SHORTAGE_QTY" orgIndex="4" resourceKey="LBL-W0065" dataType="Number" format="0" />
+    </listcell>
+    <listcell name="lst_ReceivingProgress_down">
+      <listcellColumn name="LST_PLAN_DAY_2" orgIndex="1" resourceKey="LBL-W0185" dataType="Date" format="DateLong" />
+      <listcellColumn name="LST_DETAIL_COUNT_2" orgIndex="2" resourceKey="LBL-W0180" dataType="String" />
+      <listcellColumn name="LST_RECEIVE_COUNT_2" orgIndex="5" resourceKey="LBL-W1105" dataType="String" />
+      <listcellColumn name="LST_CASE_QTY_2" orgIndex="3" resourceKey="LBL-W0018" dataType="String" />
+      <listcellColumn name="LST_PIECE_QTY_2" orgIndex="6" resourceKey="LBL-W0029" dataType="String" />
+      <listcellColumn name="LST_SHORTAGE_QTY_2" orgIndex="4" resourceKey="LBL-W0065" dataType="Number" format="0" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="DETAIL_COUNT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="RECEIVE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CASE_QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SHORTAGE_QTY" setRef="7" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+        <clear controlRef="8" type="ReadOnly" />
+        <clear controlRef="9" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_PrevPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="10" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="10" getValue="Value" setRef="1" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="1" setValue="PROGRESS_RATE_DOWN" />
+        <map getRef="11" getValue="PROCESS_FLAG" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="DETAIL_COUNT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="RECEIVE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CASE_QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SHORTAGE_QTY" setRef="7" setValue="Value" />
+        <map getRef="10" getValue="Value" setRef="12" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="12" setValue="PROGRESS_RATE_DOWN" />
+      </output1>
+    </event>
+    <event control="btn_NextPage" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="10" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="10" getValue="Value" setRef="1" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="1" setValue="PROGRESS_RATE_DOWN" />
+        <map getRef="11" getValue="PROCESS_FLAG" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="DETAIL_COUNT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="RECEIVE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CASE_QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SHORTAGE_QTY" setRef="7" setValue="Value" />
+        <map getRef="10" getValue="Value" setRef="12" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="12" setValue="PROGRESS_RATE_DOWN" />
+      </output1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="1" />
+      <validate>
+        <validate controlRef="10" />
+        <validate controlRef="8" />
+        <validate controlRef="9" />
+      </validate>
+      <input1>
+        <map getRef="10" getValue="Value" setRef="1" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="1" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="1" setValue="PROGRESS_RATE_DOWN" />
+        <map getRef="11" getValue="PROCESS_FLAG" setRef="1" setValue="PROCESS_FLAG" />
+      </input1>
+      <output1>
+        <map getRef="1" getValue="PLAN_DAY" setRef="2" setValue="Value" />
+        <map getRef="1" getValue="DETAIL_COUNT" setRef="3" setValue="Value" />
+        <map getRef="1" getValue="RECEIVE_COUNT" setRef="4" setValue="Value" />
+        <map getRef="1" getValue="CASE_QTY" setRef="5" setValue="Value" />
+        <map getRef="1" getValue="PIECE_QTY" setRef="6" setValue="Value" />
+        <map getRef="1" getValue="SHORTAGE_QTY" setRef="7" setValue="Value" />
+        <map getRef="10" getValue="Value" setRef="12" setValue="PROGRESS_DISPLAY" />
+        <map getRef="8" getValue="Value" setRef="12" setValue="PROGRESS_RATE_UP" />
+        <map getRef="9" getValue="Value" setRef="12" setValue="PROGRESS_RATE_DOWN" />
+      </output1>
+    </event>
+  </events>
+</business>

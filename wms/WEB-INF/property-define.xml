@@ -1,0 +1,2862 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- プロパティ定義XML -->
+<propertyDefine version="1.01" xmlns="propertyDefine" xsi:schemaLocation='propertyDefine property-define.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <!-- 正規表現パターンテーブル -->
+  <maskSet>
+    <!-- 「0～9」「a～z」「A～Z」「:_-」を指定でき、必須入力 -->
+    <mask>
+      <id>templateKeyPattern</id>
+      <pattern>^[a-zA-Z0-9_:\-@]+$</pattern>
+    </mask>
+
+    <!-- 「0～9」「a～z」「A～Z」「_-.」を指定でき、省略可能 -->
+    <mask>
+      <id>resourceKeyPattern</id>
+      <pattern>^[a-zA-Z0-9_\-\.]*$</pattern>
+    </mask>
+
+   <!-- 「0～9」を指定でき、省略可能 -->
+   <mask>
+      <id>MsgResourceKeyPattern</id>
+      <pattern>^[0-9]*$</pattern>
+    </mask>
+
+    <!-- 「true」「false」を１つ指定でき、省略可能 -->
+    <mask>
+      <id>booleanPattern</id>
+      <pattern>^(true|false)?$</pattern>
+    </mask>
+
+    <!-- FreeTextBox inputmMode 1～6までの数値。重複なし。 -->
+    <mask>
+      <id>inputModePattern</id>
+      <pattern>^[1-6]*$</pattern>
+    </mask>
+
+    <!-- FormatTextBox format 9、-の組合せ -->
+    <mask>
+      <id>formatPattern</id>
+      <pattern>^[9-]*$</pattern>
+    </mask>
+
+    <!-- DateTextBox viewFormat yyyy/mm/ddなど -->
+    <mask>
+      <id>dateViewFormatPattern</id>
+      <pattern>^[ymd/]+$</pattern>
+    </mask>
+
+    <!-- DateTextBox inputFormat yyyymmddなど -->
+    <mask>
+      <id>dateInputFormatPattern</id>
+      <pattern>^[ymd]+$</pattern>
+    </mask>
+
+    <!-- TimeTextBox viewFormat HH:mm:ssなど -->
+    <mask>
+      <id>timeViewFormatPattern</id>
+      <pattern>^[Hms:]+$</pattern>
+    </mask>
+
+    <!-- TimeTextBox inputFormat HHmmssなど -->
+    <mask>
+      <id>timeInputFormat</id>
+      <pattern>^[Hms]+$</pattern>
+    </mask>
+
+    <!-- height or width sizePattern 10%など -->
+    <mask>
+      <id>sizePattern</id>
+      <pattern>^([0-9]+|[0-9]+[%]+|)$</pattern>
+    </mask>
+
+    <!-- accessKey A-Z -->
+    <mask>
+      <id>accessKeyPattern</id>
+      <pattern>^[A-Z]?$</pattern>
+    </mask>
+
+    <!-- free input -->
+    <mask>
+      <id>freePattern</id>
+      <pattern>^.*$</pattern>
+    </mask>
+
+    <!-- naturalNumber -->
+    <mask>
+      <id>naturalNumber</id>
+      <pattern>^[0-9]*$</pattern>
+    </mask>
+
+    <!-- Interger -->
+    <mask>
+      <id>integer</id>
+      <pattern>^(-[0-9]*|[0-9])$</pattern>
+    </mask>
+
+    <!-- Number -->
+    <mask>
+      <id>number</id>
+      <pattern>^(-[0-9]*\.[0-9]*|[0-9]*\.[0-9]*|-[0-9]*|[0-9]*)$</pattern>
+    </mask>
+
+	<!-- Function Key -->
+	<mask>
+	  <id>functionKey</id>
+	  <pattern>^F([0-9]|1[0-2])$</pattern>
+	</mask>
+  </maskSet>
+
+
+  <propertySet>
+    <!-- DispResourceKey用プロパティ -->
+    <property id="DispResourceKey">
+      <mask refId="resourceKeyPattern" />
+      <font bold="false" color="green"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+        <option name="resourceName" value="DispResource" />
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- DispResourceKey用プロパティ必須入力項目 -->
+    <property id="DispResourceKeyMust">
+      <mask refId="resourceKeyPattern" />
+      <font bold="true" color="green"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+        <option name="resourceName" value="DispResource" />
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- MsgResourceKey用プロパティ -->
+    <property id="MsgResourceKey">
+      <mask refId="MsgResourceKeyPattern" />
+      <font bold="false" color="teal"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+        <option name="resourceName" value="MessageResource" />
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- MsgResourceKey用プロパティ必須入力項目 -->
+    <property id="MsgResourceKeyMust">
+      <mask refId="MsgResourceKeyPattern" />
+      <font bold="true" color="teal"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+        <option name="resourceName" value="MessageResource" />
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- MsgResourceKey用プロパティ非推奨 -->
+    <property id="MsgResourceKeyDeprecated">
+      <mask refId="MsgResourceKeyPattern" />
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+        <option name="resourceName" value="MessageResource" />
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- true/false選択用プロパティ -->
+    <property id="boolean">
+      <mask refId="booleanPattern" />
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+        <option name="editable" value="true" />
+        <option name="dataSource">
+          <entry value="true" />
+          <entry value="false" />
+        </option>
+      </inputType>
+    </property>
+
+    <!-- true/false選択用プロパティ必須入力項目 -->
+    <property id="booleanMust">
+      <mask refId="booleanPattern" />
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+        <option name="editable" value="true" />
+        <option name="dataSource">
+          <entry value="" />
+          <entry value="true" />
+          <entry value="false" />
+        </option>
+      </inputType>
+    </property>
+
+    <!-- true/false選択用プロパティ非推奨 -->
+    <property id="booleanDeprecated">
+      <mask refId="booleanPattern" />
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+        <option name="editable" value="true" />
+        <option name="dataSource">
+          <entry value="" />
+          <entry value="true" />
+          <entry value="false" />
+        </option>
+      </inputType>
+    </property>
+
+    <!-- true/false選択用プロパティ必須入力項目 非同期通信用-->
+    <property id="booleanMustAsync">
+      <mask refId="booleanPattern" />
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+        <option name="editable" value="true" />
+        <option name="dataSource">
+          <entry value="" />
+          <entry value="true" />
+          <entry value="false" />
+        </option>
+      </inputType>
+    </property>
+
+    <!-- FunctionKey入力用 -->
+    <property id="functionKeyInput">
+	  <mask refId="functionKey" />
+	  <font bold="false" color="" />
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+        <option name="editable" value="true" />
+        <option name="dataSource">
+          <entry value="" />
+          <entry value="F1" />
+          <entry value="F2" />
+          <entry value="F3" />
+          <entry value="F4" />
+          <entry value="F5" />
+          <entry value="F6" />
+          <entry value="F7" />
+          <entry value="F8" />
+          <entry value="F9" />
+          <entry value="F10" />
+          <entry value="F11" />
+          <entry value="F12" />
+        </option>
+      </inputType>
+    </property>
+
+    <!-- onclickなど -->
+    <property id="event">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- free input text-->
+    <property id="freeInput">
+      <mask refId="freePattern" />
+      <font bold="false" color="" />
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- free input text 必須-->
+    <property id="freeInputMust">
+      <mask refId="freePattern" />
+      <font bold="true" color="" />
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- 非推奨 -->
+    <property id="deprecated">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- 0-10000 -->
+    <property id="naturalNumber">
+      <mask refId="naturalNumber"/>
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="align" value="right" />
+        <option name="maxValue" value="10000" />
+        <option name="minValue" value="0" />
+      </inputType>
+    </property>
+
+    <!-- 0-10000 必須 -->
+    <property id="naturalNumberMust">
+      <mask refId="naturalNumber"/>
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="align" value="right" />
+        <option name="maxValue" value="10000" />
+        <option name="minValue" value="0" />
+      </inputType>
+    </property>
+
+    <!-- 数値 -->
+    <property id="number">
+      <mask refId="number"/>
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="align" value="right" />
+      </inputType>
+    </property>
+
+    <!-- 数値必須 -->
+    <property id="numberMust">
+      <mask refId="number"/>
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="align" value="right" />
+      </inputType>
+    </property>
+
+    <!-- InputMode -->
+    <property id="inputMode">
+      <font bold="true" color="" />
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-input.html" />
+      </inputType>
+    </property>
+
+    <!-- accessKey -->
+    <property id="accessKey">
+      <mask refId="accessKeyPattern" />
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <!-- -->
+
+    <!-- -->
+
+    <!-- -->
+
+    <!-- -->
+
+    <!-- -->
+
+    <!-- -->
+
+    <!-- -->
+
+  </propertySet>
+
+  <!-- Labelの設定 -->
+  <control name="Label">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Label" />
+      </inputType>
+    </property>
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- Messageの設定 -->
+  <control name="Message">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="msgResourceKey" default="false" refId="MsgResourceKey" />
+    <property name="errorNoMin" default="true" refId="freeInputMust" />
+    <property name="errorNoMax" default="true" refId="freeInputMust" />
+    <property name="attentionNoMin" default="true" refId="freeInputMust" />
+    <property name="attentionNoMax" default="true" refId="freeInputMust" />
+    <property name="warningNoMin" default="true" refId="freeInputMust" />
+    <property name="warningNoMax" default="true" refId="freeInputMust" />
+    <property name="infoNoMin" default="true" refId="freeInputMust" />
+    <property name="infoNoMax" default="true" refId="freeInputMust" />
+    <property name="cssClass" default="true" >
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Message" />
+      </inputType>
+    </property>
+    <property name="balloon" default="true" refId="booleanMust" />
+    <property name="balloonLevel" default="false">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="outsiderange" />
+          <entry value="info" />
+          <entry value="attention" />
+          <entry value="warning" />
+          <entry value="error" />
+        </option>
+      </inputType>
+    </property>
+  </control>
+
+
+  <!-- FreeTextBox の設定 -->
+  <control name="FreeTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="maxLength" default="true" refId="naturalNumberMust" />
+    <property name="inputMode" default="true" refId="inputMode" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="false" refId="booleanDeprecated" />
+    <property name="autoCompleteEvent" default="true" refId="booleanMust" />
+    <property name="inputCompleteEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <!-- entry value="onblur" /-->
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errInputMode" default="true" refId="MsgResourceKeyMust" />
+    <property name="errMaxLength" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrInputMode" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrMaxLength" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="event" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!--NumberTextBox の設定 -->
+  <control name="NumberTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="comma" default="true" refId="booleanMust" />
+    <property name="length" default="true" refId="naturalNumberMust" />
+    <property name="decimalLength" default="true" refId="naturalNumberMust" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="rangeChkFlg" default="false" refId="boolean" />
+    <property name="maxRange" default="false" refId="number" />
+    <property name="minRange" default="false" refId="number" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="false" refId="booleanDeprecated" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errInputMode" default="true" refId="MsgResourceKeyMust" />
+    <property name="errLength" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrInputMode" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrLength" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrRange" default="false" refId="DispResourceKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- FormatTextBox の設定 -->
+  <control name="FormatTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="format" default="true" refId="freeInputMust" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="false" refId="booleanDeprecated" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errFormat" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrFormat" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- DateTextBox の設定 -->
+  <control name="DateTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="viewFormat" default="true" refId="freeInputMust" />
+    <property name="inputFormat" default="true" refId="freeInputMust" />
+    <property name="showCalendar" default="true" refId="booleanMust" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="false" refId="booleanDeprecated" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false">
+      <mask refId="accessKeyPattern" />
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errFormat" default="true" refId="MsgResourceKeyMust" />
+    <property name="errDate" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrFormat" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrDate" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- TimeTextBox の設定 -->
+  <control name="TimeTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="viewFormat" default="true" refId="freeInputMust" />
+    <property name="inputFormat" default="true" refId="freeInputMust" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="false" refId="booleanDeprecated" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errFormat" default="true" refId="MsgResourceKeyMust" />
+    <property name="errTime" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrFormat" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrTime" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- BarCodeTextBox の設定 -->
+  <control name="BarCodeTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+	<property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="startKeyCode" default="false" refId="freeInput" />
+    <property name="startPosition" default="true" refId="naturalNumberMust" />
+    <property name="endPosition" default="true" refId="naturalNumberMust" />
+    <property name="maxLength" default="true" refId="naturalNumberMust" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="enterKeyEvent" default="true" refId="booleanMust" />
+    <property name="tabKeyEvent" default="true" refId="booleanDeprecated" />
+    <property name="inputCompleteEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errInputMode" default="true" refId="MsgResourceKeyMust" />
+    <property name="errMaxLength" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrInputMode" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrMaxLength" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+  </control>
+
+  <control name="PasswordTextBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <property name="async" default="true" refId="booleanMustAsync" />
+
+    <property name="text" default="false">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+
+    <property name="maxLength" default="false">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="align" value="right" />
+        <option name="maxValue" value="10000" />
+        <option name="minValue" value="0" />
+      </inputType>
+    </property>
+
+    <property name="readOnly" default="true" refId="boolean" />
+    <property name="visible" default="true" refId="boolean" />
+
+    <property name="size" default="false">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+        <option name="maxValue" value="10000" />
+        <option name="minValue" value="0" />
+      </inputType>
+    </property>
+
+    <property name="enterKeyEvent" default="true" refId="boolean" />
+    <property name="tabKeyEvent" default="true" refId="booleanDeprecated" />
+
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+        </option>
+      </inputType>
+    </property>
+
+    <property name="cssClass" default="false">
+      <font bold="false" color="blue"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextBox" />
+      </inputType>
+    </property>
+
+    <property name="accessKey" default="false">
+      <mask refId="accessKeyPattern" />
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="false" refId="MsgResourceKey" />
+
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+  </control>
+
+  <!-- TextArea の設定 -->
+  <control name="TextArea">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="maxLength" default="false" refId="naturalNumber" />
+    <property name="cols" default="false" refId="naturalNumber" />
+    <property name="rows" default="false" refId="naturalNumber" />
+    <property name="readOnly" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#TextArea" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errMsgParamKey" default="false" refId="DispResourceKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="errTabooStr" default="true" refId="MsgResourceKeyMust" />
+    <property name="errMaxLength" default="true" refId="MsgResourceKeyMust" />
+    <property name="clientErrTabooStr" default="true" refId="DispResourceKeyMust" />
+    <property name="clientErrMaxLength" default="true" refId="DispResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- PullDownの設定 -->
+  <control name="PullDown">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <!-- プロパティ定義 -->
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="changeEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Pulldown" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false">
+      <mask refId="accessKeyPattern" />
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl" />
+    </property>
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="event" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+
+
+    <!-- リストアイテムズの設定 -->
+    <listItems name="PullDownItems" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="PullDownItem">
+        <!-- プロパティ定義 -->
+        <property name="value" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+        <property name="selected" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+      </listItem>
+    </listItems>
+  </control>
+
+  <!-- LinkedPullDownの設定 -->
+  <control name="LinkedPullDown">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="false" refId="booleanDeprecated" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Pulldown" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="event" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+
+    <!-- リストアイテムズの設定 -->
+    <listItems name="LinkedPullDownItems" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="LinkedPullDownItem">
+        <!-- プロパティ定義 -->
+        <property name="forignKey" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="value" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="selected" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+      </listItem>
+    </listItems>
+
+  </control>
+
+  <!-- ListBox の設定 -->
+  <control name="ListBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="multiple" default="true" refId="booleanMust" />
+    <property name="changeEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#ListBox" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="event" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="event" />
+
+    <!-- リストアイテムズの設定 -->
+    <listItems name="ListBoxItems" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="ListBoxItem">
+
+        <!-- プロパティ定義 -->
+        <property name="value" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="selected" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+      </listItem>
+    </listItems>
+
+  </control>
+
+  <!-- RadioButton の設定 -->
+  <control name="RadioButton">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="value" default="true" refId="freeInputMust" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="groupName" default="true" refId="freeInputMust" />
+    <property name="checked" default="true" refId="booleanMust" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="clickEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#RadioButton" />
+      </inputType>
+    </property>
+    <property name="labelCssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#AppendLabel" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="deprecated" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- CheckBox の設定 -->
+  <control name="CheckBox">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="checked" default="true" refId="booleanMust" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="changeEvent" default="true" refId="booleanMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+      <option name="url" value="/WEB-INF/browser-style.html#CheckBox" />
+      </inputType>
+    </property>
+    <property name="labelCssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#AppendLabel" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="event" />
+    <property name="onkeydown" default="false" refId="deprecated" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- FileBrows の設定 -->
+  <control name="FileBrows">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="size" default="true" refId="naturalNumberMust" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onchange" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#FileBrows" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="noContentEditable" default="false" refId="boolean" />
+    <property name="errRequired" default="false" refId="MsgResourceKeyDeprecated" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onchange" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onkeydown" default="false" refId="deprecated" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+  </control>
+
+  <!-- SubmitButton の設定 -->
+  <control name="SubmitButton">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="showProgress" default="false" refId="boolean" />
+    <property name="progressMessage" default="false" refId="DispResourceKey" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="beforeConfirm" default="false" refId="DispResourceKey" />
+    <property name="onconfirmOK" default="false" refId="freeInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Button" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+
+  </control>
+
+  <!-- LinkButton の設定 -->
+  <control name="LinkButton">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="false" refId="booleanDeprecated" />
+    <property name="text" default="false">
+      <font bold="false" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="enabled" default="true" refId="booleanMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="true" refId="freeInputMust" />
+    <property name="features" default="true" refId="freeInputMust" />
+    <property name="url" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="ondblclick" />
+          <entry value="onfocus" />
+          <entry value="onkeydown" />
+          <entry value="onkeypress" />
+          <entry value="onkeyup" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="true">
+      <font bold="true" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Button" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="ondblclick" default="false" refId="deprecated" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onkeydown" default="false" refId="event" />
+    <property name="onkeypress" default="false" refId="deprecated" />
+    <property name="onkeyup" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+
+  <!-- SubmitLabel の設定 -->
+  <control name="SubmitLabel">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="showProgress" default="false" refId="boolean" />
+    <property name="progressMessage" default="false" refId="DispResourceKey" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="beforeConfirm" default="false" refId="DispResourceKey" />
+    <property name="onconfirmOK" default="false" refId="freeInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Label" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+
+  <!-- LinkLabel の設定 -->
+  <control name="LinkLabel">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="false" refId="booleanDeprecated" />
+    <property name="text" default="false" refId="freeInput" />
+    <property name="resourceKey" default="false" refId="DispResourceKey" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="true" refId="freeInputMust" />
+    <property name="features" default="true" refId="freeInputMust" />
+    <property name="url" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#Label" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+
+  </control>
+
+
+  <!-- ImageButton の設定 -->
+  <control name="ImageButton">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="src" default="false" refId="freeInput" />
+    <property name="tempFileSrc" default="false" refId="deprecated" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="border" default="false" refId="naturalNumber" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="beforeConfirm" default="false" refId="DispResourceKey" />
+    <property name="onconfirmOK" default="false" refId="freeInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+
+    <property name="cssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#NoStyle" />
+      </inputType>
+    </property>
+
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+
+  </control>
+
+
+  <!-- ImageLink の設定 -->
+  <control name="ImageLink">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="false" refId="booleanDeprecated" />
+    <property name="src" default="false" refId="freeInput" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="border" default="false" refId="naturalNumber" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="url" default="false" refId="freeInput" />
+    <property name="functionKey" default="false" refId="functionKeyInput" />
+    <property name="serverEvents" default="false">
+      <font bold="false" color="lightgray"/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ConnectionDialogImpl">
+        <option name="dataSource">
+          <entry value="onblur" />
+          <entry value="onclick" />
+          <entry value="onfocus" />
+          <entry value="onmousedown" />
+          <entry value="onmousemove" />
+          <entry value="onmouseout" />
+          <entry value="onmouseover" />
+          <!-- entry value="onmouseup" / -->
+        </option>
+      </inputType>
+    </property>
+    <property name="cssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#NoStyle" />
+      </inputType>
+    </property>
+    <property name="accessKey" default="false" refId="accessKey" />
+    <property name="onblur" default="false" refId="deprecated" />
+    <property name="onclick" default="false" refId="event" />
+    <property name="onfocus" default="false" refId="deprecated" />
+    <property name="onmousedown" default="false" refId="deprecated" />
+    <property name="onmousemove" default="false" refId="deprecated" />
+    <property name="onmouseout" default="false" refId="deprecated" />
+    <property name="onmouseover" default="false" refId="deprecated" />
+    <!-- property name="onmouseup" default="false" refId="deprecated" / -->
+  </control>
+
+  <!-- Tab の設定 -->
+  <control name="Tab">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="arrowImage" default="true" refId="freeInputMust" />
+
+    <!-- リストアイテムズの設定 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <listItems name="TabColumns" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="TabColumn">
+        <!-- プロパティ定義 -->
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="selected" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="tabClickEvent" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+      </listItem>
+    </listItems>
+
+  </control>
+
+
+  <!-- Pager の設定 -->
+  <control name="Pager">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="functionKeyFirst" default="false" refId="functionKeyInput" />
+    <property name="functionKeyPrev" default="false" refId="functionKeyInput" />
+    <property name="functionKeyNext" default="false" refId="functionKeyInput" />
+    <property name="functionKeyLast" default="false" refId="functionKeyInput" />
+    <property name="max" default="false" refId="naturalNumber" />
+    <property name="index" default="false" refId="naturalNumber" />
+    <property name="page" default="false" refId="naturalNumber" />
+    <property name="visible" default="true" refId="booleanMust" />
+
+    <property name="cssClass" default="false" >
+      <font bold="false" color="lightgray"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#NoStyle" />
+      </inputType>
+    </property>
+  </control>
+
+  <!-- ListCellの設定 -->
+  <control name="ListCell">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT09"/>
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="fixedBank" default="true" refId="naturalNumberMust" />
+    <property name="tableCssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#ListcellTable" />
+      </inputType>
+    </property>
+	<!--<property name="maxRows" default="true" refId="naturalNumberMust" />-->
+	<property name="maxRows" default="false" refId="naturalNumberMust" visibleOnSheet="false" />
+    <!-- リストアイテムズの設定 -->
+    <listItems name="ListCellColumns" default="false" visibleOnSheet="false">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="ListCellColumn">
+
+        <!-- プロパティ定義 -->
+        <property name="width" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="height" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="rowspan" default="false" visibleOnSheet="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="colspan" default="false" visibleOnSheet="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="newrow" default="false" visibleOnSheet="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="columnClickEvent" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="cssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellHeader" />
+          </inputType>
+        </property>
+
+        <property name="detailCssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellDetail" />
+          </inputType>
+        </property>
+
+        <property name="controlName" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="dataSource">
+              <entry value="Label" />
+              <entry value="SubmitLabel" />
+              <entry value="SubmitButton" />
+              <entry value="CheckBox" />
+              <entry value="PullDown" />
+              <entry value="FreeTextBox" />
+              <entry value="NumberTextBox" />
+              <entry value="FormatTextBox" />
+              <entry value="DateTextBox" />
+              <entry value="TimeTextBox" />
+              <!-- 使用しないコントロールは削除します -->
+			  <!-- <entry value="BarCodeTextBox" /> -->
+            </option>
+          </inputType>
+        </property>
+
+        <property name="templateKey" default="true">
+          <mask refId="templateKeyPattern" />
+          <font bold="true" color=""/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+           <!-- Dialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TemplateDialogImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="header" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="spanLevel" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="enterOrder" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="columnHidden" default="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="toolTipHidden" default="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+      </listItem>
+    </listItems>
+
+  </control>
+
+  <!-- FixedListCellの設定 -->
+  <control name="FixedListCell">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT09"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="visible" default="true" refId="booleanMust" />
+     <property name="tableCssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#ListcellTable" />
+      </inputType>
+    </property>
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+    <property name="maxRows" default="true" refId="naturalNumberMust" visibleOnSheet="false" />
+    <property name="alterationBgColor" default="true" refId="booleanMust" />
+    <property name="colHeader" default="true" refId="booleanMust" />
+
+    <!-- リストアイテムズの設定 -->
+    <listItems name="ListCellRowHeaders" default="false" visibleOnSheet="false">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムズの設定 -->
+      <listItems name="RowHeaders"  default="true" visibleOnSheet="false">
+        <font bold="true" color=""/>
+        <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+        <!-- リストアイテムの設定 -->
+        <listItem name="RowHeader">
+
+          <!-- プロパティ定義 -->
+          <property name="width" default="true">
+            <font bold="true" color=""/>
+            <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+              <option name="pattern" value=""/>
+            </inputType>
+          </property>
+
+          <property name="height" default="false">
+            <font bold="false" color=""/>
+            <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+              <option name="pattern" value=""/>
+            </inputType>
+          </property>
+
+        <property name="rowspan" default="false" visibleOnSheet="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+      </inputType>
+        </property>
+
+        <property name="cssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellHeader" />
+          </inputType>
+        </property>
+
+        </listItem>
+      </listItems>
+    </listItems>
+
+    <!-- リストアイテムズの設定 -->
+    <listItems name="ListCellColumns" default="false" visibleOnSheet="false">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="ListCellColumn">
+
+        <!-- プロパティ定義 -->
+        <property name="width" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="height" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="colspan" default="false" visibleOnSheet="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="columnClickEvent" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="cssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellHeader" />
+          </inputType>
+        </property>
+
+        <property name="detailCssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellDetail" />
+          </inputType>
+        </property>
+
+        <property name="controlName" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="dataSource">
+              <entry value="Label" />
+              <entry value="SubmitLabel" />
+              <entry value="SubmitButton" />
+              <entry value="CheckBox" />
+              <entry value="PullDown" />
+              <entry value="FreeTextBox" />
+              <entry value="NumberTextBox" />
+              <entry value="FormatTextBox" />
+              <entry value="DateTextBox" />
+              <entry value="TimeTextBox" />
+              <!-- 使用しないコントロールは削除します -->
+			  <!-- <entry value="BarCodeTextBox" /> -->
+            </option>
+          </inputType>
+        </property>
+
+        <property name="templateKey" default="true">
+          <mask refId="templateKeyPattern" />
+          <font bold="true" color=""/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+           <!-- Dialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TemplateDialogImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="enterOrder" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="toolTipHidden" default="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+      </listItem>
+    </listItems>
+
+  </control>
+
+
+  <!-- ScrollListCellの設定 -->
+
+  <control name="ScrollListCell">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT09"/>
+
+    <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+	<property name="visible" default="true" refId="booleanMust" />
+    <property name="fixedBank" default="true" refId="naturalNumberMust" />
+    <property name="displayWidth" default="true" refId="naturalNumberMust"/>
+    <property name="displayHeight" default="true" refId="naturalNumberMust"/>
+    <property name="tableCssClass" default="false">
+      <font bold="false" color="blue"/>
+      <!-- Text direct -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+      <!-- BrowserDialog -->
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+        <option name="url" value="/WEB-INF/browser-style.html#ListcellTable" />
+      </inputType>
+    </property>
+	<property name="maxRows" default="false" refId="naturalNumberMust" visibleOnSheet="false" />
+    <!-- リストアイテムズの設定 -->
+    <listItems name="ListCellColumns" default="false" visibleOnSheet="false">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+
+      <!-- リストアイテムの設定 -->
+      <listItem name="ListCellColumn">
+
+        <!-- プロパティ定義 -->
+        <property name="width" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="height" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="text" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="resourceKey" default="false">
+          <mask refId="resourceKeyPattern" />
+          <font bold="false" color="green"/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+            <option name="resourceName" value="DispResource" />
+          </inputType>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+
+        <property name="columnClickEvent" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="cssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellHeader" />
+          </inputType>
+        </property>
+
+        <property name="detailCssClass" default="true">
+          <font bold="true" color="blue"/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+          <!-- BrowserDialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+            <option name="url" value="/WEB-INF/browser-style.html#ListcellDetail" />
+          </inputType>
+        </property>
+
+        <property name="controlName" default="true">
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="dataSource">
+              <entry value="Label" />
+              <entry value="SubmitLabel" />
+              <entry value="SubmitButton" />
+              <entry value="CheckBox" />
+              <entry value="PullDown" />
+              <entry value="FreeTextBox" />
+              <entry value="NumberTextBox" />
+              <entry value="FormatTextBox" />
+              <entry value="DateTextBox" />
+              <entry value="TimeTextBox" />
+              <!-- 使用しないコントロールは削除します -->
+			  <!-- <entry value="BarCodeTextBox" /> -->
+            </option>
+          </inputType>
+        </property>
+
+        <property name="templateKey" default="true">
+          <mask refId="templateKeyPattern" />
+          <font bold="true" color=""/>
+          <!-- Text direct -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+           <!-- Dialog -->
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+TemplateDialogImpl">
+            <option name="pattern" value=""/>
+          </inputType>
+        </property>
+<!--
+        <property name="header" default="true">
+          <mask refId="booleanPattern" />
+          <font bold="true" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+-->
+        <property name="spanLevel" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="enterOrder" default="false">
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+            <option name="align" value="right" />
+            <option name="maxValue" value="10000" />
+            <option name="minValue" value="0" />
+          </inputType>
+        </property>
+
+        <property name="columnHidden" default="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+        <property name="toolTipHidden" default="false">
+          <mask refId="booleanPattern" />
+          <font bold="false" color=""/>
+          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+            <option name="editable" value="true" />
+            <option name="dataSource">
+              <entry value="" />
+              <entry value="true" />
+              <entry value="false" />
+            </option>
+          </inputType>
+        </property>
+
+      </listItem>
+    </listItems>
+
+  </control>
+
+<!-- for version 4.0 -->
+
+<!-- HorizontalBarChart の設定 -->
+  <control name="HorizontalBarChart">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+     <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="width" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="height" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="clickable" default="true" refId="booleanMust" />
+    <property name="permeate" default="false" refId="booleanMust" />
+    <property name="rangeAboutMaxValue" default="true" refId="naturalNumber" />
+    <property name="value" default="true" refId="naturalNumber" />
+  </control>
+
+   <!-- VerticalBarLineChart の設定 -->
+  <control name="VerticalBarLineChart">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+     <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="width" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="height" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="clickable" default="true" refId="booleanMust" />
+    <property name="itemLabelsVisible" default="true" refId="booleanMust" />
+    <property name="permeate" default="false" refId="booleanMust" />
+  </control>
+
+   <!-- GanttChart の設定 -->
+  <control name="GanttChart">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+     <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="width" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="height" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="clickable" default="true" refId="booleanMust" />
+    <property name="toolTipVisible" default="true" refId="booleanMust" />
+    <property name="permeate" default="false" refId="booleanMust" />
+    <property name="outputFormat" default="true" refId="freeInput" />
+  </control>
+
+   <!-- PieChart の設定 -->
+  <control name="PieChart">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+     <!-- プロパティ定義 -->
+    <property name="async" default="true" refId="booleanMustAsync" />
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="target" default="false" refId="freeInput" />
+    <property name="features" default="false" refId="freeInput" />
+    <property name="width" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="height" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="clickable" default="true" refId="booleanMust" />
+    <property name="permeate" default="false" refId="booleanMust" />
+    <property name="itemLabelsVisible" default="true" refId="booleanMust" />
+  </control>
+
+   <!-- GeneralChart の設定 -->
+  <control name="GeneralChart">
+    <editForm className="ScreenGenerator.ResourceTool.UI.BDRT04"/>
+     <!-- プロパティ定義 -->
+    <property name="visible" default="true" refId="booleanMust" />
+    <property name="width" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+    <property name="height" default="true">
+      <font bold="true" color=""/>
+      <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+        <option name="pattern" value=""/>
+      </inputType>
+    </property>
+  </control>
+
+<!-- Start Add New Control T.Sumiyama for BlueDOG5.2 2010/03/16 -->
+	<control name="MultiroleListCell">
+		<editForm className="ScreenGenerator.ResourceTool.UI.BDRT09"/>
+		<!-- プロパティ定義 -->
+		<property name="async" default="true" refId="booleanMustAsync" />
+		<property name="errRequired" default="true" refId="MsgResourceKeyMust" />
+		<property name="visible" default="true" refId="booleanMust" />
+		<property name="headerStatus" default="true" refId="booleanMust" />
+		<property name="fixedBank" default="true" refId="naturalNumberMust" />
+		<property name="displayHeight" default="true" refId="naturalNumberMust" />
+		<property name="displayWidth" default="true" refId="naturalNumberMust" />
+		<property name="tableCssClass" default="false">
+			<font bold="false" color="blue"/>
+			<!-- Text direct -->
+			<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+				<option name="pattern" value=""/>
+			</inputType>
+			<!-- BrowserDialog -->
+			<inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+				<option name="url" value="/WEB-INF/browser-style.html#ListcellTable" />
+			</inputType>
+		</property>
+		<property name="maxRows" default="false" refId="naturalNumberMust" visibleOnSheet="false" />
+		<!-- リストアイテムズの設定 -->
+		<listItems name="ListCellColumns" default="false" visibleOnSheet="false">
+			<font bold="true" color=""/>
+			<inputType className="ScreenGenerator.ResourceTool.module.Input+ListItemDialogImpl" />
+			<!-- リストアイテムの設定 -->
+			<listItem name="ListCellColumn">
+				<!-- プロパティ定義 -->
+				<property name="width" default="true">
+					<font bold="true" color=""/>
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+						<option name="pattern" value=""/>
+					</inputType>
+				</property>
+		        <property name="height" default="true">
+		     		<font bold="true" color=""/>
+		   			<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+		    			<option name="pattern" value=""/>
+					</inputType>
+		        </property>
+		        <property name="rowspan" default="false" visibleOnSheet="false">
+		          <font bold="false" color=""/>
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+		            <option name="align" value="right" />
+		            <option name="maxValue" value="10000" />
+		            <option name="minValue" value="0" />
+		          </inputType>
+		        </property>
+				<property name="colspan" default="false" visibleOnSheet="false">
+					<font bold="false" color=""/>
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+						<option name="align" value="right" />
+						<option name="maxValue" value="10000" />
+				  		<option name="minValue" value="0" />
+			  		</inputType>
+		        </property>
+		        <property name="newrow" default="false" visibleOnSheet="false">
+		      		<mask refId="booleanPattern" />
+					<font bold="false" color=""/>
+		     		<inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+		            	<option name="editable" value="true" />
+			        	<option name="dataSource">
+			       			<entry value="" />
+			      			<entry value="true" />
+			      			<entry value="false" />
+			        	</option>
+		       		</inputType>
+		        </property>
+		        <property name="text" default="false">
+		  			<font bold="false" color=""/>
+		   			<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+		   				<option name="pattern" value=""/>
+		     		</inputType>
+		        </property>
+		        <property name="resourceKey" default="false">
+		          <mask refId="resourceKeyPattern" />
+		          <font bold="false" color="green"/>
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+ResourceDialogImpl">
+		            <option name="resourceName" value="DispResource" />
+		          </inputType>
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+		            <option name="pattern" value=""/>
+		          </inputType>
+		        </property>
+		        <property name="columnClickEvent" default="true">
+		          <mask refId="booleanPattern" />
+		          <font bold="true" color=""/>
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+		            <option name="editable" value="true" />
+		            <option name="dataSource">
+		              <entry value="" />
+		              <entry value="true" />
+		              <entry value="false" />
+		            </option>
+		          </inputType>
+		        </property>
+				<property name="cssClass" default="true">
+					<font bold="true" color="blue"/>
+					<!-- Text direct -->
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+						<option name="pattern" value=""/>
+					</inputType>
+			      	<!-- BrowserDialog -->
+			      	<inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+			        	<option name="url" value="/WEB-INF/browser-style.html#ListcellHeader" />
+			      	</inputType>
+		        </property>
+		        <property name="detailCssClass" default="true">
+		          <font bold="true" color="blue"/>
+		          <!-- Text direct -->
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+		            <option name="pattern" value=""/>
+		          </inputType>
+		          <!-- BrowserDialog -->
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+BrowserDialogImpl">
+		            <option name="url" value="/WEB-INF/browser-style.html#ListcellDetail" />
+		          </inputType>
+		        </property>
+		        <property name="controlName" default="true">
+		          <font bold="true" color=""/>
+		          <inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+		            <option name="dataSource">
+		              <entry value="Label" />
+		              <entry value="SubmitLabel" />
+		              <entry value="SubmitButton" />
+		              <entry value="CheckBox" />
+		              <entry value="PullDown" />
+		              <entry value="FreeTextBox" />
+		              <entry value="NumberTextBox" />
+		              <entry value="FormatTextBox" />
+		              <entry value="DateTextBox" />
+		              <entry value="TimeTextBox" />
+		              <!-- 使用しないコントロールは削除します -->
+					  <!-- <entry value="BarCodeTextBox" /> -->
+		            </option>
+		          </inputType>
+		        </property>
+		        <property name="templateKey" default="true">
+					<mask refId="templateKeyPattern" />
+					<font bold="true" color=""/>
+					<!-- Text direct -->
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+TextDirectImpl">
+						<option name="pattern" value=""/>
+					</inputType>
+					<!-- Dialog -->
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+TemplateDialogImpl">
+						<option name="pattern" value=""/>
+					</inputType>
+				</property>
+<!-- 				<property name="header" default="true">
+					<mask refId="booleanPattern" />
+					<font bold="true" color=""/>
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+			            <option name="editable" value="true" />
+			            <option name="dataSource">
+							<entry value="" />
+							<entry value="true" />
+							<entry value="false" />
+						</option>
+					</inputType>
+		        </property>
+ -->
+		        <property name="spanLevel" default="false">
+					<font bold="false" color=""/>
+					<inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+			            <option name="align" value="right" />
+			            <option name="maxValue" value="10000" />
+			            <option name="minValue" value="0" />
+					</inputType>
+		        </property>
+		        <property name="enterOrder" default="false">
+		      		<font bold="false" color=""/>
+		        	<inputType className="ScreenGenerator.ResourceTool.module.Input+NumberDirectImpl">
+			            <option name="align" value="right" />
+			            <option name="maxValue" value="10000" />
+			            <option name="minValue" value="0" />
+		     		</inputType>
+		        </property>
+		        <property name="columnHidden" default="false">
+		       		<mask refId="booleanPattern" />
+		       		<font bold="false" color=""/>
+		       		<inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+			            <option name="editable" value="true" />
+			            <option name="dataSource">
+		              	<entry value="" />
+		              	<entry value="true" />
+		             	 <entry value="false" />
+		            </option>
+		          </inputType>
+		        </property>
+
+				<property name="toolTipHidden" default="false">
+					<mask refId="booleanPattern" />
+					<font bold="false" color=""/>
+		       		<inputType className="ScreenGenerator.ResourceTool.module.Input+ComboBoxImpl">
+			            <option name="editable" value="true" />
+			            <option name="dataSource">
+							<entry value="" />
+			          		<entry value="true" />
+			              	<entry value="false" />
+		         		</option>
+		          	</inputType>
+		        </property>
+			</listItem>
+		</listItems>
+	</control>
+</propertyDefine>
+<!-- End Add New Control T.Sumiyama for BlueDOG5.2 2010/03/16 -->

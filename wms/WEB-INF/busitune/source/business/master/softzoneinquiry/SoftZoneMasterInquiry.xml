@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.master.display.softzoneinquiry.SoftZoneMasterInquiryBusiness" abstractClassName="jp.co.daifuku.wms.master.display.softzoneinquiry.SoftZoneMasterInquiry" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_Area" />
+    <ref name="1" type="Control" typeName="pul_Bank" />
+    <ref name="2" type="Control" typeName="btn_Display" />
+    <ref name="3" type="Sch" typeName="jp.co.daifuku.wms.master.schedule.SoftZoneMasterInquirySCH" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_Area" dataType="WmsAreaAsrsAll" />
+    <pulldown name="pul_Bank" dataType="WmsBankAsrs" parent="pul_Area" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="0" type="Disabled" />
+        <clear controlRef="1" type="Disabled" />
+        <clear controlRef="2" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_Display" name="Click" pattern="Query">
+      <sch2Display schRef="3" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="3" setValue="AREA_NO" />
+        <map getRef="1" getValue="Value" setRef="3" setValue="BANK_NO" />
+      </input1>
+    </event>
+  </events>
+</business>

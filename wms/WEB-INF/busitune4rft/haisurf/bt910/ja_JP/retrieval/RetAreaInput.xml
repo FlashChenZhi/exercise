@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--オーダー出庫エリア入力画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <input name="inputAreaNo" type="non" count-max="4" count-min="1" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>出庫エリア入力　　　</caption>
+    </label>
+    <label name="lblArea" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>[     ]</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る　　　　</caption>
+      <event>RetAreaI_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:確定　　</caption>
+      <key>ET</key>
+    </button>
+    <button name="List" font-id="font12" visible="true" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>F1:エリア一覧</caption>
+      <event>RetAreaI_List</event>
+      <key>F1</key>
+    </button>
+    <edit name="AreaNo" enabled="true" font-id="font12" input-id="inputAreaNo" visible="true" password="false" scan="true" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-time="1" keyence-ng-count="1" keyence-ng-alarm="low" keyence-ng-vibration="true" keyence-ng-led="non">
+      <x>6</x>
+      <y>14</y>
+      <w>5</w>
+      <text>%AreaDataSheet.AREA_NO%</text>
+      <event>RetAreaI_Ent</event>
+      <scanevent>RetAreaI_Ent</scanevent>
+    </edit>
+  </form>
+</HaiSurf.Page>

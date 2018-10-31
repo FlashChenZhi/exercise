@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="Control" type="Control" />
+    <ref name="1" typeName="LocationDataSheet" type="DataSheet" />
+  </refs>
+  <events>
+    <event name="Back_Click" order="3">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="AreaNo_Enter" order="1">
+      <method methodName="areaNo_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="AreaNo" setterTypeRef="1" setterValue="SEARCH_AREA" />
+      </input>
+    </event>
+    <event name="SearchLoc_Enter" order="2">
+      <method methodName="searchLoc_Enter" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="SearchLoc" setterTypeRef="1" setterValue="SEARCH_LOCATION" />
+      </input>
+    </event>
+    <event name="List1_Click" order="4">
+      <method methodName="list1_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="AreaNo" setterTypeRef="1" setterValue="SEARCH_AREA" />
+      </input>
+    </event>
+    <event name="List2_Click" order="5">
+      <method methodName="list2_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="AreaNo" setterTypeRef="1" setterValue="SEARCH_AREA" />
+      </input>
+    </event>
+    <event name="Return_Click" order="6">
+      <method methodName="return_Click" />
+      <pager pagerType="None" select="0" />
+      <input>
+        <map getterTypeRef="0" getterValue="AreaNo" setterTypeRef="1" setterValue="SEARCH_AREA" />
+        <map getterTypeRef="0" getterValue="SearchLoc" setterTypeRef="1" setterValue="SEARCH_LOCATION" />
+      </input>
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input />
+      <pager pagerType="None" select="0" />
+    </event>
+  </events>
+</pageMapping>

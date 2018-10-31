@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.ship.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="出荷入力データシート" />
+  <comment lang="en" value="Shipping Input Data Sheet" />
+  <comment lang="zh" value="发货输入数据表" />
+  <fields>
+    <field name="BATCH_NO" type="String" separateSize="0">
+      <comment lang="ja" value="バッチNo." />
+      <comment lang="en" value="Batch #" />
+      <comment lang="zh" value="处理批号" />
+    </field>
+    <field name="CONSIGNOR_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="荷主コード" />
+      <comment lang="en" value="Consignor Code" />
+      <comment lang="zh" value="货主代码" />
+    </field>
+    <field name="CUSTOMER_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="出荷先コード" />
+      <comment lang="en" value="Customer Code" />
+      <comment lang="zh" value="发货地代码" />
+    </field>
+    <field name="PLAN_DATE" type="Date" format="DateLong" separateSize="0">
+      <comment lang="ja" value="予定日" />
+      <comment lang="en" value="Plan Date" />
+      <comment lang="zh" value="预定日" />
+    </field>
+    <field name="RESULT_CASE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ケース数" />
+      <comment lang="en" value="Result Case Qty" />
+      <comment lang="zh" value="实绩盒装数" />
+    </field>
+    <field name="RESULT_LOT_NO" type="String" separateSize="0">
+      <comment lang="ja" value="実績ロットNo." />
+      <comment lang="en" value="Result Lot #" />
+      <comment lang="zh" value="实绩批号" />
+    </field>
+    <field name="RESULT_PIECE_QTY" type="Number" format="0" separateSize="0">
+      <comment lang="ja" value="実績ピース数" />
+      <comment lang="en" value="Result Piece Qty" />
+      <comment lang="zh" value="实绩散装数" />
+    </field>
+    <field name="SCAN_CODE" type="String" separateSize="0">
+      <comment lang="ja" value="スキャンコード" />
+      <comment lang="en" value="Scan Code" />
+      <comment lang="zh" value="扫描代码" />
+    </field>
+  </fields>
+</datasheet>

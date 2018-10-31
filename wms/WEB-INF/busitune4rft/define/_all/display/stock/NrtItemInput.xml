@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="ItemDataSheet" type="DataSheet" />
+    <ref name="1" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="back_Click" pattern="None" order="1" />
+    <method name="list_Click" pattern="None" order="3" />
+    <method name="cp_Click" pattern="NoSch" order="4">
+      <validate />
+      <output />
+      <focus fieldTypeRef="1" field="ItemCode" />
+    </method>
+    <method name="ent_Click" pattern="NoSch" order="2">
+      <validate>
+        <item fieldTypeRef="0" field="ITEM_CODE" required="true" focusTypeRef="1" focus="ItemCode" />
+      </validate>
+      <output />
+    </method>
+  </methods>
+</business>

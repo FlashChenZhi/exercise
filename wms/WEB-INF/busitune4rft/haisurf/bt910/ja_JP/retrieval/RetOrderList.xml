@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--オーダー出庫オーダー一覧画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>オーダーNo.一覧 　　　　　　</caption>
+    </label>
+    <label name="lblPageTotal" font-id="font12" visible="true">
+      <align>left</align>
+      <x>90</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>%OrderListDataSheet.$PAGE%/%OrderListDataSheet.$NUM_PAGES%</caption>
+    </label>
+    <label name="lblOrderNo1" font-id="%OrderListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@ORDER_NO[0]%</caption>
+    </label>
+    <label name="lblConsignorName1" font-id="%OrderListDataSheet.@FONT[0]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>26</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[0]%</caption>
+    </label>
+    <label name="lblOrderNo2" font-id="%OrderListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@ORDER_NO[1]%</caption>
+    </label>
+    <label name="lblConsignorName2" font-id="%OrderListDataSheet.@FONT[1]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>52</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[1]%</caption>
+    </label>
+    <label name="lblOrderNo3" font-id="%OrderListDataSheet.@FONT[2]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@ORDER_NO[2]%</caption>
+    </label>
+    <label name="lblConsignorName3" font-id="%OrderListDataSheet.@FONT[2]%" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>78</y>
+      <w>20</w>
+      <caption>%OrderListDataSheet.@CUSTOMER_NAME[2]%</caption>
+    </label>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る　　　　</caption>
+      <event>RetOrderL_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>71</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>ENT:選択　　</caption>
+      <event>RetOrderL_Ent</event>
+      <key>ET</key>
+    </button>
+    <label name="lblMsg" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>118</y>
+      <w>
+      </w>
+      <caption>オーダーNo.を選択</caption>
+    </label>
+    <button name="Up" font-id="" visible="false" enabled="%OrderListDataSheet.$UP_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>RetOrderL_Up</event>
+      <key>UP</key>
+    </button>
+    <button name="Down" font-id="" visible="false" enabled="%OrderListDataSheet.$DOWN_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>RetOrderL_Down</event>
+      <key>DW</key>
+    </button>
+    <button name="Prev" font-id="" visible="false" enabled="%OrderListDataSheet.$PREV_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>RetOrderL_Prev</event>
+      <key>LT</key>
+    </button>
+    <button name="Next" font-id="" visible="false" enabled="%OrderListDataSheet.$NEXT_ENABLED%" inputchecked="true">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>RetOrderL_Next</event>
+      <key>RT</key>
+    </button>
+  </form>
+</HaiSurf.Page>

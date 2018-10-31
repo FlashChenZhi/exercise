@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--オーダー出庫オーダー状態一覧画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="2">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>
+      </w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>オーダー状態一覧                        </caption>
+    </label>
+    <label name="lblOrderNo1Status" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>1:%RetrievalOutDataSheet.ORDER_NO1_STATUS%</caption>
+    </label>
+    <label name="lblOrderNo2Status" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>
+      </w>
+      <caption>2:%RetrievalOutDataSheet.ORDER_NO2_STATUS%</caption>
+    </label>
+    <label name="lblOrderNo3Status" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>40</y>
+      <w>
+      </w>
+      <caption>3:%RetrievalOutDataSheet.ORDER_NO3_STATUS%</caption>
+    </label>
+    <label name="lblOrderNo4Status" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>4:%RetrievalOutDataSheet.ORDER_NO4_STATUS%</caption>
+    </label>
+    <button name="Ent" font-id="font12r" visible="true" enabled="true" inputchecked="true">
+      <x>40</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>  OK  </caption>
+      <event>RetOrderSL_Ent</event>
+      <key>ET</key>
+    </button>
+  </form>
+</HaiSurf.Page>

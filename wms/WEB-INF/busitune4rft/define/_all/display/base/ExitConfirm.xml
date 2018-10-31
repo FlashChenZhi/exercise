@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.base.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.base.rft.schedule.TopPageSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="Constants" type="Constants" />
+    <ref name="3" typeName="Boolean" type="Boolean" />
+    <ref name="4" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="None" order="0" />
+    <method name="yes_Click" pattern="Commit" order="1">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="RFT_STATUS_FLAG_STOP" setterTypeRef="0" setterValue="STATUS_FLAG" />
+        <map getterTypeRef="3" getterValue="False" setterTypeRef="0" setterValue="TO_REST" />
+        <map getterTypeRef="3" getterValue="False" setterTypeRef="0" setterValue="TO_RESTART" />
+        <map getterTypeRef="2" getterValue="TERMINAL_TYPE_HT" setterTypeRef="0" setterValue="TERMINAL_TYPE" />
+        <map getterTypeRef="1" getterValue="IP_ADDRESS" setterTypeRef="0" setterValue="IP_ADDRESS" />
+      </schInput>
+      <output />
+    </method>
+    <method name="no_Click" pattern="None" order="2" />
+  </methods>
+</business>

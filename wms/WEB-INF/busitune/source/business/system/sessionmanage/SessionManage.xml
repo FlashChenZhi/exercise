@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.system.display.sessionmanage.SessionManageBusiness" abstractClassName="jp.co.daifuku.wms.system.display.sessionmanage.SessionManage" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="LST_SELECT" />
+    <ref name="1" type="Control" typeName="lst_UserList" />
+    <ref name="2" type="Control" typeName="btn_Station_Stop" />
+    <ref name="3" type="Control" typeName="btn_Logoff" />
+    <ref name="4" type="Control" typeName="btn_AllCheck" />
+    <ref name="5" type="Control" typeName="btn_AllCheckClear" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.wms.system.schedule.SessionManageSCH" />
+    <ref name="7" type="Control" typeName="pul_TerminalName" />
+    <ref name="8" type="Control" typeName="LST_RFT_NO" />
+    <ref name="9" type="Control" typeName="LST_CLIENT_NAME" />
+    <ref name="10" type="Control" typeName="LST_IP_ADDRESS" />
+    <ref name="11" type="Control" typeName="LST_STATUS" />
+    <ref name="12" type="Control" typeName="LST_SESSION_ID" />
+    <ref name="13" type="String" typeName="String" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_TerminalName" dataType="Default" />
+  </pulldowns>
+  <listcells>
+    <listcell name="lst_UserList">
+      <listcellColumn name="LST_SELECT" orgIndex="1" resourceKey="LBL-W0133" dataType="CheckBox" modifyCheck="true" />
+      <listcellColumn name="LST_RFT_NO" orgIndex="2" resourceKey="LBL-W0005" dataType="String" />
+      <listcellColumn name="LST_CLIENT_NAME" orgIndex="3" resourceKey="LBL-9105" dataType="String" />
+      <listcellColumn name="LST_IP_ADDRESS" orgIndex="4" resourceKey="LBL-9008" dataType="String" />
+      <listcellColumn name="LST_STATUS" orgIndex="5" resourceKey="LBL-W0132" dataType="String" />
+      <listcellColumn name="LST_SESSION_ID" orgIndex="6" resourceKey="LBL-9104" dataType="String" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_AllCheck" name="Click" pattern="AllChecked">
+      <clear1>
+        <clear controlRef="0" type="Checked" />
+      </clear1>
+    </event>
+    <event control="btn_AllCheckClear" name="Click" pattern="AllUnChecked">
+      <clear1>
+        <clear controlRef="0" type="UnChecked" />
+      </clear1>
+    </event>
+    <event control="page" name="Initialize" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="1" type="Clear" />
+        <clear controlRef="2" type="Disabled" />
+        <clear controlRef="3" type="Disabled" />
+        <clear controlRef="4" type="Disabled" />
+        <clear controlRef="5" type="Disabled" />
+      </clear1>
+    </event>
+    <event control="btn_View" name="Click" pattern="Query">
+      <sch2Display schRef="6" />
+      <validate>
+        <validate controlRef="7" required="true" />
+      </validate>
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="SERVER_NAME" />
+      </input1>
+      <output1>
+        <map getRef="6" getValue="RFT_NO" setRef="8" setValue="Value" />
+        <map getRef="6" getValue="CLIENT_NAME" setRef="9" setValue="Value" />
+        <map getRef="6" getValue="IP_ADDRESS" setRef="10" setValue="Value" />
+        <map getRef="6" getValue="STATUS" setRef="11" setValue="Value" />
+        <map getRef="6" getValue="SESSION_ID" setRef="12" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="2" type="Enabled" />
+        <clear controlRef="3" type="Enabled" />
+        <clear controlRef="4" type="Enabled" />
+        <clear controlRef="5" type="Enabled" />
+      </clear1>
+    </event>
+    <event control="btn_Station_Stop" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="6" />
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="SERVER_NAME" />
+        <map getRef="12" getValue="Value" setRef="6" setValue="SESSION_ID" />
+        <map getRef="13" getValue="DISCONNECT" setRef="6" setValue="PROCESS_FLAG" />
+      </input1>
+      <clear1>
+        <clear controlRef="1" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Logoff" name="Click" pattern="ListCellRegist">
+      <sch2Display schRef="6" />
+      <input1>
+        <map getRef="7" getValue="Value" setRef="6" setValue="SERVER_NAME" />
+        <map getRef="12" getValue="Value" setRef="6" setValue="SESSION_ID" />
+        <map getRef="13" getValue="RESET" setRef="6" setValue="PROCESS_FLAG" />
+      </input1>
+      <clear1>
+        <clear controlRef="1" type="Clear" />
+      </clear1>
+    </event>
+  </events>
+</business>

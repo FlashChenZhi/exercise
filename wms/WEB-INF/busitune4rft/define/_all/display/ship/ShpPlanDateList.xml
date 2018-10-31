@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.ship.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpPlanDateListSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ShippingCustomerInDataSheet" type="DataSheet" />
+    <ref name="4" typeName="PlanDateListDataSheet" type="DataSheet" />
+    <ref name="5" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpStartSCH" type="Sch" />
+    <ref name="6" typeName="ShippingCustomerOutDataSheet" type="DataSheet" />
+    <ref name="7" typeName="Number" type="Number" />
+    <ref name="8" typeName="CustomerDataSheet" type="DataSheet" />
+    <ref name="9" typeName="ConsignorDataSheet" type="DataSheet" />
+    <ref name="10" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="0" setterValue="CUSTOMER_CODE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="0" getterValue="PLAN_DATE" setterTypeRef="4" setterValue="PLAN_DATE" />
+      </output>
+    </method>
+    <method name="back_Click" pattern="None" order="2" />
+    <method name="ent_Click" pattern="Query" order="1">
+      <validate />
+      <schBase schRef="5" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="5" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="5" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="5" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="5" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="5" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="4" getterValue="PLAN_DATE" setterTypeRef="5" setterValue="PLAN_DATE" />
+      </schInput>
+      <output>
+        <map getterTypeRef="5" getterValue="SETTING_UNIT_KEY" setterTypeRef="6" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_CODE" setterTypeRef="6" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_NAME" setterTypeRef="6" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="5" getterValue="CUSTOMER_CODE" setterTypeRef="6" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="5" getterValue="CUSTOMER_NAME" setterTypeRef="6" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="5" getterValue="PLAN_DATE" setterTypeRef="6" setterValue="PLAN_DATE" />
+        <map getterTypeRef="5" getterValue="BATCH_NO" setterTypeRef="6" setterValue="BATCH_NO" />
+        <map getterTypeRef="5" getterValue="TOTAL_ITEM" setterTypeRef="6" setterValue="TOTAL_ITEM" />
+        <map getterTypeRef="5" getterValue="PENDING_ITEM" setterTypeRef="6" setterValue="PENDING_ITEM" />
+        <map getterTypeRef="5" getterValue="START_DATE_TIME" setterTypeRef="2" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="7" getterValue="0" setterTypeRef="2" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="5" getterValue="CUSTOMER_NAME" setterTypeRef="8" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="5" getterValue="CONSIGNOR_NAME" setterTypeRef="9" setterValue="CONSIGNOR_NAME" />
+        <map getterTypeRef="5" getterValue="QTY_INPUT_ENABLED" setterTypeRef="6" setterValue="QTY_INPUT_ENABLED" />
+      </output>
+    </method>
+  </methods>
+</business>

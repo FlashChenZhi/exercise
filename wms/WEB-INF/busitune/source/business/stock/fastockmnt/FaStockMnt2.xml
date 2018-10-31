@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.stock.display.fastockmnt.FaStockMnt2Business" abstractClassName="jp.co.daifuku.wms.stock.display.fastockmnt.FaStockMnt2" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ItemCode" />
+    <ref name="1" type="Control" typeName="txt_ItemName" />
+    <ref name="2" type="Control" typeName="txt_LotNo" />
+    <ref name="3" type="Control" typeName="txt_SoftZoneName" />
+    <ref name="4" type="Control" typeName="txt_StockQty" />
+    <ref name="5" type="ViewState" typeName="jp.co.daifuku.wms.stock.display.fastockmnt.ViewStateKeys" />
+    <ref name="6" type="Control" typeName="txt_Location" />
+    <ref name="7" type="Control" typeName="txt_StorageDate" />
+    <ref name="8" type="Control" typeName="txt_StorageTime" />
+    <ref name="9" type="Control" typeName="lbl_In_Area" />
+    <ref name="10" type="Control" typeName="lbl_In_DateFormat" />
+    <ref name="11" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.item.LstItemParams" />
+    <ref name="12" type="Constants" typeName="Constants" />
+    <ref name="13" type="BusinessParameter" typeName="jp.co.daifuku.wms.base.listbox.itemname.LstItemNameParams" />
+    <ref name="14" type="Sch" typeName="jp.co.daifuku.wms.stock.schedule.FaStockMnt2SCH" />
+    <ref name="15" type="Part11Operation" typeName="Part11Operation" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/stock/fastockmnt/FaStockMnt" viewStateRef="5" />
+      <validate>
+        <validate controlRef="6" />
+        <validate controlRef="0" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+      </validate>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <output1>
+        <map getRef="5" getValue="VS_AREA_NO" setRef="9" setValue="Value" />
+        <map getRef="5" getValue="VS_LOCATION_NO" setRef="6" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="10" type="Empty" />
+        <clear controlRef="6" type="ReadOnly" />
+        <clear controlRef="3" type="ReadOnly" />
+      </clear1>
+    </event>
+    <event control="btn_SearchItemCode" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/item/LstItem" businessParameterRef="11" />
+      <input1>
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="0" getValue="Value" setRef="11" setValue="ITEM_CODE" />
+      </input1>
+      <output1>
+        <map getRef="11" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="11" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="11" getValue="SOFT_ZONE_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_SearchItemName" name="Click" pattern="Popup">
+      <popup2Display uri="/base/listbox/itemname/LstItemName" businessParameterRef="13" />
+      <input1>
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="13" setValue="CONSIGNOR_CODE" />
+        <map getRef="1" getValue="Value" setRef="13" setValue="ITEM_NAME" />
+      </input1>
+      <output1>
+        <map getRef="13" getValue="ITEM_CODE" setRef="0" setValue="Value" />
+        <map getRef="13" getValue="ITEM_NAME" setRef="1" setValue="Value" />
+        <map getRef="13" getValue="SOFT_ZONE_NAME" setRef="3" setValue="Value" />
+      </output1>
+      <focus controlRef="1" />
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="14" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="4" required="true" />
+        <validate controlRef="7" />
+        <validate controlRef="8" />
+      </validate>
+      <input1>
+        <map getRef="12" getValue="DEFAULT_CONSIGNOR_CODE" setRef="14" setValue="CONSIGNOR_CODE" />
+        <map getRef="9" getValue="Value" setRef="14" setValue="AREA_NO" />
+        <map getRef="6" getValue="Value" setRef="14" setValue="LOCATION_NO" />
+        <map getRef="0" getValue="Value" setRef="14" setValue="ITEM_CODE" />
+        <map getRef="1" getValue="Value" setRef="14" setValue="ITEM_NAME" />
+        <map getRef="2" getValue="Value" setRef="14" setValue="LOT_NO" />
+        <map getRef="3" getValue="Value" setRef="14" setValue="SOFT_ZONE_NAME" />
+        <map getRef="4" getValue="Value" setRef="14" setValue="STOCK_QTY" />
+        <map getRef="7" getValue="Value" setRef="14" setValue="STORAGE_DATE" />
+        <map getRef="8" getValue="Value" setRef="14" setValue="STORAGE_TIME" />
+      </input1>
+      <part11 operationRef="15" operation="SETTING">
+        <out out1Ref="5" out1Value="VS_AREA_NO" />
+        <out out1Ref="6" out1Value="Value" />
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+        <out out1Ref="4" out1Value="Value" />
+        <out out1Ref="7" out1Value="Value" out2Ref="8" out2Value="Value" />
+      </part11>
+      <focus controlRef="0" />
+    </event>
+  </events>
+</business>

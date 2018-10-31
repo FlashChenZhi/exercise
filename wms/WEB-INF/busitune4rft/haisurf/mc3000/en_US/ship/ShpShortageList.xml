@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--ShippingShortage/SuspendSelection-->
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="11" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <font name="fontTitle" fontname="Tahoma" bold="true" italic="false" size="16" bht_size="1" />
+  <font name="fontStandard" fontname="Courier New" bold="false" italic="false" size="11" bht_size="1" />
+  <font name="fontQty" fontname="Courier New" bold="true" italic="false" size="18" bht_size="1" />
+  <form color="E6E6FA" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" titlebar="false">
+    <label name="lblTitle" font-id="fontTitle" visible="true">
+      <align>left</align>
+      <x>2</x>
+      <y>6</y>
+      <w>200</w>
+      <h>24</h>
+      <caption>Shortage/Suspend</caption>
+    </label>
+    <button name="Prev" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%ShippingShortageListDataSheet.$PREV_ENABLED%" inputchecked="false">
+      <x>108</x>
+      <y>30</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Previous</caption>
+      <event>ShpSPL_Prev</event>
+    </button>
+    <button name="Next" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="%ShippingShortageListDataSheet.$NEXT_ENABLED%" inputchecked="false">
+      <x>217</x>
+      <y>30</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Next</caption>
+      <event>ShpSPL_Next</event>
+    </button>
+    <label name="lblItemCode1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>82</y>
+      <w>290</w>
+      <h>18</h>
+      <caption>%ShippingShortageListDataSheet.@ITEM_CODE[0]%</caption>
+    </label>
+    <label name="lblItemName1" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>100</y>
+      <w>290</w>
+      <h>36</h>
+      <caption>%ShippingShortageListDataSheet.@ITEM_NAME[0]%</caption>
+    </label>
+    <label name="lblShortage1" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[0]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>140</y>
+      <w>66</w>
+      <h>14</h>
+      <caption>Shortage:</caption>
+    </label>
+    <label name="lblCaseQty1" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>85</x>
+      <y>136</y>
+      <w>62</w>
+      <h>26</h>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_CASE_QTY[0]%</caption>
+    </label>
+    <label name="lblCase1" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[0]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>148</x>
+      <y>148</y>
+      <w>36</w>
+      <h>14</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblPieceQty1" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>195</x>
+      <y>136</y>
+      <w>62</w>
+      <h>26</h>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_PIECE_QTY[0]%</caption>
+    </label>
+    <label name="lblPiece1" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[0]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>258</x>
+      <y>148</y>
+      <w>43</w>
+      <h>14</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblItemCode2" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>166</y>
+      <w>290</w>
+      <h>18</h>
+      <caption>%ShippingShortageListDataSheet.@ITEM_CODE[1]%</caption>
+    </label>
+    <label name="lblItemName2" font-id="fontStandard" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>6</x>
+      <y>184</y>
+      <w>290</w>
+      <h>36</h>
+      <caption>%ShippingShortageListDataSheet.@ITEM_NAME[1]%</caption>
+    </label>
+    <label name="lblShortage2" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[1]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>224</y>
+      <w>66</w>
+      <h>14</h>
+      <caption>Shortage:</caption>
+    </label>
+    <label name="lblCaseQty2" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>85</x>
+      <y>220</y>
+      <w>62</w>
+      <h>26</h>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_CASE_QTY[1]%</caption>
+    </label>
+    <label name="lblCase2" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[1]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>148</x>
+      <y>232</y>
+      <w>36</w>
+      <h>14</h>
+      <caption>Cases</caption>
+    </label>
+    <label name="lblPieceQty2" font-id="fontQty" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>195</x>
+      <y>220</y>
+      <w>62</w>
+      <h>26</h>
+      <caption>%ShippingShortageListDataSheet.@SHORTAGE_PIECE_QTY[1]%</caption>
+    </label>
+    <label name="lblPiece2" font-id="fontSmall" visible="%ShippingShortageListDataSheet.@ENABLED[1]%" backcolor="C8C8FA">
+      <align>left</align>
+      <x>258</x>
+      <y>232</y>
+      <w>43</w>
+      <h>14</h>
+      <caption>Pieces</caption>
+    </label>
+    <label name="lblShortageTotal" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>255</y>
+      <w>110</w>
+      <h>14</h>
+      <caption>Shortage/Total:</caption>
+    </label>
+    <label name="lblShortageTotalQty" font-id="fontQty" visible="true">
+      <align>right</align>
+      <x>165</x>
+      <y>249</y>
+      <w>62</w>
+      <h>26</h>
+      <caption>%ShippingCustomerOutDataSheet.PENDING_ITEM%/</caption>
+    </label>
+    <label name="label2" font-id="fontQty" visible="true">
+      <align>right</align>
+      <x>230</x>
+      <y>249</y>
+      <w>47</w>
+      <h>26</h>
+      <caption>%ShippingCustomerOutDataSheet.TOTAL_ITEM%</caption>
+    </label>
+    <button name="Shortage" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Shortage</caption>
+      <event>ShpSPL_Shortage</event>
+    </button>
+    <button name="Pending" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>108</x>
+      <y>275</y>
+      <w>109</w>
+      <h>45</h>
+      <caption>Suspend</caption>
+      <event>ShpSPL_Pending</event>
+    </button>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false">
+      <x>217</x>
+      <y>275</y>
+      <w>108</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>ShpSPL_Back</event>
+    </button>
+    <label name="panel1" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>80</y>
+      <w>324</w>
+      <h>82</h>
+    </label>
+    <label name="panel2" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>164</y>
+      <w>324</w>
+      <h>82</h>
+    </label>
+  </form>
+</HaiSurf.Page>

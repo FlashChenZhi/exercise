@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctweightdistinctionlist.PCTWeightDistinctionListBusiness" abstractClassName="jp.co.daifuku.pcart.master.display.pctweightdistinctionlist.PCTWeightDistinctionList" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_ConsignorCode" />
+    <ref name="1" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTWeightDistinctionListSCH" />
+    <ref name="2" type="Control" typeName="txt_ItemCode" />
+    <ref name="3" type="Control" typeName="txt_SearchDate" />
+    <ref name="4" type="Control" typeName="txt_SearchTime" />
+    <ref name="5" type="Control" typeName="txt_ToSearchDate" />
+    <ref name="6" type="Control" typeName="txt_ToSearchTime" />
+    <ref name="7" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctitemlist.PCTLstItemListParams" />
+    <ref name="8" type="Constants" typeName="Constants" />
+    <ref name="9" type="BusinessParameter" typeName="jp.co.daifuku.pcart.master.listbox.pctweightdistinctionlist.LstPCTWeightDistinctionListParams" />
+    <ref name="10" type="Dasch" typeName="jp.co.daifuku.pcart.master.dasch.PCTWeightDistinctionListDASCH" />
+    <ref name="11" type="ExportParameter" typeName="jp.co.daifuku.pcart.master.exporter.PCTWeightDistinctionListParams" />
+  </refs>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="page" name="Load" pattern="Query">
+      <sch2Display schRef="1" />
+      <output1>
+        <map getRef="1" getValue="CONSIGNOR_CODE" setRef="0" setValue="Value" />
+      </output1>
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_SearchItem" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/pctitemlist/PCtLstItemList" businessParameterRef="7" />
+      <input1>
+        <map getRef="2" getValue="Value" setRef="7" setValue="ITEM_CODE" />
+        <map getRef="0" getValue="Value" setRef="7" setValue="CONSIGNOR_CODE" />
+        <map getRef="8" getValue="SEARCH_TABLE_MASTER" setRef="7" setValue="SEARCHTABLE" />
+      </input1>
+      <output1>
+        <map getRef="7" getValue="ITEM_CODE" setRef="2" setValue="Value" />
+      </output1>
+      <focus controlRef="2" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="Popup">
+      <popup2Display uri="/pcart/master/listbox/pctweightdistinctionlist/LstPCTWeightDistinctionList" businessParameterRef="9" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="9" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="9" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="9" setValue="FROM_OCCUR_DAY" />
+        <map getRef="4" getValue="Value" setRef="9" setValue="FROM_OCCUR_TIME" />
+        <map getRef="5" getValue="Value" setRef="9" setValue="TO_OCCUR_DAY" />
+        <map getRef="6" getValue="Value" setRef="9" setValue="TO_OCCUR_TIME" />
+      </input1>
+    </event>
+    <event control="btn_Print" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="10" exportParameterRef="11" exportName="PctWeightDistinctionList" exporter="Print" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="10" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="10" setValue="SEARCH_DATE" />
+        <map getRef="4" getValue="Value" setRef="10" setValue="SEARCH_TIME" />
+        <map getRef="5" getValue="Value" setRef="10" setValue="TO_SEARCH_DATE" />
+        <map getRef="6" getValue="Value" setRef="10" setValue="TO_SEARCH_TIME" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="10" getValue="CONSIGNOR_NAME" setRef="11" setValue="CONSIGNOR_NAME" />
+        <map getRef="10" getValue="SYS_DAY" setRef="11" setValue="SYS_DAY" />
+        <map getRef="10" getValue="SYS_TIME" setRef="11" setValue="SYS_TIME" />
+        <map getRef="10" getValue="ITEM_CODE" setRef="11" setValue="ITEM_CODE" />
+        <map getRef="10" getValue="ITEM_NAME" setRef="11" setValue="ITEM_NAME" />
+        <map getRef="10" getValue="LOT_ENTERING_QTY" setRef="11" setValue="LOT_ENTERING_QTY" />
+        <map getRef="10" getValue="SINGLE_WEIGHT" setRef="11" setValue="SINGLE_WEIGHT" />
+        <map getRef="10" getValue="INSPECT_WEIGHT" setRef="11" setValue="INSPECT_WEIGHT" />
+        <map getRef="10" getValue="INSPECT_QTY" setRef="11" setValue="INSPECT_QTY" />
+        <map getRef="10" getValue="CORRECT_QTY" setRef="11" setValue="CORRECT_QTY" />
+        <map getRef="10" getValue="CORRECT_WEIGHT" setRef="11" setValue="CORRECT_WEIGHT" />
+        <map getRef="10" getValue="DIFFERENCE" setRef="11" setValue="DIFFERENCE_WEIGHT" />
+        <map getRef="10" getValue="DATE" setRef="11" setValue="DATE" />
+        <map getRef="10" getValue="TIME" setRef="11" setValue="TIME" />
+        <map getRef="10" getValue="TERMINAL_NO" setRef="11" setValue="TERMINAL_NO" />
+        <map getRef="10" getValue="LOCATION_NO" setRef="11" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="USER_ID" setRef="11" setValue="USER_ID" />
+        <map getRef="10" getValue="USER_NAME" setRef="11" setValue="USER_NAME" />
+      </output1>
+    </event>
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+        <clear controlRef="4" type="Empty" />
+        <clear controlRef="5" type="Empty" />
+        <clear controlRef="6" type="Empty" />
+      </clear1>
+    </event>
+    <event control="btn_XLS" name="Click" pattern="Export">
+      <dasch2Exporter daschRef="10" exportParameterRef="11" exportName="PctWeightDistinctionList" exporter="Excel" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+        <validate controlRef="4" />
+        <validate controlRef="5" />
+        <validate controlRef="6" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="CONSIGNOR_CODE" />
+        <map getRef="2" getValue="Value" setRef="10" setValue="ITEM_CODE" />
+        <map getRef="3" getValue="Value" setRef="10" setValue="SEARCH_DATE" />
+        <map getRef="4" getValue="Value" setRef="10" setValue="SEARCH_TIME" />
+        <map getRef="5" getValue="Value" setRef="10" setValue="TO_SEARCH_DATE" />
+        <map getRef="6" getValue="Value" setRef="10" setValue="TO_SEARCH_TIME" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="CONSIGNOR_CODE" setRef="11" setValue="CONSIGNOR_CODE" />
+        <map getRef="10" getValue="CONSIGNOR_NAME" setRef="11" setValue="CONSIGNOR_NAME" />
+        <map getRef="10" getValue="ITEM_CODE" setRef="11" setValue="ITEM_CODE" />
+        <map getRef="10" getValue="ITEM_NAME" setRef="11" setValue="ITEM_NAME" />
+        <map getRef="10" getValue="LOT_ENTERING_QTY" setRef="11" setValue="LOT_ENTERING_QTY" />
+        <map getRef="10" getValue="SINGLE_WEIGHT" setRef="11" setValue="SINGLE_WEIGHT" />
+        <map getRef="10" getValue="INSPECT_WEIGHT" setRef="11" setValue="INSPECT_WEIGHT" />
+        <map getRef="10" getValue="INSPECT_QTY" setRef="11" setValue="INSPECT_QTY" />
+        <map getRef="10" getValue="CORRECT_QTY" setRef="11" setValue="CORRECT_QTY" />
+        <map getRef="10" getValue="CORRECT_WEIGHT" setRef="11" setValue="CORRECT_WEIGHT" />
+        <map getRef="10" getValue="DIFFERENCE_WEIGHT" setRef="11" setValue="DIFFERENCE_WEIGHT" />
+        <map getRef="10" getValue="DATE" setRef="11" setValue="DATE" />
+        <map getRef="10" getValue="TIME" setRef="11" setValue="TIME" />
+        <map getRef="10" getValue="TERMINAL_NO" setRef="11" setValue="TERMINAL_NO" />
+        <map getRef="10" getValue="LOCATION_NO" setRef="11" setValue="LOCATION_NO" />
+        <map getRef="10" getValue="USER_ID" setRef="11" setValue="USER_ID" />
+        <map getRef="10" getValue="USER_NAME" setRef="11" setValue="USER_NAME" />
+      </output1>
+    </event>
+  </events>
+</business>

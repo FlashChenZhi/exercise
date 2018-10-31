@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDelete2Business" abstractClassName="jp.co.daifuku.pcart.master.display.pctitemdelete.PCTItemDelete2">
+  <refs>
+    <ref name="0" type="Control" typeName="pul_DataFile" />
+    <ref name="1" type="ViewState" typeName="jp.co.daifuku.pcart.master.display.pctitemdelete.ViewStateKeys" />
+    <ref name="2" type="Sch" typeName="jp.co.daifuku.pcart.master.schedule.PCTItemDelete2SCH" />
+    <ref name="3" type="Constants" typeName="Constants" />
+    <ref name="4" type="Control" typeName="txt_R_FileCreationDate" />
+  </refs>
+  <pulldowns>
+    <pulldown name="pul_DataFile" dataType="Default" />
+  </pulldowns>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Back" name="Click" pattern="ForwardNonCheck">
+      <forward uri="/pcart/master/pctitemdelete/PCTItemDelete" viewStateRef="1" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="page" name="Load" pattern="NoneGenerate" />
+    <event control="pul_DataFile" name="Change" pattern="NoneGenerate" />
+    <event control="btn_Start" name="Click" pattern="Delete">
+      <sch2Display schRef="2" />
+      <input1>
+        <map getRef="3" getValue="DMPDATA_FILE_PATH" setRef="2" setValue="DATA_FILE_FOLDER" />
+        <map getRef="0" getValue="Value" setRef="2" setValue="DATA_FILE_NAME" />
+        <map getRef="4" getValue="Value" setRef="2" setValue="LAST_UPDATE_DATE" />
+      </input1>
+    </event>
+  </events>
+</business>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.ship.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpCompleteSCH" type="Sch" />
+    <ref name="1" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="2" typeName="CommonDataSheet" type="DataSheet" />
+    <ref name="3" typeName="ShippingCustomerOutDataSheet" type="DataSheet" />
+    <ref name="4" typeName="Constants" type="Constants" />
+    <ref name="5" typeName="jp.co.daifuku.wms.ship.rft.schedule.ShpShortageListSCH" type="Sch" />
+    <ref name="6" typeName="ShippingShortageListDataSheet" type="DataSheet" />
+    <ref name="7" typeName="Control" type="Control" />
+  </refs>
+  <methods>
+    <method name="shortage_Click" pattern="Commit" order="1">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="0" setterValue="PLAN_DATE" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="0" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_NAME" setterTypeRef="0" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="2" getterValue="START_DATE_TIME" setterTypeRef="0" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="2" getterValue="MISS_SCAN_COUNT" setterTypeRef="0" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="4" getterValue="COMPLETION_FLAG_DECISION" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+      </schInput>
+      <output />
+    </method>
+    <method name="pending_Click" pattern="Commit" order="2">
+      <validate />
+      <schBase schRef="0" />
+      <schInput>
+        <map getterTypeRef="1" getterValue="TERMINAL_NO" setterTypeRef="0" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="2" getterValue="USER_ID" setterTypeRef="0" setterValue="USER_ID" />
+        <map getterTypeRef="3" getterValue="PLAN_DATE" setterTypeRef="0" setterValue="PLAN_DATE" />
+        <map getterTypeRef="3" getterValue="CONSIGNOR_CODE" setterTypeRef="0" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="3" getterValue="BATCH_NO" setterTypeRef="0" setterValue="BATCH_NO" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_CODE" setterTypeRef="0" setterValue="CUSTOMER_CODE" />
+        <map getterTypeRef="3" getterValue="CUSTOMER_NAME" setterTypeRef="0" setterValue="CUSTOMER_NAME" />
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="0" setterValue="SETTING_UNIT_KEY" />
+        <map getterTypeRef="2" getterValue="START_DATE_TIME" setterTypeRef="0" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="2" getterValue="MISS_SCAN_COUNT" setterTypeRef="0" setterValue="MISS_SCAN_COUNT" />
+        <map getterTypeRef="4" getterValue="COMPLETION_FLAG_REMNANT" setterTypeRef="0" setterValue="COMPLETION_FLAG" />
+      </schInput>
+      <output />
+    </method>
+    <method name="back_Click" pattern="None" order="3" />
+    <method name="page_Load" pattern="QueryList" order="0">
+      <schBase schRef="5" />
+      <schInput>
+        <map getterTypeRef="3" getterValue="SETTING_UNIT_KEY" setterTypeRef="5" setterValue="SETTING_UNIT_KEY" />
+      </schInput>
+      <output>
+        <map getterTypeRef="5" getterValue="PENDING_ITEM" setterTypeRef="3" setterValue="PENDING_ITEM" />
+        <map getterTypeRef="5" getterValue="ITEM_CODE" setterTypeRef="6" setterValue="ITEM_CODE" />
+        <map getterTypeRef="5" getterValue="ITEM_NAME" setterTypeRef="6" setterValue="ITEM_NAME" />
+        <map getterTypeRef="5" getterValue="SHORTAGE_CASE_QTY" setterTypeRef="6" setterValue="SHORTAGE_CASE_QTY" />
+        <map getterTypeRef="5" getterValue="SHORTAGE_PIECE_QTY" setterTypeRef="6" setterValue="SHORTAGE_PIECE_QTY" />
+      </output>
+    </method>
+  </methods>
+</business>

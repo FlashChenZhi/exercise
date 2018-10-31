@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<datasheet javaPackage="jp.co.daifuku.wms.base.rft.datasheet" xmlns="urn:busitune4rft:datasheet:1.0">
+  <comment lang="ja" value="予定日入力データシート" />
+  <comment lang="en" value="Plan Date Input  Data Sheet" />
+  <comment lang="zh" value="预定日输入数据表" />
+  <fields>
+    <field name="PLAN_DATE" type="String" separateSize="0">
+      <comment lang="ja" value="予定日" />
+      <comment lang="en" value="Plan Date" />
+      <comment lang="zh" value="预定日" />
+    </field>
+  </fields>
+</datasheet>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business javaPackage="jp.co.daifuku.wms.stock.rft.display" xmlns="urn:busitune4rft:business:2.0">
+  <refs>
+    <ref name="0" typeName="NoPlanRetrievalOutDataSheet" type="DataSheet" />
+    <ref name="1" typeName="NoPlanRetrievalInDataSheet" type="DataSheet" />
+    <ref name="2" typeName="Control" type="Control" />
+    <ref name="3" typeName="jp.co.daifuku.wms.stock.rft.schedule.NrtCompleteSCH" type="Sch" />
+    <ref name="4" typeName="TermInfoDataSheet" type="DataSheet" />
+    <ref name="5" typeName="CommonDataSheet" type="DataSheet" />
+  </refs>
+  <methods>
+    <method name="page_Load" pattern="NoSch" order="0">
+      <output />
+    </method>
+    <method name="cp_Click" pattern="NoSch" order="9">
+      <validate />
+      <output />
+    </method>
+    <method name="all_Click" pattern="NoSch" order="11">
+      <validate />
+      <output>
+        <map getterTypeRef="0" getterValue="STOCK_QTY" setterTypeRef="0" setterValue="RESULT_QTY" />
+        <map getterTypeRef="0" getterValue="STOCK_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="0" getterValue="STOCK_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+      </output>
+    </method>
+    <method name="ent_Click" pattern="Commit" order="7">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_CASE_QTY" focusTypeRef="2" focus="CaseQty" />
+        <item fieldTypeRef="1" field="RESULT_PIECE_QTY" focusTypeRef="2" focus="PieceQty" />
+      </validate>
+      <schBase schRef="3" />
+      <schInput>
+        <map getterTypeRef="4" getterValue="TERMINAL_NO" setterTypeRef="3" setterValue="TERMINAL_NO" />
+        <map getterTypeRef="5" getterValue="USER_ID" setterTypeRef="3" setterValue="USER_ID" />
+        <map getterTypeRef="0" getterValue="CONSIGNOR_CODE" setterTypeRef="3" setterValue="CONSIGNOR_CODE" />
+        <map getterTypeRef="0" getterValue="AREA_NO" setterTypeRef="3" setterValue="AREA_NO" />
+        <map getterTypeRef="0" getterValue="LOCATION_NO" setterTypeRef="3" setterValue="LOCATION_NO" />
+        <map getterTypeRef="0" getterValue="ITEM_CODE" setterTypeRef="3" setterValue="ITEM_CODE" />
+        <map getterTypeRef="0" getterValue="LOT_NO" setterTypeRef="3" setterValue="LOT_NO" />
+        <map getterTypeRef="0" getterValue="RESULT_LOT_NO" setterTypeRef="3" setterValue="RESULT_LOT_NO" />
+        <map getterTypeRef="0" getterValue="RESULT_QTY" setterTypeRef="3" setterValue="RESULT_QTY" />
+        <map getterTypeRef="0" getterValue="STOCK_QTY" setterTypeRef="3" setterValue="STOCK_QTY" />
+        <map getterTypeRef="5" getterValue="START_DATE_TIME" setterTypeRef="3" setterValue="START_DATE_TIME" />
+        <map getterTypeRef="5" getterValue="MISS_SCAN_COUNT" setterTypeRef="3" setterValue="MISS_SCAN_COUNT" />
+      </schInput>
+      <output />
+    </method>
+    <method name="return_Click" pattern="NoSch" order="5">
+      <validate />
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+        <map getterTypeRef="1" getterValue="RESULT_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+      </output>
+    </method>
+    <method name="input_Click" pattern="None" order="2" />
+    <method name="back_Click" pattern="None" order="1" />
+    <method name="itemCode_Enter" pattern="NoSch" order="6">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_CASE_QTY" focusTypeRef="2" focus="CaseQty" />
+        <item fieldTypeRef="1" field="RESULT_PIECE_QTY" focusTypeRef="2" focus="PieceQty" />
+      </validate>
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_LOT_NO" setterTypeRef="0" setterValue="RESULT_LOT_NO" />
+      </output>
+      <focus fieldTypeRef="2" field="ItemCode" />
+    </method>
+    <method name="cancel_Click" pattern="None" order="8" />
+    <method name="detail_Click" pattern="None" order="10" />
+    <method name="caseQty_Enter" pattern="NoSch" order="3">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_CASE_QTY" focusTypeRef="2" focus="CaseQty" />
+        <item fieldTypeRef="1" field="RESULT_PIECE_QTY" focusTypeRef="2" focus="PieceQty" />
+      </validate>
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_CASE_QTY" setterTypeRef="0" setterValue="RESULT_CASE_QTY" />
+      </output>
+      <focus fieldTypeRef="2" field="PieceQty" />
+    </method>
+    <method name="pieceQty_Enter" pattern="NoSch" order="4">
+      <validate>
+        <item fieldTypeRef="1" field="RESULT_CASE_QTY" focusTypeRef="2" focus="CaseQty" />
+        <item fieldTypeRef="1" field="RESULT_PIECE_QTY" focusTypeRef="2" focus="PieceQty" />
+      </validate>
+      <output>
+        <map getterTypeRef="1" getterValue="RESULT_PIECE_QTY" setterTypeRef="0" setterValue="RESULT_PIECE_QTY" />
+      </output>
+      <focus fieldTypeRef="2" field="LotNo" />
+    </method>
+  </methods>
+</business>

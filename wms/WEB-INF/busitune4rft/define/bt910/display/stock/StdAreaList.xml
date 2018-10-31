@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pageMapping xmlns="urn:busitune4rft:pagemapping:1.0">
+  <refs>
+    <ref name="0" typeName="AreaListDataSheet" type="DataSheet" />
+    <ref name="1" typeName="Number" type="Number" />
+  </refs>
+  <events>
+    <event name="Prev_Click" order="1">
+      <pager pagerType="PagePrev" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Next_Click" order="2">
+      <pager pagerType="PageNext" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Up_Click" order="3">
+      <pager pagerType="RecordUp" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Down_Click" order="4">
+      <pager pagerType="RecordDown" datasheetRef="0" select="0" />
+      <input />
+    </event>
+    <event name="Back_Click" order="6">
+      <method methodName="back_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+    <event name="page_Load" order="0">
+      <method methodName="page_Load" />
+      <input>
+        <map getterTypeRef="1" getterValue="7" setterTypeRef="0" setterValue="$VIEW_SIZE" />
+      </input>
+    </event>
+    <event name="Ent_Click" order="5">
+      <method methodName="ent_Click" />
+      <pager pagerType="None" select="0" />
+      <input />
+    </event>
+  </events>
+</pageMapping>

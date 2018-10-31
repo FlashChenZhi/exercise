@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0906" downloadName="ItemMasterList" reportName="LBL-W6033">
+    <field name="dfk_ds_no" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_id" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="dfk_user_name" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="search_kind" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="from_item_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="to_item_code" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="stock" type="string" printEnabled="true" xlsEnabled="false"/>
+    <field name="item_code" type="string" header="LBL-W0128" printEnabled="true" xlsEnabled="true"/>
+    <field name="item_name" type="string" header="LBL-W0130" printEnabled="true" xlsEnabled="true"/>
+    <field name="soft_zone_name" type="string" header="LBL-W1425" printEnabled="true" xlsEnabled="true"/>
+    <field name="temporary_type_name" type="string" header="LBL-W9039" printEnabled="true" xlsEnabled="true"/>
+    <field name="last_update_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-W1426" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+</exportspec>

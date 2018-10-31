@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<business xmlns="urn:busitune-bluedog:business:1.0" className="jp.co.daifuku.wms.retrieval.display.allocclear.RetrievalOrderAllocClearBusiness" abstractClassName="jp.co.daifuku.wms.retrieval.display.allocclear.RetrievalOrderAllocClear" completed="true">
+  <refs>
+    <ref name="0" type="Control" typeName="txt_PlanDate" />
+    <ref name="1" type="Control" typeName="txt_BatchNo" />
+    <ref name="2" type="Control" typeName="txt_OrderNoFrom" />
+    <ref name="3" type="Control" typeName="txt_OrderNoTo" />
+    <ref name="4" type="Control" typeName="pgr_U" />
+    <ref name="5" type="Control" typeName="pgr_D" />
+    <ref name="6" type="Sch" typeName="jp.co.daifuku.wms.retrieval.schedule.RetrievalOrderAllocClearSCH" />
+    <ref name="7" type="Constants" typeName="Constants" />
+    <ref name="8" type="Part11Operation" typeName="Part11Operation" />
+    <ref name="9" type="Control" typeName="lst_RetrievalAllocateWorkList" />
+    <ref name="10" type="Dasch" typeName="jp.co.daifuku.wms.retrieval.dasch.RetrievalOrderAllocClearDASCH" />
+    <ref name="11" type="Control" typeName="LST_BATCH" />
+    <ref name="12" type="Control" typeName="LST_ORDER" />
+    <ref name="13" type="Control" typeName="LST_CUSTOMER_CODE" />
+    <ref name="14" type="Control" typeName="LST_CUSTOMER_NAME" />
+  </refs>
+  <listcells>
+    <listcell name="lst_RetrievalAllocateWorkList">
+      <listcellColumn name="LST_BATCH" orgIndex="1" resourceKey="LBL-W0028" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_ORDER" orgIndex="2" resourceKey="LBL-W0014" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_CODE" orgIndex="3" resourceKey="LBL-W0114" dataType="String" tooltipEnabled="true" />
+      <listcellColumn name="LST_CUSTOMER_NAME" orgIndex="4" resourceKey="LBL-W0115" dataType="String" tooltipEnabled="true" tooltipContent="true" />
+    </listcell>
+  </listcells>
+  <events>
+    <event control="page" name="Initialize" pattern="Focus">
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_ToMenu" name="Click" pattern="NoneGenerate" />
+    <event control="btn_Clear" name="Click" pattern="Clear">
+      <clear1>
+        <clear controlRef="0" type="Empty" />
+        <clear controlRef="1" type="Empty" />
+        <clear controlRef="2" type="Empty" />
+        <clear controlRef="3" type="Empty" />
+      </clear1>
+    </event>
+    <event control="page" name="Load" pattern="DisplayInput">
+      <clear1>
+        <clear controlRef="4" type="Clear" />
+        <clear controlRef="5" type="Clear" />
+      </clear1>
+    </event>
+    <event control="btn_Set" name="Click" pattern="Regist">
+      <sch2Display schRef="6" />
+      <validate>
+        <validate controlRef="0" required="true" />
+        <validate controlRef="1" />
+        <validate controlRef="2" />
+        <validate controlRef="3" />
+      </validate>
+      <input1>
+        <map getRef="0" getValue="Value" setRef="6" setValue="PLAN_DATE" />
+        <map getRef="1" getValue="Value" setRef="6" setValue="BATCH_NO" />
+        <map getRef="2" getValue="Value" setRef="6" setValue="ORDER_NO_FROM" />
+        <map getRef="3" getValue="Value" setRef="6" setValue="ORDER_NO_TO" />
+        <map getRef="7" getValue="DEFAULT_CONSIGNOR_CODE" setRef="6" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <part11 operationRef="8" operation="SETTING">
+        <out out1Ref="0" out1Value="Value" />
+        <out out1Ref="1" out1Value="Value" />
+        <out out1Ref="2" out1Value="Value" />
+        <out out1Ref="3" out1Value="Value" />
+      </part11>
+      <clear1>
+        <clear controlRef="9" type="Clear" />
+      </clear1>
+      <focus controlRef="0" />
+    </event>
+    <event control="btn_Display" name="Click" pattern="PagerList">
+      <dasch2Display daschRef="10" isSession="true" />
+      <input1>
+        <map getRef="0" getValue="Value" setRef="10" setValue="PLANDAY" />
+        <map getRef="1" getValue="Value" setRef="10" setValue="BATCHNO" />
+        <map getRef="2" getValue="Value" setRef="10" setValue="FROMORDER" />
+        <map getRef="3" getValue="Value" setRef="10" setValue="TOORDER" />
+        <map getRef="7" getValue="DEFAULT_CONSIGNOR_CODE" setRef="10" setValue="CONSIGNOR_CODE" />
+      </input1>
+      <output1>
+        <map getRef="10" getValue="BATCH" setRef="11" setValue="Value" />
+        <map getRef="10" getValue="ORDER" setRef="12" setValue="Value" />
+        <map getRef="10" getValue="CUSTOMER_CODE" setRef="13" setValue="Value" />
+        <map getRef="10" getValue="CUSTOMER_NAME" setRef="14" setValue="Value" />
+      </output1>
+      <focus controlRef="0" />
+    </event>
+    <event control="txt_PlanDate" name="EnterKey" pattern="NoneGenerate" />
+    <event control="txt_BatchNo" name="EnterKey" pattern="NoneGenerate" />
+    <event control="txt_OrderNoFrom" name="EnterKey" pattern="NoneGenerate" />
+    <event control="txt_OrderNoTo" name="EnterKey" pattern="NoneGenerate" />
+  </events>
+</business>

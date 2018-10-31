@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1.01" xmlns="project" xsi:schemaLocation="project project.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <languages>
+    <language display-name="Japanese" lang="ja" country="JP" />
+    <language display-name="English" lang="" country="" />
+    <language display-name="Chinese" lang="zh" country="CN" />
+  </languages>
+  <messageResource>
+    <maxBytes>110</maxBytes>
+  </messageResource>
+</project>

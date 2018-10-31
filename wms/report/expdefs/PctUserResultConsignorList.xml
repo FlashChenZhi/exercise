@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<exportspec charset="MS932" withheader="true" quote="&quot;" delimiter="," terminator="CRLF" reportId="WMS0313" downloadName="PctUserResultConsignorList" reportName="LBL-W6016">
+    <field name="sys_day" type="date" format="$DATE_FORMAT.LONG" printEnabled="true" xlsEnabled="false"/>
+    <field name="sys_time" type="date" format="$TIME_FORMAT.HM" printEnabled="true" xlsEnabled="false"/>
+    <field name="work_day_from" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0331" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="work_day_to" type="date" format="$DATE_FORMAT.LONG" header="LBL-W0332" printEnabled="true" xlsEnabled="true" excelformat="14"/>
+    <field name="week_day" type="string" header="LBL-P0064" printEnabled="true" xlsEnabled="true"/>
+    <field name="batch_no" type="string" header="LBL-W0028" printEnabled="true" xlsEnabled="true"/>
+    <field name="level" type="string" header="LBL-P0221" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_code" type="string" header="LBL-P0042" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_name" type="string" header="LBL-P0016" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_no" type="string" header="LBL-P0043" printEnabled="true" xlsEnabled="true"/>
+    <field name="area_name" type="string" header="LBL-W0013" printEnabled="true" xlsEnabled="true"/>
+    <field name="production_rate_avg" type="string" header="LBL-P0102" printEnabled="true" xlsEnabled="true"/>
+    <field name="heads_avg" type="number" format="###,###,###,##0" header="LBL-P0123" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0124" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="work_time_avg" type="string" header="LBL-P0125" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0108" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="order_cnt_per_hour_avg" type="number" format="###,###,###,##0.0" header="LBL-P0109" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="box_cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0110" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="box_cnt_per_hour_avg" type="number" format="###,###,###,##0.0" header="LBL-P0111" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="line_cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0112" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="line_cnt_per_hour_avg" type="number" format="###,###,###,##0.0" header="LBL-P0113" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="lot_cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0114" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="lot_cnt_per_hour_avg" type="number" format="###,###,###,##0.0" header="LBL-P0115" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="piece_cnt_avg" type="number" format="###,###,###,##0" header="LBL-P0116" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="piece_cnt_per_hour_avg" type="number" format="###,###,###,##0.0" header="LBL-P0117" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="box_per_order_avg" type="number" format="###,###,###,##0.0" header="LBL-P0118" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="line_per_order_avg" type="number" format="###,###,###,##0.0" header="LBL-P0119" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="lot_per_line_avg" type="number" format="###,###,###,##0.0" header="LBL-P0120" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="piece_per_line_avg" type="number" format="###,###,###,##0.0" header="LBL-P0121" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="miss_avg" type="string" header="LBL-P0122" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_code1" type="string" header="LBL-P0042" printEnabled="true" xlsEnabled="true"/>
+    <field name="consignor_name1" type="string" header="LBL-P0016" printEnabled="true" xlsEnabled="true"/>
+    <field name="production_rate" type="string" header="LBL-P0066" printEnabled="true" xlsEnabled="true"/>
+    <field name="start_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-P0083" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+    <field name="end_date" type="date" format="$DATE_FORMAT.LONG $TIME_FORMAT.HMS" header="LBL-P0084" printEnabled="true" xlsEnabled="true" excelformat="22"/>
+    <field name="heads" type="number" format="###,###,###,##0" header="LBL-P0067" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="cnt" type="number" format="###,###,###,##0" header="LBL-P0068" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="work_time" type="string" header="LBL-P0086" printEnabled="true" xlsEnabled="true"/>
+    <field name="order_cnt" type="number" format="###,###,###,##0" header="LBL-P0046" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="order_cnt_per_hour" type="number" format="###,###,###,##0.0" header="LBL-P0096" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="box_cnt" type="number" format="###,###,###,##0" header="LBL-P0090" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="box_cnt_per_hour" type="number" format="###,###,###,##0.0" header="LBL-P0097" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="line_cnt" type="number" format="###,###,###,##0" header="LBL-P0047" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="line_cnt_per_hour" type="number" format="###,###,###,##0.0" header="LBL-P0098" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="lot_cnt" type="number" format="###,###,###,##0" header="LBL-P0074" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="lot_cnt_per_hour" type="number" format="###,###,###,##0.0" header="LBL-P0099" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="piece_cnt" type="number" format="###,###,###,##0" header="LBL-P0075" printEnabled="true" xlsEnabled="true" excelformat="3"/>
+    <field name="piece_cnt_per_hour" type="number" format="###,###,###,##0.0" header="LBL-P0100" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="box_per_order" type="number" format="###,###,###,##0.0" header="LBL-P0076" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="line_per_order" type="number" format="###,###,###,##0.0" header="LBL-P0077" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="lot_per_line" type="number" format="###,###,###,##0.0" header="LBL-P0078" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="piece_per_line" type="number" format="###,###,###,##0.0" header="LBL-P0079" printEnabled="true" xlsEnabled="true" excelformat="4"/>
+    <field name="miss" type="string" header="LBL-P0080" printEnabled="true" xlsEnabled="true"/>
+</exportspec>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--検索棚選択画面-->
+  <font name="font12r" keyence_mag="1" size="12" keyence_reverse="true" />
+  <font name="font12" keyence_mag="1" size="12" />
+  <input name="inputArea" type="non" count-max="12" count-min="4" />
+  <input name="inputSearchLoc" type="numeric" count-max="1" count-min="1" range-max="2" range-min="1" />
+  <form keyence-alarm="non" keyence-led="non" statusline="0" kanainput="0" focus="%CommonDataSheet.FocusField%">
+    <label name="line" font-id="font12r" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>1</y>
+      <w>20</w>
+      <caption>　　　　　　　　　　</caption>
+    </label>
+    <label name="lblTitle" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <caption>棚検索　　　　　　　　　　</caption>
+    </label>
+    <label name="lblArea" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>14</y>
+      <w>
+      </w>
+      <caption>対象エリア(棚)</caption>
+    </label>
+    <label name="lblEditArea" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>27</y>
+      <w>
+      </w>
+      <caption>[             ]</caption>
+    </label>
+    <label name="lblSearch" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>53</y>
+      <w>
+      </w>
+      <caption>検索棚</caption>
+    </label>
+    <label name="lblEditSearch" font-id="font12" visible="true">
+      <align>left</align>
+      <x>0</x>
+      <y>66</y>
+      <w>
+      </w>
+      <caption> [  ]</caption>
+    </label>
+    <edit name="AreaNo" enabled="true" font-id="font12" input-id="inputArea" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-time="1" keyence-ng-count="1" keyence-ng-alarm="low" keyence-ng-vibration="false" keyence-ng-led="non">
+      <x>6</x>
+      <y>27</y>
+      <w>13</w>
+      <text>%LocationDataSheet.SEARCH_AREA%</text>
+      <event>StoLoc_Ent</event>
+    </edit>
+    <edit name="SearchLoc" enabled="true" font-id="font12" input-id="inputSearchLoc" visible="true" password="false" scan="false" keyence-ok-alarm="non" keyence-ok-vibration="false" keyence-ok-led="non" keyence-ng-time="1" keyence-ng-count="1" keyence-ng-alarm="low" keyence-ng-vibration="false" keyence-ng-led="non">
+      <x>12</x>
+      <y>66</y>
+      <w>2</w>
+      <text>%LocationDataSheet.SEARCH_LOCATION%</text>
+      <event>StoLoc_Ent</event>
+    </edit>
+    <button name="Back" font-id="font12r" visible="true" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>105</y>
+      <w>
+      </w>
+      <caption>L:戻る                </caption>
+      <event>StoLoc_Back</event>
+      <key>KL</key>
+    </button>
+    <button name="List1" font-id="font12" visible="true" enabled="true" inputchecked="false">
+      <x>10</x>
+      <y>79</y>
+      <w>
+      </w>
+      <caption>1(F1):空棚</caption>
+      <event>StoLoc_List1</event>
+      <key>F1</key>
+    </button>
+    <button name="List2" font-id="font12" visible="true" enabled="true" inputchecked="false">
+      <x>10</x>
+      <y>92</y>
+      <w>
+      </w>
+      <caption>2(F2):補充棚</caption>
+      <event>StoLoc_List2</event>
+      <key>F2</key>
+    </button>
+    <button name="Return" font-id="" visible="false" enabled="true" inputchecked="false">
+      <x>0</x>
+      <y>0</y>
+      <w>
+      </w>
+      <event>StoLoc_Return</event>
+      <key>KR</key>
+    </button>
+  </form>
+</HaiSurf.Page>

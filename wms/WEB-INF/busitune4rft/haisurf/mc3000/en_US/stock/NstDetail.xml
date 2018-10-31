@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HaiSurf.Page>
+  <!--UnplannedStorageDetails-->
+  <font name="fontTitleBar" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontSmall" fontname="Courier New" bold="false" italic="false" size="9" bht_size="1" />
+  <font name="fontBold" fontname="Courier New" bold="true" italic="false" size="9" bht_size="1" />
+  <font name="fontBtn" fontname="Tahoma" bold="true" italic="false" size="14" bht_size="1" />
+  <form color="E6E6FA" modeonline="true" vibration="false" bht-alarm="non" bht-led="non" ce-alarm="non" ce-led="non" controlbox="false" touchpanel="true" titlebar="false">
+    <label name="lblConsignor" font-id="fontSmall" visible="true">
+      <align>left</align>
+      <x>4</x>
+      <y>6</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Consignor:</caption>
+    </label>
+    <label name="lblConsignorCode" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>6</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.CONSIGNOR_CODE%</caption>
+    </label>
+    <label name="lblConsignorName" font-id="fontBold" visible="true">
+      <align>left</align>
+      <x>75</x>
+      <y>22</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%NoPlanStorageOutDataSheet.CONSIGNOR_NAME%</caption>
+    </label>
+    <label name="lblJan" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>120</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>UPC:</caption>
+    </label>
+    <label name="lblJanCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>120</y>
+      <w>210</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.JAN%</caption>
+    </label>
+    <label name="lblItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>140</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>ITF:</caption>
+    </label>
+    <label name="lblItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>140</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.ITF%</caption>
+    </label>
+    <label name="lblSlash1" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>140</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>140</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.ENTERING_QTY%</caption>
+    </label>
+    <label name="lblBundleItf" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>160</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>B-ITF:</caption>
+    </label>
+    <label name="lblBundleItfCode" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>160</y>
+      <w>130</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.BUNDLE_ITF%</caption>
+    </label>
+    <label name="lblSlash2" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>205</x>
+      <y>160</y>
+      <w>10</w>
+      <h>14</h>
+      <caption>/</caption>
+    </label>
+    <label name="lblBundleEnteringQty" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>right</align>
+      <x>215</x>
+      <y>160</y>
+      <w>35</w>
+      <h>14</h>
+      <caption>%NoPlanStorageOutDataSheet.BUNDLE_ENTERING_QTY%</caption>
+    </label>
+    <label name="lblName" font-id="fontSmall" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>4</x>
+      <y>180</y>
+      <w>70</w>
+      <h>14</h>
+      <caption>Name:</caption>
+    </label>
+    <label name="lblItemName" font-id="fontBold" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>75</x>
+      <y>180</y>
+      <w>210</w>
+      <h>28</h>
+      <caption>%NoPlanStorageOutDataSheet.ITEM_NAME%</caption>
+    </label>
+    <button name="Back" font-id="fontBtn" visible="true" backcolor="FFA500" enabled="true" inputchecked="false" modeonline="true">
+      <x>82</x>
+      <y>275</y>
+      <w>162</w>
+      <h>45</h>
+      <caption>Return</caption>
+      <event>NstDetail_Back</event>
+    </button>
+    <label name="panel" font-id="" visible="true" backcolor="C8C8FA">
+      <align>left</align>
+      <x>0</x>
+      <y>110</y>
+      <w>324</w>
+      <h>102</h>
+    </label>
+  </form>
+</HaiSurf.Page>
