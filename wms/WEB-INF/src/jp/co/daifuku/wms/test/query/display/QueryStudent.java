@@ -6,7 +6,7 @@
  * This software is the proprietary information of DAIFUKU Co.,Ltd.
  * Use is subject to license terms.
  */
-package jp.co.daifuku.wms.test.query;
+package jp.co.daifuku.wms.test.query.display;
 import jp.co.daifuku.bluedog.ui.control.Page;
 
 /**

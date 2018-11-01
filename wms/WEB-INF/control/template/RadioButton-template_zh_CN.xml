@@ -6345,7 +6345,7 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
-  <template key="rdo_Man" keyword="Man" description="男" lastupdate="2018-10-31 18:50:54" username="">
+  <template key="rdo_Man" keyword="Man" description="男" lastupdate="2018-11-01 14:01:46" username="">
     <property name="async" value="true" />
     <property name="value" value="1" />
     <property name="text" value="" />
@@ -6372,7 +6372,7 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
-  <template key="rdo_WoMan" keyword="WoMan" description="女" lastupdate="2018-10-31 18:52:07" username="">
+  <template key="rdo_WoMan" keyword="WoMan" description="女" lastupdate="2018-11-01 14:01:46" username="">
     <property name="async" value="true" />
     <property name="value" value="0" />
     <property name="text" value="" />

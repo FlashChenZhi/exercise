@@ -365,7 +365,7 @@
     <mapping jsp="/jsp/asrs/farestoringplaninquiry/FaAsReStoringPlanInquiry.jsp" class="jp.co.daifuku.wms.asrs.display.farestoringplaninquiry.FaAsReStoringPlanInquiry" path="/asrs/farestoringplaninquiry/FaAsReStoringPlanInquiry" business="jp.co.daifuku.wms.asrs.display.farestoringplaninquiry.FaAsReStoringPlanInquiryBusiness" />
     <mapping jsp="/jsp/asrs/farestoringplanmodify/FaAsReStoringPlanModify.jsp" class="jp.co.daifuku.wms.asrs.display.farestoringplanmodify.FaAsReStoringPlanModify" path="/asrs/farestoringplanmodify/FaAsReStoringPlanModify" business="jp.co.daifuku.wms.asrs.display.farestoringplanmodify.FaAsReStoringPlanModifyBusiness" />
     <mapping jsp="/jsp/asrs/listbox/farestoringplandetail/FaLstAsReStoringPlanDetail.jsp" class="jp.co.daifuku.wms.asrs.listbox.farestoringplandetail.FaLstAsReStoringPlanDetail" path="/asrs/listbox/farestoringplandetail/FaLstAsReStoringPlanDetail" business="jp.co.daifuku.wms.asrs.listbox.farestoringplandetail.FaLstAsReStoringPlanDetailBusiness" />
-    <mapping jsp="/jsp/test/query/QueryStudent.jsp" class="jp.co.daifuku.wms.test.query.QueryStudent" path="/test/query/QueryStudent" business="jp.co.daifuku.wms.test.query.QueryStudentBusiness" />
+    <mapping jsp="/jsp/test/query/QueryStudent.jsp" class="jp.co.daifuku.wms.test.query.display.QueryStudent" path="/test/query/QueryStudent" business="jp.co.daifuku.wms.test.query.display.QueryStudentBusiness" />
   </mappings>
   <exceptions>
     <exception class="java.lang.Exception" path="/Error.do" />

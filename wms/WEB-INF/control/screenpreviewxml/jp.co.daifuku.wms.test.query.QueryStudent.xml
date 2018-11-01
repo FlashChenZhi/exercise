@@ -70,7 +70,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="btn_Clear" reflection="false">
+  <control id="btn_Set" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -119,7 +119,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="rdo_Man" reflection="false">
+  <control id="lst_StudentInformation" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -140,7 +140,14 @@
       <plural-data />
     </datas>
   </control>
-  <control id="pgr_14" reflection="false">
+  <control id="btn_2" reflection="false">
+    <single-data name="text" value="" />
+    <single-data name="maxrows" value="" />
+    <datas>
+      <plural-data />
+    </datas>
+  </control>
+  <control id="rdo_Man" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -161,7 +168,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="btn_AllDelete" reflection="false">
+  <control id="btn_AllCheck" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -189,7 +196,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="btn_Set" reflection="false">
+  <control id="btn_Query" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -238,7 +245,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="lst_StudentInformation" reflection="false">
+  <control id="pgr_14" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -259,7 +266,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="btn_2" reflection="false">
+  <control id="btn_AllDelete" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -280,7 +287,7 @@
       <plural-data />
     </datas>
   </control>
-  <control id="btn_AllCheck" reflection="false">
+  <control id="btn_Clear" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>
@@ -295,13 +302,6 @@
     </datas>
   </control>
   <control id="txt_Number" reflection="false">
-    <single-data name="text" value="" />
-    <single-data name="maxrows" value="" />
-    <datas>
-      <plural-data />
-    </datas>
-  </control>
-  <control id="btn_Query" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />
     <datas>

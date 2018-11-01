@@ -6,7 +6,8 @@
  * This software is the proprietary information of DAIFUKU Co.,Ltd.
  * Use is subject to license terms.
  */
-@@PACKAGE_NAME@@
+@
+        PACKAGE_NAME@@
 import jp.co.daifuku.bluedog.ui.control.Page;
 
 /**
