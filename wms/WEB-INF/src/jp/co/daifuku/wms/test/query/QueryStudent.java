@@ -272,6 +272,13 @@ public class QueryStudent extends Page
 	public jp.co.daifuku.bluedog.ui.control.CheckBox chk_Photography = jp.co.daifuku.bluedog.ui.control.CheckBoxFactory.getInstance("chk_Photography" , "chk_Photography");
 
 	/**
+	 * ControlID	btn_Query
+	 * TemplateKey	AST_Query
+	 * ControlType	SubmitButton
+	 */
+	public jp.co.daifuku.bluedog.ui.control.SubmitButton btn_Query = jp.co.daifuku.bluedog.ui.control.SubmitButtonFactory.getInstance("btn_Query" , "AST_Query");
+
+	/**
 	 * ControlID	btn_Set
 	 * TemplateKey	W_P_Set
 	 * ControlType	SubmitButton

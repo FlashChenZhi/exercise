@@ -12207,7 +12207,7 @@
       </list-item>
     </list-items>
   </template>
-  <template key="StudentInformation" keyword="StudentScore" description="StudentScore" lastupdate="2018-11-01 10:11:46" username="">
+  <template key="StudentInformation" keyword="StudentScore" description="StudentScore" lastupdate="2018-11-01 10:30:42" username="">
     <property name="async" value="false" />
     <property name="errRequired" value="6023001" />
     <property name="visible" value="true" />
@@ -12223,10 +12223,10 @@
         <property name="text" value="" />
         <property name="resourceKey" value="BTN-W9011" />
         <property name="columnClickEvent" value="false" />
-        <property name="cssClass" value="" />
-        <property name="detailCssClass" value="" />
+        <property name="cssClass" value="scroll-listcell-header-nodelim" />
+        <property name="detailCssClass" value="scroll-listcell-detail-center" />
         <property name="controlName" value="CheckBox" />
-        <property name="templateKey" value="" />
+        <property name="templateKey" value="W_In_JavaSet" />
         <property name="spanLevel" value="" />
         <property name="enterOrder" value="" />
         <property name="columnHidden" value="" />

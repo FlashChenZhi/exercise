@@ -4956,4 +4956,32 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="SBTN_Query" keyword="Query" description="查询" lastupdate="2018-11-01 10:24:36" username="">
+    <property name="async" value="true" />
+    <property name="text" value="" />
+    <property name="resourceKey" value="BTN-W0053" />
+    <property name="enabled" value="true" />
+    <property name="visible" value="true" />
+    <property name="showProgress" value="" />
+    <property name="progressMessage" value="" />
+    <property name="target" value="POPUP" />
+    <property name="features" value="top=30,left=1,toolbar=no,directories=no,status=no,menubar=no,location=no,scrollbars=yes,resizable=yes" />
+    <property name="functionKey" value="F4" />
+    <property name="beforeConfirm" value="" />
+    <property name="onconfirmOK" value="" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="btn-001" />
+    <property name="accessKey" value="" />
+    <property name="onblur" value="" />
+    <property name="onclick" value="callDynamicAction()" />
+    <property name="ondblclick" value="" />
+    <property name="onfocus" value="" />
+    <property name="onkeydown" value="" />
+    <property name="onkeypress" value="" />
+    <property name="onkeyup" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

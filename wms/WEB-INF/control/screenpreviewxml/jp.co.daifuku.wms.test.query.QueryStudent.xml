@@ -301,6 +301,13 @@
       <plural-data />
     </datas>
   </control>
+  <control id="btn_Query" reflection="false">
+    <single-data name="text" value="" />
+    <single-data name="maxrows" value="" />
+    <datas>
+      <plural-data />
+    </datas>
+  </control>
   <control id="lbl_SettingName" reflection="false">
     <single-data name="text" value="" />
     <single-data name="maxrows" value="" />

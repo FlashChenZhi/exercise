@@ -861,6 +861,24 @@ public class QueryStudentBusiness extends QueryStudent implements WMSConstants
 	{
 	}
 
+	/** 
+	 * 
+	 * @param e ActionEvent 
+	 * @throws Exception 
+	 */
+	public void btn_Query_Server(ActionEvent e) throws Exception
+	{
+	}
+
+	/** 
+	 * 
+	 * @param e ActionEvent 
+	 * @throws Exception 
+	 */
+	public void btn_Query_Click(ActionEvent e) throws Exception
+	{
+	}
+
 
 }
 //end of class

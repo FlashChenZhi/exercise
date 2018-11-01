@@ -137,8 +137,9 @@
         <TBODY>
         <TR>
           <TD><IMG style="WIDTH: 42px; HEIGHT: 52px" height=40 src="<%=request.getContextPath()%>/img/common/tab_lt3.gif" width=42 border=0></TD>
-          <TD bgColor=#b8b7d7><h:submitbutton id="btn_Set" templateKey="W_P_Set"/>&nbsp;&nbsp; 
-            &nbsp;&nbsp; <h:submitbutton id="btn_Clear" templateKey="T_Clear"/></TD>
+          <TD bgColor=#b8b7d7><h:submitbutton id="btn_Query" templateKey="AST_Query"/>&nbsp;&nbsp; 
+            <h:submitbutton id="btn_Set" templateKey="W_P_Set"/>&nbsp;&nbsp; 
+            <h:submitbutton id="btn_Clear" templateKey="T_Clear"/></TD>
           <TD><IMG style="WIDTH: 42px; HEIGHT: 52px" height=40 src="<%=request.getContextPath()%>/img/common/tab_rt3.gif" width=42 border=0></TD></TR>
         <TR height=5>
           <TD height=5></TD>
