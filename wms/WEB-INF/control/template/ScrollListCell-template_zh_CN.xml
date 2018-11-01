@@ -12177,7 +12177,7 @@
       </list-item>
     </list-items>
   </template>
-  <template key="StudentInformation" keyword="StudentScore" description="学生分数信息" lastupdate="2018-10-31 19:29:56" username="">
+  <template key="StudentInformation" keyword="StudentScore" description="学生分数信息" lastupdate="2018-11-01 10:11:46" username="">
     <property name="async" value="false" />
     <property name="errRequired" value="6023001" />
     <property name="visible" value="true" />
@@ -12187,6 +12187,21 @@
     <property name="tableCssClass" value="" />
     <property name="maxRows" value="1" />
     <list-items type="ListCellColumns">
+      <list-item type="ListCellColumn">
+        <property name="width" value="100" />
+        <property name="height" value="35" />
+        <property name="text" value="" />
+        <property name="resourceKey" value="BTN-W9011" />
+        <property name="columnClickEvent" value="false" />
+        <property name="cssClass" value="" />
+        <property name="detailCssClass" value="" />
+        <property name="controlName" value="CheckBox" />
+        <property name="templateKey" value="" />
+        <property name="spanLevel" value="" />
+        <property name="enterOrder" value="" />
+        <property name="columnHidden" value="" />
+        <property name="toolTipHidden" value="" />
+      </list-item>
       <list-item type="ListCellColumn">
         <property name="width" value="120" />
         <property name="height" value="35" />

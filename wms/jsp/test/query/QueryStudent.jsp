@@ -179,9 +179,8 @@
                 <TD width="100%" bgColor=#b8b7d7></TD></TR>
               <TR bgColor=#b8b7d7>
                 <TD noWrap bgColor=#b8b7d7></TD>
-                <TD bgColor=#b8b7d7><h:scrolllistcell id="lst_StudentInformation" templateKey="StudentInformation"/></TD>
-                <TD width="100%" 
-        bgColor=#b8b7d7></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                <TD bgColor=#b8b7d7></TD>
+                <TD width="100%" bgColor=#b8b7d7></TD></TR></TBODY></TABLE><h:scrolllistcell id="lst_StudentInformation" templateKey="StudentInformation"/></TD></TR></TBODY></TABLE></TD></TR>
   <TR>
     <TD>
 <%-- footer --%>

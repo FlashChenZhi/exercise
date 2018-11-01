@@ -7930,4 +7930,17 @@
     <property name="onmouseout" value="" />
     <property name="onmouseover" value="" />
   </template>
+  <template key="lbl_Selected" keyword="Selected" description="Selected" lastupdate="2018-11-01 10:06:20" username="">
+    <property name="text" value="" />
+    <property name="resourceKey" value="BTN-W9011" />
+    <property name="visible" value="true" />
+    <property name="serverEvents" value="" />
+    <property name="cssClass" value="lbl-blk-lc-scroll" />
+    <property name="onclick" value="" />
+    <property name="ondblclick" value="" />
+    <property name="onmousedown" value="" />
+    <property name="onmousemove" value="" />
+    <property name="onmouseout" value="" />
+    <property name="onmouseover" value="" />
+  </template>
 </templates>

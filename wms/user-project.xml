@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <userProject version="1.01" xmlns="userProject" xsi:schemaLocation="userProject user-project.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <lastLanguage>Japanese</lastLanguage>
+  <lastLanguage>Chinese</lastLanguage>
   <defaultPackage>jp.co.daifuku.</defaultPackage>
   <controls>
     <control name="Label">
